@@ -6,7 +6,15 @@
         <link rel="stylesheet" href="Style.css" />
     </head>
     <body>
-        <div class="character-sheet">
+        <script>
+const password = "mephi123";
+const attempt = prompt("Enter password:");
+
+if (attempt !== password) {
+    document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20%;'>Access Denied</h1>";
+}
+</script>
+        <div class="character-sheet">M
             <div class="top-section">
                 <img src="Images/Mephi.jpg" alt="Mephi lol" class="portrait" onclick="openImage(this)" />
                 <div class="basic-info">

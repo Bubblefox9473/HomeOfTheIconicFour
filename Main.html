@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <link rel="stylesheet" href="Style.css" />
+        <style>
+            /* === Cursed Frame Aura Styles === */
+            .frame {
+                position: relative;
+                width: 85vw;
+                height: 85vh;
+                padding: 2rem;
+                overflow-y: auto; /* ADD THIS */
+                overflow-x: hidden; /* ADD THIS */
+                border-radius: 12px;
+            }
+
+            .frame canvas#aura-canvas {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none; /* clicks pass through */
+                z-index: 0;
+                border-radius: 12px;
+            }
+
+            /* Make sure content stays above canvas */
+            .frame > .character-sheet {
+                position: relative;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="gate">
+            <div class="gate-box">
+                <h1>Enter the Archive</h1>
+                <p>Speak the name… or remain outside.</p>
+                <input type="password" id="passwordInput" placeholder="Enter password..." />
+                <button onclick="checkPassword()">Enter</button>
+                <p id="error-msg"></p>
+            </div>
+        </div>
+
+        <!-- WRAPPED CHARACTER SHEET -->
+        <div class="frame">
+            <div class="frame-corner tl"></div>
+            <div class="frame-corner tr"></div>
+            <div class="frame-corner bl"></div>
+            <div class="frame-side top"></div>
+            <div class="frame-side bottom"></div>
+            <div class="frame-side left"></div>
+            <div class="frame-side right"></div>
+            <div class="frame-ring"></div>
+            <canvas id="aura-canvas"></canvas>
+            <div class="character-sheet">
+                <div class="top-section">
+                    <img src="Images/Mephi.jpg" alt="Mephi lol" class="portrait" onclick="openImage(this)" />
+                    <div class="basic-info">
+                        <h1 class="name">Mephista Ars Vitium</h1>
+                        <div><strong>Age</strong> 17</div>
+                        <div><strong>Gender</strong> Female</div>
+                        <div><strong>Species/Race</strong> Mixed Demon</div>
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <h2>Stats:</h2>
+
+                    <div class="stat-box" onclick="toggleBox(this)">
+                        <div class="stat-title">Strength</div>
+                        <div class="stat-content">
+                            Strength determines your physical power. Click again to collapse.
+                        </div>
+                    </div>
+
+                    <div class="stat-box" onclick="toggleBox(this)">
+                        <div class="stat-title">Agility</div>
+                        <div class="stat-content">
+                            Agility affects your speed and reflexes. Click again to collapse.
+                        </div>
+                    </div>
+
+                    <div class="stat-box" onclick="toggleBox(this)">
+                        <div class="stat-title">Intelligence</div>
+                        <div class="stat-content">
+                            Intelligence affects your fight mastery and critical thinking. Click again to collapse.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Appearance">
+                    <h2>Appearance:</h2>
+                    <p>Appearance description</p>
+                </div>
+
+                <div class="Abilities">
+                    <h2>Abilities / Powers:</h2>
+                    <div class="power-box" onclick="togglePower(this)">
+                        <div class="power-title">Shadowism</div>
+                        <div class="power-content">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.
+                        </div>
+                    </div>
+
+                    <div class="power-box" onclick="togglePower(this)">
+                        <div class="power-title">Power 2</div>
+                        <div class="power-content">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.
+                        </div>
+                    </div>
+
+                    <div class="power-box" onclick="togglePower(this)">
+                        <div class="power-title">Power 3</div>
+                        <div class="power-content">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="backstory">
+                    <h2>Backstory / Lore:</h2>
+                    <p>Short history, origin, etc...</p>
+                </div>
+
+                <div id="overlay" onclick="closeImage()">
+                    <img id="overlay-img" src="Images/Mephi.jpg" />
+                </div>
+            </div>
+        </div>
+
+        <!-- WebGL Shader for Aura -->
+        <script id="shader" type="x-shader/x-fragment">
+            precision mediump float;
+            uniform float u_time;
+            uniform vec2 u_resolution;
+            void main() {
+                vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+                vec2 center = uv - 0.5;
+                float dist = length(center)*2.0;
+                float angle = atan(center.y, center.x);
+                float glow = 0.5 + 0.5*sin(u_time*2.0 + dist*10.0 + angle*6.0);
+                vec3 color = mix(vec3(0.0,0.0,0.0), vec3(1.0,0.0,0.0), glow);
+                float spikes = smoothstep(0.3, 0.31, sin(dist*30.0 - u_time*3.0)+0.5);
+                color += vec3(1.0,0.1,0.1) * spikes;
+                gl_FragColor = vec4(color, 1.0);
+            }
+        </script>
+
+        <script src="script.js"></script>
+    </body>
+</html>

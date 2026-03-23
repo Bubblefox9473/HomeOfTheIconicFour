@@ -1,1 +1,154 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Character Name</title>
+        <!-- CHANGE: page tab title -->
+        <link rel="stylesheet" href="Style.css" />
+        <style>
+            /* === Frame Aura Styles === */
+            .frame {
+                position: relative;
+                width: 85vw;
+                height: 85vh;
+                padding: 2rem;
+                overflow-y: auto;
+                overflow-x: hidden;
+                border-radius: 12px;
+            }
 
+            .frame canvas#aura-canvas {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 0;
+                border-radius: 12px;
+            }
+
+            .frame > .character-sheet {
+                position: relative;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- === PASSWORD GATE === -->
+        <div id="gate">
+            <div class="gate-box">
+                <h1>Enter the Archive</h1>
+                <!-- CHANGE: gate title if desired -->
+                <p>Speak the name… or remain outside.</p>
+                <!-- CHANGE: gate subtitle if desired -->
+                <input type="password" id="passwordInput" placeholder="Enter password..." />
+                <button onclick="checkPassword()">Enter</button>
+                <p id="error-msg"></p>
+            </div>
+        </div>
+
+        <!-- === MAIN CARD === -->
+        <div class="frame">
+            <!-- Border decorations — leave these alone -->
+            <div class="frame-corner tl"></div>
+            <div class="frame-corner tr"></div>
+            <div class="frame-corner bl"></div>
+            <div class="frame-corner br"></div>
+            <div class="frame-side top"></div>
+            <div class="frame-side bottom"></div>
+            <div class="frame-side left"></div>
+            <div class="frame-side right"></div>
+            <div class="frame-ring"></div>
+            <canvas id="aura-canvas"></canvas>
+
+            <!-- === CHARACTER SHEET === -->
+            <div class="character-sheet">
+                <!-- === TOP SECTION: portrait + basic info === -->
+                <div class="top-section">
+                    <!-- CHANGE: update src to your image path, and alt text -->
+                    <img
+                        src="Images/CHARACTER.jpg"
+                        alt="Character portrait"
+                        class="portrait"
+                        onclick="openImage(this)" />
+                    <div class="basic-info">
+                        <h1 class="name">Character Name</h1>
+                        <!-- CHANGE: character name -->
+                        <!-- CHANGE: fill in or add/remove info fields as needed -->
+                        <div><strong>Age</strong> ???</div>
+                        <div><strong>Gender</strong> ???</div>
+                        <div><strong>Species/Race</strong> ???</div>
+                    </div>
+                </div>
+
+                <!-- === STATS: clickable expandable boxes === -->
+                <div class="stats">
+                    <h2>Stats:</h2>
+                    <!-- CHANGE: rename stat titles and fill in content -->
+                    <!-- To add more: copy a stat-box div and paste it here -->
+                    <!-- To remove: delete a stat-box div -->
+                    <div class="stat-box" onclick="toggleBox(this)">
+                        <div class="stat-title">Stat 1</div>
+                        <div class="stat-content">Description of stat 1.</div>
+                    </div>
+
+                    <div class="stat-box" onclick="toggleBox(this)">
+                        <div class="stat-title">Stat 2</div>
+                        <div class="stat-content">Description of stat 2.</div>
+                    </div>
+
+                    <div class="stat-box" onclick="toggleBox(this)">
+                        <div class="stat-title">Stat 3</div>
+                        <div class="stat-content">Description of stat 3.</div>
+                    </div>
+                </div>
+
+                <!-- === APPEARANCE === -->
+                <div class="Appearance">
+                    <h2>Appearance:</h2>
+                    <p>Describe the character's appearance here.</p>
+                    <!-- CHANGE -->
+                </div>
+
+                <!-- === ABILITIES / POWERS: clickable expandable boxes === -->
+                <div class="Abilities">
+                    <h2>Abilities / Powers:</h2>
+                    <!-- CHANGE: rename power titles and fill in content -->
+                    <!-- To add more: copy a power-box div and paste it here -->
+                    <!-- To remove: delete a power-box div -->
+                    <div class="power-box" onclick="togglePower(this)">
+                        <div class="power-title">Power 1</div>
+                        <div class="power-content">Description of power 1.</div>
+                    </div>
+
+                    <div class="power-box" onclick="togglePower(this)">
+                        <div class="power-title">Power 2</div>
+                        <div class="power-content">Description of power 2.</div>
+                    </div>
+
+                    <div class="power-box" onclick="togglePower(this)">
+                        <div class="power-title">Power 3</div>
+                        <div class="power-content">Description of power 3.</div>
+                    </div>
+                </div>
+
+                <!-- === BACKSTORY / LORE === -->
+                <div class="backstory">
+                    <h2>Backstory / Lore:</h2>
+                    <p>Write the character's history and origin here.</p>
+                    <!-- CHANGE -->
+                </div>
+
+                <!-- === IMAGE OVERLAY — leave this alone === -->
+                <div id="overlay" onclick="closeImage()">
+                    <img id="overlay-img" src="Images/Noctis.jpg" />
+                </div>
+            </div>
+            <!-- end .character-sheet -->
+        </div>
+        <!-- end .frame -->
+
+        <script src="script.js"></script>
+    </body>
+</html>

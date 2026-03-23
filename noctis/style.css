@@ -1,0 +1,645 @@
+/* ============================================================
+   CHARACTER PAGE TEMPLATE — Style.css
+   CHANGE: colors are currently neutral grey/white
+   To theme this for a character, find and replace:
+     --accent  : main highlight color
+     --glow    : glow/shadow color
+     --bg      : background dark color
+   ============================================================ */
+
+.top-section {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* === PORTRAIT === */
+.portrait {
+    width: 160px;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #888; /* CHANGE: portrait border color */
+    box-shadow: 0 0 20px rgba(150, 150, 150, 0.5); /* CHANGE: portrait glow */
+    cursor: pointer;
+    transition: box-shadow 0.7s ease-in-out;
+}
+
+.portrait:hover {
+    box-shadow: 0 0 50px rgba(200, 200, 200, 0.7); /* CHANGE: portrait hover glow */
+}
+
+/* === CHARACTER NAME === */
+.name {
+    text-align: center;
+    font-size: 2.5em;
+    color: #cccccc; /* CHANGE: name color */
+    text-shadow:
+        0 0 10px rgba(200, 200, 200, 0.6),
+        0 0 20px rgba(255, 255, 255, 0.3);
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0% {
+        text-shadow: 0 0 5px #888;
+    } /* CHANGE: flicker colors */
+    100% {
+        text-shadow: 0 0 25px #fff;
+    }
+}
+
+.basic-info {
+    margin-top: 0;
+}
+
+/* === INNER CHARACTER SHEET CARD === */
+.character-sheet {
+    max-width: 700px;
+    padding: 25px;
+    border: 2px solid #333; /* CHANGE: inner card border color */
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(150, 150, 150, 0.2); /* CHANGE: inner card glow */
+    backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 1;
+    max-height: none;
+    overflow: visible;
+    height: auto;
+    margin: 50px auto;
+}
+
+.character-sheet::-webkit-scrollbar {
+    width: 1px;
+    background: transparent;
+}
+
+.character-sheet:hover {
+    box-shadow: 0 0 60px rgba(180, 180, 180, 0.3); /* CHANGE: inner card hover glow */
+}
+
+.ability-list {
+    list-style: none;
+}
+
+/* === BODY / PAGE BACKGROUND === */
+body {
+    background: radial-gradient(circle at 50% 50%, #111111, #000000); /* CHANGE: background gradient colors */
+    color: #cccccc; /* CHANGE: default text color */
+    font-family: "Georgia", serif; /* CHANGE: font if desired */
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* === SECTION HEADERS === */
+h2 {
+    border-left: 4px solid #888; /* CHANGE: header accent bar color */
+    padding-left: 10px;
+    margin-top: 20px;
+    color: #aaaaaa; /* CHANGE: header text color */
+}
+
+/* === STATS LAYOUT === */
+.stats {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.stat-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.stat-row div {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+}
+
+.stat-row div:hover {
+    background: rgba(150, 150, 150, 0.3); /* CHANGE: stat row hover color */
+    box-shadow: 0 0 15px rgba(150, 150, 150, 0.3);
+}
+
+/* === EXPANDABLE STAT BOXES === */
+.stat-box {
+    flex: 0 0 120px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    max-height: 40px;
+    position: relative;
+}
+
+.stat-box:hover {
+    background-color: rgba(150, 150, 150, 0.3); /* CHANGE: stat box hover */
+    box-shadow: 0 0 15px rgba(150, 150, 150, 0.3);
+}
+
+.stat-box.expanded {
+    max-height: 250px;
+}
+
+.stat-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-top: 4px solid #888; /* CHANGE: stat box corner accent color */
+    border-left: 4px solid #888;
+}
+
+.stat-title {
+    font-weight: bold;
+    color: #cccccc; /* CHANGE: stat title color */
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.stat-content {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    margin-top: 5px;
+    font-size: 0.9em;
+    line-height: 1.2em;
+    color: #aaaaaa; /* CHANGE: stat content text color */
+}
+
+.stat-box.expanded .stat-content {
+    opacity: 1;
+}
+
+/* === IMAGE OVERLAY === */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#overlay.show {
+    opacity: 1;
+}
+
+#overlay img {
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(150, 150, 150, 0.4); /* CHANGE: overlay image glow */
+}
+
+/* === EXPANDABLE POWER BOXES === */
+.power-box {
+    padding: 12px;
+    margin: 8px 0;
+    background-color: rgba(20, 20, 30, 0.8);
+    border: 1px solid #555; /* CHANGE: power box border color */
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s ease;
+    max-height: 40px;
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.power-box:hover {
+    background-color: rgba(150, 150, 150, 0.2); /* CHANGE: power box hover */
+}
+
+.power-box.expanded {
+    max-height: 1000px;
+    overflow: visible;
+    animation: unfold 0.5s ease forwards;
+}
+
+@keyframes unfold {
+    0% {
+        transform: scaleY(0.9);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scaleY(1.05);
+        opacity: 0.85;
+    }
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+.power-title {
+    font-weight: bold;
+    color: #cccccc; /* CHANGE: power title color */
+}
+
+.power-content {
+    opacity: 0;
+    margin-top: 5px;
+    transition: opacity 0.6s ease;
+    color: #aaaaaa; /* CHANGE: power content text color */
+}
+
+.power-box.expanded .power-content {
+    opacity: 1;
+}
+
+/* === PASSWORD GATE === */
+#gate {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #0a0a0f, #000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.gate-box {
+    background: rgba(10, 10, 15, 0.95);
+    border: 1px solid #555; /* CHANGE: gate border color */
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(100, 100, 100, 0.4); /* CHANGE: gate glow */
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.gate-box h1 {
+    color: #cccccc; /* CHANGE: gate title color */
+    margin-bottom: 10px;
+}
+
+.gate-box p {
+    color: #aaa;
+    margin-bottom: 15px;
+    animation: whisper 2.5s infinite alternate;
+}
+
+.gate-box input {
+    padding: 10px;
+    width: 200px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
+    background: #111;
+    color: #fff;
+}
+
+.gate-box button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #555; /* CHANGE: gate button color */
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gate-box button:hover {
+    background: #333; /* CHANGE: gate button hover color */
+}
+
+#error-msg {
+    color: #cc0000;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+#gate.fade-out {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 20px rgba(100, 100, 100, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 50px rgba(150, 150, 150, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(100, 100, 100, 0.3);
+    }
+}
+
+@keyframes whisper {
+    0% {
+        opacity: 0.6;
+        letter-spacing: normal;
+    }
+    50% {
+        opacity: 1;
+        letter-spacing: 1px;
+    }
+    100% {
+        opacity: 0.7;
+        letter-spacing: normal;
+    }
+}
+
+/* === GLITCH EFFECT (wrong password) — leave alone === */
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+        filter: hue-rotate(0deg);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+        filter: hue-rotate(20deg);
+    }
+    40% {
+        transform: translate(2px, -2px);
+        filter: hue-rotate(-20deg);
+    }
+    60% {
+        transform: translate(-2px, 0);
+        filter: hue-rotate(10deg);
+    }
+    80% {
+        transform: translate(2px, 2px);
+        filter: hue-rotate(-10deg);
+    }
+    100% {
+        transform: translate(0);
+        filter: hue-rotate(0deg);
+    }
+}
+
+.glitch {
+    animation: glitch 0.3s linear 2;
+}
+
+.glitch-text {
+    position: relative;
+    color: #cc0000;
+}
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+}
+.glitch-text::before {
+    color: #00ffff;
+    transform: translate(-2px, 0);
+    opacity: 0.7;
+}
+.glitch-text::after {
+    color: #ff00ff;
+    transform: translate(2px, 0);
+    opacity: 0.7;
+}
+
+/* === OUTER FRAME CARD === */
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85vw;
+    height: 85vh;
+    padding: 2rem;
+    border: none;
+    outline: 2px solid #333; /* CHANGE: frame outline color */
+    outline-offset: 6px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(6px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow:
+        0 0 20px #444,
+        /* CHANGE: frame glow layers */ 0 0 40px #333,
+        0 0 60px #222,
+        0 0 100px #111;
+}
+
+/* === FRAME SCROLLBAR === */
+.frame::-webkit-scrollbar {
+    width: 6px;
+}
+.frame::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+.frame::-webkit-scrollbar-thumb {
+    background: #444; /* CHANGE: scrollbar color */
+    border-radius: 4px;
+}
+.frame::-webkit-scrollbar-thumb:hover {
+    background: #888; /* CHANGE: scrollbar hover color */
+}
+
+/* === FRAME CANVAS (aura effect) — leave alone === */
+.frame canvas#aura-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 12px;
+}
+
+/* === FRAME PSEUDO EDGES — hidden, kept for structure === */
+.frame::before,
+.frame::after {
+    display: none;
+}
+
+/* === GOTHIC CORNER ORNAMENTS === */
+.frame-corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+    pointer-events: none;
+}
+.frame-corner::before,
+.frame-corner::after {
+    content: "";
+    position: absolute;
+    background: #555; /* CHANGE: corner ornament color */
+    box-shadow:
+        0 0 8px #888,
+        0 0 16px #444; /* CHANGE: corner glow */
+    animation: cornerGlow 2.5s ease-in-out infinite alternate;
+}
+.frame-corner::before {
+    width: 40px;
+    height: 3px;
+    top: 0;
+    left: 0;
+}
+.frame-corner::after {
+    width: 3px;
+    height: 40px;
+    top: 0;
+    left: 0;
+}
+
+.frame-corner.tl {
+    top: -4px;
+    left: -4px;
+}
+.frame-corner.tr {
+    top: -4px;
+    right: -4px;
+    transform: scaleX(-1);
+}
+.frame-corner.bl {
+    bottom: -4px;
+    left: -4px;
+    transform: scaleY(-1);
+}
+.frame-corner.br {
+    bottom: -4px;
+    right: -4px;
+    transform: scale(-1);
+}
+
+@keyframes cornerGlow {
+    0% {
+        background: #333;
+        box-shadow: 0 0 6px #555;
+    }
+    100% {
+        background: #888;
+        box-shadow:
+            0 0 18px #aaa,
+            0 0 30px #666;
+    }
+    /* CHANGE: corner glow animation colors above */
+}
+
+/* === SIDE RUNE LINES === */
+.frame-side {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+.frame-side.top,
+.frame-side.bottom {
+    display: none; /* kept hidden to avoid scroll clipping */
+}
+.frame-side.left,
+.frame-side.right {
+    top: 40px;
+    bottom: 40px;
+    width: 4px;
+}
+.frame-side.left {
+    left: -4px;
+}
+.frame-side.right {
+    right: -4px;
+}
+
+.frame-side::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* CHANGE: side line gradient colors below */
+    background: repeating-linear-gradient(180deg, #222 1px, #666 6px, #111 12px, #444 18px, #333 24px);
+    animation: runeSlideV 6s linear infinite;
+    box-shadow: 0 0 8px #888; /* CHANGE: side line glow color */
+}
+
+@keyframes runeSlideV {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 200px;
+    }
+}
+
+/* === OUTER PULSING RING === */
+.frame-ring {
+    position: absolute;
+    inset: -14px;
+    border-radius: 18px;
+    border: 2px solid #333; /* CHANGE: ring border color */
+    pointer-events: none;
+    z-index: -1;
+    animation: outerRingPulse 3s ease-in-out infinite;
+    box-shadow:
+        0 0 10px #555,
+        0 0 30px #333; /* CHANGE: ring glow */
+}
+
+@keyframes outerRingPulse {
+    0%,
+    100% {
+        box-shadow:
+            0 0 10px #555,
+            0 0 30px #333;
+        border-color: #333;
+        /* CHANGE: ring pulse colors */
+    }
+    50% {
+        box-shadow:
+            0 0 25px #777,
+            0 0 60px #555,
+            0 0 90px #333;
+        border-color: #666;
+    }
+}
+
+/* === WHISPER DRIFT (subtle bg effect) — leave alone === */
+.whisper {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.01), transparent 60%);
+    animation: drift 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+@keyframes drift {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(10%, 10%);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* === CURSOR — CHANGE or remove this line === */
+body,
+input,
+button {
+    cursor: auto; /* CHANGE: add custom cursor url here if desired */
+}

@@ -1,1 +1,146 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Dark</title>
+        <!-- CHANGE: page tab title -->
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            /* === Frame base styles === */
+            .frame {
+                position: relative;
+                width: 85vw;
+                height: 85vh;
+                padding: 2rem;
+                overflow-y: auto;
+                overflow-x: hidden;
+                border-radius: 2px;
+            }
 
+            .frame canvas#aura-canvas {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 0;
+                border-radius: 2px;
+            }
+
+            .frame > .character-sheet {
+                position: relative;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- === PASSWORD GATE === -->
+        <div id="gate">
+            <div class="gate-box">
+                <h1>Identify Yourself</h1>
+                <!-- CHANGE: gate title -->
+                <p>Authorisation required to continue.</p>
+                <!-- CHANGE: gate subtitle -->
+                <input type="password" id="passwordInput" placeholder="Enter access code..." />
+                <button onclick="checkPassword()">[ EXECUTE ]</button>
+                <p id="error-msg"></p>
+            </div>
+        </div>
+
+        <!-- === MAIN CARD === -->
+        <div class="frame">
+            <!-- Border decorations — leave these alone -->
+            <div class="frame-corner tl"></div>
+            <div class="frame-corner tr"></div>
+            <div class="frame-corner bl"></div>
+            <div class="frame-corner br"></div>
+            <div class="frame-side top"></div>
+            <div class="frame-side bottom"></div>
+            <div class="frame-side left"></div>
+            <div class="frame-side right"></div>
+            <div class="frame-ring"></div>
+            <canvas id="aura-canvas"></canvas>
+
+            <!-- === CHARACTER SHEET === -->
+            <div class="character-sheet">
+                <!-- === TOP SECTION === -->
+                <div class="top-section">
+                    <!-- CHANGE: update src and alt -->
+                    <img src="Images/Dark.jpg" alt="Dark portrait" class="portrait" onclick="openImage(this)" />
+                    <div class="basic-info">
+                        <h1 class="name">Dark [?????]</h1>
+                        <!-- CHANGE: full character name -->
+                        <!-- CHANGE: fill in details -->
+                        <div><strong>Age</strong> ???</div>
+                        <div><strong>Gender</strong> ???</div>
+                        <div><strong>Species/Race</strong> ???</div>
+                    </div>
+                </div>
+
+                <!-- === STATS === -->
+                <div class="stats">
+                    <h2>Stats</h2>
+                    <!-- CHANGE: rename and fill in stats -->
+                    <div class="stat-box" onclick="toggleBox(this)">
+                        <div class="stat-title">Stat 1</div>
+                        <div class="stat-content">Description of stat 1.</div>
+                    </div>
+
+                    <div class="stat-box" onclick="toggleBox(this)">
+                        <div class="stat-title">Stat 2</div>
+                        <div class="stat-content">Description of stat 2.</div>
+                    </div>
+
+                    <div class="stat-box" onclick="toggleBox(this)">
+                        <div class="stat-title">Stat 3</div>
+                        <div class="stat-content">Description of stat 3.</div>
+                    </div>
+                </div>
+
+                <!-- === APPEARANCE === -->
+                <div class="Appearance">
+                    <h2>Appearance</h2>
+                    <p>Describe Dark's appearance here.</p>
+                    <!-- CHANGE -->
+                </div>
+
+                <!-- === ABILITIES / POWERS === -->
+                <div class="Abilities">
+                    <h2>Abilities / Powers</h2>
+                    <!-- CHANGE: rename and fill in powers -->
+                    <div class="power-box" onclick="togglePower(this)">
+                        <div class="power-title">Power 1</div>
+                        <div class="power-content">Description of power 1.</div>
+                    </div>
+
+                    <div class="power-box" onclick="togglePower(this)">
+                        <div class="power-title">Power 2</div>
+                        <div class="power-content">Description of power 2.</div>
+                    </div>
+
+                    <div class="power-box" onclick="togglePower(this)">
+                        <div class="power-title">Power 3</div>
+                        <div class="power-content">Description of power 3.</div>
+                    </div>
+                </div>
+
+                <!-- === BACKSTORY === -->
+                <div class="backstory">
+                    <h2>Backstory / Lore</h2>
+                    <p>Write Dark's history and origin here.</p>
+                    <!-- CHANGE -->
+                </div>
+
+                <!-- === IMAGE OVERLAY — leave alone === -->
+                <div id="overlay" onclick="closeImage()">
+                    <img id="overlay-img" src="none" />
+                </div>
+            </div>
+            <!-- end .character-sheet -->
+        </div>
+        <!-- end .frame -->
+
+        <script src="script.js"></script>
+    </body>
+</html>

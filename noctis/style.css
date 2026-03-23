@@ -1,10 +1,6 @@
 /* ============================================================
-   CHARACTER PAGE TEMPLATE — Style.css
-   CHANGE: colors are currently neutral grey/white
-   To theme this for a character, find and replace:
-     --accent  : main highlight color
-     --glow    : glow/shadow color
-     --bg      : background dark color
+   NOCTIS — Character Page Styles
+   Theme: Deep space / dark blue / hollow stars
    ============================================================ */
 
 .top-section {
@@ -18,49 +14,68 @@
     width: 160px;
     height: auto;
     border-radius: 10px;
-    border: 2px solid #888; /* CHANGE: portrait border color */
-    box-shadow: 0 0 20px rgba(150, 150, 150, 0.5); /* CHANGE: portrait glow */
+    border: 2px solid #1a3a6e;
+    box-shadow: 0 0 20px rgba(60, 120, 220, 0.5);
     cursor: pointer;
     transition: box-shadow 0.7s ease-in-out;
 }
 
 .portrait:hover {
-    box-shadow: 0 0 50px rgba(200, 200, 200, 0.7); /* CHANGE: portrait hover glow */
+    box-shadow: 0 0 50px rgba(80, 160, 255, 0.8);
 }
 
 /* === CHARACTER NAME === */
 .name {
     text-align: center;
     font-size: 2.5em;
-    color: #cccccc; /* CHANGE: name color */
+    color: #7ab8ff;
     text-shadow:
-        0 0 10px rgba(200, 200, 200, 0.6),
-        0 0 20px rgba(255, 255, 255, 0.3);
-    animation: flicker 1.5s infinite alternate;
+        0 0 10px rgba(80, 160, 255, 0.9),
+        0 0 30px rgba(40, 100, 200, 0.6);
+    animation: flicker 2s infinite alternate;
+    font-family: "Palatino Linotype", Palatino, serif;
+    letter-spacing: 0.05em;
 }
 
 @keyframes flicker {
     0% {
-        text-shadow: 0 0 5px #888;
-    } /* CHANGE: flicker colors */
+        text-shadow:
+            0 0 8px #1a5ccc,
+            0 0 20px #0a2a66;
+    }
+    50% {
+        text-shadow:
+            0 0 20px #4a9fff,
+            0 0 40px #1a4aaa;
+    }
     100% {
-        text-shadow: 0 0 25px #fff;
+        text-shadow:
+            0 0 14px #7ab8ff,
+            0 0 35px #2255cc;
     }
 }
 
 .basic-info {
     margin-top: 0;
+    color: #a8c8ff;
+}
+
+.basic-info strong {
+    color: #4a9fff;
+    margin-right: 6px;
 }
 
 /* === INNER CHARACTER SHEET CARD === */
 .character-sheet {
     max-width: 700px;
     padding: 25px;
-    border: 2px solid #333; /* CHANGE: inner card border color */
+    border: 1px solid #1a3560;
     border-radius: 12px;
-    box-shadow: 0 0 40px rgba(150, 150, 150, 0.2); /* CHANGE: inner card glow */
-    backdrop-filter: blur(6px);
-    background: rgba(0, 0, 0, 0.8);
+    box-shadow:
+        0 0 30px rgba(30, 80, 180, 0.3),
+        inset 0 0 60px rgba(10, 20, 60, 0.5);
+    backdrop-filter: blur(8px);
+    background: rgba(5, 10, 30, 0.85);
     position: relative;
     z-index: 1;
     max-height: none;
@@ -75,18 +90,20 @@
 }
 
 .character-sheet:hover {
-    box-shadow: 0 0 60px rgba(180, 180, 180, 0.3); /* CHANGE: inner card hover glow */
+    box-shadow:
+        0 0 50px rgba(50, 120, 220, 0.4),
+        inset 0 0 60px rgba(10, 20, 60, 0.5);
 }
 
 .ability-list {
     list-style: none;
 }
 
-/* === BODY / PAGE BACKGROUND === */
+/* === BODY === */
 body {
-    background: radial-gradient(circle at 50% 50%, #111111, #000000); /* CHANGE: background gradient colors */
-    color: #cccccc; /* CHANGE: default text color */
-    font-family: "Georgia", serif; /* CHANGE: font if desired */
+    background: radial-gradient(ellipse at 30% 40%, #050d2e, #020818 60%, #000510);
+    color: #a8c8ff;
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
     margin: 0;
     height: 100vh;
     overflow: hidden;
@@ -94,10 +111,12 @@ body {
 
 /* === SECTION HEADERS === */
 h2 {
-    border-left: 4px solid #888; /* CHANGE: header accent bar color */
+    border-left: 3px solid #2255cc;
     padding-left: 10px;
     margin-top: 20px;
-    color: #aaaaaa; /* CHANGE: header text color */
+    color: #5599ee;
+    letter-spacing: 0.06em;
+    text-shadow: 0 0 10px rgba(50, 120, 220, 0.5);
 }
 
 /* === STATS LAYOUT === */
@@ -115,22 +134,23 @@ h2 {
 }
 
 .stat-row div {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(20, 50, 120, 0.15);
     padding: 8px 12px;
     border-radius: 8px;
     transition: all 0.5s ease-in-out;
 }
 
 .stat-row div:hover {
-    background: rgba(150, 150, 150, 0.3); /* CHANGE: stat row hover color */
-    box-shadow: 0 0 15px rgba(150, 150, 150, 0.3);
+    background: rgba(40, 90, 180, 0.4);
+    box-shadow: 0 0 15px rgba(60, 120, 220, 0.5);
 }
 
 /* === EXPANDABLE STAT BOXES === */
 .stat-box {
     flex: 0 0 120px;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(20, 50, 120, 0.15);
+    border: 1px solid #1a3560;
     border-radius: 8px;
     cursor: pointer;
     overflow: hidden;
@@ -140,30 +160,32 @@ h2 {
 }
 
 .stat-box:hover {
-    background-color: rgba(150, 150, 150, 0.3); /* CHANGE: stat box hover */
-    box-shadow: 0 0 15px rgba(150, 150, 150, 0.3);
+    background-color: rgba(40, 90, 180, 0.35);
+    box-shadow: 0 0 15px rgba(60, 120, 220, 0.4);
 }
 
 .stat-box.expanded {
     max-height: 250px;
 }
 
+/* Hollow star accent on stat boxes */
 .stat-box::after {
-    content: "";
+    content: "✦";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    border-top: 4px solid #888; /* CHANGE: stat box corner accent color */
-    border-left: 4px solid #888;
+    top: 2px;
+    left: 4px;
+    font-size: 10px;
+    color: transparent;
+    -webkit-text-stroke: 1px #2255cc;
+    opacity: 0.7;
 }
 
 .stat-title {
     font-weight: bold;
-    color: #cccccc; /* CHANGE: stat title color */
+    color: #5599ee;
     text-align: center;
     margin-bottom: 5px;
+    letter-spacing: 0.05em;
 }
 
 .stat-content {
@@ -171,8 +193,8 @@ h2 {
     transition: opacity 0.4s ease;
     margin-top: 5px;
     font-size: 0.9em;
-    line-height: 1.2em;
-    color: #aaaaaa; /* CHANGE: stat content text color */
+    line-height: 1.4em;
+    color: #8ab4e8;
 }
 
 .stat-box.expanded .stat-content {
@@ -186,7 +208,7 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 5, 20, 0.97);
     display: none;
     justify-content: center;
     align-items: center;
@@ -203,15 +225,15 @@ h2 {
     width: 80%;
     max-width: 500px;
     border-radius: 10px;
-    box-shadow: 0 0 40px rgba(150, 150, 150, 0.4); /* CHANGE: overlay image glow */
+    box-shadow: 0 0 60px rgba(50, 120, 220, 0.6);
 }
 
 /* === EXPANDABLE POWER BOXES === */
 .power-box {
     padding: 12px;
     margin: 8px 0;
-    background-color: rgba(20, 20, 30, 0.8);
-    border: 1px solid #555; /* CHANGE: power box border color */
+    background-color: rgba(10, 20, 60, 0.7);
+    border: 1px solid #1a3560;
     border-radius: 10px;
     cursor: pointer;
     overflow: hidden;
@@ -222,7 +244,8 @@ h2 {
 }
 
 .power-box:hover {
-    background-color: rgba(150, 150, 150, 0.2); /* CHANGE: power box hover */
+    background-color: rgba(30, 70, 160, 0.4);
+    border-color: #2255cc;
 }
 
 .power-box.expanded {
@@ -248,14 +271,16 @@ h2 {
 
 .power-title {
     font-weight: bold;
-    color: #cccccc; /* CHANGE: power title color */
+    color: #5599ee;
+    letter-spacing: 0.04em;
 }
 
 .power-content {
     opacity: 0;
     margin-top: 5px;
     transition: opacity 0.6s ease;
-    color: #aaaaaa; /* CHANGE: power content text color */
+    color: #8ab4e8;
+    line-height: 1.5em;
 }
 
 .power-box.expanded .power-content {
@@ -269,7 +294,7 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, #0a0a0f, #000);
+    background: radial-gradient(ellipse at center, #040d2a, #000510);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -277,22 +302,26 @@ h2 {
 }
 
 .gate-box {
-    background: rgba(10, 10, 15, 0.95);
-    border: 1px solid #555; /* CHANGE: gate border color */
+    background: rgba(5, 12, 40, 0.97);
+    border: 1px solid #1a3560;
     border-radius: 12px;
     padding: 30px;
     text-align: center;
-    box-shadow: 0 0 40px rgba(100, 100, 100, 0.4); /* CHANGE: gate glow */
+    box-shadow:
+        0 0 40px rgba(30, 80, 200, 0.4),
+        inset 0 0 30px rgba(10, 20, 80, 0.3);
     animation: pulse 3s infinite ease-in-out;
 }
 
 .gate-box h1 {
-    color: #cccccc; /* CHANGE: gate title color */
+    color: #5599ee;
     margin-bottom: 10px;
+    letter-spacing: 0.06em;
+    text-shadow: 0 0 15px rgba(60, 120, 220, 0.7);
 }
 
 .gate-box p {
-    color: #aaa;
+    color: #6688bb;
     margin-bottom: 15px;
     animation: whisper 2.5s infinite alternate;
 }
@@ -301,29 +330,31 @@ h2 {
     padding: 10px;
     width: 200px;
     border-radius: 6px;
-    border: none;
+    border: 1px solid #1a3560;
     outline: none;
     margin-bottom: 10px;
-    background: #111;
-    color: #fff;
+    background: #050d2e;
+    color: #a8c8ff;
 }
 
 .gate-box button {
     padding: 8px 16px;
     border: none;
     border-radius: 6px;
-    background: #555; /* CHANGE: gate button color */
-    color: white;
+    background: #1a3a8a;
+    color: #a8c8ff;
     cursor: pointer;
     transition: 0.3s;
+    letter-spacing: 0.05em;
 }
 
 .gate-box button:hover {
-    background: #333; /* CHANGE: gate button hover color */
+    background: #2255cc;
+    box-shadow: 0 0 15px rgba(50, 120, 220, 0.5);
 }
 
 #error-msg {
-    color: #cc0000;
+    color: #4477cc;
     margin-top: 10px;
     font-size: 0.9em;
 }
@@ -335,19 +366,25 @@ h2 {
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 20px rgba(100, 100, 100, 0.3);
+        box-shadow:
+            0 0 20px rgba(30, 80, 200, 0.3),
+            inset 0 0 30px rgba(10, 20, 80, 0.3);
     }
     50% {
-        box-shadow: 0 0 50px rgba(150, 150, 150, 0.5);
+        box-shadow:
+            0 0 50px rgba(60, 120, 255, 0.5),
+            inset 0 0 30px rgba(10, 20, 80, 0.3);
     }
     100% {
-        box-shadow: 0 0 20px rgba(100, 100, 100, 0.3);
+        box-shadow:
+            0 0 20px rgba(30, 80, 200, 0.3),
+            inset 0 0 30px rgba(10, 20, 80, 0.3);
     }
 }
 
 @keyframes whisper {
     0% {
-        opacity: 0.6;
+        opacity: 0.5;
         letter-spacing: normal;
     }
     50% {
@@ -355,12 +392,12 @@ h2 {
         letter-spacing: 1px;
     }
     100% {
-        opacity: 0.7;
+        opacity: 0.6;
         letter-spacing: normal;
     }
 }
 
-/* === GLITCH EFFECT (wrong password) — leave alone === */
+/* === GLITCH EFFECT === */
 @keyframes glitch {
     0% {
         transform: translate(0);
@@ -394,7 +431,7 @@ h2 {
 
 .glitch-text {
     position: relative;
-    color: #cc0000;
+    color: #4477cc;
 }
 .glitch-text::before,
 .glitch-text::after {
@@ -405,12 +442,12 @@ h2 {
     overflow: hidden;
 }
 .glitch-text::before {
-    color: #00ffff;
+    color: #00ccff;
     transform: translate(-2px, 0);
     opacity: 0.7;
 }
 .glitch-text::after {
-    color: #ff00ff;
+    color: #aa44ff;
     transform: translate(2px, 0);
     opacity: 0.7;
 }
@@ -425,18 +462,18 @@ h2 {
     height: 85vh;
     padding: 2rem;
     border: none;
-    outline: 2px solid #333; /* CHANGE: frame outline color */
+    outline: 1px solid #1a3560;
     outline-offset: 6px;
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(6px);
+    background: rgba(3, 8, 28, 0.9);
+    backdrop-filter: blur(8px);
     overflow-y: auto;
     overflow-x: hidden;
     box-shadow:
-        0 0 20px #444,
-        /* CHANGE: frame glow layers */ 0 0 40px #333,
-        0 0 60px #222,
-        0 0 100px #111;
+        0 0 20px #0a2266,
+        0 0 50px #061644,
+        0 0 90px #040e2e,
+        0 0 140px #020818;
 }
 
 /* === FRAME SCROLLBAR === */
@@ -444,17 +481,17 @@ h2 {
     width: 6px;
 }
 .frame::-webkit-scrollbar-track {
-    background: #0a0a0a;
+    background: #020818;
 }
 .frame::-webkit-scrollbar-thumb {
-    background: #444; /* CHANGE: scrollbar color */
+    background: #1a3a8a;
     border-radius: 4px;
 }
 .frame::-webkit-scrollbar-thumb:hover {
-    background: #888; /* CHANGE: scrollbar hover color */
+    background: #2255cc;
 }
 
-/* === FRAME CANVAS (aura effect) — leave alone === */
+/* === FRAME CANVAS === */
 .frame canvas#aura-canvas {
     position: absolute;
     top: 0;
@@ -466,78 +503,115 @@ h2 {
     border-radius: 12px;
 }
 
-/* === FRAME PSEUDO EDGES — hidden, kept for structure === */
 .frame::before,
 .frame::after {
     display: none;
 }
 
-/* === GOTHIC CORNER ORNAMENTS === */
+/* === CORNER STAR ORNAMENTS === */
 .frame-corner {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     z-index: 10;
     pointer-events: none;
 }
-.frame-corner::before,
+
+/* Hollow star */
+.frame-corner::before {
+    content: "✦";
+    position: absolute;
+    font-size: 20px;
+    color: transparent;
+    -webkit-text-stroke: 1px #2255cc;
+    filter: drop-shadow(0 0 6px #2255cc) drop-shadow(0 0 12px #1a3a8a);
+    animation: starPulse 3s ease-in-out infinite alternate;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* L-bracket lines */
 .frame-corner::after {
     content: "";
     position: absolute;
-    background: #555; /* CHANGE: corner ornament color */
-    box-shadow:
-        0 0 8px #888,
-        0 0 16px #444; /* CHANGE: corner glow */
-    animation: cornerGlow 2.5s ease-in-out infinite alternate;
-}
-.frame-corner::before {
-    width: 40px;
-    height: 3px;
-    top: 0;
-    left: 0;
-}
-.frame-corner::after {
-    width: 3px;
-    height: 40px;
-    top: 0;
-    left: 0;
+    width: 28px;
+    height: 28px;
+    border-color: #1a3560;
+    border-style: solid;
+    border-width: 0;
+    animation: bracketGlow 3s ease-in-out infinite alternate;
 }
 
 .frame-corner.tl {
-    top: -4px;
-    left: -4px;
+    top: 4px;
+    left: 4px;
 }
-.frame-corner.tr {
-    top: -4px;
-    right: -4px;
-    transform: scaleX(-1);
-}
-.frame-corner.bl {
-    bottom: -4px;
-    left: -4px;
-    transform: scaleY(-1);
-}
-.frame-corner.br {
-    bottom: -4px;
-    right: -4px;
-    transform: scale(-1);
+.frame-corner.tl::after {
+    border-top-width: 1px;
+    border-left-width: 1px;
+    top: 0;
+    left: 0;
 }
 
-@keyframes cornerGlow {
+.frame-corner.tr {
+    top: 4px;
+    right: 4px;
+}
+.frame-corner.tr::after {
+    border-top-width: 1px;
+    border-right-width: 1px;
+    top: 0;
+    right: 0;
+}
+
+.frame-corner.bl {
+    bottom: 4px;
+    left: 4px;
+}
+.frame-corner.bl::after {
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    bottom: 0;
+    left: 0;
+}
+
+.frame-corner.br {
+    bottom: 4px;
+    right: 4px;
+}
+.frame-corner.br::after {
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+    bottom: 0;
+    right: 0;
+}
+
+@keyframes starPulse {
     0% {
-        background: #333;
-        box-shadow: 0 0 6px #555;
+        -webkit-text-stroke-color: #1a3a8a;
+        filter: drop-shadow(0 0 4px #1a3a8a);
+    }
+    50% {
+        -webkit-text-stroke-color: #4488ee;
+        filter: drop-shadow(0 0 10px #2255cc) drop-shadow(0 0 20px #1a3a8a);
     }
     100% {
-        background: #888;
-        box-shadow:
-            0 0 18px #aaa,
-            0 0 30px #666;
+        -webkit-text-stroke-color: #7ab8ff;
+        filter: drop-shadow(0 0 18px #4488ee) drop-shadow(0 0 32px #2255cc);
     }
-    /* CHANGE: corner glow animation colors above */
 }
 
-/* === SIDE RUNE LINES === */
+@keyframes bracketGlow {
+    0% {
+        border-color: #0d1f50;
+    }
+    100% {
+        border-color: #2255cc;
+    }
+}
+
+/* === SIDE LINES === */
 .frame-side {
     position: absolute;
     pointer-events: none;
@@ -546,12 +620,12 @@ h2 {
 }
 .frame-side.top,
 .frame-side.bottom {
-    display: none; /* kept hidden to avoid scroll clipping */
+    display: none;
 }
 .frame-side.left,
 .frame-side.right {
-    top: 40px;
-    bottom: 40px;
+    top: 50px;
+    bottom: 50px;
     width: 4px;
 }
 .frame-side.left {
@@ -566,10 +640,9 @@ h2 {
     display: block;
     width: 100%;
     height: 100%;
-    /* CHANGE: side line gradient colors below */
-    background: repeating-linear-gradient(180deg, #222 1px, #666 6px, #111 12px, #444 18px, #333 24px);
-    animation: runeSlideV 6s linear infinite;
-    box-shadow: 0 0 8px #888; /* CHANGE: side line glow color */
+    background: repeating-linear-gradient(180deg, #020818 auto, #0a1f66 8px, #020818 16px, #061444 24px, #020818 32px);
+    animation: runeSlideV 8s linear infinite;
+    box-shadow: 0 0 8px #1a3a8a;
 }
 
 @keyframes runeSlideV {
@@ -586,60 +659,59 @@ h2 {
     position: absolute;
     inset: -14px;
     border-radius: 18px;
-    border: 2px solid #333; /* CHANGE: ring border color */
+    border: 1px solid #0d1f50;
     pointer-events: none;
     z-index: -1;
-    animation: outerRingPulse 3s ease-in-out infinite;
+    animation: outerRingPulse 4s ease-in-out infinite;
     box-shadow:
-        0 0 10px #555,
-        0 0 30px #333; /* CHANGE: ring glow */
+        0 0 15px #0a2266,
+        0 0 40px #061444;
 }
 
 @keyframes outerRingPulse {
     0%,
     100% {
         box-shadow:
-            0 0 10px #555,
-            0 0 30px #333;
-        border-color: #333;
-        /* CHANGE: ring pulse colors */
+            0 0 15px #0a2266,
+            0 0 40px #061444;
+        border-color: #0d1f50;
     }
     50% {
         box-shadow:
-            0 0 25px #777,
-            0 0 60px #555,
-            0 0 90px #333;
-        border-color: #666;
+            0 0 30px #1a3a8a,
+            0 0 70px #0a2266,
+            0 0 100px #061444;
+        border-color: #1a3a8a;
     }
 }
 
-/* === WHISPER DRIFT (subtle bg effect) — leave alone === */
+/* === WHISPER DRIFT === */
 .whisper {
     position: absolute;
     top: -50%;
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.01), transparent 60%);
-    animation: drift 20s linear infinite;
+    background: radial-gradient(circle, rgba(30, 80, 200, 0.02), transparent 60%);
+    animation: drift 25s linear infinite;
     pointer-events: none;
     z-index: 0;
 }
+
 @keyframes drift {
     0% {
         transform: translate(0, 0);
     }
     50% {
-        transform: translate(10%, 10%);
+        transform: translate(8%, 8%);
     }
     100% {
         transform: translate(0, 0);
     }
 }
 
-/* === CURSOR — CHANGE or remove this line === */
 body,
 input,
 button {
-    cursor: auto; /* CHANGE: add custom cursor url here if desired */
+    cursor: auto;
 }

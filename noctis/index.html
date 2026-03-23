@@ -2,11 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>Character Name</title>
-        <!-- CHANGE: page tab title -->
+        <title>Noctis</title> <!-- CHANGE: page tab title -->
         <link rel="stylesheet" href="style.css" />
         <style>
-            /* === Frame Aura Styles === */
+            /* === Frame base styles === */
             .frame {
                 position: relative;
                 width: 85vw;
@@ -35,13 +34,12 @@
         </style>
     </head>
     <body>
+
         <!-- === PASSWORD GATE === -->
         <div id="gate">
             <div class="gate-box">
-                <h1>Enter the Archive</h1>
-                <!-- CHANGE: gate title if desired -->
-                <p>Speak the name… or remain outside.</p>
-                <!-- CHANGE: gate subtitle if desired -->
+                <h1>Enter the Void</h1> <!-- CHANGE: gate title -->
+                <p>Only those known to the dark may pass.</p> <!-- CHANGE: gate subtitle -->
                 <input type="password" id="passwordInput" placeholder="Enter password..." />
                 <button onclick="checkPassword()">Enter</button>
                 <p id="error-msg"></p>
@@ -50,6 +48,7 @@
 
         <!-- === MAIN CARD === -->
         <div class="frame">
+
             <!-- Border decorations — leave these alone -->
             <div class="frame-corner tl"></div>
             <div class="frame-corner tr"></div>
@@ -64,30 +63,24 @@
 
             <!-- === CHARACTER SHEET === -->
             <div class="character-sheet">
-                <!-- === TOP SECTION: portrait + basic info === -->
+
+                <!-- === TOP SECTION === -->
                 <div class="top-section">
-                    <!-- CHANGE: update src to your image path, and alt text -->
-                    <img
-                        src="Images/Noctis.jpg"
-                        alt="Character portrait"
-                        class="portrait"
-                        onclick="openImage(this)" />
+                    <!-- CHANGE: update src and alt -->
+                    <img src="Images/Noctis.jpg" alt="Noctis portrait" class="portrait" onclick="openImage(this)" />
                     <div class="basic-info">
-                        <h1 class="name">Character Name</h1>
-                        <!-- CHANGE: character name -->
-                        <!-- CHANGE: fill in or add/remove info fields as needed -->
-                        <div><strong>Age</strong> ???</div>
-                        <div><strong>Gender</strong> ???</div>
-                        <div><strong>Species/Race</strong> ???</div>
+                        <h1 class="name">Noctis Lucis Caelum</h1> <!-- CHANGE: full character name -->
+                        <!-- CHANGE: fill in details -->
+                        <div><strong>Age</strong> 23</div>
+                        <div><strong>Gender</strong> Male</div>
+                        <div><strong>Species/Race</strong> Hybrid Star</div>
                     </div>
                 </div>
 
-                <!-- === STATS: clickable expandable boxes === -->
+                <!-- === STATS === -->
                 <div class="stats">
                     <h2>Stats:</h2>
-                    <!-- CHANGE: rename stat titles and fill in content -->
-                    <!-- To add more: copy a stat-box div and paste it here -->
-                    <!-- To remove: delete a stat-box div -->
+                    <!-- CHANGE: rename and fill in stats -->
                     <div class="stat-box" onclick="toggleBox(this)">
                         <div class="stat-title">Stat 1</div>
                         <div class="stat-content">Description of stat 1.</div>
@@ -107,16 +100,13 @@
                 <!-- === APPEARANCE === -->
                 <div class="Appearance">
                     <h2>Appearance:</h2>
-                    <p>Describe the character's appearance here.</p>
-                    <!-- CHANGE -->
+                    <p>Describe Noctis' appearance here.</p> <!-- CHANGE -->
                 </div>
 
-                <!-- === ABILITIES / POWERS: clickable expandable boxes === -->
+                <!-- === ABILITIES / POWERS === -->
                 <div class="Abilities">
                     <h2>Abilities / Powers:</h2>
-                    <!-- CHANGE: rename power titles and fill in content -->
-                    <!-- To add more: copy a power-box div and paste it here -->
-                    <!-- To remove: delete a power-box div -->
+                    <!-- CHANGE: rename and fill in powers -->
                     <div class="power-box" onclick="togglePower(this)">
                         <div class="power-title">Power 1</div>
                         <div class="power-content">Description of power 1.</div>
@@ -133,17 +123,17 @@
                     </div>
                 </div>
 
-                <!-- === BACKSTORY / LORE === -->
+                <!-- === BACKSTORY === -->
                 <div class="backstory">
                     <h2>Backstory / Lore:</h2>
-                    <p>Write the character's history and origin here.</p>
-                    <!-- CHANGE -->
+                    <p>Write Noctis' history and origin here.</p> <!-- CHANGE -->
                 </div>
 
-                <!-- === IMAGE OVERLAY — leave this alone === -->
+                <!-- === IMAGE OVERLAY — leave alone === -->
                 <div id="overlay" onclick="closeImage()">
-                    <img id="overlay-img" src="Images/Noctis.jpg" />
+                    <img id="overlay-img" src="none" />
                 </div>
+
             </div>
             <!-- end .character-sheet -->
         </div>

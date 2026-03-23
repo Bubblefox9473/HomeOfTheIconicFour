@@ -1,0 +1,749 @@
+/* ============================================================
+   NECRO — Character Page Styles
+   Theme: Deep purple / arcane workshop / dark forge
+   ============================================================ */
+
+.top-section {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* === PORTRAIT === */
+.portrait {
+    width: 160px;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #3a1a6e;
+    box-shadow: 0 0 20px rgba(120, 60, 220, 0.5);
+    cursor: pointer;
+    transition: box-shadow 0.7s ease-in-out;
+}
+
+.portrait:hover {
+    box-shadow: 0 0 50px rgba(160, 80, 255, 0.8);
+}
+
+/* === CHARACTER NAME === */
+.name {
+    text-align: center;
+    font-size: 2.5em;
+    color: #c49fff;
+    text-shadow:
+        0 0 10px rgba(160, 80, 255, 0.9),
+        0 0 30px rgba(100, 40, 200, 0.6);
+    animation: flicker 2s infinite alternate;
+    font-family: "Palatino Linotype", Palatino, serif;
+    letter-spacing: 0.05em;
+}
+
+@keyframes flicker {
+    0% {
+        text-shadow:
+            0 0 8px #5c1acc,
+            0 0 20px #2a0a66;
+    }
+    50% {
+        text-shadow:
+            0 0 20px #9f4fff,
+            0 0 40px #5a1aaa;
+    }
+    100% {
+        text-shadow:
+            0 0 14px #c49fff,
+            0 0 35px #7722cc;
+    }
+}
+
+.basic-info {
+    margin-top: 0;
+    color: #c8a8ff;
+}
+
+.basic-info strong {
+    color: #9a4fff;
+    margin-right: 6px;
+}
+
+/* === INNER CHARACTER SHEET CARD === */
+.character-sheet {
+    max-width: 700px;
+    padding: 25px;
+    border: 1px solid #2a1560;
+    border-radius: 4px; /* sharper corners = more workshop-y */
+    box-shadow:
+        0 0 30px rgba(100, 40, 180, 0.3),
+        inset 0 0 60px rgba(20, 10, 40, 0.6);
+    backdrop-filter: blur(8px);
+    background: rgba(12, 6, 28, 0.9);
+    position: relative;
+    z-index: 1;
+    max-height: none;
+    overflow: visible;
+    height: auto;
+    margin: 50px auto;
+}
+
+.character-sheet::-webkit-scrollbar {
+    width: 1px;
+    background: transparent;
+}
+
+.character-sheet:hover {
+    box-shadow:
+        0 0 50px rgba(120, 50, 220, 0.4),
+        inset 0 0 60px rgba(20, 10, 40, 0.6);
+}
+
+.ability-list {
+    list-style: none;
+}
+
+/* === BODY === */
+body {
+    background:
+        /* subtle crosshatch workshop texture */ repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 40px,
+            rgba(60, 20, 100, 0.03) 40px,
+            rgba(60, 20, 100, 0.03) 41px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 40px,
+            rgba(60, 20, 100, 0.03) 40px,
+            rgba(60, 20, 100, 0.03) 41px
+        ),
+        radial-gradient(ellipse at 40% 50%, #0e0520 0%, #080210 50%, #030108 100%);
+    color: #c8a8ff;
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* === SECTION HEADERS === */
+h2 {
+    border-left: 3px solid #7722cc;
+    padding-left: 10px;
+    margin-top: 20px;
+    color: #9955ee;
+    letter-spacing: 0.06em;
+    text-shadow: 0 0 10px rgba(120, 50, 220, 0.5);
+}
+
+/* === STATS LAYOUT === */
+.stats {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.stat-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.stat-row div {
+    background: rgba(60, 20, 120, 0.15);
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.5s ease-in-out;
+}
+
+.stat-row div:hover {
+    background: rgba(90, 40, 180, 0.4);
+    box-shadow: 0 0 15px rgba(120, 60, 220, 0.5);
+}
+
+/* === EXPANDABLE STAT BOXES === */
+.stat-box {
+    flex: 0 0 120px;
+    padding: 10px;
+    background-color: rgba(40, 15, 80, 0.3);
+    border: 1px solid #2a1560;
+    border-radius: 4px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    max-height: 40px;
+    position: relative;
+}
+
+.stat-box:hover {
+    background-color: rgba(80, 30, 160, 0.35);
+    box-shadow: 0 0 15px rgba(120, 60, 220, 0.4);
+}
+
+.stat-box.expanded {
+    max-height: 250px;
+}
+
+/* Gear-like corner tick marks */
+.stat-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border-top: 2px solid #7722cc;
+    border-left: 2px solid #7722cc;
+    opacity: 0.8;
+}
+
+.stat-title {
+    font-weight: bold;
+    color: #9955ee;
+    text-align: center;
+    margin-bottom: 5px;
+    letter-spacing: 0.05em;
+}
+
+.stat-content {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    margin-top: 5px;
+    font-size: 0.9em;
+    line-height: 1.4em;
+    color: #a888dd;
+}
+
+.stat-box.expanded .stat-content {
+    opacity: 1;
+}
+
+/* === IMAGE OVERLAY === */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 0, 15, 0.97);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#overlay.show {
+    opacity: 1;
+}
+
+#overlay img {
+    width: 80%;
+    max-width: 500px;
+    border-radius: 4px;
+    box-shadow: 0 0 60px rgba(120, 50, 220, 0.6);
+}
+
+/* === EXPANDABLE POWER BOXES === */
+.power-box {
+    padding: 12px;
+    margin: 8px 0;
+    background-color: rgba(20, 8, 50, 0.8);
+    border: 1px solid #2a1560;
+    border-radius: 4px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s ease;
+    max-height: 40px;
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.power-box:hover {
+    background-color: rgba(70, 30, 150, 0.4);
+    border-color: #7722cc;
+}
+
+.power-box.expanded {
+    max-height: 1000px;
+    overflow: visible;
+    animation: unfold 0.5s ease forwards;
+}
+
+@keyframes unfold {
+    0% {
+        transform: scaleY(0.9);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scaleY(1.05);
+        opacity: 0.85;
+    }
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+.power-title {
+    font-weight: bold;
+    color: #9955ee;
+    letter-spacing: 0.04em;
+}
+
+.power-content {
+    opacity: 0;
+    margin-top: 5px;
+    transition: opacity 0.6s ease;
+    color: #a888dd;
+    line-height: 1.5em;
+}
+
+.power-box.expanded .power-content {
+    opacity: 1;
+}
+
+/* === PASSWORD GATE === */
+#gate {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, #0a0318, #030108);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.gate-box {
+    background: rgba(12, 5, 30, 0.97);
+    border: 1px solid #2a1560;
+    border-radius: 4px;
+    padding: 30px;
+    text-align: center;
+    box-shadow:
+        0 0 40px rgba(100, 40, 200, 0.4),
+        inset 0 0 30px rgba(40, 10, 80, 0.3);
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.gate-box h1 {
+    color: #9955ee;
+    margin-bottom: 10px;
+    letter-spacing: 0.06em;
+    text-shadow: 0 0 15px rgba(120, 60, 220, 0.7);
+}
+
+.gate-box p {
+    color: #7755aa;
+    margin-bottom: 15px;
+    animation: whisper 2.5s infinite alternate;
+}
+
+.gate-box input {
+    padding: 10px;
+    width: 200px;
+    border-radius: 4px;
+    border: 1px solid #2a1560;
+    outline: none;
+    margin-bottom: 10px;
+    background: #080215;
+    color: #c8a8ff;
+}
+
+.gate-box button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background: #3a1a8a;
+    color: #c8a8ff;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 0.05em;
+}
+
+.gate-box button:hover {
+    background: #7722cc;
+    box-shadow: 0 0 15px rgba(120, 60, 220, 0.5);
+}
+
+#error-msg {
+    color: #7744cc;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+#gate.fade-out {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow:
+            0 0 20px rgba(80, 30, 200, 0.3),
+            inset 0 0 30px rgba(30, 10, 80, 0.3);
+    }
+    50% {
+        box-shadow:
+            0 0 50px rgba(130, 60, 255, 0.5),
+            inset 0 0 30px rgba(30, 10, 80, 0.3);
+    }
+    100% {
+        box-shadow:
+            0 0 20px rgba(80, 30, 200, 0.3),
+            inset 0 0 30px rgba(30, 10, 80, 0.3);
+    }
+}
+
+@keyframes whisper {
+    0% {
+        opacity: 0.5;
+        letter-spacing: normal;
+    }
+    50% {
+        opacity: 1;
+        letter-spacing: 1px;
+    }
+    100% {
+        opacity: 0.6;
+        letter-spacing: normal;
+    }
+}
+
+/* === GLITCH EFFECT === */
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+        filter: hue-rotate(0deg);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+        filter: hue-rotate(20deg);
+    }
+    40% {
+        transform: translate(2px, -2px);
+        filter: hue-rotate(-20deg);
+    }
+    60% {
+        transform: translate(-2px, 0);
+        filter: hue-rotate(10deg);
+    }
+    80% {
+        transform: translate(2px, 2px);
+        filter: hue-rotate(-10deg);
+    }
+    100% {
+        transform: translate(0);
+        filter: hue-rotate(0deg);
+    }
+}
+
+.glitch {
+    animation: glitch 0.3s linear 2;
+}
+
+.glitch-text {
+    position: relative;
+    color: #7744cc;
+}
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+}
+.glitch-text::before {
+    color: #cc44ff;
+    transform: translate(-2px, 0);
+    opacity: 0.7;
+}
+.glitch-text::after {
+    color: #44ffcc;
+    transform: translate(2px, 0);
+    opacity: 0.7;
+}
+
+/* === OUTER FRAME CARD === */
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85vw;
+    height: 85vh;
+    padding: 2rem;
+    border: none;
+    outline: 1px solid #2a1560;
+    outline-offset: 6px;
+    border-radius: 4px;
+    background: rgba(8, 3, 20, 0.92);
+    backdrop-filter: blur(8px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow:
+        0 0 20px #2a0a66,
+        0 0 50px #180644,
+        0 0 90px #0e032e,
+        0 0 140px #060118;
+}
+
+/* === FRAME SCROLLBAR === */
+.frame::-webkit-scrollbar {
+    width: 6px;
+}
+.frame::-webkit-scrollbar-track {
+    background: #060118;
+}
+.frame::-webkit-scrollbar-thumb {
+    background: #3a1a8a;
+    border-radius: 2px;
+}
+.frame::-webkit-scrollbar-thumb:hover {
+    background: #7722cc;
+}
+
+/* === FRAME CANVAS === */
+.frame canvas#aura-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 4px;
+}
+
+.frame::before,
+.frame::after {
+    display: none;
+}
+
+/* === CORNER ORNAMENTS: gear-tick style === */
+.frame-corner {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Outer bracket */
+.frame-corner::after {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-color: #3a1a8a;
+    border-style: solid;
+    border-width: 0;
+    animation: bracketGlow 3s ease-in-out infinite alternate;
+}
+
+/* Inner arcane tick mark */
+.frame-corner::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    border: 1px solid #7722cc;
+    transform: rotate(45deg);
+    animation: gemPulse 2.5s ease-in-out infinite alternate;
+}
+
+.frame-corner.tl {
+    top: 4px;
+    left: 4px;
+}
+.frame-corner.tl::after {
+    border-top-width: 1px;
+    border-left-width: 1px;
+    top: 0;
+    left: 0;
+}
+.frame-corner.tl::before {
+    top: 8px;
+    left: 8px;
+}
+
+.frame-corner.tr {
+    top: 4px;
+    right: 4px;
+}
+.frame-corner.tr::after {
+    border-top-width: 1px;
+    border-right-width: 1px;
+    top: 0;
+    right: 0;
+}
+.frame-corner.tr::before {
+    top: 8px;
+    right: 8px;
+}
+
+.frame-corner.bl {
+    bottom: 4px;
+    left: 4px;
+}
+.frame-corner.bl::after {
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    bottom: 0;
+    left: 0;
+}
+.frame-corner.bl::before {
+    bottom: 8px;
+    left: 8px;
+}
+
+.frame-corner.br {
+    bottom: 4px;
+    right: 4px;
+}
+.frame-corner.br::after {
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+    bottom: 0;
+    right: 0;
+}
+.frame-corner.br::before {
+    bottom: 8px;
+    right: 8px;
+}
+
+@keyframes gemPulse {
+    0% {
+        border-color: #2a0a66;
+        box-shadow: none;
+    }
+    50% {
+        border-color: #9933ee;
+        box-shadow: 0 0 6px #7722cc;
+    }
+    100% {
+        border-color: #cc66ff;
+        box-shadow:
+            0 0 14px #9933ee,
+            0 0 24px #7722cc;
+    }
+}
+
+@keyframes bracketGlow {
+    0% {
+        border-color: #1a0840;
+    }
+    100% {
+        border-color: #7722cc;
+    }
+}
+
+/* === SIDE LINES === */
+.frame-side {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+.frame-side.top,
+.frame-side.bottom {
+    display: none;
+}
+.frame-side.left,
+.frame-side.right {
+    top: 50px;
+    bottom: 50px;
+    width: 4px;
+}
+.frame-side.left {
+    left: -4px;
+}
+.frame-side.right {
+    right: -4px;
+}
+
+.frame-side::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(180deg, #060118 auto, #2a0a66 8px, #060118 16px, #180444 24px, #060118 32px);
+    animation: runeSlideV 8s linear infinite;
+    box-shadow: 0 0 8px #3a1a8a;
+}
+
+@keyframes runeSlideV {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 200px;
+    }
+}
+
+/* === OUTER PULSING RING === */
+.frame-ring {
+    position: absolute;
+    inset: -14px;
+    border-radius: 6px;
+    border: 1px solid #1a0840;
+    pointer-events: none;
+    z-index: -1;
+    animation: outerRingPulse 4s ease-in-out infinite;
+    box-shadow:
+        0 0 15px #2a0a66,
+        0 0 40px #180444;
+}
+
+@keyframes outerRingPulse {
+    0%,
+    100% {
+        box-shadow:
+            0 0 15px #2a0a66,
+            0 0 40px #180444;
+        border-color: #1a0840;
+    }
+    50% {
+        box-shadow:
+            0 0 30px #5a1a8a,
+            0 0 70px #2a0a66,
+            0 0 100px #180444;
+        border-color: #5a1a8a;
+    }
+}
+
+/* === WHISPER DRIFT === */
+.whisper {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(100, 30, 200, 0.02), transparent 60%);
+    animation: drift 25s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes drift {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(8%, 8%);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+body,
+input,
+button {
+    cursor: auto;
+}

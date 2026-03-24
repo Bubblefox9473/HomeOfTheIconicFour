@@ -1,3 +1,28 @@
+/* === PAGE TRANSITIONS === */
+window.addEventListener('load', () => {
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.5s ease';
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            document.body.style.opacity = '1';
+        });
+    });
+});
+
+document.addEventListener('click', function(e) {
+    const backBtn = e.target.closest('.back-btn');
+    if (backBtn) {
+        e.preventDefault();
+        const href = backBtn.getAttribute('href');
+        document.body.style.transition = 'opacity 0.5s ease';
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+            window.location.href = href;
+        }, 500);
+    }
+});
+
+
 /* === IMAGE OVERLAY === */
 function openImage(img) {
     const overlay = document.getElementById("overlay");

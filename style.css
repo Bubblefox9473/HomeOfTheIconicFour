@@ -364,3 +364,138 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* === SIDE CHARACTERS SECTION === */
+.side-section {
+    width: 100%;
+    max-width: 860px;
+    margin-top: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.side-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.side-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65em;
+    letter-spacing: 0.4em;
+    color: var(--muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* === HORIZONTAL SCROLL STRIP === */
+.side-scroll {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 4px 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+}
+
+/* Hide scrollbar but keep it functional */
+.side-scroll::-webkit-scrollbar {
+    height: 3px;
+}
+.side-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+.side-scroll::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+}
+.side-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* === SIDE CARDS === */
+.side-card {
+    flex: 0 0 120px;       /* fixed width, won't shrink */
+    height: 160px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-decoration: none;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+/* Stagger the side cards in after the main ones */
+.side-card:nth-child(1) { animation-delay: 0.5s; }
+.side-card:nth-child(2) { animation-delay: 0.6s; }
+.side-card:nth-child(3) { animation-delay: 0.7s; }
+.side-card:nth-child(4) { animation-delay: 0.8s; }
+.side-card:nth-child(5) { animation-delay: 0.9s; }
+/* Add more delay lines here if you add more cards */
+
+.side-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 16px rgba(200, 169, 110, 0.2);
+}
+
+/* Top accent bar on hover */
+.side-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.side-card:hover::before {
+    transform: scaleX(1);
+}
+
+.side-card-placeholder {
+    width: 44px;
+    height: 44px;
+    border: 1px solid #1e1e1e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1e1e1e;
+    font-size: 1.1rem;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.side-card:hover .side-card-placeholder {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.side-card-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7em;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.side-card:hover .side-card-name {
+    color: var(--text);
+}
+

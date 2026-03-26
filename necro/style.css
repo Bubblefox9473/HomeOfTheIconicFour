@@ -693,3 +693,63 @@ h2 {
 }
 
 body, input, button { cursor: auto; }
+
+/* === RUNE ENGRAVINGS ON FRAME EDGES === */
+ 
+/* Top edge rune strip */
+.frame-rune-top,
+.frame-rune-bottom {
+    position: absolute;
+    left: 60px;
+    right: 60px;
+    height: 14px;
+    z-index: 11;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    overflow: hidden;
+}
+ 
+.frame-rune-top  { top: 6px; }
+.frame-rune-bottom { bottom: 6px; }
+ 
+.frame-rune-top span,
+.frame-rune-bottom span {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    color: #7722cc;
+    opacity: 0.35;
+    font-family: 'Palatino Linotype', Palatino, serif;
+    text-transform: uppercase;
+    white-space: nowrap;
+    animation: runeGlow 4s ease-in-out infinite alternate;
+    user-select: none;
+}
+ 
+/* Stagger glow on each rune word */
+.frame-rune-top span:nth-child(2)    { animation-delay: 0.5s; }
+.frame-rune-top span:nth-child(3)    { animation-delay: 1s; }
+.frame-rune-top span:nth-child(4)    { animation-delay: 1.5s; }
+.frame-rune-bottom span:nth-child(2) { animation-delay: 0.8s; }
+.frame-rune-bottom span:nth-child(3) { animation-delay: 1.3s; }
+.frame-rune-bottom span:nth-child(4) { animation-delay: 1.8s; }
+ 
+/* Divider diamond between rune words */
+.frame-rune-top .rune-divider,
+.frame-rune-bottom .rune-divider {
+    width: 4px;
+    height: 4px;
+    background: #7722cc;
+    transform: rotate(45deg);
+    opacity: 0.25;
+    flex-shrink: 0;
+    animation: runeGlow 4s ease-in-out infinite alternate;
+}
+ 
+@keyframes runeGlow {
+    0%   { opacity: 0.2;  text-shadow: none; color: #5a1aaa; }
+    50%  { opacity: 0.45; text-shadow: 0 0 6px #7722cc44; color: #9933ee; }
+    100% { opacity: 0.3;  text-shadow: 0 0 10px #7722cc66; color: #cc66ff; }
+}

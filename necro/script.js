@@ -15,7 +15,9 @@ function closeImage() {
     if (!overlay) return;
 
     overlay.classList.remove("show");
-    setTimeout(() => { overlay.style.display = "none"; }, 500);
+    setTimeout(() => {
+        overlay.style.display = "none";
+    }, 500);
 }
 
 /* === EXPANDABLE BOXES === */
@@ -29,7 +31,7 @@ function toggleBox(box) {
 }
 
 function togglePower(box) {
-    toggleBox(box); // reuse same logic
+    toggleBox(box);
 }
 
 /* === PASSWORD GATE === */
@@ -46,7 +48,9 @@ function checkPassword() {
 
     if (value === correctPassword) {
         gate.classList.add("fade-out");
-        setTimeout(() => { gate.style.display = "none"; }, 600);
+        setTimeout(() => {
+            gate.style.display = "none";
+        }, 600);
     } else {
         const box = document.querySelector(".gate-box");
         if (box) {
@@ -63,7 +67,7 @@ function checkPassword() {
     }
 }
 
-/* Attach input listener AFTER DOM loads */
+/* FIX: attach listener AFTER DOM loads */
 window.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("passwordInput");
 
@@ -75,47 +79,70 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 /* === PAGE TRANSITIONS === */
-window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
+window.addEventListener("load", () => {
+    document.body.style.opacity = "0";
+    document.body.style.transition = "opacity 0.5s ease";
 
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-            document.body.style.opacity = '1';
+            document.body.style.opacity = "1";
         });
     });
 });
 
-document.addEventListener('click', function(e) {
-    const backBtn = e.target.closest('.back-btn');
+document.addEventListener("click", function (e) {
+    const backBtn = e.target.closest(".back-btn");
 
     if (backBtn) {
         e.preventDefault();
-        const href = backBtn.getAttribute('href');
+        const href = backBtn.getAttribute("href");
 
-        document.body.style.transition = 'opacity 0.5s ease';
-        document.body.style.opacity = '0';
+        document.body.style.transition = "opacity 0.5s ease";
+        document.body.style.opacity = "0";
 
-        setTimeout(() => { window.location.href = href; }, 500);
+        setTimeout(() => {
+            window.location.href = href;
+        }, 500);
     }
 });
 
-/* === FORGE EFFECT (SINGLE CLEAN VERSION) === */
+/* ============================================================
+   WORKSHOP FORGE CANVAS EFFECT (KEPT YOUR FINAL VERSION ONLY)
+   ============================================================ */
 (function forgeEffect() {
     const frame = document.querySelector(".frame");
     if (!frame) return;
 
     const canvas = document.createElement("canvas");
+    canvas.id = "aura-canvas";
     frame.prepend(canvas);
     const ctx = canvas.getContext("2d");
 
     function resize() {
         canvas.width = frame.offsetWidth;
         canvas.height = frame.offsetHeight;
+        initTools();
         initEmbers();
     }
 
     window.addEventListener("resize", resize);
+
+    let tools = [];
+
+    function initTools() {
+        tools = [];
+        const W = canvas.width;
+        const H = canvas.height;
+
+        const placements = [
+            { x: W * 0.08, y: H * 0.12, type: "gear", size: 52, rot: 0, opacity: 0.22 },
+            { x: W * 0.92, y: H * 0.18, type: "gear", size: 40, rot: 0.4, opacity: 0.18 }
+        ];
+
+        placements.forEach(p => {
+            tools.push({ ...p, currentRot: p.rot, rotSpeed: p.type === "gear" ? 0.002 : 0 });
+        });
+    }
 
     const EMBER_COUNT = 50;
     let embers = [];
@@ -130,7 +157,7 @@ document.addEventListener('click', function(e) {
             life: 1,
             decay: Math.random() * 0.003 + 0.001,
             wobble: Math.random() * Math.PI * 2,
-            wobbleSpeed: Math.random() * 0.03 + 0.01,
+            wobbleSpeed: Math.random() * 0.03 + 0.01
         };
     }
 
@@ -156,7 +183,6 @@ document.addEventListener('click', function(e) {
             }
 
             ctx.globalAlpha = e.life;
-
             ctx.beginPath();
             ctx.arc(e.x, e.y, e.size * 2, 0, Math.PI * 2);
             ctx.fillStyle = "rgba(180, 80, 255, 0.7)";

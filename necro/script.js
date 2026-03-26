@@ -357,22 +357,22 @@ document.addEventListener('click', function(e) {
         // Scatter tools around the canvas at fixed positions
         // Each has: x, y, type, size, rotation, opacity
         const placements = [
-            { x: W * 0.08,  y: H * 0.12, type: 'gear',   size: 38, rot: 0,    opacity: 0.055 },
-            { x: W * 0.92,  y: H * 0.18, type: 'gear',   size: 28, rot: 0.4,  opacity: 0.045 },
-            { x: W * 0.05,  y: H * 0.75, type: 'gear',   size: 44, rot: 0.8,  opacity: 0.05  },
-            { x: W * 0.95,  y: H * 0.70, type: 'gear',   size: 32, rot: 1.2,  opacity: 0.05  },
-            { x: W * 0.5,   y: H * 0.06, type: 'gear',   size: 22, rot: 0.2,  opacity: 0.035 },
-            { x: W * 0.15,  y: H * 0.45, type: 'wrench', size: 50, rot: -0.4, opacity: 0.045 },
-            { x: W * 0.88,  y: H * 0.42, type: 'wrench', size: 40, rot: 0.6,  opacity: 0.04  },
-            { x: W * 0.3,   y: H * 0.88, type: 'wrench', size: 35, rot: 1.1,  opacity: 0.04  },
-            { x: W * 0.72,  y: H * 0.92, type: 'wrench', size: 45, rot: -0.8, opacity: 0.045 },
-            { x: W * 0.22,  y: H * 0.22, type: 'rune',   size: 20, rot: 0,    opacity: 0.06  },
-            { x: W * 0.78,  y: H * 0.28, type: 'rune',   size: 18, rot: 0.3,  opacity: 0.055 },
-            { x: W * 0.5,   y: H * 0.5,  type: 'rune',   size: 30, rot: 0.15, opacity: 0.035 },
-            { x: W * 0.12,  y: H * 0.58, type: 'rune',   size: 16, rot: 0.6,  opacity: 0.05  },
-            { x: W * 0.88,  y: H * 0.55, type: 'rune',   size: 22, rot: -0.2, opacity: 0.05  },
-            { x: W * 0.38,  y: H * 0.15, type: 'rune',   size: 14, rot: 0.8,  opacity: 0.045 },
-            { x: W * 0.65,  y: H * 0.82, type: 'rune',   size: 18, rot: -0.4, opacity: 0.05  },
+            { x: W * 0.08,  y: H * 0.12, type: 'gear',   size: 52, rot: 0,    opacity: 0.22 },
+            { x: W * 0.92,  y: H * 0.18, type: 'gear',   size: 40, rot: 0.4,  opacity: 0.18 },
+            { x: W * 0.05,  y: H * 0.75, type: 'gear',   size: 60, rot: 0.8,  opacity: 0.20 },
+            { x: W * 0.95,  y: H * 0.70, type: 'gear',   size: 46, rot: 1.2,  opacity: 0.20 },
+            { x: W * 0.5,   y: H * 0.06, type: 'gear',   size: 34, rot: 0.2,  opacity: 0.16 },
+            { x: W * 0.15,  y: H * 0.45, type: 'wrench', size: 70, rot: -0.4, opacity: 0.18 },
+            { x: W * 0.88,  y: H * 0.42, type: 'wrench', size: 58, rot: 0.6,  opacity: 0.16 },
+            { x: W * 0.3,   y: H * 0.88, type: 'wrench', size: 52, rot: 1.1,  opacity: 0.16 },
+            { x: W * 0.72,  y: H * 0.92, type: 'wrench', size: 62, rot: -0.8, opacity: 0.18 },
+            { x: W * 0.22,  y: H * 0.22, type: 'rune',   size: 30, rot: 0,    opacity: 0.22 },
+            { x: W * 0.78,  y: H * 0.28, type: 'rune',   size: 26, rot: 0.3,  opacity: 0.20 },
+            { x: W * 0.5,   y: H * 0.5,  type: 'rune',   size: 42, rot: 0.15, opacity: 0.14 },
+            { x: W * 0.12,  y: H * 0.58, type: 'rune',   size: 24, rot: 0.6,  opacity: 0.20 },
+            { x: W * 0.88,  y: H * 0.55, type: 'rune',   size: 32, rot: -0.2, opacity: 0.20 },
+            { x: W * 0.38,  y: H * 0.15, type: 'rune',   size: 22, rot: 0.8,  opacity: 0.18 },
+            { x: W * 0.65,  y: H * 0.82, type: 'rune',   size: 28, rot: -0.4, opacity: 0.20 },
         ];
 
         // Add slow rotation to gears
@@ -542,7 +542,7 @@ document.addEventListener('click', function(e) {
             ctx.globalAlpha = tool.opacity;
             ctx.strokeStyle = "rgba(160, 80, 255, 1)";
             ctx.fillStyle = "rgba(160, 80, 255, 1)";
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 1.5;
 
             // Slowly rotate gears
             tool.currentRot += tool.rotSpeed;

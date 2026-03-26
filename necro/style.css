@@ -39,6 +39,21 @@
     letter-spacing: 0.08em;
 }
 
+.basic-info .name-block {
+    display: flex;
+    flex-direction: column; /* stack name and alias vertically */
+    align-items: center; /* align left, or center if you want */
+}
+
+.basic-info .alias {
+     font-size: 1rem;             /* smaller than main name */
+    font-weight: 400;            /* normal weight */
+    color: #d0c0ff;              /* mystical light purple */
+    font-style: italic;          /* make it distinct */
+    margin-top: 0.25rem;         /* spacing under the name */
+    line-height: 1.2;
+}
+
 @keyframes flicker {
     0%   { text-shadow: 0 0 8px #5c1acc, 0 0 20px #2a0a66; opacity: 1; }
     40%  { text-shadow: 0 0 20px #9f4fff, 0 0 40px #5a1aaa; opacity: 0.95; }
@@ -145,6 +160,16 @@ body {
             rgba(30, 5, 60, 0.04) 81px
         ),
         radial-gradient(ellipse at 35% 55%, #110528 0%, #080215 45%, #040010 100%);
+        background: #2b2435; /* dark base */
+    background-image:
+        radial-gradient(circle, rgba(100, 90, 120, 0.15) 1px, transparent 1px),
+        radial-gradient(circle, rgba(80, 70, 100, 0.15) 1px, transparent 1px),
+        linear-gradient(120deg, rgba(60,50,80,0.2) 0%, rgba(30,25,40,0.2) 100%);
+
+    background-size: 40px 40px, 30px 30px, 100% 100%;
+    background-blend-mode: overlay;
+    position: relative;
+    overflow-x: hidden;
     color: #c8a8ff;
     font-family: 'Palatino Linotype', Palatino, Georgia, serif;
     margin: 0;
@@ -157,21 +182,14 @@ body {
 body::before {
     content: "";
     position: fixed;
-    inset: 0;
-    z-index: -2;
-
-    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-    
-    opacity: 0.18; /* LOWERED */
-    filter: brightness(0.4) contrast(1.4); /* DARKENED */
-
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     pointer-events: none;
-
-    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-    opacity: 0.35;
-    filter: contrast(1.2) brightness(0.7);
-
-    pointer-events: none;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02) 1px, transparent 2px, transparent 4px);
+    opacity: 0.2;
+    z-index: 0;
 }
 
 body::after {
@@ -510,6 +528,7 @@ h2 {
 .glitch-text::before { color: #cc44ff; transform: translate(-2px, 0); opacity: 0.7; }
 .glitch-text::after  { color: #44ffcc; transform: translate(2px, 0);  opacity: 0.7; }
 
+
 /* === OUTER FRAME CARD === */
 .frame {
     position: relative;
@@ -526,7 +545,9 @@ h2 {
     outline: 1px solid #2a1060;
     outline-offset: 6px;
     border-radius: 2px;
-    background: rgba(6, 2, 18, 0.93);
+    background-color: rgba(6, 2, 18, 0.93);
+    background-size: cover;
+    background-repeat: no-repeat;
     backdrop-filter: blur(6px);
     overflow: visible;
     box-shadow:
@@ -534,6 +555,13 @@ h2 {
         0 0 50px #180644,
         0 0 90px #0e032e,
         0 0 150px #060118;
+    background-color: rgba(35, 28, 45, 0.95);
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.5),
+        inset 0 0 10px rgba(255,255,255,0.05),
+        inset 0 0 20px rgba(0,0,0,0.2);
+    z-index: 1;
+    position: relative;
 }
 
 /* === FRAME SCROLLBAR === */
@@ -550,6 +578,17 @@ h2 {
     pointer-events: none;
     z-index: 0;
     border-radius: 2px;
+}
+
+.frame::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 8px 8px;
 }
 
 .frame::before,
@@ -796,7 +835,7 @@ body, input, button { cursor: auto; }
     position: absolute;
     inset: 0;
     pointer-events: none;
-    z-index: 2;
+    z-index: 4; /* force above infocard content */
 }
 
 /* Shared animation*/
@@ -809,33 +848,149 @@ body, input, button { cursor: auto; }
 /* TOOLS */
 .tool {
     position: absolute;
-    opacity: 0.25; /* was too low */
+    opacity: 0.35;
     filter: drop-shadow(0 0 6px rgba(160, 80, 255, 0.4));
     animation: floatSlow 12s ease-in-out infinite;
 }
 
-/* Gear */
+/* Hammer */
 .gear {
-    width: 90px;
+    width: 100px;
     height: 90px;
-    top: 20%;
-    left: 10%;
+    top: 15%;
+    left: -18%;
+    transform: rotate(-4deg);
 
-    border: 2px solid rgba(180, 100, 255, 0.8);
-    border-radius: 50%;
+    background: transparent;
+    border: none;
 }
 
 /* Wrench */
 .wrench {
-    width: 14px;
-    height: 120px;
-    top: 65%;
-    left: 80%;
+    width: 18px;
+    height: 110px;
+    top: 15%;
+    right: -18%;
+    left: auto;
+    transform: rotate(8deg);
 
-    background: rgba(180, 100, 255, 0.7);
-    border-radius: 6px;
+    background: linear-gradient(180deg, rgba(180, 110, 235, 0.95), rgba(120, 70, 180, 0.7));
+    border-radius: 4px;
+    box-shadow: inset 0 0 8px rgba(40, 10, 110, 0.45), 0 0 9px rgba(170, 120, 255, 0.5);
 }
 
+/* Hammer head (solid, with metal shading) */
+.gear::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 24px;
+    background: linear-gradient(90deg, rgba(120, 70, 160, 0.95), rgba(170, 110, 225, 0.6));
+    top: 0;
+    left: 15px;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(170, 110, 225, 0.6);
+    border: 1px solid rgba(200, 160, 255, 0.5);
+}
+
+/* Hammer face shading/edge detail */
+.gear::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 16px;
+    top: 4px;
+    left: 20px;
+    border-radius: 2px;
+    background: rgba(120, 80, 160, 0.8);
+}
+
+/* Hammer handle */
+.gear .handle,
+.gear::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 58px;
+    background: linear-gradient(180deg, rgba(160, 110, 220, 0.9), rgba(110, 60, 170, 0.8));
+    top: 24px;
+    left: 44px;
+    border-radius: 4px;
+    box-shadow: inset 0 0 10px rgba(40, 10, 100, 0.45);
+}
+
+.gear::after {
+    height: 58px;
+    top: 24px;
+    left: 44px;
+}
+
+/* Wrench jaw block */
+.wrench::before {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 18px;
+    background: linear-gradient(90deg, rgba(170, 100, 220, 0.95), rgba(105, 60, 170, 0.7));
+    top: -6px;
+    left: -8px;
+    border-radius: 3px;
+    clip-path: polygon(0 0, 80% 0, 100% 45%, 80% 100%, 0 100%, 0 75%, 20% 50%, 0 25%);
+    box-shadow: 0 0 8px rgba(150, 100, 220, 0.4);
+}
+
+/* Inside opening in jaw */
+.wrench::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 10px;
+    top: 1px;
+    left: -1px;
+    border: 2px solid rgba(220, 180, 255, 0.8);
+    border-radius: 3px;
+    box-shadow: inset 0 0 4px rgba(40, 10, 110, 0.5);
+}
+
+/* Screwdriver */
+.screwdriver {
+    width: 16px;
+    height: 170px;
+    top: 60%;
+    right: -12%;
+    left: auto;
+    transform: rotate(-40deg);
+    background: linear-gradient(180deg, rgba(28, 19, 73, 0.95), rgba(46, 20, 96, 0.92));
+    border-radius: 3px;
+    box-shadow: inset 0 0 7px rgba(10, 5, 35, 0.75), 0 0 10px rgba(170, 120, 255, 0.35);
+}
+.screwdriver::before {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 42px;
+    top: -16px;
+    left: -9px;
+    background: radial-gradient(circle at 50% 40%, rgba(60, 130, 205, 0.95), rgba(20, 60, 135, 0.9));
+    border-radius: 10px;
+    border: 1px solid rgba(130, 190, 255, 0.8);
+    box-shadow: 0 0 10px rgba(130, 180, 250, 0.4);
+}
+.screwdriver::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 88px;
+    top: 82px;
+    left: 5px;
+    background: linear-gradient(180deg, rgba(210, 210, 255, 0.95), rgba(180, 180, 240, 0.85));
+    border-radius: 2px;
+}
+
+/* Anvil */
+
+
+/* RUNES */
 /* RUNES */
 .rune {
     position: absolute;
@@ -846,36 +1001,100 @@ body, input, button { cursor: auto; }
     animation: floatSlow 10s ease-in-out infinite;
 }
 
-/* Triangle rune */
+/* Rune 1 (rock shard) */
 .rune1 {
-    top: 40%;
-    left: 75%;
-    border: 2px solid rgba(200, 120, 255, 0.9);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    top: 12%;
+    left: 10%;
+    width: 46px;
+    height: 46px;
+    border: none;
+    background: radial-gradient(circle at 30% 30%, rgba(140, 90, 170, 0.95), rgba(80, 40, 120, 0.8));
+    clip-path: polygon(12% 22%, 48% 6%, 78% 14%, 95% 42%, 82% 78%, 55% 98%, 20% 88%, 5% 52%);
+    border: 1px solid rgba(190, 150, 240, 0.65);
+    box-shadow: 0 0 10px rgba(180, 130, 230, 0.35);
+}
+.rune1::before {
+    content: "ᚦ";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(245, 215, 255, 0.9);
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 220, 255, 0.7);
 }
 
-/* Circle + cross rune */
+/* Rune 2 (rock shard) */
 .rune2 {
-    top: 75%;
-    left: 20%;
-    border: 2px solid rgba(200, 120, 255, 0.9);
-    border-radius: 50%;
-}
-.rune2::before,
-.rune2::after {
-    content: "";
-    position: absolute;
-    background: rgba(200, 120, 255, 0.9);
+    top: 20%;
+    right: 12%;
+    left: auto;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: radial-gradient(circle at 70% 30%, rgba(145, 95, 170, 0.95), rgba(90, 45, 130, 0.8));
+    clip-path: polygon(8% 45%, 18% 12%, 50% 6%, 78% 22%, 94% 48%, 86% 82%, 56% 96%, 24% 88%, 10% 65%);
+    border: 1px solid rgba(210, 170, 250, 0.65);
+    box-shadow: 0 0 10px rgba(180, 130, 230, 0.35);
 }
 .rune2::before {
-    width: 2px;
-    height: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.rune2::after {
-    height: 2px;
-    width: 100%;
+    content: "ᛟ";
+    position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(242, 215, 255, 0.9);
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 220, 255, 0.7);
+}
+
+/* Rune 3 (additional rock shard) */
+.rune3 {
+    top: 55%;
+    left: 22%;
+    width: 40px;
+    height: 42px;
+    border: none;
+    background: radial-gradient(circle at 25% 25%, rgba(130, 85, 160, 0.95), rgba(75, 30, 105, 0.8));
+    clip-path: polygon(15% 8%, 78% 12%, 92% 42%, 68% 85%, 32% 90%, 5% 60%, 10% 25%);
+    border: 1px solid rgba(200, 155, 245, 0.62);
+    box-shadow: 0 0 8px rgba(170, 120, 220, 0.4);
+}
+.rune3::before {
+    content: "ᛉ";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(240, 210, 255, 0.95);
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 0 0 4px rgba(255, 225, 255, 0.75);
+}
+
+/* Rune 4 (additional rock shard) */
+.rune4 {
+    top: 65%;
+    right: 18%;
+    left: auto;
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: radial-gradient(circle at 35% 30%, rgba(155, 110, 185, 0.95), rgba(90, 45, 130, 0.8));
+    clip-path: polygon(20% 10%, 70% 10%, 100% 33%, 80% 75%, 45% 100%, 14% 87%, 7% 52%, 12% 28%);
+    border: 1px solid rgba(220, 175, 255, 0.68);
+    box-shadow: 0 0 9px rgba(185, 135, 235, 0.4);
+}
+.rune4::before {
+    content: "ᛜ";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(250, 225, 255, 0.9);
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 0 0 4px rgba(255, 225, 255, 0.8);
 }

@@ -1,3 +1,5 @@
+console.log("JS IS LOADING");
+
 /* === IMAGE OVERLAY === */
 function openImage(img) {
     const overlay = document.getElementById("overlay");
@@ -35,7 +37,7 @@ function togglePower(box) {
 }
 
 /* === PASSWORD GATE === */
-const correctPassword = "PASSWORD"; // CHANGE THIS
+const correctPassword = "Vasteil"; // CHANGE THIS
 
 function checkPassword() {
     const input = document.getElementById("passwordInput");

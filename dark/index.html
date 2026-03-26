@@ -9,11 +9,12 @@
             /* === Frame base styles === */
             .frame {
                 position: relative;
-                width: 85vw;
-                height: 85vh;
+                width: min(85vw, 1100px);
+                min-height: 100vh;
+                height: auto;
+                margin: 24px auto;
                 padding: 2rem;
-                overflow-y: auto;
-                overflow-x: hidden;
+                overflow: visible;
                 border-radius: 2px;
             }
 

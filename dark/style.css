@@ -140,8 +140,9 @@ body {
     color: #44bb66;
     font-family: "Courier New", Courier, monospace;
     margin: 0;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* === SECTION HEADERS === */

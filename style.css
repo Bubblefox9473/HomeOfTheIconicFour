@@ -28,7 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 40px 20px;
     overflow-x: hidden;
 }
@@ -500,5 +500,3 @@ footer {
 .side-card:hover .side-card-name {
     color: var(--text);
 }
-
-cursor: grab;

@@ -105,8 +105,9 @@ body {
     color: #a8c8ff;
     font-family: "Palatino Linotype", Palatino, Georgia, serif;
     margin: 0;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* === SECTION HEADERS === */

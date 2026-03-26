@@ -8,11 +8,12 @@
             /* === Cursed Frame Aura Styles === */
             .frame {
                 position: relative;
-                width: 85vw;
-                height: 85vh;
+                width: min(85vw, 1100px);
+                min-height: 100vh;
+                height: auto;
+                margin: 24px auto;
                 padding: 2rem;
-                overflow-y: auto; /* ADD THIS */
-                overflow-x: hidden; /* ADD THIS */
+                overflow: visible;
                 border-radius: 12px;
             }
 

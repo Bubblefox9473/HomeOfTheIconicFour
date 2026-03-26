@@ -88,6 +88,9 @@ window.addEventListener("load", () => {
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
             document.body.style.opacity = "1";
+            window.scrollTo(0, 0);
+            const frame = document.querySelector('.frame');
+            if (frame) frame.scrollTop = 0;
         });
     });
 });

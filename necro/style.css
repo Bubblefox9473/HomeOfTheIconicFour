@@ -144,15 +144,14 @@ body {
             rgba(30, 5, 60, 0.04) 80px,
             rgba(30, 5, 60, 0.04) 81px
         ),
-        radial-gradient(ellipse at 35% 55%, #110528 0%, #080215 45%, #040010 100%)
-        radial-gradient(circle at 30% 20%, rgba(120, 80, 160, 0.08), transparent 60%),
-        radial-gradient(circle at 70% 80%, rgba(80, 40, 120, 0.06), transparent 60%),
-        linear-gradient(180deg, #0e0b14 0%, #09070d 100%);
+        radial-gradient(ellipse at 35% 55%, #110528 0%, #080215 45%, #040010 100%);
     color: #c8a8ff;
     font-family: 'Palatino Linotype', Palatino, Georgia, serif;
     margin: 0;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 body::before {
@@ -500,6 +499,7 @@ h2 {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 85vw;
+    min-height: 100vh;
     height: auto;
     padding: 2rem;
     border: none;
@@ -534,7 +534,10 @@ h2 {
 }
 
 .frame::before,
-.frame::after { display: none; }
+.frame::after { 
+    height: 100%;
+    display: none;
+}
 
 /* === CORNER ORNAMENTS: gear/workshop style === */
 .frame-corner {

@@ -555,9 +555,6 @@ h2::before {
 /* === OUTER FRAME CARD === */
 .frame {
     position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 85vw;
     height: auto;
     padding: 2rem;

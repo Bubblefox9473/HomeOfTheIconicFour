@@ -618,47 +618,43 @@ footer {
 }
 
 /* messy chains */
+/* messy chains */
 .chains {
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 3;
-    opacity: 0.82;
-
-    background:
-        linear-gradient(115deg, transparent 0 18%, rgba(190, 190, 190, 0.85) 18.5% 20%, rgba(45, 45, 45, 0.9) 20% 21%, rgba(190, 190, 190, 0.85) 21% 22.5%, transparent 23% 100%),
-        linear-gradient(72deg, transparent 0 34%, rgba(170, 170, 170, 0.8) 34.5% 36%, rgba(40, 40, 40, 0.9) 36% 37%, rgba(170, 170, 170, 0.8) 37% 38.5%, transparent 39% 100%),
-        linear-gradient(-38deg, transparent 0 43%, rgba(210, 210, 210, 0.75) 43.5% 45%, rgba(50, 50, 50, 0.9) 45% 46%, rgba(210, 210, 210, 0.75) 46% 47.5%, transparent 48% 100%),
-        linear-gradient(24deg, transparent 0 60%, rgba(160, 160, 160, 0.75) 60.5% 62%, rgba(35, 35, 35, 0.9) 62% 63%, rgba(160, 160, 160, 0.75) 63% 64.5%, transparent 65% 100%),
-        linear-gradient(-82deg, transparent 0 72%, rgba(190, 190, 190, 0.8) 72.5% 74%, rgba(45, 45, 45, 0.9) 74% 75%, rgba(190, 190, 190, 0.8) 75% 76.5%, transparent 77% 100%);
+    opacity: 0.8;
 }
 
 .chains::before,
 .chains::after {
     content: '';
     position: absolute;
-    width: 145%;
-    height: 10px;
-    left: -22%;
+    width: 150%;
+    height: 12px;
+    left: -25%;
+
     background:
         repeating-linear-gradient(90deg,
-            #c4c4c4 0 9px,
-            #4a4a4a 9px 13px,
-            #c4c4c4 13px 22px,
-            transparent 22px 31px);
-    border-top: 1px solid #888;
-    border-bottom: 1px solid #333;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            #bfbfbf 0 10px,
+            #333333 10px 14px,
+            #bfbfbf 14px 24px,
+            transparent 24px 34px);
+
+    border-top: 1px solid #777;
+    border-bottom: 1px solid #222;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 }
 
 .chains::before {
-    top: 28%;
-    transform: rotate(-16deg);
+    top: 32%;
+    transform: rotate(-18deg);
 }
 
 .chains::after {
-    top: 68%;
-    transform: rotate(19deg);
+    top: 63%;
+    transform: rotate(17deg);
 }
 
 .mephista-locked:hover .chains {

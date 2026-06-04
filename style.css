@@ -655,3 +655,37 @@ footer {
 .chains::after {
     transform: rotate(30deg);
 }
+
+
+.card-warning {
+    margin-top: 12px;
+    font-size: 0.7em;
+    letter-spacing: 0.12em;
+    color: #b8aaa0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.mephista-locked:hover .card-warning {
+    opacity: 0.75;
+}
+
+
+.mephista-locked:hover .chains {
+    animation: chainTremble 0.18s infinite alternate;
+}
+
+@keyframes chainTremble {
+    from {
+        transform: translateX(-1px);
+    }
+
+    to {
+        transform: translateX(1px);
+    }
+}
+
+
+.mephista-locked::before {
+    background: #d8cfc8 !important;
+}

@@ -1,153 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>The Iconic Four</title>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Cinzel:wght@400;600&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <header>
-            <p class="eyebrow">The Archive</p>
-            <!-- CHANGE: subtitle above title -->
-            <h1>The Iconic Four</h1>
-            <!-- CHANGE: main title -->
-            <div class="divider">
-                <div class="divider-line"></div>
-                <div class="divider-diamond"></div>
-                <div class="divider-line right"></div>
-            </div>
-        </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Iconic Four</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Cinzel:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <p class="eyebrow">The Archive</p>
+      <!-- CHANGE: subtitle above title -->
+      <h1>The Iconic Four</h1>
+      <!-- CHANGE: main title -->
+      <div class="divider">
+        <div class="divider-line"></div>
+        <div class="divider-diamond"></div>
+        <div class="divider-line right"></div>
+      </div>
+    </header>
 
-        <div class="grid">
-            <!-- CARD 1: Mephista -->
-            <!-- CHANGE: update href to your character's folder e.g. "mephista/" -->
-            <a class="card" href="mephista/">
-                <div class="card-portrait">
-                    <!-- CHANGE: replace placeholder div with an img tag when you have a portrait -->
-                    <!-- e.g. <img src="mephista/Images/Mephi.jpg" alt="Mephista" /> -->
-                    <div class="card-portrait-placeholder">✦</div>
-                </div>
-                <div class="card-overlay">
-                    <span class="card-number">01</span>
-                    <span class="card-name">Mephista</span>
-                    <!-- CHANGE: character name -->
-                    <span class="card-cta">Enter →</span>
-                </div>
-                <div class="card-corner"></div>
-            </a>
-
-            <!-- CARD 2: Noctis -->
-            <a class="card" href="noctis/">
-                <div class="card-portrait">
-                    <div class="card-portrait-placeholder">✦</div>
-                </div>
-                <div class="card-overlay">
-                    <span class="card-number">02</span>
-                    <span class="card-name">Noctis</span>
-                    <span class="card-cta">Enter →</span>
-                </div>
-                <div class="card-corner"></div>
-            </a>
-
-            <!-- CARD 3: Necro -->
-            <a class="card" href="necro/">
-                <div class="card-portrait">
-                    <div class="card-portrait-placeholder">✦</div>
-                </div>
-                <div class="card-overlay">
-                    <span class="card-number">03</span>
-                    <span class="card-name">Necro</span>
-                    <span class="card-cta">Enter →</span>
-                </div>
-                <div class="card-corner"></div>
-            </a>
-
-            <!-- CARD 4: Dark -->
-            <a class="card" href="dark/">
-                <div class="card-portrait">
-                    <div class="card-portrait-placeholder">✦</div>
-                </div>
-                <div class="card-overlay">
-                    <span class="card-number">04</span>
-                    <span class="card-name">Dark</span>
-                    <span class="card-cta">Enter →</span>
-                </div>
-                <div class="card-corner"></div>
-            </a>
+    <div class="grid">
+      <!-- CARD 1: Mephista -->
+      <!-- CHANGE: update href to your character's folder e.g. "mephista/" -->
+      <a class="card locked-card mephista-locked" href="#">
+        <div class="card-portrait">
+          <div class="card-portrait-placeholder">✦</div>
+          <div class="chains"></div>
         </div>
 
-        <footer>The Iconic Four &nbsp;·&nbsp; The Archive</footer>
-        <!-- CHANGE: footer text -->
-        
-        <!-- === SIDE CHARACTERS === -->
-<div class="side-section">
-    <div class="side-header">
+        <div class="card-overlay">
+          <span class="card-number">01</span>
+          <span class="card-name">Mephista</span>
+          <span class="card-cta">Locked</span>
+        </div>
+
+        <div class="card-corner"></div>
+      </a>
+
+      <!-- CARD 2: Noctis -->
+      <a class="card" href="noctis/">
+        <div class="card-portrait">
+          <div class="card-portrait-placeholder">✦</div>
+        </div>
+        <div class="card-overlay">
+          <span class="card-number">02</span>
+          <span class="card-name">Noctis</span>
+          <span class="card-cta">Enter →</span>
+        </div>
+        <div class="card-corner"></div>
+      </a>
+
+      <!-- CARD 3: Necro -->
+      <a class="card" href="necro/">
+        <div class="card-portrait">
+          <div class="card-portrait-placeholder">✦</div>
+        </div>
+        <div class="card-overlay">
+          <span class="card-number">03</span>
+          <span class="card-name">Necro</span>
+          <span class="card-cta">Enter →</span>
+        </div>
+        <div class="card-corner"></div>
+      </a>
+
+      <!-- CARD 4: Dark -->
+      <a class="card" href="dark/">
+        <div class="card-portrait">
+          <div class="card-portrait-placeholder">✦</div>
+        </div>
+        <div class="card-overlay">
+          <span class="card-number">04</span>
+          <span class="card-name">Dark</span>
+          <span class="card-cta">Enter →</span>
+        </div>
+        <div class="card-corner"></div>
+      </a>
+    </div>
+
+    <footer>The Iconic Four &nbsp;·&nbsp; The Archive</footer>
+    <!-- CHANGE: footer text -->
+
+    <!-- === SIDE CHARACTERS === -->
+    <div class="side-section">
+      <div class="side-header">
         <div class="divider-line"></div>
         <span class="side-title">Supporting Cast</span>
         <div class="divider-line right"></div>
-    </div>
+      </div>
 
-    <div class="side-scroll">
-
+      <div class="side-scroll">
         <!-- SIDE CARD: Zen -->
         <!-- CHANGE: update href when Zen has a page e.g. href="zen/" -->
         <a class="side-card" href="#">
-            <div class="side-card-placeholder">✦</div>
-            <span class="side-card-name">Zen</span>
+          <div class="side-card-placeholder">✦</div>
+          <span class="side-card-name">Zen</span>
         </a>
 
         <!-- SIDE CARD: Astra -->
         <a class="side-card" href="#">
-            <div class="side-card-placeholder">✦</div>
-            <span class="side-card-name">Astra</span>
+          <div class="side-card-placeholder">✦</div>
+          <span class="side-card-name">Astra</span>
         </a>
 
         <!-- SIDE CARD: Shade -->
         <a class="side-card" href="#">
-            <div class="side-card-placeholder">✦</div>
-            <span class="side-card-name">Shade</span>
+          <div class="side-card-placeholder">✦</div>
+          <span class="side-card-name">Shade</span>
         </a>
 
         <!-- SIDE CARD: Lyra -->
         <a class="side-card" href="#">
-            <div class="side-card-placeholder">✦</div>
-            <span class="side-card-name">Lyra</span>
+          <div class="side-card-placeholder">✦</div>
+          <span class="side-card-name">Lyra</span>
         </a>
 
         <!-- SIDE CARD: Draco -->
         <a class="side-card" href="#">
-            <div class="side-card-placeholder">✦</div>
-            <span class="side-card-name">Draco</span>
+          <div class="side-card-placeholder">✦</div>
+          <span class="side-card-name">Draco</span>
         </a>
 
         <!-- SIDE CARD: Nexus -->
         <a class="side-card" href="#">
-            <div class="side-card-placeholder">✦</div>
-            <span class="side-card-name">Nexus</span>
+          <div class="side-card-placeholder">✦</div>
+          <span class="side-card-name">Nexus</span>
         </a>
 
         <!-- SIDE CARD: EXE / Remiel -->
         <a class="side-card" href="#">
-            <div class="side-card-placeholder">✦</div>
-            <span class="side-card-name">EXE / Remiel</span>
+          <div class="side-card-placeholder">✦</div>
+          <span class="side-card-name">EXE / Remiel</span>
         </a>
 
         <!-- SIDE CARD: Velkan -->
-         <a class="side-card" href="#-">
-            <div class="side-card-placeholder">✦</div>
-            <span class="side-card-name">Velkan</span>
-         </a>
+        <a class="side-card" href="#-">
+          <div class="side-card-placeholder">✦</div>
+          <span class="side-card-name">Velkan</span>
+        </a>
 
         <!-- To add more: copy any side-card block above and paste it here -->
-
+      </div>
     </div>
-</div>
 
-        <script src="script.js"></script>
-    </body>
+    <script src="script.js"></script>
+  </body>
 </html>

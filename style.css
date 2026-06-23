@@ -457,6 +457,20 @@ footer {
 }
 
 /* === HORIZONTAL SCROLL STRIP === */
+
+.side-scroll {
+  user-select: none;
+  cursor: grab;
+}
+
+.side-scroll:active {
+  cursor: grabbing;
+}
+
+.side-card {
+  user-select: none;
+}
+
 .side-scroll {
     display: flex;
     gap: 10px;
@@ -484,6 +498,10 @@ footer {
 
 .side-scroll::-webkit-scrollbar-thumb:hover {
     background: var(--accent);
+}
+
+.side-scroll.dragging .side-card {
+  pointer-events: none;
 }
 
 /* === SIDE CARDS === */
@@ -682,4 +700,102 @@ footer {
 
 .mephista-locked:hover .card-warning {
     opacity: 0.75;
+}
+
+.zen-card:hover {
+  border-color: #f2f2f2;
+  background: rgba(242, 242, 242, 0.08);
+  box-shadow:
+    0 0 15px rgba(242, 242, 242, 0.35),
+    0 0 30px rgba(242, 242, 242, 0.18);
+}
+
+.zen-card:hover .side-card-placeholder,
+.zen-card:hover .side-card-name {
+  border-color: #f2f2f2;
+  color: #f2f2f2;
+}
+
+.astra-card:hover {
+  border-color: #8ccfff;
+  background: rgba(140, 207, 255, 0.08);
+  box-shadow:
+    0 0 15px rgba(140, 207, 255, 0.4),
+    0 0 30px rgba(140, 207, 255, 0.2);
+}
+
+.astra-card:hover .side-card-placeholder,
+.astra-card:hover .side-card-name {
+  border-color: #8ccfff;
+  color: #8ccfff;
+}
+
+.shade-card:hover {
+  border-color: #102a66;
+  background: rgba(16, 42, 102, 0.12);
+  box-shadow:
+    0 0 15px rgba(16, 42, 102, 0.55),
+    0 0 30px rgba(16, 42, 102, 0.3);
+}
+
+.shade-card:hover .side-card-placeholder,
+.shade-card:hover .side-card-name {
+  border-color: #102a66;
+  color: #102a66;
+}
+
+.lyra-card:hover {
+  border-color: #d8f6ff;
+  background: rgba(216, 246, 255, 0.08);
+  box-shadow:
+    0 0 15px rgba(216, 246, 255, 0.4),
+    0 0 30px rgba(216, 246, 255, 0.2);
+}
+
+.lyra-card:hover .side-card-placeholder,
+.lyra-card:hover .side-card-name {
+  border-color: #d8f6ff;
+  color: #d8f6ff;
+}
+
+.draco-card:hover {
+  border-color: #ff8a1c;
+  background: rgba(255, 138, 28, 0.08);
+  box-shadow:
+    0 0 15px rgba(255, 138, 28, 0.45),
+    0 0 30px rgba(255, 138, 28, 0.22);
+}
+
+.draco-card:hover .side-card-placeholder,
+.draco-card:hover .side-card-name {
+  border-color: #ff8a1c;
+  color: #ff8a1c;
+}
+
+.nexus-card:hover {
+  border-color: #ff3cff;
+  background: rgba(255, 60, 255, 0.08);
+  box-shadow:
+    0 0 15px rgba(255, 60, 255, 0.45),
+    0 0 30px rgba(255, 60, 255, 0.22);
+}
+
+.nexus-card:hover .side-card-placeholder,
+.nexus-card:hover .side-card-name {
+  border-color: #ff3cff;
+  color: #ff3cff;
+}
+
+.exe-card:hover {
+  border-color: #39ff14;
+  background: rgba(57, 255, 20, 0.08);
+  box-shadow:
+    0 0 15px rgba(57, 255, 20, 0.45),
+    0 0 30px rgba(57, 255, 20, 0.22);
+}
+
+.exe-card:hover .side-card-placeholder,
+.exe-card:hover .side-card-name {
+  border-color: #39ff14;
+  color: #39ff14;
 }

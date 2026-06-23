@@ -32,31 +32,49 @@ window.addEventListener('load', () => {
 const sideScroll = document.querySelector(".side-scroll");
 
 let isDown = false;
+let moved = false;
 let startX;
 let scrollLeft;
 
 sideScroll.addEventListener("mousedown", (e) => {
   isDown = true;
-  sideScroll.classList.add("dragging");
+  moved = false;
   startX = e.pageX - sideScroll.offsetLeft;
   scrollLeft = sideScroll.scrollLeft;
 });
 
-sideScroll.addEventListener("mouseleave", () => {
-  isDown = false;
-  sideScroll.classList.remove("dragging");
-});
-
 sideScroll.addEventListener("mouseup", () => {
   isDown = false;
-  sideScroll.classList.remove("dragging");
+});
+
+sideScroll.addEventListener("mouseleave", () => {
+  isDown = false;
 });
 
 sideScroll.addEventListener("mousemove", (e) => {
   if (!isDown) return;
-  e.preventDefault();
 
   const x = e.pageX - sideScroll.offsetLeft;
   const walk = (x - startX) * 1.5;
+
+  if (Math.abs(walk) > 5) {
+    moved = true;
+    e.preventDefault();
+  }
+
   sideScroll.scrollLeft = scrollLeft - walk;
+});
+
+sideScroll.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    if (moved) {
+      e.preventDefault();
+    }
+  });
+});
+
+document.querySelectorAll(".side-card").forEach((card) => {
+  card.addEventListener("dragstart", (e) => {
+    e.preventDefault();
+  });
 });

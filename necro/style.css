@@ -1,1100 +1,832 @@
 /* ============================================================
-   NECRO — Character Page Styles
-   Theme: Purple arcane workshop / dark forge / blueprint
+   NECRO — Arcane Workshop Landscape Page
    ============================================================ */
 
-.top-section {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* === PORTRAIT === */
-.portrait {
-    width: 160px;
-    height: auto;
-    border-radius: 2px;
-    border: 2px solid #4a1a7a;
-    box-shadow: 0 0 20px rgba(120, 60, 220, 0.5);
-    cursor: pointer;
-    transition: box-shadow 0.7s ease-in-out;
-    filter: saturate(0.85);
+:root {
+  --bg: #080211;
+  --surface: rgba(14, 5, 31, 0.9);
+  --surface-soft: rgba(24, 8, 50, 0.82);
+  --border: #3a1a66;
+  --border-bright: #7722cc;
+  --text: #c8a8ff;
+  --muted: #8f75bd;
+  --accent: #b66bff;
+  --accent-soft: rgba(150, 70, 255, 0.16);
 }
 
-.portrait:hover {
-    box-shadow: 0 0 50px rgba(160, 80, 255, 0.8);
-    filter: saturate(1);
-}
-
-/* === CHARACTER NAME === */
-.name {
-    text-align: center;
-    font-size: 2.5em;
-    color: #c49fff;
-    text-shadow:
-        0 0 10px rgba(160, 80, 255, 0.9),
-        0 0 30px rgba(100, 40, 200, 0.6);
-    animation: flicker 2s infinite alternate;
-    font-family: 'Palatino Linotype', Palatino, serif;
-    letter-spacing: 0.08em;
-}
-
-.basic-info .name-block {
-    display: flex;
-    flex-direction: column; /* stack name and alias vertically */
-    align-items: center; /* align left, or center if you want */
-}
-
-.basic-info .alias {
-     font-size: 1rem;             /* smaller than main name */
-    font-weight: 400;            /* normal weight */
-    color: #d0c0ff;              /* mystical light purple */
-    font-style: italic;          /* make it distinct */
-    margin-top: 0.25rem;         /* spacing under the name */
-    line-height: 1.2;
-}
-
-@keyframes flicker {
-    0%   { text-shadow: 0 0 8px #5c1acc, 0 0 20px #2a0a66; opacity: 1; }
-    40%  { text-shadow: 0 0 20px #9f4fff, 0 0 40px #5a1aaa; opacity: 0.95; }
-    42%  { opacity: 0.7; } /* candle flicker dip */
-    44%  { opacity: 1; }
-    100% { text-shadow: 0 0 14px #c49fff, 0 0 35px #7722cc; opacity: 1; }
-}
-
-.basic-info {
-    margin-top: 0;
-    color: #c8a8ff;
-}
-
-.basic-info strong {
-    color: #9a4fff;
-    margin-right: 6px;
-}
-
-/* === INNER CHARACTER SHEET CARD === */
-.character-sheet {
-    max-width: 700px;
-    padding: 25px;
-    /* Blueprint-style inner border */
-    border: 1px solid #3a1a6644;
-    border-radius: 2px;
-    outline: 1px solid #2a0a4422;
-    outline-offset: 4px;
-    box-shadow:
-        0 0 30px rgba(100, 40, 180, 0.25),
-        inset 0 0 80px rgba(15, 5, 35, 0.7);
-    backdrop-filter: blur(6px);
-    background: rgba(10, 4, 24, 0.88);
-    position: relative;
-    z-index: 1;
-    max-height: none;
-    overflow: visible;
-    height: auto;
-    margin: 50px auto;
-}
-
-/* Worn edge effect on inner card */
-.character-sheet::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 2px;
-    background: repeating-linear-gradient(
-        135deg,
-        transparent,
-        transparent 30px,
-        rgba(80, 20, 140, 0.02) 30px,
-        rgba(80, 20, 140, 0.02) 31px
-    );
-    pointer-events: none;
-    z-index: 0;
-}
-
-.character-sheet > * { position: relative; z-index: 1; }
-
-.character-sheet::-webkit-scrollbar {
-    width: 1px;
-    background: transparent;
-}
-
-.character-sheet:hover {
-    box-shadow:
-        0 0 50px rgba(120, 50, 220, 0.35),
-        inset 0 0 80px rgba(15, 5, 35, 0.7);
-}
-
-.ability-list { list-style: none; }
-
-/* === BODY === */
 body {
-    background:
-        /* Blueprint grid */
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 49px,
-            rgba(80, 20, 140, 0.07) 49px,
-            rgba(80, 20, 140, 0.07) 50px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 49px,
-            rgba(80, 20, 140, 0.07) 49px,
-            rgba(80, 20, 140, 0.07) 50px
-        ),
-        /* Rough stone/forge texture via noise-like gradients */
-        repeating-linear-gradient(
-            17deg,
-            transparent,
-            transparent 120px,
-            rgba(40, 5, 80, 0.06) 120px,
-            rgba(40, 5, 80, 0.06) 121px
-        ),
-        repeating-linear-gradient(
-            -17deg,
-            transparent,
-            transparent 80px,
-            rgba(30, 5, 60, 0.04) 80px,
-            rgba(30, 5, 60, 0.04) 81px
-        ),
-        radial-gradient(ellipse at 35% 55%, #110528 0%, #080215 45%, #040010 100%);
-        background: #2b2435; /* dark base */
-    background-image:
-        radial-gradient(circle, rgba(100, 90, 120, 0.15) 1px, transparent 1px),
-        radial-gradient(circle, rgba(80, 70, 100, 0.15) 1px, transparent 1px),
-        linear-gradient(120deg, rgba(60,50,80,0.2) 0%, rgba(30,25,40,0.2) 100%);
-
-    background-size: 40px 40px, 30px 30px, 100% 100%;
-    background-blend-mode: overlay;
-    position: relative;
-    overflow-x: hidden;
-    color: #c8a8ff;
-    font-family: 'Palatino Linotype', Palatino, Georgia, serif;
-    margin: 0;
-    min-height: 100vh;
-    height: auto;
-    overflow-x: hidden;
-    overflow-y: auto;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: var(--text);
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 49px,
+      rgba(150, 70, 255, 0.045) 49px,
+      rgba(150, 70, 255, 0.045) 50px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 49px,
+      rgba(150, 70, 255, 0.045) 49px,
+      rgba(150, 70, 255, 0.045) 50px
+    ),
+    radial-gradient(circle at 70% 20%, rgba(130, 50, 220, 0.25), transparent 30%),
+    radial-gradient(circle at 20% 80%, rgba(60, 20, 120, 0.35), transparent 34%),
+    linear-gradient(135deg, #040010, #0c031d 45%, #16062b);
 }
 
 body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    background-image:
-        radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px),
-        repeating-linear-gradient(45deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02) 1px, transparent 2px, transparent 4px);
-    opacity: 0.2;
-    z-index: 0;
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.018),
+      rgba(255,255,255,0.018) 1px,
+      transparent 2px,
+      transparent 5px
+    );
+  background-size: 42px 42px, auto;
+  opacity: 0.35;
+  z-index: 0;
 }
 
 body::after {
-content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -1;
-
-    background:
-        radial-gradient(circle at 50% 50%, transparent 40%, rgba(0,0,0,0.6) 100%);
-
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 45%, rgba(0,0,0,0.65));
+  z-index: 0;
 }
-/* === SECTION HEADERS === */
-h2 {
-    border-left: 3px solid #7722cc;
-    padding-left: 10px;
-    margin-top: 20px;
-    color: #9955ee;
-    letter-spacing: 0.08em;
-    text-shadow: 0 0 10px rgba(120, 50, 220, 0.4);
-    font-variant: small-caps;
-}
-
-/* === STATS LAYOUT === */
-.stats {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-
-.stat-row { display: flex; gap: 15px; flex-wrap: wrap; }
-
-.stat-row div {
-    background: rgba(60, 20, 120, 0.12);
-    padding: 8px 12px;
-    border-radius: 2px;
-    transition: all 0.5s ease-in-out;
-}
-
-.stat-row div:hover {
-    background: rgba(90, 40, 180, 0.35);
-    box-shadow: 0 0 15px rgba(120, 60, 220, 0.4);
-}
-
-/* === EXPANDABLE STAT BOXES === */
-.stat-box {
-    flex: 0 0 120px;
-    padding: 10px;
-    background-color: rgba(30, 10, 65, 0.5);
-    border: 1px solid #2a1050;
-    border-radius: 2px;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    max-height: 40px;
-    position: relative;
-}
-
-.stat-box:hover {
-    background-color: rgba(80, 30, 160, 0.35);
-    box-shadow: 0 0 15px rgba(120, 60, 220, 0.35);
-    border-color: #5a1aaa;
-}
-
-.stat-box.expanded { max-height: 250px; }
-
-/* Gear tooth corner marks */
-.stat-box::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 14px; height: 14px;
-    border-top: 2px solid #7722cc;
-    border-left: 2px solid #7722cc;
-    opacity: 0.7;
-}
-.stat-box::before {
-    content: "";
-    position: absolute;
-    bottom: 0; right: 0;
-    width: 14px; height: 14px;
-    border-bottom: 2px solid #4a0a9922;
-    border-right: 2px solid #4a0a9922;
-}
-
-.stat-title {
-    font-weight: bold;
-    color: #9955ee;
-    text-align: center;
-    margin-bottom: 5px;
-    letter-spacing: 0.06em;
-    font-variant: small-caps;
-}
-
-.stat-content {
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    margin-top: 5px;
-    font-size: 0.9em;
-    line-height: 1.5em;
-    color: #a888dd;
-}
-
-.stat-box.expanded .stat-content { opacity: 1; }
-
-/* === IMAGE OVERLAY === */
-#overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(4, 0, 12, 0.97);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-#overlay.show { opacity: 1; }
-
-#overlay img {
-    width: 80%;
-    max-width: 500px;
-    border-radius: 2px;
-    box-shadow: 0 0 60px rgba(120, 50, 220, 0.6);
-}
-
-/* === EXPANDABLE POWER BOXES === */
-.power-box {
-    padding: 12px;
-    margin: 8px 0;
-    background-color: rgba(15, 5, 40, 0.85);
-    border: 1px solid #2a1050;
-    border-radius: 2px;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.6s ease;
-    max-height: 40px;
-    transform: scaleY(1);
-    transform-origin: top;
-    position: relative;
-}
-
-/* Blueprint measurement tick on left edge */
-.power-box::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px;
-    height: 100%;
-    background: repeating-linear-gradient(
-        180deg,
-        #7722cc22 0px,
-        #7722cc22 4px,
-        transparent 4px,
-        transparent 8px
-    );
-}
-
-.power-box:hover {
-    background-color: rgba(60, 20, 130, 0.45);
-    border-color: #7722cc;
-}
-
-.power-box.expanded {
-    max-height: 1000px;
-    overflow: visible;
-    animation: unfold 0.5s ease forwards;
-}
-
-@keyframes unfold {
-    0%   { transform: scaleY(0.9); opacity: 0.6; }
-    50%  { transform: scaleY(1.02); opacity: 0.9; }
-    100% { transform: scaleY(1); opacity: 1; }
-}
-
-.power-title {
-    font-weight: bold;
-    color: #9955ee;
-    letter-spacing: 0.06em;
-    font-variant: small-caps;
-    padding-left: 8px;
-}
-
-.power-content {
-    opacity: 0;
-    margin-top: 6px;
-    transition: opacity 0.6s ease;
-    color: #a888dd;
-    line-height: 1.6em;
-    padding-left: 8px;
-}
-
-.power-box.expanded .power-content { opacity: 1; }
 
 /* === PASSWORD GATE === */
+
 #gate {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background:
-        repeating-linear-gradient(
-            0deg, transparent, transparent 49px,
-            rgba(80, 20, 140, 0.05) 49px,
-            rgba(80, 20, 140, 0.05) 50px
-        ),
-        repeating-linear-gradient(
-            90deg, transparent, transparent 49px,
-            rgba(80, 20, 140, 0.05) 49px,
-            rgba(80, 20, 140, 0.05) 50px
-        ),
-        radial-gradient(ellipse at center, #0d0320, #040010);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 49px,
+      rgba(120, 40, 200, 0.06) 49px,
+      rgba(120, 40, 200, 0.06) 50px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 49px,
+      rgba(120, 40, 200, 0.06) 49px,
+      rgba(120, 40, 200, 0.06) 50px
+    ),
+    radial-gradient(ellipse at center, #120329, #040010);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
 .gate-box {
-    background: rgba(10, 3, 26, 0.97);
-    border: 1px solid #3a1a6055;
-    border-radius: 2px;
-    outline: 1px solid #2a0a4422;
-    outline-offset: 5px;
-    padding: 34px;
-    text-align: center;
-    box-shadow:
-        0 0 40px rgba(100, 40, 200, 0.35),
-        inset 0 0 40px rgba(30, 8, 70, 0.4);
-    animation: pulse 3s infinite ease-in-out;
-    min-width: 280px;
+  width: min(360px, 90vw);
+  background: rgba(10, 3, 26, 0.97);
+  border: 1px solid rgba(150, 80, 255, 0.35);
+  border-radius: 4px;
+  outline: 1px solid rgba(90, 30, 170, 0.25);
+  outline-offset: 6px;
+  padding: 34px;
+  text-align: center;
+  box-shadow:
+    0 0 42px rgba(130, 60, 255, 0.35),
+    inset 0 0 42px rgba(40, 10, 90, 0.5);
+  animation: gatePulse 3s ease-in-out infinite;
 }
 
 .gate-box h1 {
-    color: #9955ee;
-    margin-bottom: 10px;
-    letter-spacing: 0.1em;
-    text-shadow: 0 0 15px rgba(120, 60, 220, 0.7);
-    font-variant: small-caps;
+  margin: 0 0 10px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  font-variant: small-caps;
+  text-shadow: 0 0 16px rgba(180, 100, 255, 0.75);
 }
 
 .gate-box p {
-    color: #7755aa;
-    margin-bottom: 16px;
-    animation: whisper 2.5s infinite alternate;
-    font-style: italic;
+  color: var(--muted);
+  font-style: italic;
 }
 
 .gate-box input {
-    padding: 10px 12px;
-    width: 100%;
-    border-radius: 2px;
-    border: 1px solid #3a1a6044;
-    outline: none;
-    margin-bottom: 12px;
-    background: #080215;
-    color: #c8a8ff;
-    font-family: 'Palatino Linotype', Palatino, serif;
-    font-size: 0.95em;
-    box-sizing: border-box;
-    display: block;
+  width: 100%;
+  padding: 11px 12px;
+  margin: 10px 0 12px;
+  border-radius: 3px;
+  border: 1px solid rgba(150, 80, 255, 0.35);
+  background: #080215;
+  color: var(--text);
+  outline: none;
+  font-family: inherit;
 }
 
 .gate-box input:focus {
-    border-color: #7722cc66;
-    box-shadow: 0 0 10px rgba(120, 60, 220, 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 14px rgba(160, 80, 255, 0.3);
 }
 
 .gate-box button {
-    padding: 8px 20px;
-    border: 1px solid #3a1a6055;
-    border-radius: 2px;
-    background: rgba(50, 15, 100, 0.4);
-    color: #c8a8ff;
-    cursor: pointer;
-    transition: 0.3s;
-    letter-spacing: 0.1em;
-    font-family: 'Palatino Linotype', Palatino, serif;
-    font-variant: small-caps;
-    width: 100%;
+  width: 100%;
+  padding: 9px 20px;
+  border: 1px solid rgba(150, 80, 255, 0.35);
+  border-radius: 3px;
+  background: rgba(70, 20, 130, 0.55);
+  color: var(--text);
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.1em;
+  font-variant: small-caps;
+  transition: 0.3s;
 }
 
 .gate-box button:hover {
-    background: rgba(100, 30, 180, 0.5);
-    border-color: #7722cc;
-    box-shadow: 0 0 18px rgba(120, 60, 220, 0.4);
+  background: rgba(120, 40, 200, 0.55);
+  border-color: var(--accent);
+  box-shadow: 0 0 18px rgba(170, 90, 255, 0.45);
 }
 
 #error-msg {
-    color: #7744cc;
-    margin-top: 10px;
-    font-size: 0.9em;
-    font-style: italic;
+  color: #9c65ff;
+  margin-top: 12px;
+  font-size: 0.9em;
 }
 
 #gate.fade-out {
-    opacity: 0;
-    transition: opacity 0.6s ease;
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
 
-@keyframes pulse {
-    0%   { box-shadow: 0 0 20px rgba(80,30,200,0.25), inset 0 0 40px rgba(30,8,70,0.4); }
-    50%  { box-shadow: 0 0 50px rgba(130,60,255,0.4), inset 0 0 40px rgba(30,8,70,0.4); }
-    100% { box-shadow: 0 0 20px rgba(80,30,200,0.25), inset 0 0 40px rgba(30,8,70,0.4); }
-}
+/* === MAIN FRAME === */
 
-@keyframes whisper {
-    0%   { opacity: 0.5; letter-spacing: normal; }
-    50%  { opacity: 1;   letter-spacing: 1px; }
-    100% { opacity: 0.6; letter-spacing: normal; }
-}
-
-/* === GLITCH EFFECT === */
-@keyframes glitch {
-    0%   { transform: translate(0);        filter: hue-rotate(0deg); }
-    20%  { transform: translate(-2px, 2px); filter: hue-rotate(20deg); }
-    40%  { transform: translate(2px, -2px); filter: hue-rotate(-20deg); }
-    60%  { transform: translate(-2px, 0);   filter: hue-rotate(10deg); }
-    80%  { transform: translate(2px, 2px);  filter: hue-rotate(-10deg); }
-    100% { transform: translate(0);        filter: hue-rotate(0deg); }
-}
-
-.glitch { animation: glitch 0.3s linear 2; }
-
-.glitch-text { position: relative; color: #7744cc; }
-.glitch-text::before,
-.glitch-text::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 0; width: 100%;
-    overflow: hidden;
-}
-.glitch-text::before { color: #cc44ff; transform: translate(-2px, 0); opacity: 0.7; }
-.glitch-text::after  { color: #44ffcc; transform: translate(2px, 0);  opacity: 0.7; }
-
-
-/* === OUTER FRAME CARD === */
 .frame {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    margin: 24px auto 32px;
-    width: min(85vw, 1100px);
-    min-height: 100vh;
-    max-height: none;
-    height: auto;
-    padding: 2rem;
-    border: none;
-    outline: 1px solid #2a1060;
-    outline-offset: 6px;
-    border-radius: 2px;
-    background-color: rgba(6, 2, 18, 0.93);
-    background-size: cover;
-    background-repeat: no-repeat;
-    backdrop-filter: blur(6px);
-    overflow: visible;
-    box-shadow:
-        0 0 20px #2a0a66,
-        0 0 50px #180644,
-        0 0 90px #0e032e,
-        0 0 150px #060118;
-    background-color: rgba(35, 28, 45, 0.95);
-    box-shadow:
-        0 8px 20px rgba(0,0,0,0.5),
-        inset 0 0 10px rgba(255,255,255,0.05),
-        inset 0 0 20px rgba(0,0,0,0.2);
-    z-index: 1;
-    position: relative;
-}
+  position: relative;
+  width: min(95vw, 1550px);
+  min-height: calc(100vh - 48px);
+  margin: 24px auto;
+  padding: 34px;
+  border-radius: 4px;
 
-/* === FRAME SCROLLBAR === */
-.frame::-webkit-scrollbar { width: 6px; }
-.frame::-webkit-scrollbar-track { background: #060118; }
-.frame::-webkit-scrollbar-thumb { background: #3a1a7a; border-radius: 1px; }
-.frame::-webkit-scrollbar-thumb:hover { background: #7722cc; }
-
-/* === FRAME CANVAS === */
-.frame canvas#aura-canvas {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    border-radius: 2px;
-}
-
-.frame::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    background-image:
-        radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 8px 8px;
-}
-
-.frame::before,
-.frame::after { 
-    height: 100%;
-    display: none;
-}
-
-/* === CORNER ORNAMENTS: gear/workshop style === */
-.frame-corner {
-    position: absolute;
-    width: 54px;
-    height: 54px;
-    z-index: 10;
-    pointer-events: none;
-}
-
-/* Outer L-bracket */
-.frame-corner::after {
-    content: "";
-    position: absolute;
-    width: 36px;
-    height: 36px;
-    border-color: #3a1a7a;
-    border-style: solid;
-    border-width: 0;
-    animation: bracketGlow 3s ease-in-out infinite alternate;
-}
-
-/* Inner rotating diamond gem */
-.frame-corner::before {
-    content: "";
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: transparent;
-    border: 1px solid #7722cc;
-    transform: rotate(45deg);
-    animation: gemPulse 2.5s ease-in-out infinite alternate;
-    box-shadow: 0 0 6px #7722cc44;
-}
-
-.frame-corner.tl { top: 4px;    left: 4px; }
-.frame-corner.tl::after  { border-top-width: 1px; border-left-width: 1px; top: 0; left: 0; }
-.frame-corner.tl::before { top: 10px; left: 10px; }
-
-.frame-corner.tr { top: 4px;    right: 4px; }
-.frame-corner.tr::after  { border-top-width: 1px; border-right-width: 1px; top: 0; right: 0; }
-.frame-corner.tr::before { top: 10px; right: 10px; }
-
-.frame-corner.bl { bottom: 4px; left: 4px; }
-.frame-corner.bl::after  { border-bottom-width: 1px; border-left-width: 1px; bottom: 0; left: 0; }
-.frame-corner.bl::before { bottom: 10px; left: 10px; }
-
-.frame-corner.br { bottom: 4px; right: 4px; }
-.frame-corner.br::after  { border-bottom-width: 1px; border-right-width: 1px; bottom: 0; right: 0; }
-.frame-corner.br::before { bottom: 10px; right: 10px; }
-
-@keyframes gemPulse {
-    0%   { border-color: #2a0a55; box-shadow: none; transform: rotate(45deg); }
-    50%  { border-color: #9933ee; box-shadow: 0 0 8px #7722cc; transform: rotate(45deg); }
-    100% { border-color: #cc66ff; box-shadow: 0 0 16px #9933ee, 0 0 28px #7722cc44; transform: rotate(45deg); }
-}
-
-@keyframes bracketGlow {
-    0%   { border-color: #1a0840; }
-    100% { border-color: #5a1aaa; }
-}
-
-/* === SIDE LINES === */
-.frame-side {
-    position: absolute;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-}
-.frame-side.top,
-.frame-side.bottom { display: none; }
-.frame-side.left,
-.frame-side.right { top: 54px; bottom: 54px; width: 4px; }
-.frame-side.left  { left: -4px; }
-.frame-side.right { right: -4px; }
-
-/* Blueprint measurement marks on side lines */
-.frame-side::before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        180deg,
-        #060118 0px,
-        #060118 6px,
-        #2a0a55 6px,
-        #2a0a55 7px,
-        #060118 7px,
-        #060118 14px,
-        #3a1a7a 14px,
-        #3a1a7a 16px,
-        #060118 16px,
-        #060118 30px
+  background:
+    linear-gradient(
+      135deg,
+      rgba(12, 4, 28, 0.95),
+      rgba(6, 2, 18, 0.97)
     );
-    animation: runeSlideV 10s linear infinite;
-    box-shadow: 0 0 8px #3a1a7a;
+
+  border: 1px solid rgba(150, 80, 255, 0.18);
+
+  box-shadow:
+    0 0 40px rgba(110, 40, 200, 0.22),
+    0 0 100px rgba(40, 10, 90, 0.45),
+    inset 0 0 60px rgba(60, 15, 120, 0.2);
+
+  overflow: hidden;
 }
 
-@keyframes runeSlideV {
-    from { background-position: 0 0; }
-    to   { background-position: 0 300px; }
+.background-image {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* === OUTER PULSING RING === */
-.frame-ring {
-    position: absolute;
-    inset: -14px;
-    border-radius: 4px;
-    border: 1px solid #1a0840;
-    pointer-events: none;
-    z-index: -1;
-    animation: outerRingPulse 4s ease-in-out infinite;
-    box-shadow: 0 0 15px #2a0a55, 0 0 40px #180440;
+#aura-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
 }
 
-@keyframes outerRingPulse {
-    0%, 100% {
-        box-shadow: 0 0 15px #2a0a55, 0 0 40px #180440;
-        border-color: #1a0840;
-    }
-    50% {
-        box-shadow: 0 0 30px #5a1a8a, 0 0 70px #2a0a55, 0 0 110px #180440;
-        border-color: #5a1a8a;
-    }
+.frame > *:not(#aura-canvas):not(.background-image) {
+  position: relative;
+  z-index: 2;
 }
 
-/* === WHISPER DRIFT === */
-.whisper {
-    position: absolute;
-    top: -50%; left: -50%;
-    width: 200%; height: 200%;
-    background: radial-gradient(circle, rgba(100, 30, 180, 0.02), transparent 60%);
-    animation: drift 25s linear infinite;
-    pointer-events: none;
-    z-index: 0;
-}
+/* === ARCHIVE BUTTON === */
 
-@keyframes drift {
-    0%   { transform: translate(0, 0); }
-    50%  { transform: translate(8%, 8%); }
-    100% { transform: translate(0, 0); }
-}
-
-/* === BACK BUTTON === */
 .back-btn {
-    position: absolute;
-    top: 16px;
-    left: 20px;
-    z-index: 20;
-    color: #9955ee;
-    text-decoration: none;
-    font-family: 'Palatino Linotype', Palatino, serif;
-    font-size: 0.85em;
-    letter-spacing: 0.1em;
-    opacity: 0.6;
-    transition: opacity 0.3s ease, text-shadow 0.3s ease;
-    text-shadow: 0 0 6px rgba(120, 50, 220, 0.4);
-    font-variant: small-caps;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--accent);
+  margin-bottom: 24px;
+  opacity: 0.75;
+  transition: 0.3s;
+  letter-spacing: 0.08em;
 }
 
 .back-btn:hover {
-    opacity: 1;
-    text-shadow:
-        0 0 10px rgba(160, 80, 255, 0.9),
-        0 0 20px rgba(100, 40, 200, 0.6);
+  opacity: 1;
+  text-shadow:
+    0 0 10px rgba(180, 100, 255, 0.8),
+    0 0 20px rgba(120, 50, 220, 0.5);
 }
 
-.back-btn::before {
-    content: "⟵ ";
-    opacity: 0.7;
+/* === HERO === */
+
+.hero-banner {
+  min-height: 240px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-bottom: 30px;
+  padding: 40px;
+
+  border-radius: 4px;
+  border: 1px solid rgba(150, 80, 255, 0.18);
+
+  background:
+    radial-gradient(
+      circle at 75% 30%,
+      rgba(180, 90, 255, 0.18),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(30, 10, 60, 0.85),
+      rgba(8, 2, 20, 0.95)
+    );
+
+  box-shadow:
+    inset 0 0 60px rgba(110, 40, 200, 0.2),
+    0 0 30px rgba(110, 40, 200, 0.18);
 }
 
-body, input, button { cursor: auto; }
+.eyebrow {
+  margin: 0 0 12px;
+  color: #c594ff;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.75rem;
+}
 
-/* === RUNE ENGRAVINGS ON FRAME EDGES === */
- 
-/* Top edge rune strip */
-.frame-rune-top,
-.frame-rune-bottom {
-    position: absolute;
-    left: 60px;
-    right: 60px;
-    height: 14px;
-    z-index: 11;
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    overflow: hidden;
+.hero-name {
+  margin: 0;
+
+  font-size: clamp(3rem, 6vw, 6rem);
+
+  color: #ddb8ff;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 12px rgba(200, 120, 255, 0.8),
+    0 0 40px rgba(130, 60, 255, 0.55);
 }
- 
-.frame-rune-top  { top: 6px; }
-.frame-rune-bottom { bottom: 6px; }
- 
-.frame-rune-top span,
-.frame-rune-bottom span {
-    font-size: 9px;
-    letter-spacing: 0.25em;
-    color: #7722cc;
-    opacity: 0.35;
-    font-family: 'Palatino Linotype', Palatino, serif;
-    text-transform: uppercase;
-    white-space: nowrap;
-    animation: runeGlow 4s ease-in-out infinite alternate;
-    user-select: none;
+
+.hero-subtitle {
+  margin-top: 16px;
+
+  color: #b79add;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-style: italic;
 }
- 
-/* Stagger glow on each rune word */
-.frame-rune-top span:nth-child(2)    { animation-delay: 0.5s; }
-.frame-rune-top span:nth-child(3)    { animation-delay: 1s; }
-.frame-rune-top span:nth-child(4)    { animation-delay: 1.5s; }
-.frame-rune-bottom span:nth-child(2) { animation-delay: 0.8s; }
-.frame-rune-bottom span:nth-child(3) { animation-delay: 1.3s; }
-.frame-rune-bottom span:nth-child(4) { animation-delay: 1.8s; }
- 
-/* Divider diamond between rune words */
-.frame-rune-top .rune-divider,
-.frame-rune-bottom .rune-divider {
-    width: 4px;
-    height: 4px;
-    background: #7722cc;
-    transform: rotate(45deg);
-    opacity: 0.25;
-    flex-shrink: 0;
-    animation: runeGlow 4s ease-in-out infinite alternate;
+
+/* === LANDSCAPE LAYOUT === */
+
+.character-sheet {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 28px;
 }
- 
-@keyframes runeGlow {
-    0%   { opacity: 0.2;  text-shadow: none; color: #5a1aaa; }
-    50%  { opacity: 0.45; text-shadow: 0 0 6px #7722cc44; color: #9933ee; }
-    100% { opacity: 0.3;  text-shadow: 0 0 10px #7722cc66; color: #cc66ff; }
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 0;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+/* === PANELS === */
+
+.portrait-wrap,
+.basic-info,
+.panel {
+  background: var(--surface);
+
+  border: 1px solid rgba(150, 80, 255, 0.16);
+
+  border-radius: 4px;
+
+  padding: 24px;
+
+  box-shadow:
+    0 0 26px rgba(110, 40, 200, 0.15),
+    inset 0 0 35px rgba(50, 10, 90, 0.3);
+}
+
+.portrait {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+
+  border-radius: 4px;
+
+  border: 1px solid rgba(150, 80, 255, 0.25);
+
+  cursor: pointer;
+
+  transition: 0.35s;
+}
+
+.portrait:hover {
+  transform: scale(1.015);
+
+  box-shadow:
+    0 0 28px rgba(170, 90, 255, 0.45);
+}
+
+.basic-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.basic-info strong {
+  color: var(--accent);
+  margin-right: 10px;
+}
+
+.name-block {
+  margin-bottom: 8px;
+}
+
+.name {
+  margin: 0;
+  color: #ddb8ff;
+}
+
+.alias {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* === HEADINGS === */
+
+h2 {
+  margin-top: 0;
+
+  color: var(--accent);
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  border-left: 3px solid var(--border-bright);
+  padding-left: 10px;
+}
+
+p {
+  line-height: 1.7;
+}
+
+/* === STATS / POWERS === */
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat-box,
+.power-box {
+  position: relative;
+
+  background: rgba(120, 50, 220, 0.08);
+
+  border: 1px solid rgba(150, 80, 255, 0.16);
+
+  border-radius: 4px;
+
+  padding: 14px;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  max-height: 50px;
+
+  transition: 0.35s ease;
+}
+
+.stat-box:hover,
+.power-box:hover {
+  background: rgba(140, 60, 255, 0.15);
+
+  border-color: rgba(180, 100, 255, 0.35);
+
+  box-shadow:
+    0 0 18px rgba(150, 70, 255, 0.22);
+}
+
+.stat-box.expanded,
+.power-box.expanded {
+  max-height: 1000px;
+}
+
+.stat-title,
+.power-title {
+  color: #ddb8ff;
+  font-weight: bold;
+}
+
+.stat-content,
+.power-content {
+  opacity: 0;
+  margin-top: 10px;
+  color: #c7b0eb;
+  transition: opacity 0.3s ease;
+}
+
+.stat-box.expanded .stat-content,
+.power-box.expanded .power-content {
+  opacity: 1;
+}
+
+/* === FLOATING FORGE LAYER === */
 
 .floating-layer {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 4; /* force above infocard content */
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.35;
+
+  z-index: 1;
 }
 
-/* Shared animation*/
-@keyframes floatSlow {
-    0%   { transform: translateY(0px) rotate(0deg); }
-    50%  { transform: translateY(-25px) rotate(8deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
-}
-
-/* TOOLS */
-.tool {
-    position: absolute;
-    opacity: 0.35;
-    filter: drop-shadow(0 0 6px rgba(160, 80, 255, 0.4));
-    animation: floatSlow 12s ease-in-out infinite;
-}
-
-/* Hammer */
-.gear {
-    width: 100px;
-    height: 90px;
-    top: 15%;
-    left: -18%;
-    transform: rotate(-4deg);
-
-    background: transparent;
-    border: none;
-}
-
-/* Wrench */
-.wrench {
-    width: 18px;
-    height: 110px;
-    top: 15%;
-    right: -18%;
-    left: auto;
-    transform: rotate(8deg);
-
-    background: linear-gradient(180deg, rgba(180, 110, 235, 0.95), rgba(120, 70, 180, 0.7));
-    border-radius: 4px;
-    box-shadow: inset 0 0 8px rgba(40, 10, 110, 0.45), 0 0 9px rgba(170, 120, 255, 0.5);
-}
-
-/* Hammer head (solid, with metal shading) */
-.gear::before {
-    content: "";
-    position: absolute;
-    width: 70px;
-    height: 24px;
-    background: linear-gradient(90deg, rgba(120, 70, 160, 0.95), rgba(170, 110, 225, 0.6));
-    top: 0;
-    left: 15px;
-    border-radius: 4px;
-    box-shadow: 0 0 8px rgba(170, 110, 225, 0.6);
-    border: 1px solid rgba(200, 160, 255, 0.5);
-}
-
-/* Hammer face shading/edge detail */
-.gear::after {
-    content: "";
-    position: absolute;
-    width: 30px;
-    height: 16px;
-    top: 4px;
-    left: 20px;
-    border-radius: 2px;
-    background: rgba(120, 80, 160, 0.8);
-}
-
-/* Hammer handle */
-.gear .handle,
-.gear::after {
-    content: "";
-    position: absolute;
-    width: 12px;
-    height: 58px;
-    background: linear-gradient(180deg, rgba(160, 110, 220, 0.9), rgba(110, 60, 170, 0.8));
-    top: 24px;
-    left: 44px;
-    border-radius: 4px;
-    box-shadow: inset 0 0 10px rgba(40, 10, 100, 0.45);
-}
-
-.gear::after {
-    height: 58px;
-    top: 24px;
-    left: 44px;
-}
-
-/* Wrench jaw block */
-.wrench::before {
-    content: "";
-    position: absolute;
-    width: 34px;
-    height: 18px;
-    background: linear-gradient(90deg, rgba(170, 100, 220, 0.95), rgba(105, 60, 170, 0.7));
-    top: -6px;
-    left: -8px;
-    border-radius: 3px;
-    clip-path: polygon(0 0, 80% 0, 100% 45%, 80% 100%, 0 100%, 0 75%, 20% 50%, 0 25%);
-    box-shadow: 0 0 8px rgba(150, 100, 220, 0.4);
-}
-
-/* Inside opening in jaw */
-.wrench::after {
-    content: "";
-    position: absolute;
-    width: 12px;
-    height: 10px;
-    top: 1px;
-    left: -1px;
-    border: 2px solid rgba(220, 180, 255, 0.8);
-    border-radius: 3px;
-    box-shadow: inset 0 0 4px rgba(40, 10, 110, 0.5);
-}
-
-/* Screwdriver */
-.screwdriver {
-    width: 16px;
-    height: 170px;
-    top: 60%;
-    right: -12%;
-    left: auto;
-    transform: rotate(-40deg);
-    background: linear-gradient(180deg, rgba(28, 19, 73, 0.95), rgba(46, 20, 96, 0.92));
-    border-radius: 3px;
-    box-shadow: inset 0 0 7px rgba(10, 5, 35, 0.75), 0 0 10px rgba(170, 120, 255, 0.35);
-}
-.screwdriver::before {
-    content: "";
-    position: absolute;
-    width: 34px;
-    height: 42px;
-    top: -16px;
-    left: -9px;
-    background: radial-gradient(circle at 50% 40%, rgba(60, 130, 205, 0.95), rgba(20, 60, 135, 0.9));
-    border-radius: 10px;
-    border: 1px solid rgba(130, 190, 255, 0.8);
-    box-shadow: 0 0 10px rgba(130, 180, 250, 0.4);
-}
-.screwdriver::after {
-    content: "";
-    position: absolute;
-    width: 6px;
-    height: 88px;
-    top: 82px;
-    left: 5px;
-    background: linear-gradient(180deg, rgba(210, 210, 255, 0.95), rgba(180, 180, 240, 0.85));
-    border-radius: 2px;
-}
-
-/* Anvil */
-
-
-/* RUNES */
-/* RUNES */
+.tool,
 .rune {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    opacity: 0.35;
-    filter: drop-shadow(0 0 8px rgba(180, 100, 255, 0.5));
-    animation: floatSlow 10s ease-in-out infinite;
+  position: absolute;
 }
 
-/* Rune 1 (rock shard) */
+.gear {
+  top: 140px;
+  left: 50px;
+}
+
+.wrench {
+  top: 420px;
+  right: 80px;
+}
+
+.screwdriver {
+  bottom: 220px;
+  left: 120px;
+}
+
+.anvil {
+  bottom: 120px;
+  right: 140px;
+}
+
 .rune1 {
-    top: 12%;
-    left: 10%;
-    width: 46px;
-    height: 46px;
-    border: none;
-    background: radial-gradient(circle at 30% 30%, rgba(140, 90, 170, 0.95), rgba(80, 40, 120, 0.8));
-    clip-path: polygon(12% 22%, 48% 6%, 78% 14%, 95% 42%, 82% 78%, 55% 98%, 20% 88%, 5% 52%);
-    border: 1px solid rgba(190, 150, 240, 0.65);
-    box-shadow: 0 0 10px rgba(180, 130, 230, 0.35);
-}
-.rune1::before {
-    content: "ᚦ";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgba(245, 215, 255, 0.9);
-    font-size: 16px;
-    font-weight: bold;
-    text-shadow: 0 0 5px rgba(255, 220, 255, 0.7);
+  top: 260px;
+  right: 120px;
 }
 
-/* Rune 2 (rock shard) */
 .rune2 {
-    top: 20%;
-    right: 12%;
-    left: auto;
-    width: 50px;
-    height: 50px;
-    border: none;
-    background: radial-gradient(circle at 70% 30%, rgba(145, 95, 170, 0.95), rgba(90, 45, 130, 0.8));
-    clip-path: polygon(8% 45%, 18% 12%, 50% 6%, 78% 22%, 94% 48%, 86% 82%, 56% 96%, 24% 88%, 10% 65%);
-    border: 1px solid rgba(210, 170, 250, 0.65);
-    box-shadow: 0 0 10px rgba(180, 130, 230, 0.35);
-}
-.rune2::before {
-    content: "ᛟ";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgba(242, 215, 255, 0.9);
-    font-size: 16px;
-    font-weight: bold;
-    text-shadow: 0 0 5px rgba(255, 220, 255, 0.7);
+  top: 620px;
+  left: 80px;
 }
 
-/* Rune 3 (additional rock shard) */
 .rune3 {
-    top: 55%;
-    left: 22%;
-    width: 40px;
-    height: 42px;
-    border: none;
-    background: radial-gradient(circle at 25% 25%, rgba(130, 85, 160, 0.95), rgba(75, 30, 105, 0.8));
-    clip-path: polygon(15% 8%, 78% 12%, 92% 42%, 68% 85%, 32% 90%, 5% 60%, 10% 25%);
-    border: 1px solid rgba(200, 155, 245, 0.62);
-    box-shadow: 0 0 8px rgba(170, 120, 220, 0.4);
-}
-.rune3::before {
-    content: "ᛉ";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgba(240, 210, 255, 0.95);
-    font-size: 14px;
-    font-weight: bold;
-    text-shadow: 0 0 4px rgba(255, 225, 255, 0.75);
+  bottom: 300px;
+  right: 200px;
 }
 
-/* Rune 4 (additional rock shard) */
 .rune4 {
-    top: 65%;
-    right: 18%;
-    left: auto;
-    width: 45px;
-    height: 45px;
-    border: none;
-    background: radial-gradient(circle at 35% 30%, rgba(155, 110, 185, 0.95), rgba(90, 45, 130, 0.8));
-    clip-path: polygon(20% 10%, 70% 10%, 100% 33%, 80% 75%, 45% 100%, 14% 87%, 7% 52%, 12% 28%);
-    border: 1px solid rgba(220, 175, 255, 0.68);
-    box-shadow: 0 0 9px rgba(185, 135, 235, 0.4);
+  bottom: 120px;
+  left: 260px;
 }
-.rune4::before {
-    content: "ᛜ";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgba(250, 225, 255, 0.9);
-    font-size: 14px;
-    font-weight: bold;
-    text-shadow: 0 0 4px rgba(255, 225, 255, 0.8);
+
+/* === FRAME RUNES === */
+
+.frame-rune-top,
+.frame-rune-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  color: rgba(210, 170, 255, 0.5);
+
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+}
+
+.frame-rune-top {
+  margin-bottom: 20px;
+}
+
+.frame-rune-bottom {
+  margin-top: 20px;
+}
+
+.rune-divider {
+  width: 24px;
+  height: 1px;
+  background: rgba(180, 120, 255, 0.3);
+}
+
+/* === FRAME SIDES === */
+
+.frame-side {
+  display: none;
+}
+
+.frame-ring {
+  position: absolute;
+  inset: 12px;
+
+  border: 1px solid rgba(140, 60, 255, 0.12);
+
+  pointer-events: none;
+}
+
+/* === IMAGE OVERLAY === */
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.92);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+
+  z-index: 99999;
+}
+
+#overlay.show {
+  opacity: 1;
+}
+
+#overlay img {
+  max-width: 82vw;
+  max-height: 86vh;
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 4px;
+  box-shadow: 0 0 45px rgba(150, 70, 255, 0.6);
+}
+
+/* === GLITCH === */
+
+.glitch {
+  animation: glitch 0.25s linear 2;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  25% { transform: translate(-2px, 2px); }
+  50% { transform: translate(2px, -2px); }
+  75% { transform: translate(-1px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch-text {
+  color: #b87cff;
+}
+
+/* === GATE PULSE === */
+
+@keyframes gatePulse {
+  0%,100% {
+    box-shadow:
+      0 0 42px rgba(130,60,255,0.35),
+      inset 0 0 42px rgba(40,10,90,0.5);
+  }
+
+  50% {
+    box-shadow:
+      0 0 70px rgba(170,90,255,0.55),
+      inset 0 0 42px rgba(40,10,90,0.5);
+  }
+}
+
+/* === MOBILE === */
+
+@media (max-width: 950px) {
+  .character-sheet {
+    grid-template-columns: 1fr;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portrait {
+    height: 360px;
+  }
+
+  .hero-banner {
+    min-height: 180px;
+    padding: 28px;
+  }
+
+  .hero-name {
+    font-size: 2.8rem;
+  }
+
+  .frame-rune-top,
+  .frame-rune-bottom {
+    flex-wrap: wrap;
+  }
+}
+
+/* gap between power boxes */
+.Abilities {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.Abilities h2 {
+  margin-bottom: 4px;
+}
+
+.power-box {
+  margin: 0;
+}
+
+/* bring back simple forge ornaments */
+.tool,
+.rune {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.32;
+  filter: drop-shadow(0 0 8px rgba(190, 120, 255, 0.55));
+}
+
+.tool::before,
+.tool::after,
+.rune::before {
+  content: "";
+  position: absolute;
+  display: block;
+}
+
+/* hammer */
+.gear {
+  width: 80px;
+  height: 80px;
+  top: 330px;
+  left: 45px;
+  transform: rotate(-18deg);
+}
+
+.gear::before {
+  width: 70px;
+  height: 20px;
+  background: #b66bff;
+  border-radius: 4px;
+  top: 0;
+  left: 5px;
+}
+
+.gear::after {
+  width: 12px;
+  height: 62px;
+  background: #7b35c7;
+  top: 18px;
+  left: 34px;
+  border-radius: 4px;
+}
+
+/* wrench */
+.wrench {
+  width: 16px;
+  height: 110px;
+  top: 360px;
+  right: 65px;
+  background: #8e4de0;
+  border-radius: 5px;
+  transform: rotate(18deg);
+}
+
+.wrench::before {
+  width: 34px;
+  height: 24px;
+  top: -14px;
+  left: -9px;
+  border: 4px solid #b66bff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+}
+
+/* screwdriver */
+.screwdriver {
+  width: 12px;
+  height: 140px;
+  bottom: 180px;
+  left: 110px;
+  background: #5d2ca0;
+  border-radius: 4px;
+  transform: rotate(-35deg);
+}
+
+.screwdriver::before {
+  width: 28px;
+  height: 36px;
+  top: -24px;
+  left: -8px;
+  background: #b66bff;
+  border-radius: 8px;
+}
+
+.screwdriver::after {
+  width: 5px;
+  height: 60px;
+  bottom: -52px;
+  left: 3px;
+  background: #d9b7ff;
+}
+
+/* rune stones */
+.rune {
+  width: 44px;
+  height: 44px;
+  background: rgba(160, 90, 220, 0.5);
+  border: 1px solid rgba(220, 180, 255, 0.55);
+  clip-path: polygon(15% 10%, 75% 5%, 95% 45%, 70% 95%, 20% 85%, 5% 45%);
+}
+
+.rune::before {
+  content: "ᚦ";
+  inset: 0;
+  color: #f0dcff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rune1 { top: 280px; right: 130px; }
+.rune2 { top: 620px; left: 75px; }
+.rune3 { bottom: 280px; right: 180px; }
+.rune4 { bottom: 120px; left: 250px; }
+
+#overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  display: none !important;
+  z-index: 999999 !important;
+}
+
+#overlay.show {
+  display: flex !important;
 }

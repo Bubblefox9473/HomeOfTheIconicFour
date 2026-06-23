@@ -7,7 +7,7 @@ function openImage(img) {
     if (!overlay || !overlayImg) return;
 
     overlayImg.src = img.src;
-    overlay.style.display = "flex";
+    overlay.classList.add("show");
     void overlay.offsetWidth;
     overlay.classList.add("show");
 }
@@ -118,9 +118,13 @@ document.addEventListener("click", function (e) {
     const frame = document.querySelector(".frame");
     if (!frame) return;
 
-    const canvas = document.createElement("canvas");
+    let canvas = frame.querySelector("#aura-canvas");
+
+if (!canvas) {
+    canvas = document.createElement("canvas");
     canvas.id = "aura-canvas";
     frame.prepend(canvas);
+}
     const ctx = canvas.getContext("2d");
 
     function resize() {

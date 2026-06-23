@@ -1,146 +1,114 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Noctis</title> <!-- CHANGE: page tab title -->
-        <link rel="stylesheet" href="style.css" />
-        <style>
-            /* === Frame base styles === */
-            .frame {
-                position: relative;
-                width: min(85vw, 1100px);
-                min-height: 100vh;
-                height: auto;
-                margin: 24px auto;
-                padding: 2rem;
-                overflow: visible;
-                border-radius: 12px;
-            }
+<head>
+  <meta charset="UTF-8" />
+  <title>Noctis</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-            .frame canvas#aura-canvas {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                pointer-events: none;
-                z-index: 0;
-                border-radius: 12px;
-            }
+<body>
+  <div id="gate">
+    <div class="gate-box">
+      <h1>Enter the Void</h1>
+      <p>Only those known to the dark may pass.</p>
+      <input type="password" id="passwordInput" placeholder="Enter password..." />
+      <button onclick="checkPassword()">Enter</button>
+      <p id="error-msg"></p>
+    </div>
+  </div>
 
-            .frame > .character-sheet {
-                position: relative;
-                z-index: 1;
-            }
-        </style>
-    </head>
-    <body>
+  <main class="frame">
+    <canvas id="aura-canvas"></canvas>
 
-        <!-- === PASSWORD GATE === -->
-        <div id="gate">
-            <div class="gate-box">
-                <h1>Enter the Void</h1> <!-- CHANGE: gate title -->
-                <p>Only those known to the dark may pass.</p> <!-- CHANGE: gate subtitle -->
-                <input type="password" id="passwordInput" placeholder="Enter password..." />
-                <button onclick="checkPassword()">Enter</button>
-                <p id="error-msg"></p>
-            </div>
+    <div class="frame-side left"></div>
+    <div class="frame-side right"></div>
+    <div class="frame-ring"></div>
+
+    <a class="back-btn" href="../">Back to Archive</a>
+
+    <section class="hero-banner">
+      <p class="eyebrow">Main Archive File</p>
+      <h1 class="hero-name">Noctis Lucis Caelum</h1>
+      <p class="hero-subtitle">Hybrid Star · The Hollow Star</p>
+    </section>
+
+    <section class="character-sheet">
+      <aside class="left-column">
+        <div class="portrait-wrap">
+          <img
+            src="Images/Noctis.jpg"
+            alt="Noctis portrait"
+            class="portrait"
+            onclick="openImage(this)"
+          />
         </div>
 
-        <!-- === MAIN CARD === -->
-        <div class="frame">
-
-            <!-- Border decorations — leave these alone -->
-            <div class="frame-corner tl"></div>
-            <div class="frame-corner tr"></div>
-            <div class="frame-corner bl"></div>
-            <div class="frame-corner br"></div>
-            <div class="frame-side top"></div>
-            <div class="frame-side bottom"></div>
-            <div class="frame-side left"></div>
-            <div class="frame-side right"></div>
-            <div class="frame-ring"></div>
-            <canvas id="aura-canvas"></canvas>
-            <a class="back-btn" href="../">← Back to Archive</a>
-
-            <!-- === CHARACTER SHEET === -->
-            <div class="character-sheet">
-
-                <!-- === TOP SECTION === -->
-                <div class="top-section">
-                    <!-- CHANGE: update src and alt -->
-                    <img src="Images/Noctis.jpg" alt="Noctis portrait" class="portrait" onclick="openImage(this)" />
-                    <div class="basic-info">
-                        <h1 class="name">Noctis Lucis Caelum</h1> <!-- CHANGE: full character name -->
-                        <!-- CHANGE: fill in details -->
-                        <div><strong>Age</strong> 23</div>
-                        <div><strong>Gender</strong> Male</div>
-                        <div><strong>Species/Race</strong> Hybrid Star</div>
-                    </div>
-                </div>
-
-                <!-- === STATS === -->
-                <div class="stats">
-                    <h2>Stats:</h2>
-                    <!-- CHANGE: rename and fill in stats -->
-                    <div class="stat-box" onclick="toggleBox(this)">
-                        <div class="stat-title">Stat 1</div>
-                        <div class="stat-content">Description of stat 1.</div>
-                    </div>
-
-                    <div class="stat-box" onclick="toggleBox(this)">
-                        <div class="stat-title">Stat 2</div>
-                        <div class="stat-content">Description of stat 2.</div>
-                    </div>
-
-                    <div class="stat-box" onclick="toggleBox(this)">
-                        <div class="stat-title">Stat 3</div>
-                        <div class="stat-content">Description of stat 3.</div>
-                    </div>
-                </div>
-
-                <!-- === APPEARANCE === -->
-                <div class="Appearance">
-                    <h2>Appearance:</h2>
-                    <p>Describe Noctis' appearance here.</p> <!-- CHANGE -->
-                </div>
-
-                <!-- === ABILITIES / POWERS === -->
-                <div class="Abilities">
-                    <h2>Abilities / Powers:</h2>
-                    <!-- CHANGE: rename and fill in powers -->
-                    <div class="power-box" onclick="togglePower(this)">
-                        <div class="power-title">Power 1</div>
-                        <div class="power-content">Description of power 1.</div>
-                    </div>
-
-                    <div class="power-box" onclick="togglePower(this)">
-                        <div class="power-title">Power 2</div>
-                        <div class="power-content">Description of power 2.</div>
-                    </div>
-
-                    <div class="power-box" onclick="togglePower(this)">
-                        <div class="power-title">Power 3</div>
-                        <div class="power-content">Description of power 3.</div>
-                    </div>
-                </div>
-
-                <!-- === BACKSTORY === -->
-                <div class="backstory">
-                    <h2>Backstory / Lore:</h2>
-                    <p>Write Noctis' history and origin here.</p> <!-- CHANGE -->
-                </div>
-
-                <!-- === IMAGE OVERLAY — leave alone === -->
-                <div id="overlay" onclick="closeImage()">
-                    <img id="overlay-img" src="none" />
-                </div>
-
-            </div>
-            <!-- end .character-sheet -->
+        <div class="basic-info">
+          <h2>Identity</h2>
+          <div><strong>Age</strong> 23</div>
+          <div><strong>Gender</strong> Male</div>
+          <div><strong>Species/Race</strong> Hybrid Star</div>
         </div>
-        <!-- end .frame -->
+      </aside>
 
-        <script src="script.js"></script>
-    </body>
+      <section class="right-column">
+        <div class="content-grid">
+          <section class="panel stats">
+            <h2>Stats</h2>
+
+            <div class="stat-box" onclick="toggleBox(this)">
+              <div class="stat-title">Stat 1</div>
+              <div class="stat-content">Description of stat 1.</div>
+            </div>
+
+            <div class="stat-box" onclick="toggleBox(this)">
+              <div class="stat-title">Stat 2</div>
+              <div class="stat-content">Description of stat 2.</div>
+            </div>
+
+            <div class="stat-box" onclick="toggleBox(this)">
+              <div class="stat-title">Stat 3</div>
+              <div class="stat-content">Description of stat 3.</div>
+            </div>
+          </section>
+
+          <section class="panel Appearance">
+            <h2>Appearance</h2>
+            <p>Describe Noctis' appearance here.</p>
+          </section>
+        </div>
+
+        <section class="panel Abilities">
+          <h2>Abilities / Powers</h2>
+
+          <div class="power-box" onclick="togglePower(this)">
+            <div class="power-title">Power 1</div>
+            <div class="power-content">Description of power 1.</div>
+          </div>
+
+          <div class="power-box" onclick="togglePower(this)">
+            <div class="power-title">Power 2</div>
+            <div class="power-content">Description of power 2.</div>
+          </div>
+
+          <div class="power-box" onclick="togglePower(this)">
+            <div class="power-title">Power 3</div>
+            <div class="power-content">Description of power 3.</div>
+          </div>
+        </section>
+
+        <section class="panel backstory">
+          <h2>Backstory / Lore</h2>
+          <p>Write Noctis' history and origin here.</p>
+        </section>
+      </section>
+    </section>
+
+    <div id="overlay" onclick="closeImage()">
+      <img id="overlay-img" src="none" />
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
 </html>

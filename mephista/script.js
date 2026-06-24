@@ -1,151 +1,148 @@
 /* === PAGE TRANSITIONS === */
-window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
+window.addEventListener("load", () => {
+  document.body.style.opacity = "0";
+  document.body.style.transition = "opacity 0.5s ease";
+
+  requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            document.body.style.opacity = '1';
-        });
+      document.body.style.opacity = "1";
     });
+  });
 });
 
-document.addEventListener('click', function(e) {
-    const backBtn = e.target.closest('.back-btn');
-    if (backBtn) {
-        e.preventDefault();
-        const href = backBtn.getAttribute('href');
-        document.body.style.transition = 'opacity 0.5s ease';
-        document.body.style.opacity = '0';
-        setTimeout(() => {
-            window.location.href = href;
-        }, 500);
-    }
+document.addEventListener("click", function (e) {
+  const backBtn = e.target.closest(".back-btn");
+
+  if (backBtn) {
+    e.preventDefault();
+
+    const href = backBtn.getAttribute("href");
+
+    document.body.style.transition = "opacity 0.5s ease";
+    document.body.style.opacity = "0";
+
+    setTimeout(() => {
+      window.location.href = href;
+    }, 500);
+  }
 });
 
-
+/* === IMAGE OVERLAY === */
 function openImage(img) {
-    const overlay = document.getElementById("overlay");
-    const overlayImg = document.getElementById("overlay-img");
+  const overlay = document.getElementById("overlay");
+  const overlayImg = document.getElementById("overlay-img");
 
-    if (!overlay || !overlayImg) return;
+  if (!overlay || !overlayImg) return;
 
-    overlayImg.src = img.src;
-
-    overlay.style.display = "flex";
-
-    // Force reflow to allow fade-in transition
-    void overlay.offsetWidth;
-
-    overlay.classList.add("show");
+  overlayImg.src = img.src;
+  overlay.classList.add("show");
 }
 
 function closeImage() {
-    const overlay = document.getElementById("overlay");
-    if (!overlay) return;
+  const overlay = document.getElementById("overlay");
 
-    overlay.classList.remove("show");
+  if (!overlay) return;
 
-    setTimeout(() => {
-        overlay.style.display = "none";
-    }, 500); // matches CSS transition
+  overlay.classList.remove("show");
 }
 
 /* === EXPANDABLE BOXES === */
 function toggleBox(box) {
-    if (!box) return;
-    box.classList.toggle("expanded");
+  if (!box) return;
 
-    if (box.classList.contains("expanded")) {
-        box.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }
+  box.classList.toggle("expanded");
+
+  if (box.classList.contains("expanded")) {
+    box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
 }
 
 function togglePower(box) {
-    if (!box) return;
-    box.classList.toggle("expanded");
-
-    if (box.classList.contains("expanded")) {
-        box.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }
+  toggleBox(box);
 }
 
 /* === PASSWORD GATE === */
-const correctPassword = "Mephista"; // change password here
+const correctPassword = "Template"; // change password here
 const input = document.getElementById("passwordInput");
 
 function checkPassword() {
-    const gate = document.getElementById("gate");
-    const errorMsg = document.getElementById("error-msg");
-    if (!input || !gate || !errorMsg) return;
+  const gate = document.getElementById("gate");
+  const errorMsg = document.getElementById("error-msg");
 
-    const value = input.value.trim();
+  if (!input || !gate || !errorMsg) return;
 
-    if (value === correctPassword) {
-        gate.classList.add("fade-out");
-        setTimeout(() => {
-            gate.style.display = "none";
-        }, 600); // fade duration matches CSS
-    } else {
-        const box = document.querySelector(".gate-box");
-        if (box) {
-            box.classList.add("glitch");
-            setTimeout(() => box.classList.remove("glitch"), 300);
-        }
+  const value = input.value.trim();
 
-        const msg = "That name holds no power here.";
-        errorMsg.textContent = msg;
-        errorMsg.classList.add("glitch-text");
-        errorMsg.setAttribute("data-text", msg);
+  if (value === correctPassword) {
+    gate.classList.add("fade-out");
 
-        input.value = "";
+    setTimeout(() => {
+      gate.style.display = "none";
+    }, 600);
+  } else {
+    const box = document.querySelector(".gate-box");
+
+    if (box) {
+      box.classList.add("glitch");
+      setTimeout(() => box.classList.remove("glitch"), 300);
     }
+
+    errorMsg.textContent = "Access denied.";
+    input.value = "";
+  }
 }
 
-/* === ENTER KEY SUPPORT === */
 if (input) {
-    input.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-            checkPassword();
-        }
-    });
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      checkPassword();
+    }
+  });
 }
 
-/* === DEMONIC OUTWARD AURA EFFECT === */
+/* === NEUTRAL WHITE AURA EFFECT === */
 (function auraEffect() {
-    const frame = document.querySelector(".frame");
-    if (!frame) return;
+  const frame = document.querySelector(".frame");
+  if (!frame) return;
 
-    // create canvas if not present
-    let canvas = document.createElement("canvas");
+  let canvas = frame.querySelector("#aura-canvas");
+
+  if (!canvas) {
+    canvas = document.createElement("canvas");
     canvas.id = "aura-canvas";
     frame.prepend(canvas);
-    const ctx = canvas.getContext("2d");
+  }
 
-    function resize() {
-        canvas.width = frame.offsetWidth;
-        canvas.height = frame.offsetHeight;
-    }
-    window.addEventListener("resize", resize);
-    resize();
+  const ctx = canvas.getContext("2d");
 
-    let radius = 0;
+  let radius = 0;
+
+  function resize() {
+    canvas.width = frame.offsetWidth;
+    canvas.height = frame.offsetHeight;
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     const maxRadius = Math.max(canvas.width, canvas.height) * 0.8;
 
-    function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.beginPath();
+    ctx.arc(canvas.width / 2, canvas.height / 2, radius, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(255, 255, 255, 0.025)";
+    ctx.fill();
 
-        // gentle outward pulsing circle
-        ctx.beginPath();
-        ctx.arc(canvas.width / 2, canvas.height / 2, radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255, 0, 0, 0.05)"; // lower the last value from 1 or 0.2 to 0.05
-        ctx.fill();
-        ctx.strokeStyle = "rgba(255, 0, 0, 0.03)";
+    radius += 0.5;
 
-        radius += 0.6; // speed of expansion
-        if (radius > maxRadius) radius = 0;
-
-        requestAnimationFrame(draw);
+    if (radius > maxRadius) {
+      radius = 0;
     }
 
-    draw();
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener("resize", resize);
+
+  resize();
+  draw();
 })();

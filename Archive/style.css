@@ -1,0 +1,806 @@
+/* ============================================================
+   THE ICONIC FOUR — Landing Page Styles
+   CHANGE: main accent color is --accent (gold by default)
+   CHANGE: background is --bg, surface is --surface
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #080808;
+    /* CHANGE: page background */
+    --surface: #111111;
+    /* CHANGE: card background */
+    --border: #222222;
+    /* CHANGE: border color */
+    --text: #e8e8e8;
+    /* CHANGE: main text color */
+    --muted: #666666;
+    /* CHANGE: secondary text color */
+    --accent: #c8a96e;
+    /* CHANGE: highlight/accent color */
+}
+
+/* === BODY === */
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Cormorant Garamond', serif;
+    /* CHANGE: body font */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px 20px;
+    overflow-x: hidden;
+}
+
+/* Subtle grain texture overlay — remove if not wanted */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+/* === HEADER === */
+header {
+    text-align: center;
+    margin-bottom: 70px;
+    position: relative;
+    z-index: 1;
+    animation: fadeDown 0.8s ease forwards;
+}
+
+.eyebrow {
+    font-family: 'Cinzel', serif;
+    /* CHANGE: eyebrow font */
+    font-size: 0.65em;
+    letter-spacing: 0.4em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+h1 {
+    font-family: 'Cinzel', serif;
+    /* CHANGE: title font */
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    line-height: 1;
+}
+
+/* === DIVIDER UNDER TITLE === */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.divider-line {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent));
+}
+
+.divider-line.right {
+    background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.divider-diamond {
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    transform: rotate(45deg);
+}
+
+/* === CHARACTER GRID === */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    max-width: 860px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* === CHARACTER CARDS === */
+.card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    aspect-ratio: 3/4;
+    animation: fadeUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+/* Staggered entrance animation */
+.card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* === PORTRAIT AREA === */
+.card-portrait {
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Portrait image — used when you add real images */
+.card-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Placeholder shown before portraits are added */
+.card-portrait-placeholder {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #1e1e1e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1e1e1e;
+    font-size: 2rem;
+    transition: border-color 0.4s ease, color 0.4s ease;
+}
+
+.card:hover .card-portrait-placeholder {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* === HOVER OVERLAY === */
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 0.6) 40%,
+            rgba(0, 0, 0, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px;
+}
+
+.card:hover .card-overlay {
+    opacity: 1;
+}
+
+/* Top accent bar — slides in on hover */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    /* CHANGE: top accent bar color */
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+/* === CARD TEXT (revealed on hover) === */
+.card-number {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6em;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    /* CHANGE: card number color */
+    margin-bottom: 8px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s;
+}
+
+.card-name {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--text);
+    /* CHANGE: card name color */
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+}
+
+.card-cta {
+    margin-top: 10px;
+    font-size: 0.75em;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    /* CHANGE: "Enter →" color */
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease 0.15s, transform 0.3s ease 0.15s;
+}
+
+.card:hover .card-number,
+.card:hover .card-name,
+.card:hover .card-cta {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === CORNER ORNAMENT === */
+.card-corner {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    width: 20px;
+    height: 20px;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    transition: border-color 0.4s ease;
+    z-index: 2;
+}
+
+.card:hover .card-corner {
+    border-color: var(--accent);
+    /* CHANGE: corner ornament hover color */
+}
+
+/* === FOOTER === */
+footer {
+    margin-top: 60px;
+    font-size: 0.75em;
+    letter-spacing: 0.2em;
+    color: #2a2a2a;
+    /* CHANGE: footer text color */
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+    position: relative;
+    z-index: 1;
+    animation: fadeUp 0.6s ease 0.6s forwards;
+    opacity: 0;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 560px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    header {
+        margin-bottom: 40px;
+    }
+}
+
+/* === PER-CARD CHARACTER COLORS === */
+/* Mephista - desaturated red */
+.card:nth-child(1) {
+    background: #1a0a0a;
+}
+
+.card:nth-child(1) .card-portrait {
+    background: #1a0a0a;
+}
+
+.card:nth-child(1)::before {
+    background: #cc2222;
+}
+
+/* Noctis - desaturated blue */
+.card:nth-child(2) {
+    background: #080f1a;
+}
+
+.card:nth-child(2) .card-portrait {
+    background: #080f1a;
+}
+
+.card:nth-child(2)::before {
+    background: #224499;
+}
+
+/* Necro - desaturated purple */
+.card:nth-child(3) {
+    background: #100a1a;
+}
+
+.card:nth-child(3) .card-portrait {
+    background: #100a1a;
+}
+
+.card:nth-child(3)::before {
+    background: #662299;
+}
+
+/* Dark - desaturated green */
+.card:nth-child(4) {
+    background: #080f08;
+}
+
+.card:nth-child(4) .card-portrait {
+    background: #080f08;
+}
+
+.card:nth-child(4)::before {
+    background: #1a6622;
+}
+
+/* === ALWAYS-VISIBLE NAME (mobile fix) === */
+/* Override the overlay to always show at low opacity */
+.card-overlay {
+    opacity: 0.45;
+    /* always faintly visible */
+}
+
+.card:hover .card-overlay {
+    opacity: 1;
+    /* full on hover */
+}
+
+/* Name always visible at low opacity */
+.card-name {
+    opacity: 0.5;
+    transform: translateY(0);
+    /* don't hide it */
+}
+
+.card-number,
+.card-cta {
+    opacity: 0.3;
+    transform: translateY(0);
+}
+
+/* Hover enhances everything */
+.card:hover .card-number,
+.card:hover .card-name,
+.card:hover .card-cta {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === SIDE CHARACTERS SECTION === */
+.side-section {
+    width: 100%;
+    max-width: 860px;
+    margin-top: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.side-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.side-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65em;
+    letter-spacing: 0.4em;
+    color: var(--muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* === HORIZONTAL SCROLL STRIP === */
+
+.side-scroll {
+  user-select: none;
+  cursor: grab;
+}
+
+.side-scroll:active {
+  cursor: grabbing;
+}
+
+.side-card {
+  user-select: none;
+}
+
+.side-scroll {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 4px 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* smooth scroll on iOS */
+}
+
+/* Hide scrollbar but keep it functional */
+.side-scroll::-webkit-scrollbar {
+    height: 3px;
+}
+
+.side-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.side-scroll::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+}
+
+.side-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+.side-scroll {
+  user-select: none;
+  cursor: grab;
+}
+
+.side-scroll:active {
+  cursor: grabbing;
+}
+
+/* === SIDE CARDS === */
+.side-card {
+    flex: 0 0 120px;
+    /* fixed width, won't shrink */
+    height: 160px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-decoration: none;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+/* Stagger the side cards in after the main ones */
+.side-card:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.side-card:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.side-card:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.side-card:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.side-card:nth-child(5) {
+    animation-delay: 0.9s;
+}
+
+.side-card:nth-child(6) {
+    animation-delay: 1.0s;
+}
+
+.side-card:nth-child(7) {
+    animation-delay: 1.1s;
+}
+
+/* Add more delay lines here if you add more cards */
+
+.side-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 16px rgba(200, 169, 110, 0.2);
+}
+
+/* Top accent bar on hover */
+.side-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.side-card:hover::before {
+    transform: scaleX(1);
+}
+
+.side-card-placeholder {
+    width: 44px;
+    height: 44px;
+    border: 1px solid #1e1e1e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1e1e1e;
+    font-size: 1.1rem;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.side-card:hover .side-card-placeholder {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.side-card-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7em;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.side-card:hover .side-card-name {
+    color: var(--text);
+}
+
+/* ============================================================
+   LOCKED MEPHISTA
+   ============================================================ */
+
+.mephista-locked {
+    cursor: not-allowed;
+    filter: grayscale(0.8) brightness(1.2) saturate(0.3);
+}
+
+.mephista-locked:hover {
+    filter: grayscale(0.4) brightness(1.35) saturate(0.5);
+}
+
+.mephista-locked .card-overlay {
+    opacity: 0.45;
+}
+
+.mephista-locked:hover .card-overlay {
+    opacity: 1;
+}
+
+.mephista-locked::before {
+    background: #d8cfc8 !important;
+}
+
+/* messy chains */
+/* messy chains */
+.chains {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0.8;
+}
+
+.chains::before,
+.chains::after {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 12px;
+    left: -25%;
+
+    background:
+        repeating-linear-gradient(90deg,
+            #bfbfbf 0 10px,
+            #333333 10px 14px,
+            #bfbfbf 14px 24px,
+            transparent 24px 34px);
+
+    border-top: 1px solid #777;
+    border-bottom: 1px solid #222;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+}
+
+.chains::before {
+    top: 32%;
+    transform: rotate(-18deg);
+}
+
+.chains::after {
+    top: 63%;
+    transform: rotate(17deg);
+}
+
+.mephista-locked:hover .chains {
+    animation: chainTremble 0.18s infinite alternate;
+}
+
+@keyframes chainTremble {
+    from {
+        transform: translateX(-1px) rotate(-0.2deg);
+    }
+
+    to {
+        transform: translateX(1px) rotate(0.2deg);
+    }
+}
+
+.card-warning {
+    margin-top: 12px;
+    font-size: 0.7em;
+    letter-spacing: 0.12em;
+    color: #b8aaa0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.mephista-locked:hover .card-warning {
+    opacity: 0.75;
+}
+
+.zen-card:hover {
+  border-color: #f2f2f2;
+  background: rgba(242, 242, 242, 0.08);
+  box-shadow:
+    0 0 15px rgba(242, 242, 242, 0.35),
+    0 0 30px rgba(242, 242, 242, 0.18);
+}
+
+.zen-card:hover .side-card-placeholder,
+.zen-card:hover .side-card-name {
+  border-color: #f2f2f2;
+  color: #f2f2f2;
+}
+
+.astra-card:hover {
+  border-color: #8ccfff;
+  background: rgba(140, 207, 255, 0.08);
+  box-shadow:
+    0 0 15px rgba(140, 207, 255, 0.4),
+    0 0 30px rgba(140, 207, 255, 0.2);
+}
+
+.astra-card:hover .side-card-placeholder,
+.astra-card:hover .side-card-name {
+  border-color: #8ccfff;
+  color: #8ccfff;
+}
+
+.shade-card:hover {
+  border-color: #102a66;
+  background: rgba(16, 42, 102, 0.12);
+  box-shadow:
+    0 0 15px rgba(16, 42, 102, 0.55),
+    0 0 30px rgba(16, 42, 102, 0.3);
+}
+
+.shade-card:hover .side-card-placeholder,
+.shade-card:hover .side-card-name {
+  border-color: #102a66;
+  color: #102a66;
+}
+
+.lyra-card:hover {
+  border-color: #d8f6ff;
+  background: rgba(216, 246, 255, 0.08);
+  box-shadow:
+    0 0 15px rgba(216, 246, 255, 0.4),
+    0 0 30px rgba(216, 246, 255, 0.2);
+}
+
+.lyra-card:hover .side-card-placeholder,
+.lyra-card:hover .side-card-name {
+  border-color: #d8f6ff;
+  color: #d8f6ff;
+}
+
+.draco-card:hover {
+  border-color: #ff8a1c;
+  background: rgba(255, 138, 28, 0.08);
+  box-shadow:
+    0 0 15px rgba(255, 138, 28, 0.45),
+    0 0 30px rgba(255, 138, 28, 0.22);
+}
+
+.draco-card:hover .side-card-placeholder,
+.draco-card:hover .side-card-name {
+  border-color: #ff8a1c;
+  color: #ff8a1c;
+}
+
+.nexus-card:hover {
+  border-color: #ff3cff;
+  background: rgba(255, 60, 255, 0.08);
+  box-shadow:
+    0 0 15px rgba(255, 60, 255, 0.45),
+    0 0 30px rgba(255, 60, 255, 0.22);
+}
+
+.nexus-card:hover .side-card-placeholder,
+.nexus-card:hover .side-card-name {
+  border-color: #ff3cff;
+  color: #ff3cff;
+}
+
+.exe-card:hover {
+  border-color: #39ff14;
+  background: rgba(57, 255, 20, 0.08);
+  box-shadow:
+    0 0 15px rgba(57, 255, 20, 0.45),
+    0 0 30px rgba(57, 255, 20, 0.22);
+}
+
+.exe-card:hover .side-card-placeholder,
+.exe-card:hover .side-card-name {
+  border-color: #39ff14;
+  color: #39ff14;
+}

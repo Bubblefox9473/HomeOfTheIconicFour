@@ -1,0 +1,856 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+:root {
+
+  /* === Zerachiel Identity === */
+
+  --bg:
+    #070b09;
+
+  --surface:
+    #101812;
+
+  --surface-soft:
+    #18241b;
+
+
+  --border:
+    rgba(190,230,180,0.3);
+
+
+  --text:
+    #edf5e8;
+
+  --muted:
+    #a9b8a3;
+
+
+  --accent:
+    #c8e8b5;
+
+  --accent-soft:
+    rgba(200,232,181,0.14);
+
+
+  --holy-glow:
+    rgba(200,232,181,0.35);
+
+  --shadow:
+    rgba(0,0,0,0.8);
+
+}
+
+
+body {
+
+  min-height:
+    100vh;
+
+
+  background:
+
+    radial-gradient(
+      circle at top,
+      rgba(200,232,181,0.16),
+      transparent 32%
+    ),
+
+    radial-gradient(
+      circle at bottom,
+      rgba(40,90,55,0.2),
+      transparent 45%
+    ),
+
+    var(--bg);
+
+
+  color:
+    var(--text);
+
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+
+  padding:
+    34px 18px 70px;
+
+}
+
+
+/* === Divine Dust === */
+
+body::before {
+
+  content:
+    "";
+
+
+  position:
+    fixed;
+
+
+  inset:
+    0;
+
+
+  background-image:
+
+    radial-gradient(
+      circle,
+      rgba(220,255,210,0.18) 1px,
+      transparent 1px
+    );
+
+
+  background-size:
+    100px 100px;
+
+
+  opacity:
+    0.12;
+
+
+  pointer-events:
+    none;
+
+}
+
+
+/* === Back Link === */
+
+.back-link {
+
+  position:
+    relative;
+
+
+  z-index:
+    1;
+
+
+  display:
+    inline-block;
+
+
+  margin-bottom:
+    34px;
+
+
+  color:
+    var(--muted);
+
+
+  text-decoration:
+    none;
+
+
+  font-family:
+    "Cinzel",
+    serif;
+
+
+  font-size:
+    0.72rem;
+
+
+  letter-spacing:
+    0.18em;
+
+
+  text-transform:
+    uppercase;
+
+}
+
+
+.back-link:hover {
+
+  color:
+    var(--accent);
+
+}
+
+
+/* === Main Container === */
+
+.side-profile {
+
+  position:
+    relative;
+
+
+  z-index:
+    1;
+
+
+  width:
+    min(920px,100%);
+
+
+  margin:
+    0 auto;
+
+}
+
+/* === ZERACHIEL HERO / JUDGEMENT RECORD === */
+
+.profile-hero {
+
+  border:
+    1px solid rgba(200,232,181,0.35);
+
+
+  background:
+
+    linear-gradient(
+      135deg,
+      rgba(200,232,181,0.12),
+      rgba(0,0,0,0.45)
+    );
+
+
+  padding:
+    44px 28px;
+
+
+  text-align:
+    center;
+
+
+  margin-bottom:
+    22px;
+
+
+  box-shadow:
+
+    inset 0 0 35px rgba(200,232,181,0.06),
+
+    0 0 35px rgba(0,0,0,0.45);
+
+
+  position:
+    relative;
+
+}
+
+
+/* Divine judgement seal */
+
+.profile-hero::before {
+
+  content:
+    "◈";
+
+
+  position:
+    absolute;
+
+
+  top:
+    14px;
+
+
+  left:
+    50%;
+
+
+  transform:
+    translateX(-50%);
+
+
+  color:
+    var(--accent);
+
+
+  font-size:
+    1.4rem;
+
+
+  text-shadow:
+
+    0 0 18px var(--holy-glow);
+
+}
+
+
+.eyebrow {
+
+  font-family:
+    "Cinzel",
+    serif;
+
+
+  font-size:
+    0.68rem;
+
+
+  letter-spacing:
+    0.4em;
+
+
+  text-transform:
+    uppercase;
+
+
+  color:
+    var(--muted);
+
+
+  margin-bottom:
+    14px;
+
+}
+
+
+h1 {
+
+  font-family:
+    "Cinzel",
+    serif;
+
+
+  font-size:
+    clamp(2.4rem,7vw,4.6rem);
+
+
+  font-weight:
+    600;
+
+
+  letter-spacing:
+    0.2em;
+
+
+  text-transform:
+    uppercase;
+
+
+  color:
+    #f2ffe9;
+
+
+  text-shadow:
+
+    0 0 25px rgba(200,232,181,0.35);
+
+}
+
+
+.subtitle {
+
+  margin-top:
+    8px;
+
+
+  font-family:
+    "Cinzel",
+    serif;
+
+
+  letter-spacing:
+    0.28em;
+
+
+  color:
+    var(--accent);
+
+
+  text-transform:
+    uppercase;
+
+
+  font-size:
+    0.8rem;
+
+}
+
+
+.quote {
+
+  max-width:
+    560px;
+
+
+  margin:
+    26px auto 0;
+
+
+  color:
+    var(--muted);
+
+
+  font-size:
+    1.25rem;
+
+
+  font-style:
+    italic;
+
+
+  line-height:
+    1.8;
+
+
+  border-top:
+    1px solid rgba(200,232,181,0.18);
+
+
+  padding-top:
+    16px;
+
+}
+
+
+/* === MAIN PROFILE PANEL === */
+
+.profile-panel {
+
+  display:
+    grid;
+
+
+  grid-template-columns:
+    280px 1fr;
+
+
+  gap:
+    18px;
+
+
+  margin-bottom:
+    18px;
+
+}
+
+
+/* === Shared Divine Panels === */
+
+.portrait-box,
+.info-box,
+.content-card {
+
+  border:
+    1px solid rgba(200,232,181,0.28);
+
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(200,232,181,0.08),
+      rgba(10,15,12,0.92)
+    );
+
+
+  box-shadow:
+
+    inset 0 0 25px rgba(200,232,181,0.05),
+
+    0 0 24px rgba(0,0,0,0.45);
+
+}
+
+
+/* === Portrait === */
+
+.portrait-box {
+
+  min-height:
+    360px;
+
+
+  overflow:
+    hidden;
+
+
+  position:
+    relative;
+
+
+  border-color:
+    rgba(220,245,210,0.4);
+
+}
+
+
+.portrait-box::before {
+
+  content:
+    "";
+
+
+  position:
+    absolute;
+
+
+  inset:
+    0;
+
+
+  background:
+
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.18),
+      transparent 35%
+    );
+
+
+  pointer-events:
+    none;
+
+
+  z-index:
+    1;
+
+}
+
+
+.portrait-box img {
+
+  width:
+    100%;
+
+
+  height:
+    100%;
+
+
+  object-fit:
+    cover;
+
+
+  display:
+    block;
+
+
+  filter:
+
+    brightness(1.05)
+    saturate(0.85);
+
+}
+
+
+/* === Information Boxes === */
+
+.info-box,
+.content-card {
+
+  padding:
+    26px;
+
+}
+
+
+h2 {
+
+  font-family:
+    "Cinzel",
+    serif;
+
+
+  font-size:
+    1rem;
+
+
+  letter-spacing:
+    0.25em;
+
+
+  text-transform:
+    uppercase;
+
+
+  color:
+    var(--accent);
+
+
+  margin-bottom:
+    18px;
+
+
+  text-shadow:
+
+    0 0 12px rgba(200,232,181,0.25);
+
+}
+
+
+h2::before {
+
+  content:
+    "◈";
+
+
+  margin-right:
+    10px;
+
+
+  color:
+    var(--accent);
+
+}
+
+/* === BASIC INFORMATION GRID === */
+
+.info-grid {
+
+  display:
+    grid;
+
+
+  grid-template-columns:
+    130px 1fr;
+
+
+  gap:
+    12px 18px;
+
+}
+
+
+.info-grid span {
+
+  font-family:
+    "Cinzel",
+    serif;
+
+
+  font-size:
+    0.72rem;
+
+
+  letter-spacing:
+    0.16em;
+
+
+  text-transform:
+    uppercase;
+
+
+  color:
+    var(--muted);
+
+}
+
+
+.info-grid p,
+.content-card p,
+.simple-list li {
+
+  font-size:
+    1.1rem;
+
+
+  line-height:
+    1.65;
+
+
+  color:
+    var(--text);
+
+}
+
+
+/* === CONTENT SPACING === */
+
+.content-card {
+
+  margin-bottom:
+    18px;
+
+}
+
+
+.content-card p + p {
+
+  margin-top:
+    14px;
+
+}
+
+
+/* === ABILITIES / FEATS === */
+
+.split-section {
+
+  display:
+    grid;
+
+
+  grid-template-columns:
+    1fr 1fr;
+
+
+  gap:
+    18px;
+
+}
+
+
+.tag-list,
+.simple-list {
+
+  list-style:
+    none;
+
+}
+
+
+/* === Judgement Seals === */
+
+.tag-list {
+
+  display:
+    flex;
+
+
+  flex-wrap:
+    wrap;
+
+
+  gap:
+    10px;
+
+}
+
+
+.tag-list li {
+
+  border:
+    1px solid rgba(200,232,181,0.35);
+
+
+  background:
+
+    rgba(200,232,181,0.08);
+
+
+  color:
+    var(--text);
+
+
+  padding:
+    8px 12px;
+
+
+  font-family:
+    "Cinzel",
+    serif;
+
+
+  font-size:
+    0.72rem;
+
+
+  letter-spacing:
+    0.12em;
+
+
+  text-transform:
+    uppercase;
+
+
+  box-shadow:
+
+    inset 0 0 12px rgba(200,232,181,0.08);
+
+}
+
+
+/* === Appearance / Records List === */
+
+.simple-list li {
+
+  border-bottom:
+
+    1px solid rgba(200,232,181,0.12);
+
+
+  padding:
+    8px 0;
+
+}
+
+
+/* === Divine Archive Hover === */
+
+.content-card:hover,
+.info-box:hover,
+.portrait-box:hover {
+
+  border-color:
+    rgba(220,245,210,0.5);
+
+
+  box-shadow:
+
+    inset 0 0 30px rgba(200,232,181,0.08),
+
+    0 0 30px rgba(200,232,181,0.12);
+
+}
+
+
+/* === Missing Image Fallback === */
+
+.portrait-box:has(img[src=""]) {
+
+  background:
+    var(--surface-soft);
+
+}
+
+
+/* === MOBILE === */
+
+@media (max-width:760px) {
+
+
+  .profile-panel,
+  .split-section {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .portrait-box {
+
+    min-height:
+      320px;
+
+  }
+
+
+  .info-grid {
+
+    grid-template-columns:
+      1fr;
+
+
+    gap:
+      4px 0;
+
+  }
+
+
+  .info-grid p {
+
+    margin-bottom:
+      10px;
+
+  }
+
+}

@@ -804,3 +804,21 @@ footer {
   border-color: #39ff14;
   color: #39ff14;
 }
+
+.zerachiel-card:hover {
+  border-color: #d8f2c8;
+  background: rgba(216,242,200,0.08);
+
+  box-shadow:
+    0 0 15px rgba(216,242,200,0.45),
+    0 0 30px rgba(216,242,200,0.22);
+}
+
+
+.zerachiel-card:hover .side-card-placeholder,
+.zerachiel-card:hover .side-card-name {
+
+  border-color: #d8f2c8;
+  color: #d8f2c8;
+
+}

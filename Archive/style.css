@@ -694,6 +694,91 @@ footer {
     }
 }
 
+/* ============================================================
+   RETURN TO NN-CORP BUTTON
+   ============================================================ */
+
+.archive-home {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+
+    display:
+        inline-block;
+
+
+    margin-bottom:
+        40px;
+
+
+    color:
+        var(--muted);
+
+
+    text-decoration:
+        none;
+
+
+    font-family:
+        'Cinzel',
+        serif;
+
+
+    font-size:
+        0.7rem;
+
+
+    letter-spacing:
+        0.25em;
+
+
+    text-transform:
+        uppercase;
+
+
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+
+}
+
+
+
+.archive-home:hover {
+
+    color:
+        var(--accent);
+
+
+    text-shadow:
+
+        0 0 12px var(--accent);
+
+}
+
+
+
+/* Small archive seal */
+
+.archive-home::before {
+
+    content:
+        "◇";
+
+
+    margin-right:
+        10px;
+
+
+    color:
+        var(--accent);
+
+}
+
 .card-warning {
     margin-top: 12px;
     font-size: 0.7em;

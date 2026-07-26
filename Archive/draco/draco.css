@@ -9,44 +9,55 @@
 
 :root {
 
-  /* === Zerachiel Identity === */
+  /* === Draco Identity === */
 
   --bg:
-    #070b09;
+    #0c0907;
 
   --surface:
-    #101812;
+    #15110d;
 
   --surface-soft:
-    #18241b;
+    #211913;
 
 
   --border:
-    rgba(190,230,180,0.3);
+    rgba(230,170,110,0.32);
 
 
   --text:
-    #edf5e8;
+    #eee8df;
 
   --muted:
-    #a9b8a3;
+    #aaa096;
 
+
+  /* Opal Ember */
 
   --accent:
-    #c8e8b5;
+    #e59a4a;
 
   --accent-soft:
-    rgba(200,232,181,0.14);
+    rgba(229,154,74,0.14);
 
 
-  --holy-glow:
-    rgba(200,232,181,0.35);
+  /* Fire Glow */
+
+  --ember-glow:
+    rgba(229,154,74,0.38);
+
+
+  --opal:
+    rgba(235,225,210,0.45);
+
 
   --shadow:
-    rgba(0,0,0,0.8);
+    rgba(0,0,0,0.85);
 
 }
 
+
+/* === BODY === */
 
 body {
 
@@ -58,15 +69,17 @@ body {
 
     radial-gradient(
       circle at top,
-      rgba(200,232,181,0.16),
+      rgba(229,154,74,0.16),
       transparent 32%
     ),
 
+
     radial-gradient(
       circle at bottom,
-      rgba(40,90,55,0.2),
+      rgba(255,120,40,0.12),
       transparent 45%
     ),
+
 
     var(--bg);
 
@@ -86,7 +99,7 @@ body {
 }
 
 
-/* === Divine Dust === */
+/* === Ember Ash Particles === */
 
 body::before {
 
@@ -106,23 +119,24 @@ body::before {
 
     radial-gradient(
       circle,
-      rgba(220,255,210,0.18) 1px,
+      rgba(255,190,120,0.15) 1px,
       transparent 1px
     );
 
 
   background-size:
-    100px 100px;
+    110px 110px;
 
 
   opacity:
-    0.12;
+    0.1;
 
 
   pointer-events:
     none;
 
 }
+
 
 
 /* === Back Link === */
@@ -180,6 +194,7 @@ body::before {
 }
 
 
+
 /* === Main Container === */
 
 .side-profile {
@@ -201,20 +216,22 @@ body::before {
 
 }
 
-/* === ZERACHIEL HERO / JUDGEMENT RECORD === */
+
+
+/* === DRACO HERO / OPAL YEARING RECORD === */
 
 .profile-hero {
 
   border:
-    1px solid rgba(200,232,181,0.35);
+    1px solid rgba(229,154,74,0.38);
 
 
   background:
 
     linear-gradient(
       135deg,
-      rgba(200,232,181,0.12),
-      rgba(0,0,0,0.45)
+      rgba(229,154,74,0.12),
+      rgba(0,0,0,0.55)
     );
 
 
@@ -232,9 +249,9 @@ body::before {
 
   box-shadow:
 
-    inset 0 0 35px rgba(200,232,181,0.06),
+    inset 0 0 35px rgba(229,154,74,0.07),
 
-    0 0 35px rgba(0,0,0,0.45);
+    0 0 35px rgba(0,0,0,0.5);
 
 
   position:
@@ -243,12 +260,13 @@ body::before {
 }
 
 
-/* Divine judgement seal */
+
+/* Opal flame seal */
 
 .profile-hero::before {
 
   content:
-    "◈";
+    "✦";
 
 
   position:
@@ -277,9 +295,10 @@ body::before {
 
   text-shadow:
 
-    0 0 18px var(--holy-glow);
+    0 0 18px var(--ember-glow);
 
 }
+
 
 
 .eyebrow {
@@ -311,6 +330,7 @@ body::before {
 }
 
 
+
 h1 {
 
   font-family:
@@ -335,14 +355,15 @@ h1 {
 
 
   color:
-    #f2ffe9;
+    #f4ede3;
 
 
   text-shadow:
 
-    0 0 25px rgba(200,232,181,0.35);
+    0 0 25px rgba(229,154,74,0.35);
 
 }
+
 
 
 .subtitle {
@@ -374,6 +395,7 @@ h1 {
 }
 
 
+
 .quote {
 
   max-width:
@@ -401,14 +423,13 @@ h1 {
 
 
   border-top:
-    1px solid rgba(200,232,181,0.18);
+    1px solid rgba(229,154,74,0.18);
 
 
   padding-top:
     16px;
 
 }
-
 
 /* === MAIN PROFILE PANEL === */
 
@@ -432,32 +453,34 @@ h1 {
 }
 
 
-/* === Shared Divine Panels === */
+
+/* === Shared Ember Opal Panels === */
 
 .portrait-box,
 .info-box,
 .content-card {
 
   border:
-    1px solid rgba(200,232,181,0.28);
+    1px solid rgba(229,154,74,0.28);
 
 
   background:
 
     linear-gradient(
       145deg,
-      rgba(200,232,181,0.08),
-      rgba(10,15,12,0.92)
+      rgba(229,154,74,0.08),
+      rgba(15,11,8,0.94)
     );
 
 
   box-shadow:
 
-    inset 0 0 25px rgba(200,232,181,0.05),
+    inset 0 0 25px rgba(229,154,74,0.05),
 
-    0 0 24px rgba(0,0,0,0.45);
+    0 0 24px rgba(0,0,0,0.5);
 
 }
+
 
 
 /* === Portrait === */
@@ -477,10 +500,13 @@ h1 {
 
 
   border-color:
-    rgba(220,245,210,0.4);
+    rgba(240,220,190,0.4);
 
 }
 
+
+
+/* Opal reflection */
 
 .portrait-box::before {
 
@@ -500,7 +526,7 @@ h1 {
 
     linear-gradient(
       135deg,
-      rgba(255,255,255,0.18),
+      rgba(255,235,200,0.16),
       transparent 35%
     );
 
@@ -513,6 +539,7 @@ h1 {
     1;
 
 }
+
 
 
 .portrait-box img {
@@ -535,10 +562,11 @@ h1 {
 
   filter:
 
-    brightness(1.05)
-    saturate(0.85);
+    brightness(0.95)
+    saturate(1.05);
 
 }
+
 
 
 /* === Information Boxes === */
@@ -551,6 +579,9 @@ h1 {
 
 }
 
+
+
+/* === Headers === */
 
 h2 {
 
@@ -581,15 +612,18 @@ h2 {
 
   text-shadow:
 
-    0 0 12px rgba(200,232,181,0.25);
+    0 0 12px rgba(229,154,74,0.25);
 
 }
 
 
+
+/* Opal mark */
+
 h2::before {
 
   content:
-    "◈";
+    "◇";
 
 
   margin-right:
@@ -600,6 +634,8 @@ h2::before {
     var(--accent);
 
 }
+
+
 
 /* === BASIC INFORMATION GRID === */
 
@@ -617,6 +653,7 @@ h2::before {
     12px 18px;
 
 }
+
 
 
 .info-grid span {
@@ -644,6 +681,7 @@ h2::before {
 }
 
 
+
 .info-grid p,
 .content-card p,
 .simple-list li {
@@ -662,6 +700,7 @@ h2::before {
 }
 
 
+
 /* === CONTENT SPACING === */
 
 .content-card {
@@ -672,13 +711,13 @@ h2::before {
 }
 
 
+
 .content-card p + p {
 
   margin-top:
     14px;
 
 }
-
 
 /* === ABILITIES / FEATS === */
 
@@ -698,6 +737,9 @@ h2::before {
 }
 
 
+
+/* Lists */
+
 .tag-list,
 .simple-list {
 
@@ -707,7 +749,8 @@ h2::before {
 }
 
 
-/* === Judgement Seals === */
+
+/* === Ember Ability Seals === */
 
 .tag-list {
 
@@ -725,15 +768,20 @@ h2::before {
 }
 
 
+
 .tag-list li {
 
   border:
-    1px solid rgba(200,232,181,0.35);
+    1px solid rgba(229,154,74,0.35);
 
 
   background:
 
-    rgba(200,232,181,0.08);
+    linear-gradient(
+      135deg,
+      rgba(229,154,74,0.12),
+      rgba(255,210,160,0.04)
+    );
 
 
   color:
@@ -763,9 +811,11 @@ h2::before {
 
   box-shadow:
 
-    inset 0 0 12px rgba(200,232,181,0.08);
+    inset 0 0 12px rgba(229,154,74,0.08);
+
 
 }
+
 
 
 /* === Appearance / Records List === */
@@ -774,7 +824,7 @@ h2::before {
 
   border-bottom:
 
-    1px solid rgba(200,232,181,0.12);
+    1px solid rgba(229,154,74,0.12);
 
 
   padding:
@@ -783,23 +833,41 @@ h2::before {
 }
 
 
-/* === Divine Archive Hover === */
+
+/* === Draco Ember Archive Glow === */
 
 .content-card:hover,
 .info-box:hover,
 .portrait-box:hover {
 
   border-color:
-    rgba(220,245,210,0.5);
+    rgba(240,220,190,0.55);
 
 
   box-shadow:
 
-    inset 0 0 30px rgba(200,232,181,0.08),
+    inset 0 0 30px rgba(229,154,74,0.08),
 
-    0 0 30px rgba(200,232,181,0.12);
+    0 0 30px rgba(229,154,74,0.14);
 
 }
+
+
+
+/* === Portrait Fire Reflection === */
+
+.portrait-box:hover::before {
+
+  background:
+
+    linear-gradient(
+      135deg,
+      rgba(255,235,200,0.28),
+      transparent 40%
+    );
+
+}
+
 
 
 /* === Missing Image Fallback === */
@@ -810,6 +878,75 @@ h2::before {
     var(--surface-soft);
 
 }
+
+
+
+/* === Subtle Exhausted Ember Feeling === */
+
+/* Draco is not aggressive fire,
+   it should feel like dying embers */
+
+.profile-hero,
+.content-card,
+.info-box {
+
+  backdrop-filter:
+    blur(3px);
+
+}
+
+
+
+/* Slow ember breathing */
+
+.profile-hero::after {
+
+  content:
+    "";
+
+
+  position:
+    absolute;
+
+
+  inset:
+    0;
+
+
+  background:
+
+    radial-gradient(
+      circle at center,
+      rgba(229,154,74,0.12),
+      transparent 55%
+    );
+
+
+  opacity:
+    0.5;
+
+
+  pointer-events:
+    none;
+
+
+}
+
+
+
+/* Keep text above glow */
+
+.profile-hero > * {
+
+  position:
+    relative;
+
+
+  z-index:
+    2;
+
+}
+
 
 
 /* === MOBILE === */
@@ -826,12 +963,14 @@ h2::before {
   }
 
 
+
   .portrait-box {
 
     min-height:
       320px;
 
   }
+
 
 
   .info-grid {
@@ -846,10 +985,329 @@ h2::before {
   }
 
 
+
   .info-grid p {
 
     margin-bottom:
       10px;
+
+  }
+
+
+}
+
+/* ============================================================
+   DRACO ZERATHIS — THE OPAL YEARNING
+   Final Ember Archive Effects
+   ============================================================ */
+
+
+/* === Opal Border Shimmer === */
+
+.profile-panel,
+.content-card,
+.info-box,
+.portrait-box {
+
+  position:
+    relative;
+
+}
+
+
+
+/* Thin inner archive frame */
+
+.content-card::before,
+.info-box::before,
+.portrait-box::before {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    6px;
+
+  border:
+    1px solid rgba(255,220,180,0.08);
+
+  pointer-events:
+    none;
+
+}
+
+
+
+/* === Moth Wing Inspired Corner Mark === */
+
+.content-card::after,
+.info-box::after {
+
+  content:
+    "✦";
+
+  position:
+    absolute;
+
+  top:
+    12px;
+
+  right:
+    16px;
+
+  font-size:
+    0.75rem;
+
+  color:
+    rgba(255,220,180,0.45);
+
+  opacity:
+    0.6;
+
+}
+
+
+
+/* === Exhausted Flame Animation === */
+
+@keyframes emberPulse {
+
+  0%,
+  100% {
+
+    text-shadow:
+
+      0 0 12px rgba(229,154,74,0.25);
+
+  }
+
+
+  50% {
+
+    text-shadow:
+
+      0 0 22px rgba(229,154,74,0.5);
+
+  }
+
+}
+
+
+
+h1 {
+
+  animation:
+    emberPulse 4s ease-in-out infinite;
+
+}
+
+
+
+/* === Hero Ember Atmosphere === */
+
+.profile-hero {
+
+  overflow:
+    hidden;
+
+}
+
+
+
+.profile-hero::after {
+
+  animation:
+    emberDrift 8s ease-in-out infinite;
+
+}
+
+
+
+@keyframes emberDrift {
+
+  0%,
+  100% {
+
+    transform:
+      scale(1);
+
+    opacity:
+      0.35;
+
+  }
+
+
+  50% {
+
+    transform:
+      scale(1.15);
+
+    opacity:
+      0.6;
+
+  }
+
+}
+
+
+
+/* === Fire Ash Texture === */
+
+body::after {
+
+  content:
+    "";
+
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+
+  background:
+
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(229,154,74,0.08),
+      transparent 25%
+    ),
+
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255,230,200,0.06),
+      transparent 30%
+    );
+
+
+  z-index:
+    0;
+
+}
+
+
+
+/* === Archive Text Refinement === */
+
+.quote {
+
+  color:
+    #c9c1b8;
+
+
+  letter-spacing:
+    0.04em;
+
+}
+
+
+
+.subtitle {
+
+  text-shadow:
+
+    0 0 14px rgba(229,154,74,0.35);
+
+}
+
+
+
+/* === Fire-Touched Ability Tags === */
+
+.tag-list li:hover {
+
+  background:
+
+    linear-gradient(
+      135deg,
+      rgba(229,154,74,0.22),
+      rgba(255,220,180,0.08)
+    );
+
+
+  border-color:
+    rgba(255,220,180,0.65);
+
+
+  box-shadow:
+
+    0 0 18px rgba(229,154,74,0.18);
+
+}
+
+
+
+/* === Soft Opal Hover === */
+
+.simple-list li:hover {
+
+  color:
+    #fff3df;
+
+
+  border-color:
+    rgba(255,220,180,0.35);
+
+}
+
+
+
+/* === Scrollbar (Desktop) === */
+
+::-webkit-scrollbar {
+
+  width:
+    8px;
+
+}
+
+
+
+::-webkit-scrollbar-track {
+
+  background:
+    #090705;
+
+}
+
+
+
+::-webkit-scrollbar-thumb {
+
+  background:
+
+    linear-gradient(
+      #e59a4a,
+      #f1dbc2
+    );
+
+
+  border-radius:
+    10px;
+
+}
+
+
+
+/* === Reduce Motion Support === */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+
+    animation:
+      none !important;
+
+    transition:
+      none !important;
 
   }
 

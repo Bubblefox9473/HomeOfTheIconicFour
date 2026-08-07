@@ -17,75 +17,72 @@
 
 :root {
 
-
     /* Backgrounds */
 
     --void:
-        #050308;
+        #080607;
 
     --abyss:
-        #0c0812;
+        #0d0a0b;
 
     --marble:
-        #15111c;
+        #151112;
 
     --panel:
-        rgba(20,15,25,0.92);
+        rgba(18,14,15,0.92);
 
 
 
     /* Identity Colors */
 
     --gold:
-        #c8a45d;
+        #b08171;
 
     --gold-soft:
-        rgba(200,164,93,0.35);
+        rgba(176,129,113,0.35);
 
 
     --blood:
-        #7a1820;
+        #6f3030;
 
 
     --blood-glow:
-        rgba(122,24,32,0.45);
+        rgba(111,48,48,0.45);
 
 
 
     --stellar:
-        #8db7d9;
+        #c59a8b;
 
 
     --stellar-glow:
-        rgba(141,183,217,0.35);
+        rgba(197,154,139,0.35);
 
 
 
     /* Text */
 
     --text:
-        #eee7da;
+        #eee8e5;
 
 
     --muted:
-        #aaa0b2;
+        #a19798;
 
 
     --paper:
-        #d8d0c0;
+        #d2c8c4;
 
 
 
     /* Effects */
 
     --border:
-        rgba(200,164,93,0.35);
+        rgba(176,129,113,0.35);
 
 
     --shadow:
         rgba(0,0,0,0.8);
-
-
 }
 
 

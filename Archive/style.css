@@ -13,18 +13,29 @@
 }
 
 :root {
-    --bg: #080808;
+    --bg: #0b0809;
     /* CHANGE: page background */
-    --surface: #111111;
+    --surface: #110f10;
     /* CHANGE: card background */
-    --border: #222222;
+    --border: #302b2c;
     /* CHANGE: border color */
-    --text: #e8e8e8;
+    --border-light: #181516;
+    /* CHANGE: lighter border color */  
+    --text: #d2c8c4;
     /* CHANGE: main text color */
-    --muted: #666666;
+    --text-bright: #eee8e5;
+    /* CHANGE: bright text color */
+    --muted: #a19798;
     /* CHANGE: secondary text color */
-    --accent: #c8a96e;
+    --accent: #b08171;
     /* CHANGE: highlight/accent color */
+    --accent-light: #c59a8b;
+    /* CHANGE: lighter accent color */
+    --accent-dark: #73534a;
+    /* CHANGE: darker accent color */
+
+    --terminal: #0f0a0b;
+    /* CHANGE: terminal text color */
 }
 
 /* === BODY === */

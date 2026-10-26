@@ -103,8 +103,8 @@ body{
  border-top-color:#d2dce7;
 }
 .gate-box::before{content:"LC:NN / RESTRICTED FILE — ACCESS CONTROL"}
-/* The eight icon-stickers carry her unresolved angel/demon duality,
-   rebirth, knowledge, law and the single rose inherited from the cover. */
+/* Eight wingless portrait insignias: fractured divine halo, infernal signet,
+   fractured shard, Tianyi star, rebirth, knowledge, judgment and the last rose. */
 .hero-portrait{overflow:visible}
 .solenne-motifs{position:absolute;inset:0;z-index:5;pointer-events:none;overflow:visible}
 .solenne-sticker{
@@ -118,16 +118,16 @@ body{
  width:clamp(98px,12vw,159px);height:auto;top:6%;left:-9%;
  transform:rotate(-14deg);opacity:.9;animation-duration:9.4s;
 }
-.motif-horns{
- width:clamp(85px,9vw,125px);height:auto;top:11%;right:-9%;
+.motif-infernal{
+ width:clamp(86px,9vw,124px);height:auto;top:11%;right:-9%;
  transform:rotate(10deg);opacity:.83;animation-duration:10.2s;animation-delay:-2.8s;
 }
-.motif-feather{
- width:clamp(71px,7vw,106px);height:auto;top:33%;left:-9%;
+.motif-fracture{
+ width:clamp(85px,8.8vw,124px);height:auto;top:33%;left:-9%;
  transform:rotate(-18deg);opacity:.84;animation-duration:8.2s;animation-delay:-4.6s;
 }
-.motif-demon-wing{
- width:clamp(104px,12.6vw,165px);height:auto;top:35%;right:-10%;
+.motif-tianyi{
+ width:clamp(91px,9.8vw,132px);height:auto;top:35%;right:-9%;
  transform:rotate(12deg);opacity:.84;animation-duration:10.5s;animation-delay:-5.7s;
 }
 .motif-scales{
@@ -154,9 +154,9 @@ body{
 @media(max-width:760px){
  .hero-description{color:#c4cdd9}
  .motif-halo{width:98px;left:-5%;top:7%}
- .motif-horns{width:78px;right:-4%;top:12%}
- .motif-feather{width:64px;left:-5%;top:34%}
- .motif-demon-wing{width:102px;right:-5%;top:37%}
+ .motif-infernal{width:78px;right:-4%;top:12%}
+ .motif-fracture{width:80px;left:-5%;top:34%}
+ .motif-tianyi{width:90px;right:-5%;top:37%}
  .motif-scales{width:80px;left:-5%;bottom:27%}
  .motif-book{width:97px;right:-4%;bottom:11%}
  .motif-rose{width:68px;left:-3%;bottom:5%}
@@ -164,9 +164,9 @@ body{
 }
 @media(max-width:430px){
  .motif-halo{width:82px;left:-4%}
- .motif-horns{width:65px;right:-3%}
- .motif-feather{width:55px;left:-4%}
- .motif-demon-wing{width:84px;right:-3%}
+ .motif-infernal{width:65px;right:-3%}
+ .motif-fracture{width:65px;left:-4%}
+ .motif-tianyi{width:75px;right:-3%}
  .motif-scales{width:65px;left:-3%}
  .motif-book{width:81px;right:-3%}
  .motif-rose{width:56px;left:-2%}

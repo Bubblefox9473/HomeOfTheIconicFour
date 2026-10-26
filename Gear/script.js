@@ -1,8 +1,6 @@
 /* NNC-02 / Gear Registry — provenance and item type are separate fields. */
 "use strict";
-/* Provenance is how an item entered the collection; "Relic" is a
-   Project Moon equipment/weapon classification, NOT a recovery source.
-   A relic may be original, faction-issued, or recovered. */
+/* Relics are weapons recovered from the rarely spoken-of Ruins supposedly beneath the City. They are a weapon class, not a provenance category. */
 const inventory=[
  {id:"NNC02-001",name:"The Tianyi Star",division:"faction",subdivision:"syndicates",
   kind:"weapons",type:"Weapon",issuer:"The Pinky",owner:"Not documented",
@@ -33,17 +31,17 @@ const inventory=[
   summary:"Shattered Purity is an original weapon associated with Zerachiel. Its appearance, origin details, and properties remain unfiled.",
   note:"Original gear / Zerachiel. The record confirms its association, not additional lore."},
  {id:"NNC02-008",name:"Zerachiel's Prophecy",division:"original",
-  kind:"relics",type:"Relic",form:"Document",owner:"Not documented",
-  summary:"Zerachiel's Prophecy is an original Relic with a document form. Relic denotes its equipment classification; the object is not being identified as a recovery from ruins.",
-  note:"Original / Relic / Document. Contents, properties, custody, and creation details await confirmation."},
+  kind:"documents",type:"Document",form:"Document",owner:"Not documented",
+  summary:"Zerachiel\'s Prophecy is a document of presently undisclosed contents and properties.",
+  note:"Original / Document. Contents, custody, and creation details await confirmation."},
  {id:"NNC02-009",name:"Mephista's Memo",division:"original",
-  kind:"relics",type:"Relic",form:"Document",owner:"Not documented",
-  summary:"Mephista's Memo is an original Relic in document form. Its name is recorded, but the contents, holder, and effects have not been disclosed.",
-  note:"Original / Relic / Document. The item's classification does not imply recovery from ruins."},
+  kind:"documents",type:"Document",form:"Document",owner:"Not documented",
+  summary:"Mephista\'s Memo is a document whose contents, holder, and effects have not been disclosed.",
+  note:"Original / Document. Further details await confirmation."},
  {id:"NNC02-010",name:"Unknown Pocket Watch",division:"original",
-  kind:"relics",type:"Relic",form:"Timepiece",owner:"Not documented",
-  summary:"The Unknown Pocket Watch is an original Relic in the form of a timepiece. Its mechanism, properties, and present holder have not been documented.",
-  note:"Original / Relic / Timepiece. Its type does not establish an excavation or a special ability."},
+  kind:"timepieces",type:"Timepiece",form:"Timepiece",owner:"Not documented",
+  summary:"The Unknown Pocket Watch is a timepiece whose mechanism, properties, and present holder have not been documented.",
+  note:"Original / Timepiece. No special ability has been inferred."},
  {id:"NNC02-011",name:"Firefist Office Armor",division:"faction",subdivision:"offices",
   kind:"armor",type:"Armor / Protective Equipment",issuer:"Firefist Office",owner:"Not documented",
   acquisition:"Stolen / Details unfiled",
@@ -61,7 +59,7 @@ inventory.forEach(item=>{
 
 const divisions={
  all:{title:"All registered objects.",code:"NNC–02 / COMPLETE REGISTER",
-  description:"Every known item, organized by provenance and equipment classification. Relic is a type, not proof of recovery.",
+  description:"Every known item, organized by provenance and equipment classification. Relics are weapons recovered from the Ruins supposedly beneath the City.",
   axis:"EQUIPMENT CLASS",
   filters:[["all","All Objects"],["weapons","Weapons"],["relics","Relics"],["armor","Armor"],["documents","Documents"],["timepieces","Timepieces"],["tools","Tools & Devices"]]},
  faction:{title:"Faction-issued equipment.",code:"NNC–02 / ISSUANCE REGISTRY",
@@ -69,11 +67,11 @@ const divisions={
   axis:"ISSUING BODY",
   filters:[["all","All Issuers"],["associations","Associations"],["offices","Offices"],["syndicates","Syndicates"],["other","Other Factions"]]},
  recovered:{title:"Objects reclaimed from ruins.",code:"NNC–02 / RECOVERED MATERIALS",
-  description:"Objects recovered from ruins or other sites. This shelf is currently empty; being a Relic does not automatically mean an item was recovered.",
+  description:"Objects recovered from ruins or other sites. Relics specifically refer to weapons recovered from the rarely spoken-of Ruins beneath the City. No recovered items are currently filed.",
   axis:"EQUIPMENT CLASS",
   filters:[["all","All Recovered"],["weapons","Weapons"],["relics","Relics"],["armor","Armor"],["documents","Documents"],["timepieces","Timepieces"],["tools","Tools & Devices"]]},
  original:{title:"Independently originated objects.",code:"NNC–02 / ORIGINAL MATERIALS",
-  description:"Original weapons, Relics, armor, and other objects. Relics here are equipment classified as Relics, not recovered artifacts.",
+  description:"Original weapons, documents, timepieces, armor, and other objects. Ruins-recovered Relics are not classified as original gear.",
   axis:"EQUIPMENT CLASS",
   filters:[["all","All Originals"],["weapons","Weapons"],["relics","Relics"],["documents","Documents"],["timepieces","Timepieces"],["armor","Armor"],["tools","Tools & Devices"]]},
  unfiled:{title:"Awaiting provenance.",code:"NNC–02 / UNFILED PROVENANCE",

@@ -1,224 +1,478 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#100e10">
-  <meta name="description" content="NetherNova Corporation, Department 02 — explore the Armory & Artifact Registry of faction-issued equipment, recovered objects, original weapons, armor, and Relics.">
-  <title>Gear Registry | NetherNova Corporation</title>
-  <link rel="icon" type="image/svg+xml" href="../assets/lc-nn-branch-seal.svg">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-</head>
-<body>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="page-wrap" id="top">
-    <header class="masthead">
-      <a class="brand" href="../index.html" aria-label="NetherNova Corporation — return to studio">
-        <img src="../assets/lc-nn-branch-seal.svg" width="48" height="48" alt="">
-        <span>NETHER NOVA <small>CORPORATION / <span class="brand-branch">LC:NN</span></small></span>
-      </a>
-      <nav class="top-nav" aria-label="Main navigation">
-        <a href="../index.html">STUDIO</a>
-        <a href="../Archive/">ARCHIVE</a>
-        <span aria-current="page">GEAR</span>
-        <a href="../Development/">PRODUCTIONS</a>
-        <a href="../Experimental/">EXPERIMENTAL</a>
-      </nav>
-    </header>
-
-    <main id="main-content">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="indicator"></span> NNC–02 / ARMORY &amp; ARTIFACT REGISTRY</p>
-          <p class="pretitle">DEPARTMENT OF OBJECTS &amp; EQUIPMENT</p>
-          <h1 id="hero-title">Objects of<br><em>significance.</em></h1>
-          <p class="hero-lede">Weapons, armor, Relics, documents, and stranger possessions belong here. An object's classification tells us what it is; its provenance tells us where it came from.</p>
-          <div class="hero-actions">
-            <a href="#registry" class="enter-link">ENTER THE REGISTRY <span aria-hidden="true">↘</span></a>
-            <span class="folio-number">FILE INDEX / NNC–02</span>
-          </div>
-        </div>
-        <div class="vault-visual" aria-hidden="true">
-          <div class="vault-inner">
-            <div class="vault-ring vault-ring-a"></div>
-            <div class="vault-ring vault-ring-b"></div>
-            <div class="vault-ring vault-ring-c"></div>
-            <div class="vault-axis vault-axis-x"></div>
-            <div class="vault-axis vault-axis-y"></div>
-            <span class="vault-cross vault-cross-one">+</span><span class="vault-cross vault-cross-two">+</span>
-            <div class="vault-seal">
-              <span>PROPERTY</span>
-              <strong>02</strong>
-              <span>REGISTRY</span>
-            </div>
-          </div>
-          <div class="vault-overline">NNC / MATERIAL RECORDS</div>
-          <div class="vault-foot"><span>THE CITY / ARCHIVAL WING</span><span>ISSUED · RECOVERED · MADE</span></div>
-          <div class="vault-side-mark">THE OBJECT OUTLIVES THE OWNER</div>
-        </div>
-      </section>
-
-      <section class="status-ledger" aria-label="Registry overview">
-        <div class="status-entry">
-          <span>ITEMS ON RECORD</span>
-          <strong id="total-count">11</strong>
-        </div>
-        <div class="status-entry">
-          <span>PROVENANCE DIVISIONS</span>
-          <strong>03</strong>
-        </div>
-        <div class="status-entry">
-          <span>UNFILED ORIGINS</span>
-          <strong id="unfiled-count">00</strong>
-        </div>
-        <div class="status-entry status-entry-wide">
-          <span>REGISTRY STATUS</span>
-          <strong><i class="status-indicator"></i> ACCEPTING NEW RECORDS</strong>
-        </div>
-      </section>
-
-      <section class="registry" id="registry" aria-labelledby="registry-title">
-        <header class="registry-header">
-          <div>
-            <p class="section-index">01 / THE COLLECTION</p>
-            <h2 id="registry-title">The Registry<span class="accent">.</span></h2>
-            <p>Browse by provenance first, then narrow by issuing faction or equipment class. Relics are specifically weapons recovered from the rarely spoken-of Ruins supposedly beneath the City.</p>
-          </div>
-          <div class="registry-note"><span>REGISTRY REV. 001</span><strong>INSPECTION ACCESS<br>PERMITTED</strong></div>
-        </header>
-
-        <div class="registry-interface">
-          <div class="division-bar">
-            <p class="interface-label">PRIMARY DIVISIONS <span>— SELECT ORIGIN</span></p>
-            <div class="division-tabs" id="division-tabs" role="tablist" aria-label="Filter by provenance">
-              <button type="button" class="division-tab is-active" id="division-all" role="tab" aria-controls="inventory-panel" aria-selected="true" data-division="all"><span>00</span> All Records <b>11</b></button>
-              <button type="button" class="division-tab" id="division-faction" role="tab" aria-controls="inventory-panel" aria-selected="false" data-division="faction"><span>01</span> Faction-Issued <b>04</b></button>
-              <button type="button" class="division-tab" id="division-recovered" role="tab" aria-controls="inventory-panel" aria-selected="false" data-division="recovered"><span>02</span> Recovered Objects <b>00</b></button>
-              <button type="button" class="division-tab" id="division-original" role="tab" aria-controls="inventory-panel" aria-selected="false" data-division="original"><span>03</span> Original Gear <b>07</b></button>
-              <button type="button" class="division-tab division-tab-intake" id="division-unfiled" role="tab" aria-controls="inventory-panel" aria-selected="false" data-division="unfiled"><span>+</span> Unclassified <b>00</b></button>
-            </div>
-          </div>
-
-          <div class="filter-bar">
-            <div>
-              <p class="interface-label" id="subtab-caption">SECONDARY INDEX <span>— OBJECT TYPE</span></p>
-              <div class="sub-tabs" id="sub-tabs" aria-label="Filter within selected division"></div>
-            </div>
-            <label class="search-field" for="gear-search">
-              <span class="search-icon" aria-hidden="true">⌕</span>
-              <span class="sr-only">Search the Gear Registry</span>
-              <input id="gear-search" type="search" autocomplete="off" placeholder="Search an object..." aria-label="Search objects by name or record information">
-              <span class="search-key" aria-hidden="true">FIND</span>
-            </label>
-          </div>
-
-          <section class="inventory-panel" id="inventory-panel" role="tabpanel" aria-labelledby="division-all">
-            <div class="inventory-heading">
-              <div>
-                <p class="section-index" id="inventory-code">NNC–02 / COMPLETE REGISTER</p>
-                <h3 id="inventory-heading">All registered objects.</h3>
-                <p id="inventory-description">All eleven initial records are shown. Select one to inspect its file without leaving the catalogue.</p>
-              </div>
-              <div class="inventory-tally"><strong id="visible-count">11</strong><span>OBJECTS<br>DISPLAYED</span></div>
-            </div>
-
-            <div class="catalog-wall" id="catalog-wall" aria-live="polite" aria-relevant="additions removals">
-              <noscript><p class="empty-message">Enable JavaScript to inspect objects and switch catalogue divisions. The initial registry contains eleven files.</p></noscript>
-            </div>
-            <div class="empty-state" id="empty-state" hidden>
-              <div class="empty-symbol" aria-hidden="true">◇</div>
-              <span>NO FILES MATCH THIS INDEX</span>
-              <h4 id="empty-title">Nothing filed here. Yet.</h4>
-              <p id="empty-description">This category is reserved for future object records.</p>
-              <button type="button" id="clear-filters">SHOW ALL RECORDS ↗</button>
-            </div>
-          </section>
-        </div>
-      </section>
-
-      <section class="registry-guidance" aria-label="How the registry works">
-        <div class="guidance-heading"><span>02 / READING A RECORD</span><h2>Origin is not function.</h2></div>
-        <div class="guidance-grid">
-          <article><span class="guidance-number">01</span><h3>Provenance</h3><p>Faction-issued, recovered, or original. Relics originate from the Ruins supposedly beneath the City and belong among recovered objects.</p></article>
-          <article><span class="guidance-number">02</span><h3>Classification</h3><p>Relics are weapons recovered from the rarely spoken-of Ruins supposedly beneath the City. Documents and timepieces are classified separately.</p></article>
-          <article><span class="guidance-number">03</span><h3>Custody</h3><p>Issuing faction, associated owner, and acquisition circumstances are separate records. Stolen Firefist armor remains Office-issued.</p></article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-mark"><img src="../assets/lc-nn-branch-seal.svg" width="38" height="38" alt=""><span>NETHER NOVA CORPORATION<small>NNC–02 / GEAR DIVISION</small></span></div>
-      <span>OBJECT REGISTRY / INTERNAL STUDIO ARCHIVE</span>
-      <a href="#top">RETURN TO TOP ↑</a>
-    </footer>
-  </div>
-
-  <!-- Native modal keeps the catalogue in place and restores focus on exit. -->
-  <dialog class="inspection-dialog" id="inspection-dialog" aria-labelledby="inspection-title" aria-describedby="inspection-summary">
-    <div class="inspection-shell">
-      <header class="inspection-topbar">
-        <div class="inspection-brand">
-          <img src="../assets/lc-nn-branch-seal.svg" width="34" height="34" alt="">
-          <div><span>NNC–02 / MATERIAL INSPECTION</span><strong>OBJECT FILE / <span id="inspection-file-top">—</span></strong></div>
-        </div>
-        <div class="inspection-topbar-right">
-          <span><i class="inspection-live"></i> INSPECTION MODE</span>
-          <button type="button" class="close-inspection" id="close-inspection" aria-label="Close inspection and return to catalogue"><span>CLOSE FILE</span><b aria-hidden="true">×</b></button>
-        </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#100e10" />
+    <meta
+      name="description"
+      content="NetherNova Corporation, Department 02 — explore the Armory & Artifact Registry of faction-issued equipment, recovered objects, original weapons, armor, and Relics."
+    />
+    <title>Gear Registry | NetherNova Corporation</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/lc-nn-branch-seal.svg"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="page-wrap" id="top">
+      <header class="masthead">
+        <a
+          class="brand"
+          href="../index.html"
+          aria-label="NetherNova Corporation — return to studio"
+        >
+          <img
+            src="../assets/lc-nn-branch-seal.svg"
+            width="48"
+            height="48"
+            alt=""
+          />
+          <span
+            >NETHER NOVA
+            <small
+              >CORPORATION / <span class="brand-branch">LC:NN</span></small
+            ></span
+          >
+        </a>
+        <nav class="top-nav" aria-label="Main navigation">
+          <a href="../index.html">STUDIO</a>
+          <a href="../Archive/">ARCHIVE</a>
+          <span aria-current="page">GEAR</span>
+          <a href="../Development/">PRODUCTIONS</a>
+          <a href="../Experimental/">EXPERIMENTAL</a>
+        </nav>
       </header>
 
-      <div class="inspection-heading">
-        <div>
-          <p class="section-index" id="inspection-section">FILED OBJECT / DEPARTMENT 02</p>
-          <h2 id="inspection-title">Object designation.</h2>
-        </div>
-        <div class="inspection-classification" id="inspection-classification">UNCLASSIFIED</div>
-      </div>
-
-      <div class="inspection-body">
-        <aside class="inspector-column inspector-left" aria-label="Identification and provenance">
-          <div class="inspector-field"><span>OBJECT TYPE</span><strong id="detail-type">—</strong></div>
-          <div class="inspector-field"><span>PROVENANCE</span><strong id="detail-provenance">—</strong></div>
-          <div class="inspector-field"><span>ISSUER / SOURCE</span><strong id="detail-issuer">—</strong></div>
-          <div class="inspector-field"><span>RECORD DESIGNATION</span><strong id="detail-code">—</strong></div>
-        </aside>
-
-        <section class="object-stage" aria-label="Object display">
-          <div class="stage-top"><span>PLATE NO. <span id="stage-number">—</span></span><span>IMAGE EVIDENCE / 00</span></div>
-          <div class="stage-frame">
-            <div class="stage-target" aria-hidden="true"><span class="target-outer"></span><span class="target-inner"></span><span class="target-vertical"></span><span class="target-horizontal"></span></div>
-            <div class="stage-placeholder"><span class="placeholder-rune" aria-hidden="true">◇</span><strong>NO OBJECT IMAGE ON FILE</strong><span>ILLUSTRATION PENDING SUBMISSION</span></div>
-            <span class="stage-corner corner-tl"></span><span class="stage-corner corner-tr"></span><span class="stage-corner corner-bl"></span><span class="stage-corner corner-br"></span>
+      <main id="main-content">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">
+              <span class="indicator"></span> NNC–02 / ARMORY &amp; ARTIFACT
+              REGISTRY
+            </p>
+            <p class="pretitle">DEPARTMENT OF OBJECTS &amp; EQUIPMENT</p>
+            <h1 id="hero-title">Objects of<br /><em>significance.</em></h1>
+            <p class="hero-lede">
+              Weapons, armor, Relics, documents, and stranger possessions belong
+              here. An object's classification tells us what it is; its
+              provenance tells us where it came from.
+            </p>
+            <div class="hero-actions">
+              <a href="#registry" class="enter-link"
+                >ENTER THE REGISTRY <span aria-hidden="true">↘</span></a
+              >
+              <span class="folio-number">FILE INDEX / NNC–02</span>
+            </div>
           </div>
-          <div class="stage-caption"><span id="stage-caption-name">UNKNOWN OBJECT</span><span>FIG. 01 / UNILLUSTRATED</span></div>
+          <div class="vault-visual" aria-hidden="true">
+            <div class="vault-inner">
+              <div class="vault-ring vault-ring-a"></div>
+              <div class="vault-ring vault-ring-b"></div>
+              <div class="vault-ring vault-ring-c"></div>
+              <div class="vault-axis vault-axis-x"></div>
+              <div class="vault-axis vault-axis-y"></div>
+              <span class="vault-cross vault-cross-one">+</span
+              ><span class="vault-cross vault-cross-two">+</span>
+              <div class="vault-seal">
+                <span>PROPERTY</span>
+                <strong>02</strong>
+                <span>REGISTRY</span>
+              </div>
+            </div>
+            <div class="vault-overline">NNC / MATERIAL RECORDS</div>
+            <div class="vault-foot">
+              <span>THE CITY / ARCHIVAL WING</span
+              ><span>ISSUED · RECOVERED · MADE</span>
+            </div>
+            <div class="vault-side-mark">THE OBJECT OUTLIVES THE OWNER</div>
+          </div>
         </section>
 
-        <aside class="inspector-column inspector-right" aria-label="Custody and condition">
-          <div class="inspector-field"><span>OWNER / ASSOCIATION</span><strong id="detail-holder">—</strong></div>
-          <div class="inspector-field"><span>CONDITION</span><strong id="detail-condition">—</strong></div>
-          <div class="inspector-field"><span>ACQUISITION STATUS</span><strong id="detail-acquisition">—</strong></div>
-          <div class="inspector-field"><span>KNOWN PROPERTIES</span><strong id="detail-properties">—</strong></div>
-        </aside>
-      </div>
+        <section class="status-ledger" aria-label="Registry overview">
+          <div class="status-entry">
+            <span>ITEMS ON RECORD</span>
+            <strong id="total-count">11</strong>
+          </div>
+          <div class="status-entry">
+            <span>PROVENANCE DIVISIONS</span>
+            <strong>03</strong>
+          </div>
+          <div class="status-entry">
+            <span>UNFILED ORIGINS</span>
+            <strong id="unfiled-count">00</strong>
+          </div>
+          <div class="status-entry status-entry-wide">
+            <span>REGISTRY STATUS</span>
+            <strong
+              ><i class="status-indicator"></i> ACCEPTING NEW RECORDS</strong
+            >
+          </div>
+        </section>
 
-      <div class="inspection-bottom">
-        <div class="inspection-abstract">
-          <p class="section-index">ARCHIVIST'S SUMMARY</p>
-          <p id="inspection-summary">Record pending.</p>
+        <section
+          class="registry"
+          id="registry"
+          aria-labelledby="registry-title"
+        >
+          <header class="registry-header">
+            <div>
+              <p class="section-index">01 / THE COLLECTION</p>
+              <h2 id="registry-title">
+                The Registry<span class="accent">.</span>
+              </h2>
+              <p>
+                Browse by provenance first, then narrow by issuing faction or
+                equipment class. Relics are specifically weapons recovered from
+                the rarely spoken-of Ruins supposedly beneath the City.
+              </p>
+            </div>
+            <div class="registry-note">
+              <span>REGISTRY REV. 001</span
+              ><strong>INSPECTION ACCESS<br />PERMITTED</strong>
+            </div>
+          </header>
+
+          <div class="registry-interface">
+            <div class="division-bar">
+              <p class="interface-label">
+                PRIMARY DIVISIONS <span>— SELECT ORIGIN</span>
+              </p>
+              <div
+                class="division-tabs"
+                id="division-tabs"
+                role="tablist"
+                aria-label="Filter by provenance"
+              >
+                <button
+                  type="button"
+                  class="division-tab is-active"
+                  id="division-all"
+                  role="tab"
+                  aria-controls="inventory-panel"
+                  aria-selected="true"
+                  data-division="all"
+                >
+                  <span>00</span> All Records <b>11</b>
+                </button>
+                <button
+                  type="button"
+                  class="division-tab"
+                  id="division-faction"
+                  role="tab"
+                  aria-controls="inventory-panel"
+                  aria-selected="false"
+                  data-division="faction"
+                >
+                  <span>01</span> Faction-Issued <b>04</b>
+                </button>
+                <button
+                  type="button"
+                  class="division-tab"
+                  id="division-recovered"
+                  role="tab"
+                  aria-controls="inventory-panel"
+                  aria-selected="false"
+                  data-division="recovered"
+                >
+                  <span>02</span> Recovered Objects <b>00</b>
+                </button>
+                <button
+                  type="button"
+                  class="division-tab"
+                  id="division-original"
+                  role="tab"
+                  aria-controls="inventory-panel"
+                  aria-selected="false"
+                  data-division="original"
+                >
+                  <span>03</span> Original Gear <b>07</b>
+                </button>
+                <button
+                  type="button"
+                  class="division-tab division-tab-intake"
+                  id="division-unfiled"
+                  role="tab"
+                  aria-controls="inventory-panel"
+                  aria-selected="false"
+                  data-division="unfiled"
+                >
+                  <span>+</span> Unclassified <b>00</b>
+                </button>
+              </div>
+            </div>
+
+            <div class="filter-bar">
+              <div>
+                <p class="interface-label" id="subtab-caption">
+                  SECONDARY INDEX <span>— OBJECT TYPE</span>
+                </p>
+                <div
+                  class="sub-tabs"
+                  id="sub-tabs"
+                  aria-label="Filter within selected division"
+                ></div>
+              </div>
+              <label class="search-field" for="gear-search">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <span class="sr-only">Search the Gear Registry</span>
+                <input
+                  id="gear-search"
+                  type="search"
+                  autocomplete="off"
+                  placeholder="Search an object..."
+                  aria-label="Search objects by name or record information"
+                />
+                <span class="search-key" aria-hidden="true">FIND</span>
+              </label>
+            </div>
+
+            <section
+              class="inventory-panel"
+              id="inventory-panel"
+              role="tabpanel"
+              aria-labelledby="division-all"
+            >
+              <div class="inventory-heading">
+                <div>
+                  <p class="section-index" id="inventory-code">
+                    NNC–02 / COMPLETE REGISTER
+                  </p>
+                  <h3 id="inventory-heading">All registered objects.</h3>
+                  <p id="inventory-description">
+                    All eleven initial records are shown. Select one to inspect
+                    its file without leaving the catalogue.
+                  </p>
+                </div>
+                <div class="inventory-tally">
+                  <strong id="visible-count">11</strong
+                  ><span>OBJECTS<br />DISPLAYED</span>
+                </div>
+              </div>
+
+              <div
+                class="catalog-wall"
+                id="catalog-wall"
+                aria-live="polite"
+                aria-relevant="additions removals"
+              >
+                <noscript
+                  ><p class="empty-message">
+                    Enable JavaScript to inspect objects and switch catalogue
+                    divisions. The initial registry contains eleven files.
+                  </p></noscript
+                >
+              </div>
+              <div class="empty-state" id="empty-state" hidden>
+                <div class="empty-symbol" aria-hidden="true">◇</div>
+                <span>NO FILES MATCH THIS INDEX</span>
+                <h4 id="empty-title">Nothing filed here. Yet.</h4>
+                <p id="empty-description">
+                  This category is reserved for future object records.
+                </p>
+                <button type="button" id="clear-filters">
+                  SHOW ALL RECORDS ↗
+                </button>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="registry-guidance" aria-label="How the registry works">
+          <div class="guidance-heading">
+            <span>02 / READING A RECORD</span>
+            <h2>Origin is not function.</h2>
+          </div>
+          <div class="guidance-grid">
+            <article>
+              <span class="guidance-number">01</span>
+              <h3>Provenance</h3>
+              <p>
+                Faction-issued, recovered, or original. Relics originate from
+                the Ruins supposedly beneath the City and belong among recovered
+                objects.
+              </p>
+            </article>
+            <article>
+              <span class="guidance-number">02</span>
+              <h3>Classification</h3>
+              <p>
+                Relics are weapons recovered from the rarely spoken-of Ruins
+                supposedly beneath the City. Documents and timepieces are
+                classified separately.
+              </p>
+            </article>
+            <article>
+              <span class="guidance-number">03</span>
+              <h3>Custody</h3>
+              <p>
+                Issuing faction, associated owner, and acquisition circumstances
+                are separate records. Stolen Firefist armor remains
+                Office-issued.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-mark">
+          <img
+            src="../assets/lc-nn-branch-seal.svg"
+            width="38"
+            height="38"
+            alt=""
+          /><span
+            >NETHER NOVA CORPORATION<small>NNC–02 / GEAR DIVISION</small></span
+          >
         </div>
-        <div class="inspection-footnote">
-          <span>REGISTRY NOTES</span>
-          <p id="inspection-note">No additional notes.</p>
-          <span class="footnote-warning">UNCONFIRMED DATA REMAINS UNFILED</span>
-        </div>
-      </div>
-      <footer class="inspection-footer">
-        <span>NNC–02 / CLASSIFICATION REVIEW</span>
-        <button type="button" id="return-to-catalog">← RETURN TO THE CATALOGUE</button>
-        <span>END OF OBJECT FILE</span>
+        <span>OBJECT REGISTRY / INTERNAL STUDIO ARCHIVE</span>
+        <a href="#top">RETURN TO TOP ↑</a>
       </footer>
     </div>
-  </dialog>
-</body>
+
+    <!-- Native modal keeps the catalogue in place and restores focus on exit. -->
+    <dialog
+      class="inspection-dialog"
+      id="inspection-dialog"
+      aria-labelledby="inspection-title"
+      aria-describedby="inspection-summary"
+    >
+      <div class="inspection-shell">
+        <header class="inspection-topbar">
+          <div class="inspection-brand">
+            <img
+              src="../assets/lc-nn-branch-seal.svg"
+              width="34"
+              height="34"
+              alt=""
+            />
+            <div>
+              <span>NNC–02 / MATERIAL INSPECTION</span
+              ><strong
+                >OBJECT FILE / <span id="inspection-file-top">—</span></strong
+              >
+            </div>
+          </div>
+          <div class="inspection-topbar-right">
+            <span><i class="inspection-live"></i> INSPECTION MODE</span>
+            <button
+              type="button"
+              class="close-inspection"
+              id="close-inspection"
+              aria-label="Close inspection and return to catalogue"
+            >
+              <span>CLOSE FILE</span><b aria-hidden="true">×</b>
+            </button>
+          </div>
+        </header>
+
+        <div class="inspection-heading">
+          <div>
+            <p class="section-index" id="inspection-section">
+              FILED OBJECT / DEPARTMENT 02
+            </p>
+            <h2 id="inspection-title">Object designation.</h2>
+          </div>
+          <div class="inspection-classification" id="inspection-classification">
+            UNCLASSIFIED
+          </div>
+        </div>
+
+        <div class="inspection-body">
+          <aside
+            class="inspector-column inspector-left"
+            aria-label="Identification and provenance"
+          >
+            <div class="inspector-field">
+              <span>OBJECT TYPE</span><strong id="detail-type">—</strong>
+            </div>
+            <div class="inspector-field">
+              <span>PROVENANCE</span><strong id="detail-provenance">—</strong>
+            </div>
+            <div class="inspector-field">
+              <span>ISSUER / SOURCE</span><strong id="detail-issuer">—</strong>
+            </div>
+            <div class="inspector-field">
+              <span>RECORD DESIGNATION</span><strong id="detail-code">—</strong>
+            </div>
+          </aside>
+
+          <section class="object-stage" aria-label="Object display">
+            <div class="stage-top">
+              <span>PLATE NO. <span id="stage-number">—</span></span
+              ><span>IMAGE EVIDENCE / 00</span>
+            </div>
+            <div class="stage-frame">
+              <div class="stage-target" aria-hidden="true">
+                <span class="target-outer"></span
+                ><span class="target-inner"></span
+                ><span class="target-vertical"></span
+                ><span class="target-horizontal"></span>
+              </div>
+              <div class="stage-placeholder">
+                <span class="placeholder-rune" aria-hidden="true">◇</span
+                ><strong>NO OBJECT IMAGE ON FILE</strong
+                ><span>ILLUSTRATION PENDING SUBMISSION</span>
+              </div>
+              <span class="stage-corner corner-tl"></span
+              ><span class="stage-corner corner-tr"></span
+              ><span class="stage-corner corner-bl"></span
+              ><span class="stage-corner corner-br"></span>
+            </div>
+            <div class="stage-caption">
+              <span id="stage-caption-name">UNKNOWN OBJECT</span
+              ><span>FIG. 01 / UNILLUSTRATED</span>
+            </div>
+          </section>
+
+          <aside
+            class="inspector-column inspector-right"
+            aria-label="Custody and condition"
+          >
+            <div class="inspector-field">
+              <span>OWNER / ASSOCIATION</span
+              ><strong id="detail-holder">—</strong>
+            </div>
+            <div class="inspector-field">
+              <span>CONDITION</span><strong id="detail-condition">—</strong>
+            </div>
+            <div class="inspector-field">
+              <span>ACQUISITION STATUS</span
+              ><strong id="detail-acquisition">—</strong>
+            </div>
+            <div class="inspector-field">
+              <span>KNOWN PROPERTIES</span
+              ><strong id="detail-properties">—</strong>
+            </div>
+          </aside>
+        </div>
+
+        <div class="inspection-bottom">
+          <div class="inspection-abstract">
+            <p class="section-index">ARCHIVIST'S SUMMARY</p>
+            <p id="inspection-summary">Record pending.</p>
+          </div>
+          <div class="inspection-footnote">
+            <span>REGISTRY NOTES</span>
+            <p id="inspection-note">No additional notes.</p>
+            <span class="footnote-warning"
+              >UNCONFIRMED DATA REMAINS UNFILED</span
+            >
+          </div>
+        </div>
+        <footer class="inspection-footer">
+          <span>NNC–02 / CLASSIFICATION REVIEW</span>
+          <button type="button" id="return-to-catalog">
+            ← RETURN TO THE CATALOGUE
+          </button>
+          <span>END OF OBJECT FILE</span>
+        </footer>
+      </div>
+    </dialog>
+  </body>
 </html>

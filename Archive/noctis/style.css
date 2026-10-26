@@ -52,3 +52,6 @@ body{background:radial-gradient(ellipse at 72% 19%,rgba(28,71,153,.25),transpare
   .celestial-signet{width:38px}
 }
 @media(prefers-reduced-motion:reduce){.celestial-sticker{animation:none}}
+
+/* Fill this dossier's portrait frame without stretching the artwork. */
+.hero-portrait .portrait{object-fit:cover;object-position:center top}

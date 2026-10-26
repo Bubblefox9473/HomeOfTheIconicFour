@@ -16,3 +16,39 @@ body{background:radial-gradient(ellipse at 72% 19%,rgba(28,71,153,.25),transpare
 .gate-box{box-shadow:0 25px 85px rgba(0,0,0,.75),0 0 90px rgba(32,74,146,.17)}
 .gate-box::before{content:"LC:NN / STELLAR REGISTER — ACCESS CONTROL"}
 @media(max-width:760px){.star-chart{width:180px;top:-27px;right:-20px;opacity:.36}}
+
+
+/* === FLOATING CELESTIAL REGALIA ===
+   Noctis' equivalent of Necro's workshop stickers: engraved royal
+   insignia around the portrait's margins, without obscuring the subject. */
+.hero-portrait{overflow:visible}
+.celestial-motifs{position:absolute;inset:0;z-index:5;pointer-events:none;overflow:visible}
+.celestial-sticker{
+  display:block;position:absolute;overflow:visible;pointer-events:none;
+  filter:drop-shadow(0 5px 10px rgba(1,5,18,.85)) drop-shadow(0 0 11px rgba(156,191,242,.22));
+  animation:celestial-drift 8s ease-in-out infinite;
+}
+.celestial-crown{width:clamp(100px,12.5vw,158px);height:auto;top:8%;left:-9%;transform:rotate(-13deg);opacity:.92;animation-duration:9.2s}
+.celestial-moon{width:clamp(75px,8.8vw,114px);height:auto;right:-9%;top:20%;transform:rotate(10deg);opacity:.86;animation-delay:-2s;animation-duration:8.4s}
+.celestial-medallion{width:clamp(90px,10.5vw,138px);height:auto;right:-7%;bottom:10%;transform:rotate(11deg);opacity:.9;animation-delay:-4s;animation-duration:10.1s}
+.celestial-asterism{width:clamp(79px,9vw,122px);height:auto;left:-8%;bottom:21%;transform:rotate(-11deg);opacity:.83;animation-delay:-5.4s;animation-duration:7.3s}
+.celestial-sunstar{width:clamp(44px,6vw,78px);height:auto;right:19%;top:4%;transform:rotate(15deg);opacity:.82;animation-delay:-3.1s;animation-duration:7.7s}
+.celestial-signet{width:clamp(49px,6vw,82px);height:auto;left:5%;top:40%;transform:rotate(-8deg);opacity:.78;animation-delay:-1.3s;animation-duration:9.7s}
+@keyframes celestial-drift{0%,100%{translate:0 0}50%{translate:0 -10px}}
+@media(max-width:760px){
+  .celestial-crown{width:100px;left:-5%;top:7%}
+  .celestial-moon{width:77px;right:-4%;top:21%}
+  .celestial-medallion{width:94px;right:-4%;bottom:10%}
+  .celestial-asterism{width:78px;left:-4%;bottom:23%}
+  .celestial-sunstar{width:51px;right:20%;top:4%}
+  .celestial-signet{width:48px;left:2%;top:43%}
+}
+@media(max-width:430px){
+  .celestial-crown{width:81px;left:-4%}
+  .celestial-moon{width:62px;right:-3%}
+  .celestial-medallion{width:75px;right:-3%}
+  .celestial-asterism{width:62px;left:-3%}
+  .celestial-sunstar{width:40px}
+  .celestial-signet{width:38px}
+}
+@media(prefers-reduced-motion:reduce){.celestial-sticker{animation:none}}

@@ -104,7 +104,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .registry-note span,.registry-note strong{display:block}
 .registry-note strong{color:var(--paper);font-weight:400;margin-top:12px}
 .registry-interface{--registry-accent:var(--copper)}
-.registry-interface[data-division="relic"]{--registry-accent:#b4a5c5}
+.registry-interface[data-division="recovered"]{--registry-accent:#b4a5c5}
 .registry-interface[data-division="original"]{--registry-accent:#abc0c7}
 .registry-interface[data-division="unfiled"]{--registry-accent:#ca9c9f}
 .division-bar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:23px 0 0;background:linear-gradient(90deg,rgba(69,51,53,.09),transparent 70%)}
@@ -152,7 +152,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .gear-card:hover{transform:translateY(-5px);border-color:var(--card-accent,var(--copper));box-shadow:0 20px 44px rgba(0,0,0,.34)}
 .gear-card:focus-visible{outline-offset:4px}
 .gear-card[data-division="faction"]{--card-accent:#d4ad8b}
-.gear-card[data-division="relic"]{--card-accent:#bda9cf}
+.gear-card[data-division="recovered"]{--card-accent:#bda9cf}
 .gear-card[data-division="original"]{--card-accent:#b6cbd2}
 .gear-card[data-division="unfiled"]{--card-accent:#c6a2a2}
 .gear-card::before{content:"";position:absolute;inset:8px;border:1px solid rgba(218,189,169,.1);pointer-events:none;z-index:2}

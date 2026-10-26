@@ -936,57 +936,6 @@ nav a:hover::after {
 
 
 
-.document::before {
-
-
-    content:
-        "NNC // INTERNAL DOCUMENT";
-
-
-    position:
-        absolute;
-
-
-    top:
-        -12px;
-
-
-    left:
-        25px;
-
-
-
-    background:
-        var(--void);
-
-
-
-    padding:
-        0 12px;
-
-
-
-    color:
-        var(--gold);
-
-
-
-    font-family:
-        "Roboto Mono",
-        monospace;
-
-
-    font-size:
-        .65rem;
-
-
-    letter-spacing:
-        .2em;
-
-
-}
-
-
 
 
 
@@ -2705,7 +2654,7 @@ body {
 
 
     border-color:
-        var(--ember);
+        var(--gold);
 
 
 

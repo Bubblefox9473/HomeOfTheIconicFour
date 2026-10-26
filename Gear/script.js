@@ -146,6 +146,17 @@ function node(tag, cls, value) {
   return e;
 }
 function put(id, value) { const e = $(id); if (e) e.textContent = value; }
+function renderProperties(value) {
+  const target = $("detail-properties");
+  if (!target) return;
+  if (Array.isArray(value)) {
+    const list = node("ul", "property-list");
+    value.forEach(property => list.appendChild(node("li", "", property)));
+    target.replaceChildren(list);
+  } else {
+    target.textContent = value ?? "Not documented";
+  }
+}
 function pad(n) { return String(n).padStart(2, "0"); }
 function typeLabel(item) { return item.form ? item.type + " / " + item.form : item.type; }
 function classification(item) {
@@ -256,7 +267,7 @@ function inspect(item, opener) {
   put("detail-holder", item.owner);
   put("detail-condition", item.condition);
   put("detail-acquisition", item.acquisition);
-  put("detail-properties", item.properties);
+  renderProperties(item.properties);
   put("stage-number", item.id.split("-").pop());
   put("stage-caption-name", item.name.toUpperCase());
   put("inspection-summary", item.summary);

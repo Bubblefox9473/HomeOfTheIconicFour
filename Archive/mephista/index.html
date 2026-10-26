@@ -1,201 +1,649 @@
 <!doctype html>
 <html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <meta name="theme-color" content="#252b36">
- <meta name="description" content="LC:NN — Restricted principal character record.">
- <title>Principal File 01 | LC:NN Personnel Records</title>
- <link rel="icon" type="image/svg+xml" href="../../assets/lc-nn-branch-seal.svg">
- <link rel="stylesheet" href="../profile-layout.css">
- <link rel="stylesheet" href="style.css">
-</head>
-<body class="theme-anomidae">
- <div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
-  <div class="gate-box">
-   <h1 id="gate-title">Enter the Archive</h1>
-   <p>Access required to continue.</p>
-   <label for="passwordInput">AUTHORIZATION KEY</label>
-   <input type="password" id="passwordInput" placeholder="Enter password..." autocomplete="off">
-   <button type="button" onclick="checkPassword()">REQUEST ACCESS</button>
-   <p id="error-msg" aria-live="polite"></p>
-   <a class="gate-return" href="../">← RETURN TO ARCHIVE</a>
-  </div>
- </div>
- <main class="frame">
-  <canvas id="aura-canvas" aria-hidden="true"></canvas>
-  <header class="profile-nav">
-   <a class="back-btn" href="../">BACK TO CHARACTER ARCHIVE</a>
-   <a class="profile-brand" href="../../index.html"><img src="../../assets/lc-nn-branch-seal.svg" width="37" height="37" alt=""><span>NETHER NOVA<small>LC:NN / PERSONNEL DIVISION</small></span></a>
-   <span class="profile-filemark">PRIMARY REGISTER / <b>01—04</b></span>
-  </header>
-  <section class="hero-stage" aria-labelledby="hero-name">
-   <div class="hero-copy">
-    <p class="hero-index eyebrow">PRIMARY FILE / LIMBUS COMPANY</p>
-    <h1 class="hero-name" id="hero-name">Anomidae<span class="name-alt">Solenne</span></h1>
-    <p class="hero-subtitle">The Tianyi Star · Special Asset to Limbus Company</p>
-    <p class="hero-description">Neither angel nor demon alone. Reborn between two worlds that refuse to accept her, Anomidae serves as a special asset aboard the Limbus Company Bus.</p>
-    <dl class="hero-quicklook"><div><dt>Designation</dt><dd>The Tianyi Star</dd></div>
-<div><dt>Deployment</dt><dd>LCB / Limbus Company Bus</dd></div></dl>
-    <a class="jump-link" href="#dossier">READ THE FULL DOSSIER <span aria-hidden="true">↓</span></a>
-   </div>
-   <figure class="hero-portrait">
-    <div class="portrait-mat">
-     <!-- Deliberately blank: a true portrait can replace .portrait-void later. -->
-     <div class="portrait-void" role="img" aria-label="No portrait illustration filed yet">
-      <svg class="portrait-fissures" viewBox="0 0 520 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-       <g fill="none" stroke="#d2d8e2" stroke-linecap="round" stroke-linejoin="miter" stroke-width="1.2" opacity=".46">
-        <path d="M6 160 54 177 72 206 103 218 121 264 157 276 176 321 195 334"/>
-        <path d="M72 206 57 245 72 266M121 264 109 299 127 317M176 321 153 351 155 373"/>
-        <path d="M520 78 474 118 462 160 435 177 417 214 389 223"/>
-        <path d="M462 160 483 195 472 226M435 177 451 209M417 214 421 245 404 264"/>
-        <path d="M10 623 58 597 91 610 115 575 151 575 170 550"/>
-        <path d="M91 610 104 643 128 653M115 575 106 553M151 575 166 599"/>
-        <path d="M520 550 479 540 449 564 423 556 385 589"/>
-        <path d="M449 564 450 606M423 556 402 530M385 589 368 589 354 610"/>
-       </g>
-       <path d="M0 356H520" stroke="#bac5d3" stroke-width=".6" stroke-dasharray="2 12" opacity=".22"/>
-      </svg>
-     </div>
-     <div class="portrait-plate"><span>PORTRAIT / NOT YET FILED</span><span>LC:NN / 01</span></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#252b36" />
+    <meta
+      name="description"
+      content="LC:NN — Restricted principal character record."
+    />
+    <title>Principal File 01 | LC:NN Personnel Records</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../../assets/lc-nn-branch-seal.svg"
+    />
+    <link rel="stylesheet" href="../profile-layout.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="theme-anomidae">
+    <div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+      <div class="gate-box">
+        <h1 id="gate-title">Enter the Archive</h1>
+        <p>Access required to continue.</p>
+        <label for="passwordInput">AUTHORIZATION KEY</label>
+        <input
+          type="password"
+          id="passwordInput"
+          placeholder="Enter password..."
+          autocomplete="off"
+        />
+        <button type="button" onclick="checkPassword()">REQUEST ACCESS</button>
+        <p id="error-msg" aria-live="polite"></p>
+        <a class="gate-return" href="../">← RETURN TO ARCHIVE</a>
+      </div>
     </div>
+    <main class="frame">
+      <canvas id="aura-canvas" aria-hidden="true"></canvas>
+      <header class="profile-nav">
+        <a class="back-btn" href="../">BACK TO CHARACTER ARCHIVE</a>
+        <a class="profile-brand" href="../../index.html"
+          ><img
+            src="../../assets/lc-nn-branch-seal.svg"
+            width="37"
+            height="37"
+            alt=""
+          /><span>NETHER NOVA<small>LC:NN / PERSONNEL DIVISION</small></span></a
+        >
+        <span class="profile-filemark">PRIMARY REGISTER / <b>01—04</b></span>
+      </header>
+      <section class="hero-stage" aria-labelledby="hero-name">
+        <div class="hero-copy">
+          <p class="hero-index eyebrow">PRIMARY FILE / LIMBUS COMPANY</p>
+          <h1 class="hero-name" id="hero-name">
+            Anomidae<span class="name-alt">Solenne</span>
+          </h1>
+          <p class="hero-subtitle">
+            The Tianyi Star · Special Asset to Limbus Company
+          </p>
+          <p class="hero-description">
+            Neither angel nor demon alone. Reborn between two worlds that refuse
+            to accept her, Anomidae serves as a special asset to Limbus Company.
+          </p>
+          <dl class="hero-quicklook">
+            <div>
+              <dt>Designation</dt>
+              <dd>The Tianyi Star</dd>
+            </div>
+            <div>
+              <dt>Deployment</dt>
+              <dd>LCB / Limbus Company Bus</dd>
+            </div>
+          </dl>
+          <a class="jump-link" href="#dossier"
+            >READ THE FULL DOSSIER <span aria-hidden="true">↓</span></a
+          >
+        </div>
+        <figure class="hero-portrait">
+          <div class="portrait-mat">
+            <!-- Deliberately blank: a true portrait can replace .portrait-void later. -->
+            <div
+              class="portrait-void"
+              role="img"
+              aria-label="No portrait illustration filed yet"
+            >
+              <svg
+                class="portrait-fissures"
+                viewBox="0 0 520 720"
+                preserveAspectRatio="xMidYMid slice"
+                aria-hidden="true"
+              >
+                <g
+                  fill="none"
+                  stroke="#d2d8e2"
+                  stroke-linecap="round"
+                  stroke-linejoin="miter"
+                  stroke-width="1.2"
+                  opacity=".46"
+                >
+                  <path
+                    d="M6 160 54 177 72 206 103 218 121 264 157 276 176 321 195 334"
+                  />
+                  <path
+                    d="M72 206 57 245 72 266M121 264 109 299 127 317M176 321 153 351 155 373"
+                  />
+                  <path d="M520 78 474 118 462 160 435 177 417 214 389 223" />
+                  <path
+                    d="M462 160 483 195 472 226M435 177 451 209M417 214 421 245 404 264"
+                  />
+                  <path d="M10 623 58 597 91 610 115 575 151 575 170 550" />
+                  <path
+                    d="M91 610 104 643 128 653M115 575 106 553M151 575 166 599"
+                  />
+                  <path d="M520 550 479 540 449 564 423 556 385 589" />
+                  <path
+                    d="M449 564 450 606M423 556 402 530M385 589 368 589 354 610"
+                  />
+                </g>
+                <path
+                  d="M0 356H520"
+                  stroke="#bac5d3"
+                  stroke-width=".6"
+                  stroke-dasharray="2 12"
+                  opacity=".22"
+                />
+              </svg>
+            </div>
+            <div class="portrait-plate">
+              <span>PORTRAIT / NOT YET FILED</span><span>LC:NN / 01</span>
+            </div>
+          </div>
 
-    <!-- Eight cold-silver symbolic ornaments, intentionally kept at the portrait edges. -->
-    <div class="solenne-motifs" aria-hidden="true">
-     <svg class="solenne-sticker motif-halo" viewBox="0 0 180 160" focusable="false">
-      <!-- Fractured halo set inside a consecrated seal, entirely wingless. -->
-      <circle cx="90" cy="90" r="54" fill="#24303e" fill-opacity=".84" stroke="#8b9cae" stroke-width="2"/>
-      <circle cx="90" cy="90" r="43" fill="none" stroke="#e9f1f8" stroke-width="1.5" stroke-dasharray="1.5 6"/>
-      <path d="M32 70C44 23 94 13 130 40" stroke="#edf5fd" stroke-width="9" fill="none" stroke-linecap="round"/>
-      <path d="M146 53C167 96 136 142 91 145 64 147 43 134 31 111" stroke="#b6c7d8" stroke-width="8" fill="none" stroke-linecap="round"/>
-      <path d="M128 39 123 59 137 64 124 83M147 53 135 68" stroke="#3b536b" stroke-width="3" fill="none"/>
-      <path d="M90 3v22M90 155v5M10 90h20M150 90h20M32 32l17 17M132 132l17 17" stroke="#e6eff7" stroke-width="2" opacity=".85"/>
-      <path d="m90 54 11 26 26 11-26 10-11 26-10-26-26-10 26-11Z" fill="#b3c8dd" stroke="#f6f9ff" stroke-width="2"/>
-      <path d="m90 69 7 22-7 21-7-21Z" fill="#f4f9fd"/>
-      <circle cx="90" cy="91" r="5" fill="#657a90" stroke="#f4f9fd" stroke-width="1"/>
-     </svg>
-     <svg class="solenne-sticker motif-infernal" viewBox="0 0 170 180" focusable="false">
-      <!-- Infernal signet: an engraved dark seal, not horns or wings. -->
-      <path d="M85 6 103 27 132 19 139 48 161 65 147 92 158 123 130 137 124 165 91 159 70 175 51 155 22 158 22 126 7 107 24 81 13 51 43 40 55 14Z"
-       fill="#32313c" stroke="#b7b3c4" stroke-width="3" stroke-linejoin="round"/>
-      <path d="M85 24 107 39 130 51 141 81 132 120 102 143 68 147 40 127 31 94 40 63 59 41Z"
-       fill="#151923" stroke="#6f7181" stroke-width="2"/>
-      <path d="m85 41 28 23 11 28-14 26-25 19-26-20-15-26 12-29Z" fill="#4b4a5a" stroke="#c0c3d1" stroke-width="1.8"/>
-      <path d="M85 50 85 126M58 70l27 21 27-21M62 110l23-19 23 19M72 62l13-12 13 12M67 124l18 13 18-13"
-       fill="none" stroke="#d9d6e1" stroke-width="3" stroke-linejoin="round" stroke-linecap="square"/>
-      <path d="M85 91 72 79M85 91l13-12" stroke="#4a2f4a" stroke-width="4" fill="none"/>
-      <g fill="#abb6c4"><circle cx="85" cy="13" r="3"/><circle cx="153" cy="90" r="3"/><circle cx="20" cy="104" r="3"/></g>
-      <path d="M56 14 65 28 60 37M124 142 109 149" stroke="#dce3eb" fill="none" stroke-width="1.5"/>
-     </svg>
-     <svg class="solenne-sticker motif-fracture" viewBox="0 0 156 180" focusable="false">
-      <!-- An ashen monolith broken into distinct shards. -->
-      <path d="m60 9 58 12 22 37-30 38-35-15-39 11-23-41Z" fill="#98aab9" stroke="#e4edf7" stroke-width="2.8" stroke-linejoin="round"/>
-      <path d="m60 9 9 44 35 7 14-39M69 53 36 92l39-11 35 15-6-36" fill="none" stroke="#4b5e73" stroke-width="2"/>
-      <path d="m12 100 40-10 26 19-10 47-40 12-22-30Z" fill="#5c687b" stroke="#c9d5e3" stroke-width="3"/>
-      <path d="M24 116 50 111 63 127 43 148 22 141Z" fill="#97a5b6" stroke="#e0e9f2" stroke-width="1.5"/>
-      <path d="m92 112 24-13 26 24-10 37-31 12-22-35Z" fill="#333846" stroke="#aebdcd" stroke-width="2.8"/>
-      <path d="m106 118 23 12-13 25-14-14Z" fill="#667486" stroke="#d9e4ef" stroke-width="1.5"/>
-      <path d="m79 81 10 28-21 20M110 96l6 3-12 13M67 156l12-19" stroke="#eef5fb" stroke-width="2" fill="none" opacity=".7"/>
-      <path d="m19 84 11-10M136 92l9-12" stroke="#d8e7f6" stroke-width="1.6" opacity=".7"/>
-     </svg>
-     <svg class="solenne-sticker motif-tianyi" viewBox="0 0 174 174" focusable="false">
-      <!-- The Tianyi Star: cold-silver personal insignia, without wing motifs. -->
-      <circle cx="87" cy="87" r="76" fill="#1c2533" fill-opacity=".88" stroke="#a5b5c8" stroke-width="2.5"/>
-      <circle cx="87" cy="87" r="63" fill="none" stroke="#c9d6e2" stroke-width="1.4" stroke-dasharray="2 7"/>
-      <path d="M87 7 102 62 142 32 114 73 168 87 114 101 142 142 102 114 87 168 73 114 32 142 61 101 6 87 61 73 32 32 73 61Z"
-       fill="#9fb2c5" stroke="#f2f8fe" stroke-width="2.6" stroke-linejoin="round"/>
-      <path d="m87 32 14 42 44 13-44 13-14 43-13-43-43-13 43-13Z"
-       fill="#4e647b" stroke="#e7f0f8" stroke-width="1.5"/>
-      <path d="m87 57 17 30-17 29-17-29Z" fill="#dbe8f4" stroke="#fff" stroke-width="1.8"/>
-      <circle cx="87" cy="87" r="7" fill="#65778d" stroke="#fff" stroke-width="2"/>
-      <path d="M87 2v10M87 162v10M2 87h11M161 87h11" stroke="#e0e9f5" stroke-width="1.5"/>
-      <path d="m28 16 11 9M145 149l11 10" stroke="#b7c9dc" stroke-width="1.2"/>
-     </svg>
-     <svg class="solenne-sticker motif-book" viewBox="0 0 174 142" focusable="false">
-      <path d="M9 27q39-22 76 1 41-22 80-1v94q-42-17-80 7-39-23-76-7Z" fill="#434957" stroke="#d5dce4" stroke-width="3" stroke-linejoin="round"/>
-      <path d="M18 32q32-12 67 4v82q-36-20-67-10ZM85 36q35-16 71-4v76q-36-10-71 10Z" fill="#aab7c6" stroke="#f3f6fc" stroke-width="1.8"/>
-      <path d="M85 37V128M28 49q23-8 45 4M27 66q23-7 44 5M28 83q22-5 44 8M96 53q23-11 47-4M96 71q23-10 46-4M96 90q24-8 48-3" fill="none" stroke="#536476" stroke-width="1.8" stroke-linecap="round"/>
-      <path d="M111 11v39l8-9 9 9V11" fill="#828091" stroke="#d1d4e2" stroke-width="1.5"/>
-      <path d="m85 126 0 9" stroke="#f0f4fa" stroke-width="2"/>
-     </svg>
-     <svg class="solenne-sticker motif-scales" viewBox="0 0 188 190" focusable="false">
-      <path d="M85 27 107 27 102 143 89 143Z" fill="#777e8c" stroke="#e3e8ef" stroke-width="2.8"/>
-      <path d="m42 58 108-17" stroke="#eff3f7" stroke-width="6" stroke-linecap="round"/>
-      <path d="M95 29 95 9M81 150H113l10 15H72Z" fill="#5b6574" stroke="#bdcad7" stroke-width="3"/>
-      <circle cx="96" cy="25" r="8" fill="#cfd9e4" stroke="#fff" stroke-width="2"/>
-      <path d="M44 58 22 119M44 58 76 119M149 41 124 103M149 41 178 103" stroke="#a9b8c8" stroke-width="2.4" fill="none"/>
-      <path d="M10 118Q43 144 87 115L76 127Q43 147 20 128ZM114 102Q151 126 186 101l-14 19q-29 13-48-2Z" fill="#4c5260" stroke="#e0e6ee" stroke-width="2.6"/>
-      <path d="M39 57 47 65M144 40 152 48" stroke="#dee8f1" stroke-width="2"/>
-      <path d="m104 135 16 12-10 13" stroke="#aab2c0" fill="none" stroke-width="2"/>
-     </svg>
-     <svg class="solenne-sticker motif-rose" viewBox="0 0 160 185" focusable="false">
-      <path d="M80 83q-15-10-9-26 3-9 14-12-2-19 18-23 17 0 23 17 23-3 29 15 7 15-8 28 6 20-13 30-15 9-35 0-23 5-33-14Z" fill="#826a79" stroke="#ddd1dc" stroke-width="2.9" stroke-linejoin="round"/>
-      <path d="M95 62q11-25 30-11 13 12 0 25-13-7-25 3-13 14-28-1M90 80q16-21 27-11 4 13-13 24-9-3-19 9M67 76q-8 16 15 30 26 15 45 0" fill="none" stroke="#e1c7d5" stroke-width="2.2"/>
-      <path d="M105 111q-15 33-31 64M89 136q-28-20-45-9 9 23 34 23M92 137q22-18 36-8-8 17-32 23" stroke="#9aa8a8" stroke-width="3" fill="none"/>
-      <path d="m86 153-13-7m19 8 13-10" stroke="#d9dce0" stroke-width="1.5"/>
-     </svg>
-     <svg class="solenne-sticker motif-rebirth" viewBox="0 0 154 164" focusable="false">
-      <path d="M25 119A66 66 0 0 1 51 16M64 10A66 66 0 0 1 135 88M129 107A66 66 0 0 1 45 145" stroke="#c5d0dd" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M54 17 45 38 58 50 48 63M131 89 116 101 126 115M45 145 58 125 43 114" fill="none" stroke="#5e6d7d" stroke-width="2.5"/>
-      <path d="M78 126Q40 91 70 53q-2 24 16 35Q116 61 98 29q35 43 14 76-12 20-34 21Z" fill="#9caebe" stroke="#eff3f9" stroke-width="2.5"/>
-      <path d="M80 124q-15-25 6-39-1 22 12 16-3 20-18 23Z" fill="#555a6f" stroke="#dee6f0" stroke-width="1.5"/>
-      <path d="m76 2 2 15m-7-8h15M7 87l16 2m-8-10v18" stroke="#d4e0eb" stroke-width="1.8"/>
-     </svg>
-    </div>
-    <figcaption><span>TIANYI STAR / LCB SPECIAL ASSET</span><span>PORTRAIT AWAITING ARTWORK</span></figcaption>
-   </figure>
-  </section>
-  <div class="hero-footer" aria-label="Archive reference"><span>LC:NN / PERSONNEL ARCHIVE</span><span>SPECIAL ASSET / LCB</span><span>PLATE 01 · (1)984</span></div>
-  <section class="character-sheet" id="dossier" aria-label="Full character dossier">
-   <aside class="left-column">
-    <section class="basic-info">
-     <p class="sidebar-kicker">SECTION A / PERSONAL RECORD</p>
-     <h2>Identity.</h2>
-     <div class="identity-row"><strong>Full Name</strong><span>Anomidae Solenne</span></div>
-<div class="identity-row"><strong>Title</strong><span>The Tianyi Star</span></div>
-<div class="identity-row"><strong>Age</strong><span>—</span></div>
-<div class="identity-row"><strong>Species/Race</strong><span>Angel / Demon Hybrid</span></div>
-<div class="identity-row"><strong>Affiliation</strong><span>Limbus Company</span></div>
-<div class="identity-row"><strong>Assignment</strong><span>LCB / Limbus Company Bus</span></div>
-<div class="identity-row"><strong>Origin</strong><span>—</span></div>
-    </section>
-    <div class="sidebar-note"><p class="sidebar-kicker">ARCHIVE OFFICE / REFERENCE</p><p>Unconfirmed identity fields and unwritten observations are intentionally left open for the complete personnel record.</p></div>
-   </aside>
-   <div class="right-column">
-    <div class="content-grid">
-     <section class="panel stats">
-      <p class="panel-kicker">SECTION B / OBSERVED VALUES</p>
-      <h2>Statistics.</h2>
-      <div class="entry-stack"><details class="stat-box"><summary class="stat-title">Stat 1</summary><div class="stat-content">Stat description.</div></details>
-<details class="stat-box"><summary class="stat-title">Stat 2</summary><div class="stat-content">Stat description.</div></details>
-<details class="stat-box"><summary class="stat-title">Stat 3</summary><div class="stat-content">Stat description.</div></details></div>
-     </section>
-     <section class="panel appearance">
-      <p class="panel-kicker">SECTION C / VISUAL RECORD</p>
-      <h2>Appearance.</h2>
-      <p>Appearance notes awaiting the complete character reference.</p>
-     </section>
-    </div>
-    <section class="panel Abilities">
-     <p class="panel-kicker">SECTION D / CAPABILITY REGISTER</p>
-     <h2>Abilities &amp; powers.</h2>
-     <div class="power-stack"><details class="power-box"><summary class="power-title">Power 1</summary><div class="power-content">Power description.</div></details>
-<details class="power-box"><summary class="power-title">Power 2</summary><div class="power-content">Power description.</div></details>
-<details class="power-box"><summary class="power-title">Power 3</summary><div class="power-content">Power description.</div></details></div>
-    </section>
-    <section class="panel backstory">
-     <p class="panel-kicker">SECTION E / HISTORICAL FILE</p>
-     <h2>Backstory &amp; lore.</h2>
-     <p>Full account of Anomidae’s history and rebirth pending.</p>
-    </section>
-   </div>
-  </section>
-  <footer class="dossier-footer"><span>LC:NN / PRIMARY RECORD 01</span><span>END OF FILE — ANOMIDAE SOLENNE</span><a href="../">RETURN TO ARCHIVE ↑</a></footer>
-  <div id="overlay" role="dialog" aria-modal="true" aria-label="Enlarged portrait" onclick="closeImage()">
-   <button type="button" class="overlay-close" onclick="closeImage()" aria-label="Close enlarged portrait">CLOSE ×</button>
-   <img id="overlay-img" alt="Enlarged character portrait">
-  </div>
- </main>
- <script src="script.js"></script>
-</body>
+          <!-- Eight cold-silver symbolic ornaments, intentionally kept at the portrait edges. -->
+          <div class="solenne-motifs" aria-hidden="true">
+            <svg
+              class="solenne-sticker motif-halo"
+              viewBox="0 0 180 160"
+              focusable="false"
+            >
+              <!-- Fractured halo set inside a consecrated seal, entirely wingless. -->
+              <circle
+                cx="90"
+                cy="90"
+                r="54"
+                fill="#24303e"
+                fill-opacity=".84"
+                stroke="#8b9cae"
+                stroke-width="2"
+              />
+              <circle
+                cx="90"
+                cy="90"
+                r="43"
+                fill="none"
+                stroke="#e9f1f8"
+                stroke-width="1.5"
+                stroke-dasharray="1.5 6"
+              />
+              <path
+                d="M32 70C44 23 94 13 130 40"
+                stroke="#edf5fd"
+                stroke-width="9"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path
+                d="M146 53C167 96 136 142 91 145 64 147 43 134 31 111"
+                stroke="#b6c7d8"
+                stroke-width="8"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path
+                d="M128 39 123 59 137 64 124 83M147 53 135 68"
+                stroke="#3b536b"
+                stroke-width="3"
+                fill="none"
+              />
+              <path
+                d="M90 3v22M90 155v5M10 90h20M150 90h20M32 32l17 17M132 132l17 17"
+                stroke="#e6eff7"
+                stroke-width="2"
+                opacity=".85"
+              />
+              <path
+                d="m90 54 11 26 26 11-26 10-11 26-10-26-26-10 26-11Z"
+                fill="#b3c8dd"
+                stroke="#f6f9ff"
+                stroke-width="2"
+              />
+              <path d="m90 69 7 22-7 21-7-21Z" fill="#f4f9fd" />
+              <circle
+                cx="90"
+                cy="91"
+                r="5"
+                fill="#657a90"
+                stroke="#f4f9fd"
+                stroke-width="1"
+              />
+            </svg>
+            <svg
+              class="solenne-sticker motif-infernal"
+              viewBox="0 0 170 180"
+              focusable="false"
+            >
+              <!-- Infernal signet: an engraved dark seal, not horns or wings. -->
+              <path
+                d="M85 6 103 27 132 19 139 48 161 65 147 92 158 123 130 137 124 165 91 159 70 175 51 155 22 158 22 126 7 107 24 81 13 51 43 40 55 14Z"
+                fill="#32313c"
+                stroke="#b7b3c4"
+                stroke-width="3"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M85 24 107 39 130 51 141 81 132 120 102 143 68 147 40 127 31 94 40 63 59 41Z"
+                fill="#151923"
+                stroke="#6f7181"
+                stroke-width="2"
+              />
+              <path
+                d="m85 41 28 23 11 28-14 26-25 19-26-20-15-26 12-29Z"
+                fill="#4b4a5a"
+                stroke="#c0c3d1"
+                stroke-width="1.8"
+              />
+              <path
+                d="M85 50 85 126M58 70l27 21 27-21M62 110l23-19 23 19M72 62l13-12 13 12M67 124l18 13 18-13"
+                fill="none"
+                stroke="#d9d6e1"
+                stroke-width="3"
+                stroke-linejoin="round"
+                stroke-linecap="square"
+              />
+              <path
+                d="M85 91 72 79M85 91l13-12"
+                stroke="#4a2f4a"
+                stroke-width="4"
+                fill="none"
+              />
+              <g fill="#abb6c4">
+                <circle cx="85" cy="13" r="3" />
+                <circle cx="153" cy="90" r="3" />
+                <circle cx="20" cy="104" r="3" />
+              </g>
+              <path
+                d="M56 14 65 28 60 37M124 142 109 149"
+                stroke="#dce3eb"
+                fill="none"
+                stroke-width="1.5"
+              />
+            </svg>
+            <svg
+              class="solenne-sticker motif-fracture"
+              viewBox="0 0 156 180"
+              focusable="false"
+            >
+              <!-- An ashen monolith broken into distinct shards. -->
+              <path
+                d="m60 9 58 12 22 37-30 38-35-15-39 11-23-41Z"
+                fill="#98aab9"
+                stroke="#e4edf7"
+                stroke-width="2.8"
+                stroke-linejoin="round"
+              />
+              <path
+                d="m60 9 9 44 35 7 14-39M69 53 36 92l39-11 35 15-6-36"
+                fill="none"
+                stroke="#4b5e73"
+                stroke-width="2"
+              />
+              <path
+                d="m12 100 40-10 26 19-10 47-40 12-22-30Z"
+                fill="#5c687b"
+                stroke="#c9d5e3"
+                stroke-width="3"
+              />
+              <path
+                d="M24 116 50 111 63 127 43 148 22 141Z"
+                fill="#97a5b6"
+                stroke="#e0e9f2"
+                stroke-width="1.5"
+              />
+              <path
+                d="m92 112 24-13 26 24-10 37-31 12-22-35Z"
+                fill="#333846"
+                stroke="#aebdcd"
+                stroke-width="2.8"
+              />
+              <path
+                d="m106 118 23 12-13 25-14-14Z"
+                fill="#667486"
+                stroke="#d9e4ef"
+                stroke-width="1.5"
+              />
+              <path
+                d="m79 81 10 28-21 20M110 96l6 3-12 13M67 156l12-19"
+                stroke="#eef5fb"
+                stroke-width="2"
+                fill="none"
+                opacity=".7"
+              />
+              <path
+                d="m19 84 11-10M136 92l9-12"
+                stroke="#d8e7f6"
+                stroke-width="1.6"
+                opacity=".7"
+              />
+            </svg>
+            <svg
+              class="solenne-sticker motif-tianyi"
+              viewBox="0 0 174 174"
+              focusable="false"
+            >
+              <!-- The Tianyi Star: cold-silver personal insignia, without wing motifs. -->
+              <circle
+                cx="87"
+                cy="87"
+                r="76"
+                fill="#1c2533"
+                fill-opacity=".88"
+                stroke="#a5b5c8"
+                stroke-width="2.5"
+              />
+              <circle
+                cx="87"
+                cy="87"
+                r="63"
+                fill="none"
+                stroke="#c9d6e2"
+                stroke-width="1.4"
+                stroke-dasharray="2 7"
+              />
+              <path
+                d="M87 7 102 62 142 32 114 73 168 87 114 101 142 142 102 114 87 168 73 114 32 142 61 101 6 87 61 73 32 32 73 61Z"
+                fill="#9fb2c5"
+                stroke="#f2f8fe"
+                stroke-width="2.6"
+                stroke-linejoin="round"
+              />
+              <path
+                d="m87 32 14 42 44 13-44 13-14 43-13-43-43-13 43-13Z"
+                fill="#4e647b"
+                stroke="#e7f0f8"
+                stroke-width="1.5"
+              />
+              <path
+                d="m87 57 17 30-17 29-17-29Z"
+                fill="#dbe8f4"
+                stroke="#fff"
+                stroke-width="1.8"
+              />
+              <circle
+                cx="87"
+                cy="87"
+                r="7"
+                fill="#65778d"
+                stroke="#fff"
+                stroke-width="2"
+              />
+              <path
+                d="M87 2v10M87 162v10M2 87h11M161 87h11"
+                stroke="#e0e9f5"
+                stroke-width="1.5"
+              />
+              <path
+                d="m28 16 11 9M145 149l11 10"
+                stroke="#b7c9dc"
+                stroke-width="1.2"
+              />
+            </svg>
+            <svg
+              class="solenne-sticker motif-book"
+              viewBox="0 0 174 142"
+              focusable="false"
+            >
+              <path
+                d="M9 27q39-22 76 1 41-22 80-1v94q-42-17-80 7-39-23-76-7Z"
+                fill="#434957"
+                stroke="#d5dce4"
+                stroke-width="3"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M18 32q32-12 67 4v82q-36-20-67-10ZM85 36q35-16 71-4v76q-36-10-71 10Z"
+                fill="#aab7c6"
+                stroke="#f3f6fc"
+                stroke-width="1.8"
+              />
+              <path
+                d="M85 37V128M28 49q23-8 45 4M27 66q23-7 44 5M28 83q22-5 44 8M96 53q23-11 47-4M96 71q23-10 46-4M96 90q24-8 48-3"
+                fill="none"
+                stroke="#536476"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+              <path
+                d="M111 11v39l8-9 9 9V11"
+                fill="#828091"
+                stroke="#d1d4e2"
+                stroke-width="1.5"
+              />
+              <path d="m85 126 0 9" stroke="#f0f4fa" stroke-width="2" />
+            </svg>
+            <svg
+              class="solenne-sticker motif-scales"
+              viewBox="0 0 188 190"
+              focusable="false"
+            >
+              <path
+                d="M85 27 107 27 102 143 89 143Z"
+                fill="#777e8c"
+                stroke="#e3e8ef"
+                stroke-width="2.8"
+              />
+              <path
+                d="m42 58 108-17"
+                stroke="#eff3f7"
+                stroke-width="6"
+                stroke-linecap="round"
+              />
+              <path
+                d="M95 29 95 9M81 150H113l10 15H72Z"
+                fill="#5b6574"
+                stroke="#bdcad7"
+                stroke-width="3"
+              />
+              <circle
+                cx="96"
+                cy="25"
+                r="8"
+                fill="#cfd9e4"
+                stroke="#fff"
+                stroke-width="2"
+              />
+              <path
+                d="M44 58 22 119M44 58 76 119M149 41 124 103M149 41 178 103"
+                stroke="#a9b8c8"
+                stroke-width="2.4"
+                fill="none"
+              />
+              <path
+                d="M10 118Q43 144 87 115L76 127Q43 147 20 128ZM114 102Q151 126 186 101l-14 19q-29 13-48-2Z"
+                fill="#4c5260"
+                stroke="#e0e6ee"
+                stroke-width="2.6"
+              />
+              <path
+                d="M39 57 47 65M144 40 152 48"
+                stroke="#dee8f1"
+                stroke-width="2"
+              />
+              <path
+                d="m104 135 16 12-10 13"
+                stroke="#aab2c0"
+                fill="none"
+                stroke-width="2"
+              />
+            </svg>
+            <svg
+              class="solenne-sticker motif-rose"
+              viewBox="0 0 160 185"
+              focusable="false"
+            >
+              <path
+                d="M80 83q-15-10-9-26 3-9 14-12-2-19 18-23 17 0 23 17 23-3 29 15 7 15-8 28 6 20-13 30-15 9-35 0-23 5-33-14Z"
+                fill="#826a79"
+                stroke="#ddd1dc"
+                stroke-width="2.9"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M95 62q11-25 30-11 13 12 0 25-13-7-25 3-13 14-28-1M90 80q16-21 27-11 4 13-13 24-9-3-19 9M67 76q-8 16 15 30 26 15 45 0"
+                fill="none"
+                stroke="#e1c7d5"
+                stroke-width="2.2"
+              />
+              <path
+                d="M105 111q-15 33-31 64M89 136q-28-20-45-9 9 23 34 23M92 137q22-18 36-8-8 17-32 23"
+                stroke="#9aa8a8"
+                stroke-width="3"
+                fill="none"
+              />
+              <path
+                d="m86 153-13-7m19 8 13-10"
+                stroke="#d9dce0"
+                stroke-width="1.5"
+              />
+            </svg>
+            <svg
+              class="solenne-sticker motif-rebirth"
+              viewBox="0 0 154 164"
+              focusable="false"
+            >
+              <path
+                d="M25 119A66 66 0 0 1 51 16M64 10A66 66 0 0 1 135 88M129 107A66 66 0 0 1 45 145"
+                stroke="#c5d0dd"
+                stroke-width="6"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path
+                d="M54 17 45 38 58 50 48 63M131 89 116 101 126 115M45 145 58 125 43 114"
+                fill="none"
+                stroke="#5e6d7d"
+                stroke-width="2.5"
+              />
+              <path
+                d="M78 126Q40 91 70 53q-2 24 16 35Q116 61 98 29q35 43 14 76-12 20-34 21Z"
+                fill="#9caebe"
+                stroke="#eff3f9"
+                stroke-width="2.5"
+              />
+              <path
+                d="M80 124q-15-25 6-39-1 22 12 16-3 20-18 23Z"
+                fill="#555a6f"
+                stroke="#dee6f0"
+                stroke-width="1.5"
+              />
+              <path
+                d="m76 2 2 15m-7-8h15M7 87l16 2m-8-10v18"
+                stroke="#d4e0eb"
+                stroke-width="1.8"
+              />
+            </svg>
+          </div>
+          <figcaption>
+            <span>TIANYI STAR / LCB SPECIAL ASSET</span
+            ><span>PORTRAIT AWAITING ARTWORK</span>
+          </figcaption>
+        </figure>
+      </section>
+      <div class="hero-footer" aria-label="Archive reference">
+        <span>LC:NN / PERSONNEL ARCHIVE</span><span>SPECIAL ASSET / LCB</span
+        ><span>PLATE 01 · (1)984</span>
+      </div>
+      <section
+        class="character-sheet"
+        id="dossier"
+        aria-label="Full character dossier"
+      >
+        <aside class="left-column">
+          <section class="basic-info">
+            <p class="sidebar-kicker">SECTION A / PERSONAL RECORD</p>
+            <h2>Identity.</h2>
+            <div class="identity-row">
+              <strong>Full Name</strong><span>Anomidae Solenne</span>
+            </div>
+            <div class="identity-row">
+              <strong>Title</strong><span>The Tianyi Star</span>
+            </div>
+            <div class="identity-row"><strong>Age</strong><span>—</span></div>
+            <div class="identity-row">
+              <strong>Species/Race</strong><span>Angel / Demon Hybrid</span>
+            </div>
+            <div class="identity-row">
+              <strong>Affiliation</strong><span>Limbus Company</span>
+            </div>
+            <div class="identity-row">
+              <strong>Assignment</strong><span>LCB / Limbus Company Bus</span>
+            </div>
+            <div class="identity-row">
+              <strong>Origin</strong><span>—</span>
+            </div>
+          </section>
+          <div class="sidebar-note">
+            <p class="sidebar-kicker">ARCHIVE OFFICE / REFERENCE</p>
+            <p>
+              Unconfirmed identity fields and unwritten observations are
+              intentionally left open for the complete personnel record.
+            </p>
+          </div>
+        </aside>
+        <div class="right-column">
+          <div class="content-grid">
+            <section class="panel stats">
+              <p class="panel-kicker">SECTION B / OBSERVED VALUES</p>
+              <h2>Statistics.</h2>
+              <div class="entry-stack">
+                <details class="stat-box">
+                  <summary class="stat-title">Stat 1</summary>
+                  <div class="stat-content">Stat description.</div>
+                </details>
+                <details class="stat-box">
+                  <summary class="stat-title">Stat 2</summary>
+                  <div class="stat-content">Stat description.</div>
+                </details>
+                <details class="stat-box">
+                  <summary class="stat-title">Stat 3</summary>
+                  <div class="stat-content">Stat description.</div>
+                </details>
+              </div>
+            </section>
+            <section class="panel appearance">
+              <p class="panel-kicker">SECTION C / VISUAL RECORD</p>
+              <h2>Appearance.</h2>
+              <p>Appearance notes awaiting the complete character reference.</p>
+            </section>
+          </div>
+          <section class="panel Abilities">
+            <p class="panel-kicker">SECTION D / CAPABILITY REGISTER</p>
+            <h2>Abilities &amp; powers.</h2>
+            <div class="power-stack">
+              <details class="power-box">
+                <summary class="power-title">Power 1</summary>
+                <div class="power-content">Power description.</div>
+              </details>
+              <details class="power-box">
+                <summary class="power-title">Power 2</summary>
+                <div class="power-content">Power description.</div>
+              </details>
+              <details class="power-box">
+                <summary class="power-title">Power 3</summary>
+                <div class="power-content">Power description.</div>
+              </details>
+            </div>
+          </section>
+          <section class="panel backstory">
+            <p class="panel-kicker">SECTION E / HISTORICAL FILE</p>
+            <h2>Backstory &amp; lore.</h2>
+            <p>Full account of Anomidae’s history and rebirth pending.</p>
+          </section>
+        </div>
+      </section>
+      <footer class="dossier-footer">
+        <span>LC:NN / PRIMARY RECORD 01</span
+        ><span>END OF FILE — ANOMIDAE SOLENNE</span
+        ><a href="../">RETURN TO ARCHIVE ↑</a>
+      </footer>
+      <div
+        id="overlay"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Enlarged portrait"
+        onclick="closeImage()"
+      >
+        <button
+          type="button"
+          class="overlay-close"
+          onclick="closeImage()"
+          aria-label="Close enlarged portrait"
+        >
+          CLOSE ×
+        </button>
+        <img id="overlay-img" alt="Enlarged character portrait" />
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>

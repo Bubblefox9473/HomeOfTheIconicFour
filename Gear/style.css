@@ -416,7 +416,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   max-height:none;
   padding:6px;
   object-fit:contain;
-  transform:rotate(180deg) scale(1.08);
+  transform:rotate(90deg) scale(1.3);
   transform-origin:center;
 }
 .stage-frame .stage-artwork[src$="TianyiStarBlade.png"]{

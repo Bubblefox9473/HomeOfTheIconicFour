@@ -43,13 +43,67 @@
           <div class="art-edge art-edge-left"></div>
           <div class="art-edge art-edge-right"></div>
           <div class="film-shadow"></div>
+          <!-- Five identical die-cut openings, spaced a precise 72° apart.
+               Inline SVG avoids the lopsided CSS-positioned circles of the old reel. -->
           <div class="outer-reel">
-            <div class="inner-reel">
-              <i class="reel-hole hole-one"></i><i class="reel-hole hole-two"></i>
-              <i class="reel-hole hole-three"></i><i class="reel-hole hole-four"></i>
-              <i class="reel-hole hole-five"></i><i class="reel-hole hole-six"></i>
-              <span class="reel-hub"></span>
-            </div>
+            <svg class="reel-illustration" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+              <defs>
+                <radialGradient id="nnc-reel-back" cx="43%" cy="34%" r="75%">
+                  <stop offset="0" stop-color="#332931"/><stop offset=".72" stop-color="#120f17"/><stop offset="1" stop-color="#08080d"/>
+                </radialGradient>
+                <linearGradient id="nnc-reel-rim" x1="12%" y1="7%" x2="91%" y2="98%">
+                  <stop offset="0" stop-color="#ccaca2"/><stop offset=".16" stop-color="#6c5156"/>
+                  <stop offset=".31" stop-color="#ad8b85"/><stop offset=".57" stop-color="#3d2e37"/>
+                  <stop offset=".76" stop-color="#9e7979"/><stop offset="1" stop-color="#2c232d"/>
+                </linearGradient>
+                <radialGradient id="nnc-reel-face" cx="32%" cy="23%" r="87%">
+                  <stop offset="0" stop-color="#96767b"/><stop offset=".38" stop-color="#614c58"/>
+                  <stop offset=".72" stop-color="#493c4a"/><stop offset="1" stop-color="#2e2937"/>
+                </radialGradient>
+                <radialGradient id="nnc-reel-hub" cx="32%" cy="25%" r="80%">
+                  <stop offset="0" stop-color="#d8b8b0"/><stop offset=".35" stop-color="#9a7d7d"/>
+                  <stop offset=".63" stop-color="#554450"/><stop offset="1" stop-color="#322832"/>
+                </radialGradient>
+                <path id="nnc-reel-opening" d="M253 117 C278 104 322 104 347 117 Q363 126 356 143 L325 196 Q315 217 300 217 Q285 217 275 196 L244 143 Q237 126 253 117 Z"/>
+              </defs>
+              <circle cx="300" cy="304" r="279" fill="#08070b" opacity=".4"/>
+              <circle cx="300" cy="300" r="274" fill="#201920" stroke="#18131a" stroke-width="3"/>
+              <circle cx="300" cy="300" r="262" fill="url(#nnc-reel-rim)" stroke="#c3a29c" stroke-opacity=".44" stroke-width="2.5"/>
+              <circle cx="300" cy="300" r="251" fill="none" stroke="#221921" stroke-width="14"/>
+              <circle cx="300" cy="300" r="241" fill="none" stroke="#debbb0" stroke-opacity=".29" stroke-width="4"/>
+              <circle cx="300" cy="300" r="230" fill="url(#nnc-reel-back)" stroke="#17141b" stroke-width="10"/>
+              <circle cx="300" cy="300" r="224" fill="url(#nnc-reel-face)"/>
+              <g fill="url(#nnc-reel-back)">
+                <use href="#nnc-reel-opening"/>
+                <use href="#nnc-reel-opening" transform="rotate(72 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(144 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(216 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(288 300 300)"/>
+              </g>
+              <circle cx="300" cy="300" r="223" fill="none" stroke="#d8b9b1" stroke-opacity=".28" stroke-width="2"/>
+              <g fill="none" stroke="#17151d" stroke-width="8" opacity=".8">
+                <use href="#nnc-reel-opening"/>
+                <use href="#nnc-reel-opening" transform="rotate(72 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(144 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(216 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(288 300 300)"/>
+              </g>
+              <g fill="none" stroke="#c1a0a2" stroke-width="2.5" opacity=".64">
+                <use href="#nnc-reel-opening"/>
+                <use href="#nnc-reel-opening" transform="rotate(72 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(144 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(216 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(288 300 300)"/>
+              </g>
+              <circle cx="300" cy="300" r="81" fill="#201922" stroke="#c09a95" stroke-opacity=".58" stroke-width="6"/>
+              <circle cx="300" cy="300" r="71" fill="url(#nnc-reel-hub)" stroke="#342832" stroke-width="5"/>
+              <circle cx="300" cy="300" r="55" fill="#5d4954" stroke="#e0b9ac" stroke-opacity=".59" stroke-width="4"/>
+              <circle cx="300" cy="300" r="37" fill="url(#nnc-reel-hub)" stroke="#201923" stroke-width="5"/>
+              <circle cx="300" cy="300" r="19" fill="#0b0b11" stroke="#d1ada4" stroke-width="6"/>
+              <circle cx="300" cy="300" r="9" fill="#07070b"/>
+              <circle cx="300" cy="300" r="258" fill="none" stroke="#e3beb2" stroke-opacity=".28" stroke-width="1"/>
+              <circle cx="300" cy="300" r="247" fill="none" stroke="#0b0b0f" stroke-opacity=".65" stroke-width="2"/>
+            </svg>
           </div>
           <div class="art-classification">NNC / ARCHIVAL MOTION PICTURE</div>
           <div class="art-number">03</div>

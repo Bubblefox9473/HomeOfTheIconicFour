@@ -15,3 +15,40 @@ body{background:radial-gradient(ellipse at 77% 20%,rgba(87,37,130,.28),transpare
 .gate-box::before{content:"LC:NN / WORKSHOP GATE — SECURITY RECORD"}
 .gate-box{box-shadow:0 25px 100px rgba(0,0,0,.72),0 0 55px rgba(96,40,154,.16)}
 @media(max-width:760px){.workshop-drawing{width:175px;right:-20px;top:-21px}}
+
+
+/* === FLOATING FORGE RELICS ===
+   Workshop motifs are decorative only, layered over the outer margins
+   of the hero plate and never intercepting image zoom or navigation. */
+.hero-portrait{overflow:visible}
+.forge-motifs{position:absolute;inset:0;z-index:5;pointer-events:none;overflow:visible}
+.forge-object{display:block;position:absolute;overflow:visible;pointer-events:none;
+  filter:drop-shadow(0 5px 9px rgba(3,1,7,.75)) drop-shadow(0 0 10px rgba(187,113,240,.27));
+  animation:forge-drift 7.5s ease-in-out infinite}
+.forge-hammer{width:clamp(80px,9vw,118px);height:auto;top:13%;left:-5%;transform:rotate(-19deg);opacity:.83;animation-duration:8s}
+.forge-anvil{width:clamp(131px,15vw,180px);height:auto;right:-5%;bottom:12%;transform:rotate(8deg);opacity:.8;animation-delay:-3.7s;animation-duration:10.5s}
+.forge-rune{width:clamp(42px,5.2vw,66px);height:auto;opacity:.78}
+.forge-rune-one{top:32%;right:4%;transform:rotate(14deg);animation-duration:6.7s;animation-delay:-2.2s}
+.forge-rune-two{left:1%;bottom:21%;transform:rotate(-13deg);animation-duration:8.4s;animation-delay:-4.2s}
+.forge-rune-three{right:9%;bottom:40%;transform:rotate(-24deg);animation-duration:7.9s;animation-delay:-6s}
+.forge-rune-four{top:5%;right:41%;width:clamp(35px,4vw,48px);transform:rotate(12deg);opacity:.63;animation-duration:9.2s;animation-delay:-1s}
+@keyframes forge-drift{
+  0%,100%{translate:0 0}
+  50%{translate:0 -11px}
+}
+@media(max-width:760px){
+  .forge-hammer{width:80px;left:-2%;top:10%}
+  .forge-anvil{width:118px;right:-3%;bottom:12%}
+  .forge-rune{width:46px}
+  .forge-rune-one{top:33%;right:1%}
+  .forge-rune-two{left:2%;bottom:24%}
+  .forge-rune-three{right:9%;bottom:39%}
+  .forge-rune-four{width:33px;top:3%;right:42%}
+}
+@media(max-width:430px){
+  .forge-hammer{width:66px;left:-2%}
+  .forge-anvil{width:101px;right:-2%}
+  .forge-rune{width:36px}
+  .forge-rune-four{width:29px}
+}
+@media(prefers-reduced-motion:reduce){.forge-object{animation:none}}

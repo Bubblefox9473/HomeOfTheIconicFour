@@ -99,31 +99,19 @@ button:disabled{cursor:not-allowed}
 .art-edge-left{left:11px;border-right:1px solid rgba(215,184,168,.13)}
 .art-edge-right{right:11px;border-left:1px solid rgba(215,184,168,.13)}
 .film-shadow{position:absolute;width:75%;aspect-ratio:1;max-width:510px;border-radius:50%;filter:blur(35px);background:rgba(0,0,0,.65);translate:30px 30px}
+/* Precisely modelled five-spoke metal reel.
+   All openings, rims and spindle rings live in the inline SVG instead of
+   using independently positioned CSS circles, so they stay symmetrical. */
 .outer-reel{
-  width:min(75%,490px);aspect-ratio:1;border-radius:50%;position:relative;
-  background:conic-gradient(from -45deg,#453439,#8f6f68 20%,#3e3033 33%,#a57c74 50%,#443239 69%,#b29184 82%,#45363a 100%);
-  box-shadow:0 25px 75px rgba(0,0,0,.65),0 0 0 13px rgba(169,132,121,.09),inset 0 0 0 8px rgba(18,13,16,.68),inset 0 0 0 14px rgba(226,200,185,.16);
-  display:grid;place-items:center;
-  transform:rotate(-17deg);
+  position:relative;display:grid;place-items:center;
+  width:min(73%,470px);aspect-ratio:1;
+  transform:rotate(-11deg);
+  filter:drop-shadow(0 25px 24px rgba(0,0,0,.54));
 }
-.outer-reel::before{content:"";position:absolute;inset:7%;border-radius:50%;border:2px solid rgba(30,18,22,.45);box-shadow:0 0 0 7px rgba(29,19,23,.17)}
-.inner-reel{
-  position:relative;width:81%;aspect-ratio:1;border-radius:50%;
-  background:radial-gradient(circle at 40% 30%,#6e5457,#3d3036 67%,#221b23 100%);
-  box-shadow:inset 0 0 36px rgba(0,0,0,.5),0 0 0 3px rgba(30,18,20,.9);
+.reel-illustration{
+  display:block;width:100%;height:100%;
+  overflow:visible;
 }
-.reel-hole{
- display:block;position:absolute;width:25%;aspect-ratio:1.1;border-radius:48% 49% 44% 47%;
- background:radial-gradient(ellipse at 45% 48%,#0b0a0e 55%,#20191c 69%,#92756d 76%,#30252b 91%);
- box-shadow:inset 0 0 13px rgba(0,0,0,.7),0 0 0 2px rgba(192,155,144,.22);
- left:38%;top:12%;
-}
-.hole-two{left:66%;top:27%;transform:rotate(65deg)}
-.hole-three{left:66%;top:57%;transform:rotate(110deg)}
-.hole-four{left:38%;top:72%;transform:rotate(160deg)}
-.hole-five{left:10%;top:57%;transform:rotate(215deg)}
-.hole-six{left:10%;top:27%;transform:rotate(260deg)}
-.reel-hub{position:absolute;left:50%;top:50%;width:24%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(circle,#0e0b0e 0 16%,#b18d83 19%,#44353b 27% 44%,#d1b3a5 47%,#3f3035 55% 100%);box-shadow:0 0 0 6px rgba(17,14,16,.9),0 0 0 9px rgba(227,183,162,.2)}
 .art-classification{position:absolute;top:57px;left:55px;color:#c6aa9d;font-size:9px}
 .art-number{position:absolute;right:54px;bottom:43px;font:400 clamp(85px,12vw,180px)/.85 var(--serif);color:rgba(228,195,178,.11)}
 .art-foot{position:absolute;left:55px;bottom:35px;display:flex;flex-direction:column;color:#a18b86;font-size:9px}

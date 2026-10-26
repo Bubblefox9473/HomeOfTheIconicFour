@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88" role="img" aria-labelledby="seal-title seal-description">
+  <title id="seal-title">LC:NN branch insignia</title>
+  <desc id="seal-description">An angular archival insignia marking NetherNova as branch LC:NN of Limbus Company, with LC over NN separated by a double-dot division mark.</desc>
+  <defs>
+    <linearGradient id="bronze" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e1bca0"/>
+      <stop offset=".52" stop-color="#b8826e"/>
+      <stop offset="1" stop-color="#765043"/>
+    </linearGradient>
+  </defs>
+  <path d="M20 3H68L85 20V68L68 85H20L3 68V20Z" fill="#1a1210" stroke="url(#bronze)" stroke-width="1.65"/>
+  <path d="M24 10H64L78 24V64L64 78H24L10 64V24Z" fill="none" stroke="#946b5c" stroke-opacity=".65" stroke-width=".7"/>
+  <g stroke="#c99a82" stroke-width="1" stroke-linecap="square" fill="none" opacity=".84">
+    <path d="M34 7H54M34 81H54M7 34V54M81 34V54"/>
+    <path d="M13 13L18 18M75 13L70 18M13 75L18 70M75 75L70 70" opacity=".65"/>
+  </g>
+  <g fill="none" stroke="url(#bronze)" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter">
+    <!-- LC / parent organization -->
+    <path d="M23.5 24V39H35.5"/>
+    <path d="M63 27.5C60.7 25.1 58 24 54 24C46.7 24 43 27.5 43 31.5C43 36.4 46.7 40 54 40C58 40 60.7 39 63 36.5"/>
+    <!-- NN / subordinate branch -->
+    <path d="M24 64V50L35.5 64V50"/>
+    <path d="M49 64V50L60.5 64V50"/>
+  </g>
+  <path d="M19 45.5H37M51 45.5H69" stroke="#815749" stroke-width=".75"/>
+  <circle cx="44" cy="43.1" r="1.15" fill="#d47d69"/>
+  <circle cx="44" cy="47.9" r="1.15" fill="#d47d69"/>
+  <path d="M33 70.5H55" stroke="#bd8a71" stroke-width=".7" opacity=".76"/>
+  <path d="M41.5 73.5L44 76L46.5 73.5" stroke="#bd8a71" stroke-width=".8" fill="none"/>
+</svg>

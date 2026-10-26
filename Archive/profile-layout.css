@@ -81,8 +81,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 .stat-title::after,.power-title::after{content:"+";font:19px/1 var(--mono);color:var(--accent)}
 .stat-box[open] .stat-title::after,.power-box[open] .power-title::after{content:"−"}
 .stat-content,.power-content{border-top:1px solid var(--line);padding:16px 18px 18px;font:13px/1.8 'DM Sans',sans-serif;color:var(--muted)}
-.Abilities .power-stack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.Abilities .power-stack{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
 .Abilities .power-box{margin:0}
+/* Expanded abilities keep each named technique readable within a single stacked box. */
+.Abilities .power-content .power-entry + .power-entry{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.Abilities .power-content .power-entry h3{margin:0 0 7px;font:600 11px/1.6 var(--mono);letter-spacing:.04em;color:var(--paper)}
+.Abilities .power-content .power-entry p{margin:0;font:13px/1.8 'DM Sans',sans-serif;color:var(--muted);overflow-wrap:break-word}
 .backstory{margin-top:0}
 .dossier-footer{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding:29px 0 44px;font:9px/1.8 var(--mono);color:var(--muted);letter-spacing:.13em}
 .dossier-footer a{text-decoration:none;color:var(--accent);border-bottom:1px solid var(--line)}

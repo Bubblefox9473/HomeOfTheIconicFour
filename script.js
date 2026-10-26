@@ -122,64 +122,24 @@ randomSystemMessage();
 
 
 /* =====================================================
-   ENTER CORPORATION BUTTON
+   CORPORATE TERMINAL ACCESS
 ===================================================== */
 
+const enterButton = document.querySelector(".hero .nnc-button");
 
-const enterButton =
-    document.querySelector(".hero button");
+function openTerminal() {
+    const terminal = document.querySelector(".terminal");
+    if (!terminal) return;
 
-
-
-if (enterButton){
-
-
-    enterButton.addEventListener("click", () => {
-
-
-        enterButton.innerText =
-            "ACCESSING...";
-
-
-        enterButton.style.pointerEvents =
-            "none";
-
-
-
-        setTimeout(() => {
-
-
-            window.scrollTo({
-
-                top:
-                document.querySelector(".divisions").offsetTop,
-
-
-                behavior:
-                "smooth"
-
-            });
-
-
-
-            enterButton.innerText =
-                "ACCESS GRANTED";
-
-
-
-        },700);
-
-
-
-    });
-
-
+    terminal.scrollIntoView({ behavior: "smooth", block: "center" });
+    terminal.classList.remove("glitch");
+    void terminal.offsetWidth;
+    terminal.classList.add("glitch");
 }
 
-
-
-
-
+if (enterButton) {
+    enterButton.addEventListener("click", openTerminal);
+}
 
 /* =====================================================
    DIVISION CARD INTERACTION
@@ -187,7 +147,7 @@ if (enterButton){
 
 
 const cards =
-    document.querySelectorAll(".division-card");
+    document.querySelectorAll(".department-card");
 
 
 

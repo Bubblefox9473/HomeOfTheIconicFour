@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#100e10">
-  <meta name="description" content="NetherNova Corporation, Department 02 — explore the Armory & Artifact Registry of faction-issued equipment, recovered relics, and original creations.">
+  <meta name="description" content="NetherNova Corporation, Department 02 — explore the Armory & Artifact Registry of faction-issued equipment, recovered objects, original weapons, armor, and Relics.">
   <title>Gear Registry | NetherNova Corporation</title>
   <link rel="icon" type="image/svg+xml" href="../assets/lc-nn-branch-seal.svg">
   <link rel="stylesheet" href="style.css">
@@ -33,7 +33,7 @@
           <p class="eyebrow"><span class="indicator"></span> NNC–02 / ARMORY &amp; ARTIFACT REGISTRY</p>
           <p class="pretitle">DEPARTMENT OF OBJECTS &amp; EQUIPMENT</p>
           <h1 id="hero-title">Objects of<br><em>significance.</em></h1>
-          <p class="hero-lede">A weapon is only one kind of legacy. Here, weapons, armor, documents, artifacts, and stranger possessions are preserved by the histories they carry.</p>
+          <p class="hero-lede">Weapons, armor, Relics, documents, and stranger possessions belong here. An object's classification tells us what it is; its provenance tells us where it came from.</p>
           <div class="hero-actions">
             <a href="#registry" class="enter-link">ENTER THE REGISTRY <span aria-hidden="true">↘</span></a>
             <span class="folio-number">FILE INDEX / NNC–02</span>
@@ -54,7 +54,7 @@
             </div>
           </div>
           <div class="vault-overline">NNC / MATERIAL RECORDS</div>
-          <div class="vault-foot"><span>THE CITY / ARCHIVAL WING</span><span>ISSUED · FOUND · MADE</span></div>
+          <div class="vault-foot"><span>THE CITY / ARCHIVAL WING</span><span>ISSUED · RECOVERED · MADE</span></div>
           <div class="vault-side-mark">THE OBJECT OUTLIVES THE OWNER</div>
         </div>
       </section>
@@ -70,7 +70,7 @@
         </div>
         <div class="status-entry">
           <span>UNFILED ORIGINS</span>
-          <strong id="unfiled-count">07</strong>
+          <strong id="unfiled-count">00</strong>
         </div>
         <div class="status-entry status-entry-wide">
           <span>REGISTRY STATUS</span>
@@ -83,7 +83,7 @@
           <div>
             <p class="section-index">01 / THE COLLECTION</p>
             <h2 id="registry-title">The Registry<span class="accent">.</span></h2>
-            <p>Browse by provenance first, then narrow by issuer or object type. An unfiled origin is a missing record, not a reason to invent an object's history.</p>
+            <p>Browse by provenance first, then narrow by issuing faction or equipment class. In this registry, Relic is a type of equipment—not a synonym for something found in ruins.</p>
           </div>
           <div class="registry-note"><span>REGISTRY REV. 001</span><strong>INSPECTION ACCESS<br>PERMITTED</strong></div>
         </header>
@@ -93,10 +93,10 @@
             <p class="interface-label">PRIMARY DIVISIONS <span>— SELECT ORIGIN</span></p>
             <div class="division-tabs" id="division-tabs" role="tablist" aria-label="Filter by provenance">
               <button type="button" class="division-tab is-active" id="division-all" role="tab" aria-controls="inventory-panel" aria-selected="true" data-division="all"><span>00</span> All Records <b>11</b></button>
-              <button type="button" class="division-tab" id="division-faction" role="tab" aria-controls="inventory-panel" aria-selected="false" data-division="faction"><span>01</span> Faction-Issued <b>01</b></button>
-              <button type="button" class="division-tab" id="division-relic" role="tab" aria-controls="inventory-panel" aria-selected="false" data-division="relic"><span>02</span> Recovered Relics <b>03</b></button>
-              <button type="button" class="division-tab" id="division-original" role="tab" aria-controls="inventory-panel" aria-selected="false" data-division="original"><span>03</span> Original Gear <b>00</b></button>
-              <button type="button" class="division-tab division-tab-intake" id="division-unfiled" role="tab" aria-controls="inventory-panel" aria-selected="false" data-division="unfiled"><span>+</span> Unclassified <b>07</b></button>
+              <button type="button" class="division-tab" id="division-faction" role="tab" aria-controls="inventory-panel" aria-selected="false" data-division="faction"><span>01</span> Faction-Issued <b>04</b></button>
+              <button type="button" class="division-tab" id="division-recovered" role="tab" aria-controls="inventory-panel" aria-selected="false" data-division="recovered"><span>02</span> Recovered Objects <b>00</b></button>
+              <button type="button" class="division-tab" id="division-original" role="tab" aria-controls="inventory-panel" aria-selected="false" data-division="original"><span>03</span> Original Gear <b>07</b></button>
+              <button type="button" class="division-tab division-tab-intake" id="division-unfiled" role="tab" aria-controls="inventory-panel" aria-selected="false" data-division="unfiled"><span>+</span> Unclassified <b>00</b></button>
             </div>
           </div>
 
@@ -140,9 +140,9 @@
       <section class="registry-guidance" aria-label="How the registry works">
         <div class="guidance-heading"><span>02 / READING A RECORD</span><h2>Origin is not function.</h2></div>
         <div class="guidance-grid">
-          <article><span class="guidance-number">01</span><h3>Provenance</h3><p>Faction-issued, recovered, or independently created. This records where an object came from, not whether it is a weapon.</p></article>
-          <article><span class="guidance-number">02</span><h3>Classification</h3><p>Armor, documents, artifacts, tomes, tools, and weapons each retain their own type regardless of origin.</p></article>
-          <article><span class="guidance-number">03</span><h3>Custody</h3><p>Original issuer, current holder, and acquisition circumstances are separate fields. A stolen item does not lose its issuing faction.</p></article>
+          <article><span class="guidance-number">01</span><h3>Provenance</h3><p>Faction-issued, recovered, or original. A Relic can belong to any of these origins, regardless of whether it was excavated.</p></article>
+          <article><span class="guidance-number">02</span><h3>Classification</h3><p>Weapons, armor, and Relics are equipment classes. A Relic may take the form of a document, timepiece, or something else entirely.</p></article>
+          <article><span class="guidance-number">03</span><h3>Custody</h3><p>Issuing faction, associated owner, and acquisition circumstances are separate records. Stolen Firefist armor remains Office-issued.</p></article>
         </div>
       </section>
     </main>
@@ -180,7 +180,7 @@
         <aside class="inspector-column inspector-left" aria-label="Identification and provenance">
           <div class="inspector-field"><span>OBJECT TYPE</span><strong id="detail-type">—</strong></div>
           <div class="inspector-field"><span>PROVENANCE</span><strong id="detail-provenance">—</strong></div>
-          <div class="inspector-field"><span>ISSUER / ORIGIN</span><strong id="detail-issuer">—</strong></div>
+          <div class="inspector-field"><span>ISSUER / SOURCE</span><strong id="detail-issuer">—</strong></div>
           <div class="inspector-field"><span>RECORD DESIGNATION</span><strong id="detail-code">—</strong></div>
         </aside>
 
@@ -195,7 +195,7 @@
         </section>
 
         <aside class="inspector-column inspector-right" aria-label="Custody and condition">
-          <div class="inspector-field"><span>KNOWN HOLDER</span><strong id="detail-holder">—</strong></div>
+          <div class="inspector-field"><span>OWNER / ASSOCIATION</span><strong id="detail-holder">—</strong></div>
           <div class="inspector-field"><span>CONDITION</span><strong id="detail-condition">—</strong></div>
           <div class="inspector-field"><span>ACQUISITION STATUS</span><strong id="detail-acquisition">—</strong></div>
           <div class="inspector-field"><span>KNOWN PROPERTIES</span><strong id="detail-properties">—</strong></div>

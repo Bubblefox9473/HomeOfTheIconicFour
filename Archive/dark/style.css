@@ -57,3 +57,6 @@ body{background:radial-gradient(ellipse at 70% 16%,rgba(16,77,48,.19),transparen
  .code-cursor{width:33px}
 }
 @media(prefers-reduced-motion:reduce){.code-sticker{animation:none}}
+
+/* Fill this dossier's portrait frame without stretching the artwork. */
+.hero-portrait .portrait{object-fit:cover;object-position:center top}

@@ -22,3 +22,38 @@ body{background:radial-gradient(ellipse at 70% 16%,rgba(16,77,48,.19),transparen
 .gate-box h1{font:500 30px/1.25 var(--mono);letter-spacing:-.035em}
 .gate-box button{background:#62c48c;color:#031109}
 @media(max-width:760px){.terminal-note{top:15px;right:15px;padding:8px 10px;font-size:8px}}
+
+
+/* === FLOATING CODE STICKERS ===
+   Dark's coding counterparts to Necro's forge relics and Noctis' celestial regalia. */
+.hero-portrait{overflow:visible}
+.code-motifs{position:absolute;inset:0;z-index:5;pointer-events:none;overflow:visible}
+.code-sticker{
+ display:block;position:absolute;overflow:visible;pointer-events:none;
+ filter:drop-shadow(0 5px 10px rgba(0,0,0,.8)) drop-shadow(0 0 12px rgba(121,219,166,.22));
+ animation:code-drift 8s ease-in-out infinite;
+}
+.code-terminal{width:clamp(105px,12vw,155px);height:auto;left:-8%;top:10%;transform:rotate(-10deg);opacity:.92;animation-duration:9s}
+.code-brackets{width:clamp(60px,7vw,88px);height:auto;right:18%;top:4%;transform:rotate(9deg);opacity:.86;animation-delay:-2s;animation-duration:7.8s}
+.code-chip{width:clamp(58px,7vw,88px);height:auto;right:-6%;top:28%;transform:rotate(12deg);opacity:.88;animation-delay:-3.8s;animation-duration:8.8s}
+.code-window{width:clamp(82px,9vw,122px);height:auto;left:-7%;bottom:19%;transform:rotate(-8deg);opacity:.84;animation-delay:-5s;animation-duration:7.2s}
+.code-lock{width:clamp(50px,6vw,76px);height:auto;right:3%;bottom:13%;transform:rotate(8deg);opacity:.84;animation-delay:-1.2s;animation-duration:9.8s}
+.code-cursor{width:clamp(42px,5vw,66px);height:auto;left:8%;top:43%;transform:rotate(-7deg);opacity:.8;animation-delay:-4.2s;animation-duration:8.4s}
+@keyframes code-drift{0%,100%{translate:0 0}50%{translate:0 -10px}}
+@media(max-width:760px){
+ .code-terminal{width:108px;left:-4%;top:9%}
+ .code-brackets{width:58px;right:20%;top:5%}
+ .code-chip{width:60px;right:-2%;top:29%}
+ .code-window{width:86px;left:-4%;bottom:22%}
+ .code-lock{width:50px;right:2%;bottom:14%}
+ .code-cursor{width:39px;left:4%;top:45%}
+}
+@media(max-width:430px){
+ .code-terminal{width:90px}
+ .code-brackets{width:49px}
+ .code-chip{width:50px}
+ .code-window{width:72px}
+ .code-lock{width:42px}
+ .code-cursor{width:33px}
+}
+@media(prefers-reduced-motion:reduce){.code-sticker{animation:none}}

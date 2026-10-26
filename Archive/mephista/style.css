@@ -1,14 +1,175 @@
-/* MEPhista / control template: silver, archival carbon and empty photographic plates. */
-:root{--bg:#09090b;--surface:#151517;--surface-soft:#222224;--paper:#f1f0ec;--muted:#a9a7a6;--accent:#d0cfd1;--accent-rgb:208,207,209;--line:rgba(204,204,209,.23);--hero-glow:rgba(219,223,235,.11);--portrait-bg:#0f0e12}
-body{background:radial-gradient(ellipse at 68% 25%,#24232a 0%,transparent 36%),linear-gradient(145deg,#08080b,#141318 54%,#08080a)}
-.frame::after{content:"";position:absolute;inset:90px 0 0;pointer-events:none;z-index:-1;background:linear-gradient(90deg,rgba(226,226,230,.025) 1px,transparent 1px),linear-gradient(rgba(226,226,230,.02) 1px,transparent 1px);background-size:75px 75px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}
-.hero-name{font-family:Georgia,serif;font-weight:400;font-style:normal;letter-spacing:-.065em;text-transform:none}
-.hero-subtitle{letter-spacing:.17em}
-.portrait-mat{background:radial-gradient(ellipse at 50% 32%,rgba(227,227,236,.12),transparent 62%),linear-gradient(145deg,#1e1d22,#08080a 75%)}
-.portrait{filter:grayscale(.82) contrast(1.08) brightness(.8)}
-.portrait-trigger:hover .portrait{filter:grayscale(.45) contrast(1.05) brightness(.92)}
-.template-mark{top:18px;right:20px;display:flex;flex-direction:column;align-items:center;gap:3px;width:105px;border:1px solid rgba(228,227,225,.42);padding:11px 6px;background:rgba(9,9,13,.8);text-align:center;color:#eee;font:8px/1.5 var(--mono);letter-spacing:.09em}
-.template-mark strong{font:400 43px/1 Georgia,serif}
-.basic-info{border-color:#b8b7bb}
-.gate-box::before{content:"LC:NN / CONTROLLED ARCHIVE PRINT"}
-@media(max-width:760px){.template-mark{width:82px;right:16px;top:16px}.template-mark strong{font-size:30px}}
+/* ANOMIDAE SOLENNE / THE TIANYI STAR.
+   This is still Primary File 01 using the same shared profile-layout.css
+   as Necro, Noctis and Dark; all differences are local art direction. */
+:root{
+ --bg:#0b0d13;
+ --surface:#171b24;
+ --surface-soft:#242833;
+ --paper:#edf3f8;
+ --muted:#a8b4c2;
+ --accent:#ced8e3;
+ --accent-rgb:206,216,227;
+ --line:rgba(202,216,231,.29);
+ --hero-glow:rgba(208,226,244,.17);
+ --portrait-bg:#171c27;
+ --serif:'Playfair Display',Georgia,serif;
+}
+/* Divine silver at the top: desaturated and cold, never golden.
+   Down the page it darkens into nearly black violet-charcoal. */
+body{
+ background:
+  radial-gradient(ellipse 53vw 38vw at 61% -3%,rgba(236,245,255,.40),rgba(186,204,225,.18) 40%,transparent 76%),
+  radial-gradient(ellipse 31vw 40vw at 94% 33%,rgba(89,99,129,.22),transparent 75%),
+  linear-gradient(180deg,#414c5d 0%,#303c4d 15%,#222935 37%,#151923 54%,#0e0d17 73%,#06060c 100%);
+}
+/* Atmospheric fissures stay behind the common layout, not over text. */
+.frame::before{
+ background:
+  radial-gradient(ellipse at 64% 1%,rgba(251,253,255,.22),transparent 36%),
+  radial-gradient(ellipse at 48% 19%,rgba(180,204,226,.12),transparent 40%),
+  radial-gradient(ellipse at 75% 84%,rgba(46,36,65,.26),transparent 50%);
+}
+.frame::after{
+ content:"";position:absolute;inset:90px 0 auto;height:clamp(1000px,120svh,1600px);
+ z-index:-1;pointer-events:none;opacity:.34;
+ background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221600%22%20height%3D%221400%22%20viewBox%3D%220%200%201600%201400%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23dce8f2%22%20stroke-width%3D%221.6%22%20opacity%3D%22.65%22%3E%3Cpath%20d%3D%22M84%200%20115%20101%20101%20180%20141%20224%20130%20312%20187%20351%20199%20427%22%2F%3E%3Cpath%20d%3D%22M101%20180%2065%20214%2072%20257M141%20224%20186%20248%20178%20279M187%20351%20174%20392%20203%20410%22%2F%3E%3Cpath%20d%3D%22M1474%200%201447%2076%201469%20154%201422%20215%201434%20290%201391%20358%201410%20417%22%2F%3E%3Cpath%20d%3D%22M1469%20154%201504%20188%201483%20239M1434%20290%201476%20322%201459%20364M1391%20358%201368%20398%22%2F%3E%3Cpath%20d%3D%22M382%201122%20410%201174%20396%201227%20441%201262%20430%201315%20467%201400%22%2F%3E%3Cpath%20d%3D%22M410%201174%20447%201182%20472%201237M441%201262%20417%201280M1263%201068%201228%201111%201244%201152%201199%201199%201210%201250%201166%201312%201178%201400%22%2F%3E%3Cpath%20d%3D%22M1228%201111%201190%201133%201170%201172M1199%201199%201165%201211%22%2F%3E%3C%2Fg%3E%3Cg%20stroke%3D%22%237a879b%22%20stroke-width%3D%223%22%20fill%3D%22none%22%20opacity%3D%22.29%22%3E%3Cpath%20d%3D%22M130%20312%20187%20351%20199%20427M1434%20290%201391%20358%201410%20417M1210%201250%201166%201312%201178%201400%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+ background-position:center top;background-size:100% 100%;background-repeat:no-repeat;
+}
+.profile-nav{border-bottom-color:rgba(226,238,248,.3)}
+.hero-index{color:#dbe7f0}
+.hero-name{
+ font:500 clamp(65px,7.7vw,136px)/.98 Georgia,serif;
+ letter-spacing:-.072em;
+ color:#f7fbff;
+ text-shadow:0 0 32px rgba(220,235,250,.11);
+}
+.hero-name .name-alt{
+ font:italic 500 clamp(37px,4.6vw,72px)/1.18 'Playfair Display',Georgia,serif;
+ color:#d6dee9;
+ letter-spacing:-.035em;
+ margin-top:13px;
+}
+.hero-subtitle{color:#d1dae5;border-color:rgba(212,224,239,.41);letter-spacing:.12em}
+.hero-description{max-width:550px;color:#cad2dc;font-size:14px;line-height:1.9}
+.hero-quicklook dd{color:#f2f5fa}
+.hero-quicklook div{border-left-color:rgba(228,237,249,.42)}
+.hero-footer{border-color:rgba(192,208,227,.31)}
+.hero-footer span:nth-child(2){color:#e0e5f2}
+.portrait-mat{
+ border-color:rgba(218,231,247,.41);
+ background:
+  radial-gradient(ellipse 46% 47% at 53% 7%,rgba(243,248,255,.46) 0%,rgba(187,206,227,.15) 39%,transparent 92%),
+  radial-gradient(ellipse 77% 79% at 50% 100%,rgba(17,10,30,.81) 0%,transparent 67%),
+  linear-gradient(180deg,#77889a 0%,#39475a 19%,#222b3a 43%,#171822 71%,#0b0912 100%);
+ box-shadow:inset 0 34px 75px rgba(202,223,243,.11),inset 0 -72px 90px rgba(7,4,16,.34);
+}
+.portrait-mat::before{
+ inset:20px;
+ border-color:rgba(241,247,255,.43);
+ border-bottom-color:rgba(106,96,124,.3);
+ box-shadow:0 0 0 1px rgba(15,21,32,.18);
+}
+.portrait-mat::after{
+ background:
+  linear-gradient(to bottom,rgba(242,248,255,.07),transparent 25%,transparent 64%,rgba(13,6,23,.59) 100%),
+  linear-gradient(to right,rgba(6,13,23,.16),transparent 22%,transparent 80%,rgba(8,7,14,.16));
+ z-index:2;pointer-events:none;
+}
+.portrait-void{
+ position:absolute;inset:0;display:block;
+ overflow:hidden;pointer-events:none;
+}
+.portrait-void::before{
+ content:"";position:absolute;
+ left:37%;top:-8%;height:83%;width:28%;opacity:.35;
+ background:linear-gradient(180deg,rgba(255,255,255,.36),rgba(221,237,254,.13),transparent);
+ filter:blur(20px);
+ clip-path:polygon(28% 0,65% 0,100% 100%,0 100%);
+}
+.portrait-void::after{
+ content:"";position:absolute;left:50%;top:0;width:1px;height:100%;
+ background:linear-gradient(180deg,rgba(255,255,255,.20),transparent 39%,rgba(14,7,27,.19) 81%,transparent);
+}
+.portrait-fissures{position:absolute;inset:0;width:100%;height:100%;opacity:.75;mix-blend-mode:screen}
+.portrait-plate{color:#f1f5fa}
+.portrait-plate span:last-child{color:#d0d9e6}
+.hero-portrait figcaption{border-bottom:1px solid rgba(190,198,214,.27);padding-bottom:12px}
+.hero-portrait figcaption span:last-child{color:#c0c6d1}
+.basic-info{border-top-color:#d5e2ee}
+.panel,.sidebar-note{border-top-color:rgba(195,209,228,.24)}
+.dossier-footer{border-top-color:rgba(160,172,196,.28)}
+.gate-box{
+ box-shadow:0 26px 100px rgba(0,0,0,.75),0 0 100px rgba(192,210,232,.075);
+ border-top-color:#d2dce7;
+}
+.gate-box::before{content:"LC:NN / RESTRICTED FILE — ACCESS CONTROL"}
+/* The eight icon-stickers carry her unresolved angel/demon duality,
+   rebirth, knowledge, law and the single rose inherited from the cover. */
+.hero-portrait{overflow:visible}
+.solenne-motifs{position:absolute;inset:0;z-index:5;pointer-events:none;overflow:visible}
+.solenne-sticker{
+ display:block;position:absolute;overflow:visible;pointer-events:none;
+ filter:drop-shadow(0 5px 10px rgba(3,3,12,.72))
+        drop-shadow(0 0 9px rgba(192,211,237,.22));
+ animation:solenne-drift 8s ease-in-out infinite;
+ transform-origin:center center;
+}
+.motif-halo{
+ width:clamp(98px,12vw,159px);height:auto;top:6%;left:-9%;
+ transform:rotate(-14deg);opacity:.9;animation-duration:9.4s;
+}
+.motif-horns{
+ width:clamp(85px,9vw,125px);height:auto;top:11%;right:-9%;
+ transform:rotate(10deg);opacity:.83;animation-duration:10.2s;animation-delay:-2.8s;
+}
+.motif-feather{
+ width:clamp(71px,7vw,106px);height:auto;top:33%;left:-9%;
+ transform:rotate(-18deg);opacity:.84;animation-duration:8.2s;animation-delay:-4.6s;
+}
+.motif-demon-wing{
+ width:clamp(104px,12.6vw,165px);height:auto;top:35%;right:-10%;
+ transform:rotate(12deg);opacity:.84;animation-duration:10.5s;animation-delay:-5.7s;
+}
+.motif-scales{
+ width:clamp(84px,10vw,133px);height:auto;bottom:24%;left:-8%;
+ transform:rotate(-11deg);opacity:.91;animation-duration:9.2s;animation-delay:-1.3s;
+}
+.motif-book{
+ width:clamp(102px,12.2vw,153px);height:auto;bottom:12%;right:-8%;
+ transform:rotate(8deg);opacity:.88;animation-duration:8.6s;animation-delay:-3.4s;
+}
+.motif-rose{
+ width:clamp(79px,9vw,114px);height:auto;bottom:5%;left:-7%;
+ transform:rotate(-10deg);opacity:.78;animation-duration:9.8s;animation-delay:-6s;
+ filter:drop-shadow(0 6px 9px rgba(3,3,12,.7)) drop-shadow(0 0 10px rgba(150,118,142,.25));
+}
+.motif-rebirth{
+ width:clamp(56px,6.4vw,86px);height:auto;top:2%;right:34%;
+ transform:rotate(6deg);opacity:.77;animation-duration:7.6s;animation-delay:-2.1s;
+}
+@keyframes solenne-drift{
+ 0%,100%{translate:0 0}
+ 50%{translate:0 -10px}
+}
+@media(max-width:760px){
+ .hero-description{color:#c4cdd9}
+ .motif-halo{width:98px;left:-5%;top:7%}
+ .motif-horns{width:78px;right:-4%;top:12%}
+ .motif-feather{width:64px;left:-5%;top:34%}
+ .motif-demon-wing{width:102px;right:-5%;top:37%}
+ .motif-scales{width:80px;left:-5%;bottom:27%}
+ .motif-book{width:97px;right:-4%;bottom:11%}
+ .motif-rose{width:68px;left:-3%;bottom:5%}
+ .motif-rebirth{width:56px;right:36%;top:3%}
+}
+@media(max-width:430px){
+ .motif-halo{width:82px;left:-4%}
+ .motif-horns{width:65px;right:-3%}
+ .motif-feather{width:55px;left:-4%}
+ .motif-demon-wing{width:84px;right:-3%}
+ .motif-scales{width:65px;left:-3%}
+ .motif-book{width:81px;right:-3%}
+ .motif-rose{width:56px;left:-2%}
+ .motif-rebirth{width:43px;top:4%}
+}
+@media(prefers-reduced-motion:reduce){.solenne-sticker{animation:none}}

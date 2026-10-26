@@ -1,149 +1,103 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Necro</title>
-  <link rel="stylesheet" href="style.css" />
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="theme-color" content="#0c0d0e">
+ <meta name="description" content="LC:NN — Necro principal character dossier.">
+ <title>Necro | LC:NN Personnel Records</title>
+ <link rel="icon" type="image/svg+xml" href="../../assets/lc-nn-branch-seal.svg">
+ <link rel="stylesheet" href="../profile-layout.css">
+ <link rel="stylesheet" href="style.css">
 </head>
-
-<body>
-  <div id="gate">
-    <div class="gate-box">
-      <h1>Enter the Workshop</h1>
-      <p>Prove yourself worthy of entry.</p>
-      <input type="password" id="passwordInput" placeholder="Enter password..." />
-      <button type="button" onclick="checkPassword()">Enter</button>
-      <p id="error-msg"></p>
-    </div>
+<body class="theme-necro">
+ <div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <div class="gate-box">
+   <h1 id="gate-title">Enter the Workshop</h1>
+   <p>Prove yourself worthy of entry.</p>
+   <label for="passwordInput">AUTHORIZATION KEY</label>
+   <input type="password" id="passwordInput" placeholder="Enter password..." autocomplete="off">
+   <button type="button" onclick="checkPassword()">OPEN WORKSHOP FILE</button>
+   <p id="error-msg" aria-live="polite"></p>
+   <a class="gate-return" href="../">← RETURN TO ARCHIVE</a>
   </div>
-
-  <main class="frame">
-    <div class="background-image"></div>
-    <canvas id="aura-canvas"></canvas>
-
-    <div class="frame-rune-top">
-      <span>Arcana</span>
-      <div class="rune-divider"></div>
-      <span>Forged</span>
-      <div class="rune-divider"></div>
-      <span>Necro</span>
-      <div class="rune-divider"></div>
-      <span>Opus</span>
+ </div>
+ <main class="frame">
+  <canvas id="aura-canvas" aria-hidden="true"></canvas>
+  <header class="profile-nav">
+   <a class="back-btn" href="../">BACK TO CHARACTER ARCHIVE</a>
+   <a class="profile-brand" href="../../index.html"><img src="../../assets/lc-nn-branch-seal.svg" width="37" height="37" alt=""><span>NETHER NOVA<small>LC:NN / PERSONNEL DIVISION</small></span></a>
+   <span class="profile-filemark">PRIMARY REGISTER / <b>03—04</b></span>
+  </header>
+  <section class="hero-stage" aria-labelledby="hero-name">
+   <div class="hero-copy">
+    <p class="hero-index eyebrow">PRIMARY FILE / WORKSHOP REGISTER</p>
+    <h1 class="hero-name" id="hero-name">Vasteil Pryxegor<span class="name-alt">Caelum</span></h1>
+    <p class="hero-subtitle">“Necrozma” · Arcane Workshop</p>
+    <p class="hero-description">Workshop personnel dossier. The index below separates recorded identity, technical observations and outstanding narrative material.</p>
+    <dl class="hero-quicklook"><div><dt>Known as</dt><dd>Necrozma</dd></div>
+<div><dt>Record series</dt><dd>Workshop / 03</dd></div></dl>
+    <a class="jump-link" href="#dossier">READ THE FULL DOSSIER <span aria-hidden="true">↓</span></a>
+   </div>
+   <figure class="hero-portrait">
+    <div class="portrait-mat">
+     <button type="button" class="portrait-trigger" onclick="openImage(this.querySelector('img'))" aria-label="Enlarge portrait for Necro">
+      <img src="Images/Necro.png" alt="Necro portrait" class="portrait" decoding="async">
+     </button>
+     <svg class="theme-art workshop-drawing" viewBox="0 0 260 260" aria-hidden="true"><circle cx="130" cy="130" r="82" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="130" cy="130" r="64" fill="none" stroke="currentColor" stroke-width=".7" stroke-dasharray="4 5"/><circle cx="130" cy="130" r="34" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M130 20V240M20 130H240M53 53L207 207M207 53L53 207" fill="none" stroke="currentColor" stroke-width=".6"/><path d="M114 110L148 130L114 150Z" fill="none" stroke="currentColor" stroke-width="2"/><g fill="currentColor"><circle cx="130" cy="48" r="3"/><circle cx="130" cy="212" r="3"/><circle cx="48" cy="130" r="3"/><circle cx="212" cy="130" r="3"/></g></svg>
+     <div class="portrait-plate"><span>WORKSHOP PLATE / 003</span><span>LC:NN / 03</span></div>
     </div>
-
-    <div class="frame-rune-bottom">
-      <span>Ignis</span>
-      <div class="rune-divider"></div>
-      <span>Petra</span>
-      <div class="rune-divider"></div>
-      <span>Anima</span>
-      <div class="rune-divider"></div>
-      <span>Craft</span>
-    </div>
-
-    <div class="frame-side left"></div>
-    <div class="frame-side right"></div>
-    <div class="frame-ring"></div>
-
-    <a class="back-btn" href="../">Back to Archive</a>
-
-    <section class="hero-banner">
-      <p class="eyebrow">Main Archive File</p>
-      <h1 class="hero-name">Vasteil Pryxegor Caelum</h1>
-      <p class="hero-subtitle">“Necrozma” · Arcane Workshop</p>
+    <figcaption><span>ARCANA / FORGED / OPUS</span><span>CLICK PORTRAIT TO ENLARGE ↗</span></figcaption>
+   </figure>
+  </section>
+  <div class="hero-footer" aria-label="Archive reference"><span>LC:NN / PERSONNEL ARCHIVE</span><span>WORKSHOP SPECIMEN</span><span>PLATE 03 · (1)984</span></div>
+  <section class="character-sheet" id="dossier" aria-label="Full character dossier">
+   <aside class="left-column">
+    <section class="basic-info">
+     <p class="sidebar-kicker">SECTION A / PERSONAL RECORD</p>
+     <h2>Identity.</h2>
+     <div class="identity-row"><strong>Alias</strong><span>Necrozma</span></div>
+<div class="identity-row"><strong>Age</strong><span>???</span></div>
+<div class="identity-row"><strong>Gender</strong><span>???</span></div>
+<div class="identity-row"><strong>Species/Race</strong><span>???</span></div>
     </section>
-
-    <section class="character-sheet">
-      <aside class="left-column">
-        <div class="portrait-wrap">
-          <img
-            src="Images/Necro.png"
-            alt="Necro portrait"
-            class="portrait"
-            onclick="openImage(this)"
-          />
-        </div>
-
-        <div class="basic-info">
-          <h2>Identity</h2>
-          <div><strong>Alias</strong> Necrozma</div>
-          <div><strong>Age</strong> ???</div>
-          <div><strong>Gender</strong> ???</div>
-          <div><strong>Species/Race</strong> ???</div>
-        </div>
-      </aside>
-
-      <section class="right-column">
-        <div class="content-grid">
-          <section class="panel stats">
-            <h2>Stats</h2>
-
-            <div class="stat-box" onclick="toggleBox(this)">
-              <div class="stat-title">Stat 1</div>
-              <div class="stat-content">Description of stat 1.</div>
-            </div>
-
-            <div class="stat-box" onclick="toggleBox(this)">
-              <div class="stat-title">Stat 2</div>
-              <div class="stat-content">Description of stat 2.</div>
-            </div>
-
-            <div class="stat-box" onclick="toggleBox(this)">
-              <div class="stat-title">Stat 3</div>
-              <div class="stat-content">Description of stat 3.</div>
-            </div>
-          </section>
-
-          <section class="panel Appearance">
-            <h2>Appearance</h2>
-            <p>Describe Necro's appearance here.</p>
-          </section>
-        </div>
-
-        <section class="panel Abilities">
-          <h2>Abilities / Powers</h2>
-
-          <div class="power-box" onclick="togglePower(this)">
-            <div class="power-title">Power 1</div>
-            <div class="power-content">Description of power 1.</div>
-          </div>
-
-          <div class="power-box" onclick="togglePower(this)">
-            <div class="power-title">Power 2</div>
-            <div class="power-content">Description of power 2.</div>
-          </div>
-
-          <div class="power-box" onclick="togglePower(this)">
-            <div class="power-title">Power 3</div>
-            <div class="power-content">Description of power 3.</div>
-          </div>
-        </section>
-
-        <section class="panel backstory">
-          <h2>Backstory / Lore</h2>
-          <p>Write Necro's history and origin here.</p>
-        </section>
-      </section>
-
-      <div class="floating-layer">
-        <div class="tool gear"></div>
-        <div class="tool wrench"></div>
-        <div class="tool screwdriver"></div>
-        <div class="tool anvil"></div>
-        <div class="anvil-leg left"></div>
-        <div class="anvil-leg right"></div>
-        <div class="rune rune1"></div>
-        <div class="rune rune2"></div>
-        <div class="rune rune3"></div>
-        <div class="rune rune4"></div>
-      </div>
-    </section>
-
-    <div id="overlay" onclick="closeImage()">
-      <img id="overlay-img" src="none" />
+    <div class="sidebar-note"><p class="sidebar-kicker">ARCHIVE OFFICE / REFERENCE</p><p>Archive sections can be extended with additional workshop notes, process diagrams and field observations.</p></div>
+   </aside>
+   <div class="right-column">
+    <div class="content-grid">
+     <section class="panel stats">
+      <p class="panel-kicker">SECTION B / OBSERVED VALUES</p>
+      <h2>Statistics.</h2>
+      <div class="entry-stack"><details class="stat-box"><summary class="stat-title">Stat 1</summary><div class="stat-content">Description of stat 1.</div></details>
+<details class="stat-box"><summary class="stat-title">Stat 2</summary><div class="stat-content">Description of stat 2.</div></details>
+<details class="stat-box"><summary class="stat-title">Stat 3</summary><div class="stat-content">Description of stat 3.</div></details></div>
+     </section>
+     <section class="panel appearance">
+      <p class="panel-kicker">SECTION C / VISUAL RECORD</p>
+      <h2>Appearance.</h2>
+      <p>Describe Necro's appearance here.</p>
+     </section>
     </div>
-  </main>
-
-  <script src="script.js"></script>
+    <section class="panel Abilities">
+     <p class="panel-kicker">SECTION D / CAPABILITY REGISTER</p>
+     <h2>Abilities &amp; powers.</h2>
+     <div class="power-stack"><details class="power-box"><summary class="power-title">Power 1</summary><div class="power-content">Description of power 1.</div></details>
+<details class="power-box"><summary class="power-title">Power 2</summary><div class="power-content">Description of power 2.</div></details>
+<details class="power-box"><summary class="power-title">Power 3</summary><div class="power-content">Description of power 3.</div></details></div>
+    </section>
+    <section class="panel backstory">
+     <p class="panel-kicker">SECTION E / HISTORICAL FILE</p>
+     <h2>Backstory &amp; lore.</h2>
+     <p>Write Necro's history and origin here.</p>
+    </section>
+   </div>
+  </section>
+  <footer class="dossier-footer"><span>LC:NN / PRIMARY RECORD 03</span><span>END OF FILE — NECRO</span><a href="../">RETURN TO ARCHIVE ↑</a></footer>
+  <div id="overlay" role="dialog" aria-modal="true" aria-label="Enlarged portrait" onclick="closeImage()">
+   <button type="button" class="overlay-close" onclick="closeImage()" aria-label="Close enlarged portrait">CLOSE ×</button>
+   <img id="overlay-img" alt="Enlarged character portrait">
+  </div>
+ </main>
+ <script src="script.js"></script>
 </body>
 </html>

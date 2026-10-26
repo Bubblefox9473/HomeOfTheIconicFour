@@ -3,7 +3,7 @@
 /* Relics are weapons recovered from the rarely spoken-of Ruins supposedly beneath the City. They are a weapon class, not a provenance category. */
 const inventory = [
   {
-    id: "NNC02-001", name: "The Tianyi Star", division: "faction", subdivision: "syndicates",
+    id: "NNC02-001", name: "The Tianyi Star", image: "Images/TianyiStarBlade.png", division: "faction", subdivision: "syndicates",
     kind: "weapons", type: "Star", issuer: "The Pinky", owner: "Anomidae Solenne",
     summary: "The Tianyi Star, otherwise known as the Deviance Star, is an exceptionally long ōdachi, nearly matching its wielder's height. Its dark steel blade possesses a subtle curvature, with numerous irregular fractures running across its surface.",
     note: "Faction-Issued / Syndicates / The Pinky. Issue classification confirmed.", condition: "Intact and operational. Numerous fractures are visible along the blade, though they do not compromise its structural integrity. Capable of entering a temporary shattered state under specific, currently undisclosed conditions.",
@@ -177,9 +177,17 @@ function cardFor(item) {
   card.appendChild(header);
   const exhibit = node("div", "card-exhibit");
   exhibit.setAttribute("aria-hidden", "true");
-  const empty = node("div", "card-empty");
-  empty.append(node("span", "card-empty-icon", "◇"), node("span", "card-image-label", "IMAGE NOT ON FILE"), node("span", "card-image-status", "RECORD AWAITING ARTWORK"));
-  exhibit.appendChild(empty);
+  if (item.image) {
+    const artwork = node("img", "gear-artwork");
+    artwork.src = item.image;
+    artwork.alt = "";
+    artwork.loading = "lazy";
+    exhibit.appendChild(artwork);
+  } else {
+    const empty = node("div", "card-empty");
+    empty.append(node("span", "card-empty-icon", "◇"), node("span", "card-image-label", "IMAGE NOT ON FILE"), node("span", "card-image-status", "RECORD AWAITING ARTWORK"));
+    exhibit.appendChild(empty);
+  }
   card.appendChild(exhibit);
   const plate = node("div", "card-plate"), type = node("div", "card-type");
   type.append(node("span", "", typeLabel(item).toUpperCase()), node("span", "card-mark", "✳"));
@@ -268,6 +276,21 @@ function inspect(item, opener) {
   put("detail-condition", item.condition);
   put("detail-acquisition", item.acquisition);
   renderProperties(item.properties);
+  const stage = d.querySelector(".stage-frame");
+  stage.querySelector(".stage-artwork")?.remove();
+  const placeholder = stage.querySelector(".stage-placeholder");
+  const stageEvidence = stage.closest(".object-stage").querySelector(".stage-top > span:last-child");
+  if (item.image) {
+    const artwork = node("img", "stage-artwork");
+    artwork.src = item.image;
+    artwork.alt = item.name + " weapon artwork";
+    stage.insertBefore(artwork, placeholder);
+    placeholder.hidden = true;
+    stageEvidence.textContent = "IMAGE EVIDENCE / 01";
+  } else {
+    placeholder.hidden = false;
+    stageEvidence.textContent = "IMAGE EVIDENCE / 00";
+  }
   put("stage-number", item.id.split("-").pop());
   put("stage-caption-name", item.name.toUpperCase());
   put("inspection-summary", item.summary);

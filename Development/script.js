@@ -3,7 +3,7 @@
 const mainTitles=[
  ["I","The Outcast"],["II","The Unloving"],["III","The Unconfronting"],
  ["IV","The Unchanging"],["V","The Evil Defining"],["VI","The Heartbreaking"],
- ["VII","The Dream Ending"],["VIII","The Surrendered Witnessing"],
+ ["VII","The Dream Ending &   The Unshining"],["VIII","The Surrendered Witnessing"],
  ["IX","The Unsevering"],["X","The Gaze Bearing"]
 ];
 const intervalloTitles=[

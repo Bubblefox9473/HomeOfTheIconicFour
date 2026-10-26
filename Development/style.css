@@ -186,6 +186,18 @@ button:disabled{cursor:not-allowed}
 .reel-card[aria-pressed="true"]{border-color:#f0cab8;box-shadow:0 0 0 1px #c99b8b,0 0 32px rgba(199,144,122,.18);background:linear-gradient(150deg,#5b3e40,#292027 69%)}
 .reel-card--intervallo{background:linear-gradient(150deg,#333139,#24242d 47%,#171921);border-color:rgba(162,165,180,.28)}
 .reel-card--intervallo:hover,.reel-card--intervallo[aria-pressed="true"]{border-color:#c7c7d0}
+/* Canto VII combines the original Limbus Company narrative with Necro's partial story.
+   Accent the mixed nature without making it look like an entirely original Canto. */
+.reel-card--hybrid{
+ background:linear-gradient(154deg,#46353e 0%,#30252e 47%,#211b23 100%);
+ border-color:rgba(204,156,181,.53);
+}
+.reel-card--hybrid:hover,.reel-card--hybrid[aria-pressed="true"]{
+ border-color:#e3bad0;
+ box-shadow:0 0 0 1px rgba(216,166,189,.38),0 13px 34px rgba(0,0,0,.33);
+}
+.reel-card--hybrid .card-class,.reel-card--hybrid .reel-card-bottom span:last-child{color:#e2b1ca}
+.reel-card--hybrid .reel-card-rule{background:#c999b2}
 .reel-card--original{
  background:linear-gradient(151deg,#563b4c,#30222c 58%,#211923);
  border-color:rgba(198,145,171,.52);

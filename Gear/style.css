@@ -395,3 +395,9 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+
+/* Keep lengthy inspection details within their fields; lists remain readable. */
+#detail-condition,#detail-acquisition,#detail-properties{max-height:12rem;overflow-y:auto;overscroll-behavior:contain;padding-right:6px;scrollbar-width:thin}
+#detail-properties .property-list{margin:0;padding-left:1.15em;font:400 13px/1.65 var(--sans, sans-serif);letter-spacing:normal}
+#detail-properties .property-list li{padding:0 0 .45em .1em}
+#detail-properties .property-list li:last-child{padding-bottom:0}

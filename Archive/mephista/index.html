@@ -77,56 +77,11 @@
         </div>
         <figure class="hero-portrait">
           <div class="portrait-mat">
-            <!-- Deliberately blank: a true portrait can replace .portrait-void later. -->
-            <div
-              class="portrait-void"
-              role="img"
-              aria-label="No portrait illustration filed yet"
-            >
-              <svg
-                class="portrait-fissures"
-                viewBox="0 0 520 720"
-                preserveAspectRatio="xMidYMid slice"
-                aria-hidden="true"
-              >
-                <g
-                  fill="none"
-                  stroke="#d2d8e2"
-                  stroke-linecap="round"
-                  stroke-linejoin="miter"
-                  stroke-width="1.2"
-                  opacity=".46"
-                >
-                  <path
-                    d="M6 160 54 177 72 206 103 218 121 264 157 276 176 321 195 334"
-                  />
-                  <path
-                    d="M72 206 57 245 72 266M121 264 109 299 127 317M176 321 153 351 155 373"
-                  />
-                  <path d="M520 78 474 118 462 160 435 177 417 214 389 223" />
-                  <path
-                    d="M462 160 483 195 472 226M435 177 451 209M417 214 421 245 404 264"
-                  />
-                  <path d="M10 623 58 597 91 610 115 575 151 575 170 550" />
-                  <path
-                    d="M91 610 104 643 128 653M115 575 106 553M151 575 166 599"
-                  />
-                  <path d="M520 550 479 540 449 564 423 556 385 589" />
-                  <path
-                    d="M449 564 450 606M423 556 402 530M385 589 368 589 354 610"
-                  />
-                </g>
-                <path
-                  d="M0 356H520"
-                  stroke="#bac5d3"
-                  stroke-width=".6"
-                  stroke-dasharray="2 12"
-                  opacity=".22"
-                />
-              </svg>
-            </div>
+            <button type="button" class="portrait-trigger" onclick="openImage(this.querySelector('img'))" aria-label="Enlarge portrait for Anomidae">
+              <img src="Images/Anomi-portrait.jpg" alt="Anomidae portrait" class="portrait" decoding="async" />
+            </button>
             <div class="portrait-plate">
-              <span>PORTRAIT / NOT YET FILED</span><span>LC:NN / 01</span>
+              <span>PORTRAIT / ANOMIDAE</span><span>LC:NN / 01</span>
             </div>
           </div>
 

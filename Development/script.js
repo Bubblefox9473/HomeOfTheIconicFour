@@ -3,7 +3,7 @@
 const mainTitles=[
  ["I","The Outcast"],["II","The Unloving"],["III","The Unconfronting"],
  ["IV","The Unchanging"],["V","The Evil Defining"],["VI","The Heartbreaking"],
- ["VII","The Dream Ending &   The Unshining"],["VIII","The Surrendered Witnessing"],
+ ["VII","The Dream Ending & The Unshining"],["VIII","The Surrendered Witnessing"],
  ["IX","The Unsevering"],["X","The Gaze Bearing"]
 ];
 const intervalloTitles=[
@@ -31,7 +31,7 @@ const toIntervallo=([number,title])=>({
  note:"The official story title is preserved as a reference. No NetherNova production file has been attached yet."
 });
 const mephista={
- id:"mephista-9-5-2",number:"9.5–2",title:"Mephista's Canto",variant:"original",
+ id:"mephista-9-5-2",number:"9.5–2",title:"The Unbecoming",variant:"original",
  classification:"INTERVALLO / NARRATIVE BRIDGE",
  category:"PLOT-RELEVANT ORIGINAL INTERVALLO",
  source:"NETHER NOVA ORIGINAL CONTINUITY",

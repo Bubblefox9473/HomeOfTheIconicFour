@@ -52,3 +52,6 @@ body{background:radial-gradient(ellipse at 77% 20%,rgba(87,37,130,.28),transpare
   .forge-rune-four{width:29px}
 }
 @media(prefers-reduced-motion:reduce){.forge-object{animation:none}}
+
+/* Fill this dossier's portrait frame without stretching the artwork. */
+.hero-portrait .portrait{object-fit:cover;object-position:center top}

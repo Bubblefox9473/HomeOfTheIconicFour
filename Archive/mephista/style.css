@@ -173,3 +173,6 @@ body{
  .motif-rebirth{width:43px;top:4%}
 }
 @media(prefers-reduced-motion:reduce){.solenne-sticker{animation:none}}
+
+/* Fit Anomidae's portrait to the full frame without distortion. */
+.hero-portrait .portrait{object-fit:cover;object-position:center top}

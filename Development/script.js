@@ -14,14 +14,24 @@ const intervalloTitles=[
  ["VI","Spring Cultivation"],["VII-1","Twining Threads"],
  ["VII-2","Mnestic Experience"]
 ];
-const toMain=([number,title])=>({
- id:"canto-"+number.toLowerCase(),number,title,variant:"canto",
- classification:"CANTO / MAIN STORY",category:"MAIN-STORY CANTO",
- source:"OFFICIAL LIMBUS COMPANY",code:"LC-CANTO-"+number,
- status:"REFERENCE ENTRY / NO FILE ATTACHED",strap:"OFFICIAL MAIN NARRATIVE",
- description:"Canto "+number+" — "+title+". This is an official Limbus Company main-story chapter. The Film Department has reserved its record for future scene documentation, production notes, and associated material.",
- note:"The official story title is preserved as a reference. No NetherNova production file has been attached yet."
-});
+const toMain=([number,title])=>{
+ const sharedStory=number==="VII";
+ return {
+  id:"canto-"+number.toLowerCase(),number,title,variant:sharedStory?"hybrid":"canto",
+  classification:sharedStory?"CANTO / OFFICIAL + ORIGINAL":"CANTO / MAIN STORY",
+  category:sharedStory?"MAIN-STORY CANTO + ORIGINAL STORY":"MAIN-STORY CANTO",
+  source:sharedStory?"LIMBUS COMPANY + NETHER NOVA ORIGINAL":"OFFICIAL LIMBUS COMPANY",
+  code:"LC-CANTO-"+number,
+  status:sharedStory?"SHARED STORY / MATERIAL PENDING":"REFERENCE ENTRY / NO FILE ATTACHED",
+  strap:sharedStory?"OFFICIAL + ORIGINAL":"OFFICIAL MAIN NARRATIVE",
+  description:sharedStory
+   ?"Canto VII — "+title+". Alongside the Limbus Company story, Necro shares part of his own original narrative within this Canto, making this a combined official and NetherNova original entry."
+   :"Canto "+number+" — "+title+". This is an official Limbus Company main-story chapter. The Film Department has reserved its record for future scene documentation, production notes, and associated material.",
+  note:sharedStory
+   ?"Necro's original contribution is only a partial story shared within Canto VII; it is not a separate official Project Moon Canto. Production materials have not yet been attached."
+   :"The official story title is preserved as a reference. No NetherNova production file has been attached yet."
+ };
+};
 const toIntervallo=([number,title])=>({
  id:"intervallo-"+number.toLowerCase(),number,title,variant:"intervallo",
  classification:"INTERVALLO / BETWEEN CANTOS",category:"INTERVALLO",
@@ -61,7 +71,7 @@ function buildCard(record){
  button.setAttribute("aria-label","Inspect "+record.classification+": "+record.title);
  const head=add(button,"span","reel-card-top");
  add(head,"span","card-code",record.code);
- add(head,"span","card-class",record.variant==="original"?"ORIGINAL":"REFERENCE");
+ add(head,"span","card-class",record.variant==="original"?"ORIGINAL":record.variant==="hybrid"?"OFFICIAL + ORIGINAL":"REFERENCE");
  add(button,"span","reel-card-number",record.number);
  add(button,"span","reel-card-title",record.title);
  add(button,"span","reel-card-rule");
@@ -103,7 +113,7 @@ function inspect(record,button){
  glass.classList.toggle("is-original",original);
  screen.classList.add("is-loaded");
  screen.replaceChildren();
- add(screen,"span","loaded-kind",original?"NETHER NOVA / ORIGINAL CONTINUITY":"LIMBUS COMPANY / OFFICIAL STORY");
+ add(screen,"span","loaded-kind",original?"NETHER NOVA / ORIGINAL CONTINUITY":record.variant==="hybrid"?"LIMBUS COMPANY + NETHER NOVA / SHARED STORY":"LIMBUS COMPANY / OFFICIAL STORY");
  add(screen,"span","loaded-number",record.number);
  add(screen,"strong","loaded-title",record.title);
  add(screen,"span","loaded-rule");

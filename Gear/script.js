@@ -1,62 +1,85 @@
 /* NNC-02 / Gear Registry — provenance and item type are separate fields. */
 "use strict";
-const weaponNames=[
- "The Tianyi Star","The Tianshang Star","The Dihui Star",
- "Purple Cloud","The Sword of the Father","Yamato","Shattered Purity"
-];
-const inventory=weaponNames.map((name,i)=>({
- id:"NNC02-"+String(i+1).padStart(3,"0"),name,division:"unfiled",kind:"weapons",
- type:"Weapon",issuer:"Not documented",holder:"Not documented",
- condition:"Not documented",acquisition:"Not documented",properties:"Not documented",
- summary:name+" is named among the initial weapons registered with Department 02. Its appearance, precise origin, holder, and properties have not yet been formally documented.",
- note:"Provenance unfiled. The object's type is known, but no origin or history has been assumed."
-}));
-inventory.push(
- {id:"NNC02-008",name:"Zerachiel's Prophecy",division:"relic",kind:"unspecified",
-  type:"Relic / Form unconfirmed",issuer:"Recovery details unfiled",
-  summary:"Zerachiel's Prophecy is included in the recovered relic collection. Its physical form, contents, discovery site, and properties have not been established.",
-  note:"The designation does not confirm that the object is a tome or written document."},
- {id:"NNC02-009",name:"Mephista's Memo",division:"relic",kind:"documents",
-  type:"Relic / Document",issuer:"Recovery details unfiled",
-  summary:"Mephista's Memo is registered as a relic and documentary object. Its contents, place of recovery, and current holder remain undocumented.",
-  note:"No memo content has been invented or inferred."},
- {id:"NNC02-010",name:"Unknown Pocket Watch",division:"relic",kind:"artifacts",
-  type:"Relic / Timepiece",issuer:"Recovery details unfiled",
-  summary:"An unidentified pocket watch in the recovered relic collection. Its mechanism, original owner, recovery location, and unusual properties, if any, are unrecorded.",
-  note:"No unusual functions or ownership claims have been assigned."},
- {id:"NNC02-011",name:"Firefist Office Armor",division:"faction",subdivision:"offices",kind:"armor",
-  type:"Armor / Protective Equipment",issuer:"Firefist Office",
+/* Provenance is how an item entered the collection; "Relic" is a
+   Project Moon equipment/weapon classification, NOT a recovery source.
+   A relic may be original, faction-issued, or recovered. */
+const inventory=[
+ {id:"NNC02-001",name:"The Tianyi Star",division:"faction",subdivision:"syndicates",
+  kind:"weapons",type:"Weapon",issuer:"The Pinky",owner:"Not documented",
+  summary:"The Tianyi Star is a weapon issued by the Pinky. Its individual holder, construction, appearance, and known effects have not yet been recorded.",
+  note:"Faction-Issued / Syndicates / The Pinky. Issue classification confirmed."},
+ {id:"NNC02-002",name:"The Tianshang Star",division:"faction",subdivision:"syndicates",
+  kind:"weapons",type:"Weapon",issuer:"The Pinky",owner:"Not documented",
+  summary:"The Tianshang Star is a weapon issued by the Pinky. Its individual holder, construction, appearance, and known effects have not yet been recorded.",
+  note:"Faction-Issued / Syndicates / The Pinky. Issue classification confirmed."},
+ {id:"NNC02-003",name:"The Dihui Star",division:"faction",subdivision:"syndicates",
+  kind:"weapons",type:"Weapon",issuer:"The Pinky",owner:"Not documented",
+  summary:"The Dihui Star is a weapon issued by the Pinky. Its individual holder, construction, appearance, and known effects have not yet been recorded.",
+  note:"Faction-Issued / Syndicates / The Pinky. Issue classification confirmed."},
+ {id:"NNC02-004",name:"Purple Cloud",division:"original",
+  kind:"weapons",type:"Weapon",owner:"Necro",
+  summary:"Purple Cloud is an original weapon associated with Necro. Its construction, physical appearance, and capabilities are awaiting a full registry entry.",
+  note:"Original gear / Necro. No additional capabilities have been inferred."},
+ {id:"NNC02-005",name:"The Sword of the Father",division:"original",
+  kind:"weapons",type:"Weapon",owner:"Noctis",
+  summary:"The Sword of the Father is an original weapon belonging to Noctis. Its appearance, construction history, and abilities remain to be documented.",
+  note:"Original gear / Noctis. The title does not by itself establish further backstory."},
+ {id:"NNC02-006",name:"Yamato",division:"original",
+  kind:"weapons",type:"Weapon",owner:"Noctis",
+  summary:"Yamato is an original weapon belonging to Noctis. Its appearance, construction history, and abilities remain to be documented.",
+  note:"Original gear / Noctis. No properties or external references assumed."},
+ {id:"NNC02-007",name:"Shattered Purity",division:"original",
+  kind:"weapons",type:"Weapon",owner:"Zerachiel",
+  summary:"Shattered Purity is an original weapon associated with Zerachiel. Its appearance, origin details, and properties remain unfiled.",
+  note:"Original gear / Zerachiel. The record confirms its association, not additional lore."},
+ {id:"NNC02-008",name:"Zerachiel's Prophecy",division:"original",
+  kind:"relics",type:"Relic",form:"Document",owner:"Not documented",
+  summary:"Zerachiel's Prophecy is an original Relic with a document form. Relic denotes its equipment classification; the object is not being identified as a recovery from ruins.",
+  note:"Original / Relic / Document. Contents, properties, custody, and creation details await confirmation."},
+ {id:"NNC02-009",name:"Mephista's Memo",division:"original",
+  kind:"relics",type:"Relic",form:"Document",owner:"Not documented",
+  summary:"Mephista's Memo is an original Relic in document form. Its name is recorded, but the contents, holder, and effects have not been disclosed.",
+  note:"Original / Relic / Document. The item's classification does not imply recovery from ruins."},
+ {id:"NNC02-010",name:"Unknown Pocket Watch",division:"original",
+  kind:"relics",type:"Relic",form:"Timepiece",owner:"Not documented",
+  summary:"The Unknown Pocket Watch is an original Relic in the form of a timepiece. Its mechanism, properties, and present holder have not been documented.",
+  note:"Original / Relic / Timepiece. Its type does not establish an excavation or a special ability."},
+ {id:"NNC02-011",name:"Firefist Office Armor",division:"faction",subdivision:"offices",
+  kind:"armor",type:"Armor / Protective Equipment",issuer:"Firefist Office",owner:"Not documented",
   acquisition:"Stolen / Details unfiled",
-  summary:"An armor or protective-equipment set originally issued by Firefist Office. It was stolen, but its original issuer remains Firefist Office; the circumstances of the theft and current custody are not yet recorded.",
-  note:"Working registry designation. Formal product name, appearance, and specifications are pending."}
-);
+  summary:"An armor set issued by Firefist Office and subsequently stolen. The issuing office remains Firefist Office; theft circumstances and current custody have not yet been recorded.",
+  note:"Faction-Issued / Offices / Firefist Office. Working object designation; appearance and specifications pending."}
+];
 inventory.forEach(item=>{
- item.holder??="Not documented";
+ item.formKey=item.form==="Document"?"documents":item.form==="Timepiece"?"timepieces":null;
+ item.issuer??="Not faction-issued";
+ item.owner??="Not documented";
  item.condition??="Not documented";
- item.acquisition??="Recovery details pending";
+ item.acquisition??="Not documented";
  item.properties??="Not documented";
 });
+
 const divisions={
  all:{title:"All registered objects.",code:"NNC–02 / COMPLETE REGISTER",
-  description:"Every initial object record, including items whose origins are awaiting confirmation.",
-  axis:"OBJECT TYPE",
-  filters:[["all","All Objects"],["weapons","Weapons"],["armor","Armor"],["documents","Documents"],["artifacts","Artifacts"],["unspecified","Other / Unspecified"]]},
+  description:"Every known item, organized by provenance and equipment classification. Relic is a type, not proof of recovery.",
+  axis:"EQUIPMENT CLASS",
+  filters:[["all","All Objects"],["weapons","Weapons"],["relics","Relics"],["armor","Armor"],["documents","Documents"],["timepieces","Timepieces"],["tools","Tools & Devices"]]},
  faction:{title:"Faction-issued equipment.",code:"NNC–02 / ISSUANCE REGISTRY",
-  description:"Equipment issued by associations, offices, syndicates, and other factions. Origin, type, and custody are recorded separately.",
+  description:"Items issued by associations, offices, syndicates, and other factions. The Pinky issues three registered weapons; Firefist Office issues one armor set.",
   axis:"ISSUING BODY",
   filters:[["all","All Issuers"],["associations","Associations"],["offices","Offices"],["syndicates","Syndicates"],["other","Other Factions"]]},
- relic:{title:"Things brought back.",code:"NNC–02 / RECOVERED MATERIALS",
-  description:"Recovered objects and records. Unknown recovery details are left open.",
-  axis:"OBJECT TYPE",
-  filters:[["all","All Relics"],["artifacts","Artifacts"],["documents","Documents"],["tomes","Tomes"],["weapons","Weapons"],["armor","Armor"],["unspecified","Other / Unspecified"]]},
- original:{title:"Things made anew.",code:"NNC–02 / INDEPENDENT CREATIONS",
-  description:"Independently created equipment, armor, devices, and other objects. No examples have been assigned a confirmed original provenance yet.",
-  axis:"OBJECT TYPE",
-  filters:[["all","All Creations"],["weapons","Weapons"],["armor","Armor"],["tools","Tools & Devices"],["tomes","Tomes"],["artifacts","Artifacts"]]},
- unfiled:{title:"Awaiting classification.",code:"NNC–02 / UNFILED PROVENANCE",
-  description:"Known objects awaiting an established origin. This intake shelf is not another provenance classification.",
-  axis:"OBJECT TYPE",
-  filters:[["all","All Unclassified"],["weapons","Weapons"],["armor","Armor"],["documents","Documents"],["artifacts","Artifacts"],["unspecified","Other"]]}
+ recovered:{title:"Objects reclaimed from ruins.",code:"NNC–02 / RECOVERED MATERIALS",
+  description:"Objects recovered from ruins or other sites. This shelf is currently empty; being a Relic does not automatically mean an item was recovered.",
+  axis:"EQUIPMENT CLASS",
+  filters:[["all","All Recovered"],["weapons","Weapons"],["relics","Relics"],["armor","Armor"],["documents","Documents"],["timepieces","Timepieces"],["tools","Tools & Devices"]]},
+ original:{title:"Independently originated objects.",code:"NNC–02 / ORIGINAL MATERIALS",
+  description:"Original weapons, Relics, armor, and other objects. Relics here are equipment classified as Relics, not recovered artifacts.",
+  axis:"EQUIPMENT CLASS",
+  filters:[["all","All Originals"],["weapons","Weapons"],["relics","Relics"],["documents","Documents"],["timepieces","Timepieces"],["armor","Armor"],["tools","Tools & Devices"]]},
+ unfiled:{title:"Awaiting provenance.",code:"NNC–02 / UNFILED PROVENANCE",
+  description:"Known objects whose provenance has not yet been established. All current entries have now been assigned.",
+  axis:"EQUIPMENT CLASS",
+  filters:[["all","All Unclassified"],["weapons","Weapons"],["relics","Relics"],["armor","Armor"],["documents","Documents"],["timepieces","Timepieces"],["tools","Tools & Devices"]]}
 };
 const $=id=>document.getElementById(id);
 const elements={
@@ -78,18 +101,20 @@ function node(tag,cls,value){
 }
 function put(id,value){const e=$(id);if(e)e.textContent=value;}
 function pad(n){return String(n).padStart(2,"0");}
+function typeLabel(item){return item.form?item.type+" / "+item.form:item.type;}
 function classification(item){
- return {faction:"FACTION-ISSUED",relic:"RECOVERED RELIC",original:"ORIGINAL GEAR",unfiled:"UNFILED ORIGIN"}[item.division];
+ return {faction:"FACTION-ISSUED",recovered:"RECOVERED OBJECT",original:"ORIGINAL GEAR",unfiled:"UNFILED ORIGIN"}[item.division];
 }
 function provenance(item){
- return {faction:"Faction-Issued / Offices",relic:"Recovered Relic",original:"Original Gear",unfiled:"Unclassified / Pending review"}[item.division];
+ if(item.division==="faction")return "Faction-Issued / "+(item.subdivision==="syndicates"?"Syndicates":"Offices");
+ return {recovered:"Recovered Object",original:"Original Gear",unfiled:"Unclassified / Pending review"}[item.division];
 }
 function cardFor(item){
  const card=node("button","gear-card");
  card.type="button";
  card.dataset.division=item.division;
  card.dataset.itemId=item.id;
- card.setAttribute("aria-label","Inspect "+item.name+" — "+item.type);
+ card.setAttribute("aria-label","Inspect "+item.name+" — "+typeLabel(item));
  const header=node("div","card-topline");
  header.append(node("span","card-id",item.id),node("span","card-origin",classification(item)));
  card.appendChild(header);
@@ -100,12 +125,12 @@ function cardFor(item){
  exhibit.appendChild(empty);
  card.appendChild(exhibit);
  const plate=node("div","card-plate"),type=node("div","card-type");
- type.append(node("span","",item.type.toUpperCase()),node("span","card-mark","✳"));
+ type.append(node("span","",typeLabel(item).toUpperCase()),node("span","card-mark","✳"));
  plate.append(type,node("h4","",item.name));
  const bottom=node("div","card-footline");
  const caption=item.division==="faction"?"ISSUER / "+item.issuer:
-   item.division==="relic"?"RECOVERY DETAILS UNFILED":
-   item.division==="original"?"ORIGINAL REGISTRY":"PROVENANCE PENDING";
+   item.division==="recovered"?"RECOVERY DETAILS ON FILE":
+   item.division==="original"?(item.owner==="Not documented"?"ORIGINAL / "+item.type.toUpperCase():"ASSOCIATED WITH / "+item.owner):"PROVENANCE PENDING";
  bottom.append(node("span","",caption),node("span","inspect-arrow","↗"));
  plate.appendChild(bottom);
  card.appendChild(plate);
@@ -117,10 +142,12 @@ function eligible(item,q){
  if(activeSubtab!=="all"){
   if(activeDivision==="faction"){
    if(item.subdivision!==activeSubtab)return false;
+  }else if(["documents","timepieces"].includes(activeSubtab)){
+   if(item.formKey!==activeSubtab)return false;
   }else if(item.kind!==activeSubtab)return false;
  }
  if(!q)return true;
- return [item.name,item.id,item.type,item.issuer,item.division,item.subdivision,item.kind,item.summary,item.note]
+ return [item.name,item.id,item.type,item.form,item.issuer,item.owner,item.division,item.subdivision,item.kind,item.summary,item.note]
   .filter(Boolean).some(s=>s.toLowerCase().includes(q));
 }
 function render(){
@@ -175,12 +202,12 @@ function inspect(item,opener){
  put("inspection-file-top",item.id);
  put("inspection-section",classification(item)+" / "+item.id);
  put("inspection-title",item.name);
- put("inspection-classification",classification(item)+" / "+item.type.toUpperCase());
- put("detail-type",item.type);
+ put("inspection-classification",classification(item)+" / "+typeLabel(item).toUpperCase());
+ put("detail-type",typeLabel(item));
  put("detail-provenance",provenance(item));
  put("detail-issuer",item.issuer);
  put("detail-code",item.id);
- put("detail-holder",item.holder);
+ put("detail-holder",item.owner);
  put("detail-condition",item.condition);
  put("detail-acquisition",item.acquisition);
  put("detail-properties",item.properties);

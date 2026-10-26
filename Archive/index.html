@@ -1,163 +1,118 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Iconic Four</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Cinzel:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    
-    <a class="archive-home" href="../index.html">
-    ← Return to NN-Corp
-</a>
-
-    <header>
-      <p class="eyebrow">The Archive</p>
-      <!-- CHANGE: subtitle above title -->
-      <h1>The Iconic Four</h1>
-      <!-- CHANGE: main title -->
-      <div class="divider">
-        <div class="divider-line"></div>
-        <div class="divider-diamond"></div>
-        <div class="divider-line right"></div>
-      </div>
-    </header>
-
-    <div class="grid">
-      <!-- CARD 1: Mephista -->
-      <!-- CHANGE: update href to your character's folder e.g. "mephista/" -->
-      <a class="card locked-card mephista-locked" href="#">
-        <div class="card-portrait">
-          <div class="card-portrait-placeholder">✦</div>
-          <div class="chains"></div>
-        </div>
-
-        <div class="card-overlay">
-          <span class="card-number">01</span>
-          <span class="card-name">Mephista</span>
-          <span class="card-cta">Locked</span>
-          <span class="card-warning">Something still breathes inside.</span>
-        </div>
-
-        <div class="card-corner"></div>
-      </a>
-
-      <!-- CARD 2: Noctis -->
-      <a class="card" href="noctis/">
-        <div class="card-portrait">
-          <div class="card-portrait-placeholder">✦</div>
-        </div>
-        <div class="card-overlay">
-          <span class="card-number">02</span>
-          <span class="card-name">Noctis</span>
-          <span class="card-cta">Enter →</span>
-        </div>
-        <div class="card-corner"></div>
-      </a>
-
-      <!-- CARD 3: Necro -->
-      <a class="card" href="necro/">
-        <div class="card-portrait">
-          <div class="card-portrait-placeholder">✦</div>
-        </div>
-        <div class="card-overlay">
-          <span class="card-number">03</span>
-          <span class="card-name">Necro</span>
-          <span class="card-cta">Enter →</span>
-        </div>
-        <div class="card-corner"></div>
-      </a>
-
-      <!-- CARD 4: Dark -->
-      <a class="card" href="dark/">
-        <div class="card-portrait">
-          <div class="card-portrait-placeholder">✦</div>
-        </div>
-        <div class="card-overlay">
-          <span class="card-number">04</span>
-          <span class="card-name">Dark</span>
-          <span class="card-cta">Enter →</span>
-        </div>
-        <div class="card-corner"></div>
-      </a>
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="theme-color" content="#100d0c">
+ <meta name="description" content="NetherNova Corporation LC:NN — primary and associated personnel records.">
+ <title>Character Archive | LC:NN</title>
+ <link rel="icon" type="image/svg+xml" href="../assets/lc-nn-branch-seal.svg">
+ <link rel="stylesheet" href="style.css">
+ <script src="script.js" defer></script>
+</head>
+<body>
+ <div class="site-shell">
+  <header class="archive-masthead">
+   <a class="archive-brand" href="../index.html" aria-label="Return to NetherNova studio"><img src="../assets/lc-nn-branch-seal.svg" width="55" height="55" alt=""><span>NETHER NOVA<small>LC:NN / PERSONNEL DIVISION</small></span></a>
+   <a class="return-link" href="../index.html">RETURN TO STUDIO ↗</a>
+  </header>
+  <main>
+   <section class="archive-intro" aria-labelledby="archive-title">
+    <div class="intro-copy">
+     <p class="eyebrow"><span class="status-pip"></span> LC:NN / FILE SERIES 01 / CHARACTER ARCHIVE</p>
+     <h1 id="archive-title">The Iconic<br><em>Four.</em></h1>
+     <p class="intro-text">A register of the individuals at the center of NetherNova's records, with associated personnel filed separately. Some entries remain restricted.</p>
     </div>
-
-    <footer>The Iconic Four &nbsp;·&nbsp; The Archive</footer>
-    <!-- CHANGE: footer text -->
-
-    <!-- === SIDE CHARACTERS === -->
-    <div class="side-section">
-      <div class="side-header">
-        <div class="divider-line"></div>
-        <span class="side-title">Supporting Cast</span>
-        <div class="divider-line right"></div>
-      </div>
-
-      <div class="side-scroll">
-        <!-- SIDE CARD: Zen -->
-        <!-- CHANGE: update href when Zen has a page e.g. href="zen/" -->
-        <a class="side-card zen-card" href="zen/">
-          <div class="side-card-placeholder">✦</div>
-          <span class="side-card-name">Zen</span>
-        </a>
-
-        <!-- SIDE CARD: Astra -->
-        <a class="side-card astra-card" href="astra/">
-          <div class="side-card-placeholder">✦</div>
-          <span class="side-card-name">Astra</span>
-        </a>
-
-        <!-- SIDE CARD: Zerachiel -->
-        <a class="side-card zerachiel-card" href="zerachiel/">
-          <div class="side-card-placeholder">✦</div>
-          <span class="side-card-name">Zerachiel</span>
-        </a>
-
-        <!-- SIDE CARD: Shade -->
-        <a class="side-card shade-card" href="shade/">
-          <div class="side-card-placeholder">✦</div>
-          <span class="side-card-name">Shade</span>
-        </a>
-
-        <!-- SIDE CARD: Lyra -->
-        <a class="side-card lyra-card" href="lyra/">
-          <div class="side-card-placeholder">✦</div>
-          <span class="side-card-name">Lyra</span>
-        </a>
-
-        <!-- SIDE CARD: Draco -->
-        <a class="side-card draco-card" href="draco/">
-          <div class="side-card-placeholder">✦</div>
-          <span class="side-card-name">Draco</span>
-        </a>
-
-        <!-- SIDE CARD: Nexus -->
-        <a class="side-card nexus-card" href="nexus/">
-          <div class="side-card-placeholder">✦</div>
-          <span class="side-card-name">Nexus</span>
-        </a>
-
-        <!-- SIDE CARD: EXE / Remiel -->
-        <a class="side-card exe-card" href="exe/">
-          <div class="side-card-placeholder">✦</div>
-          <span class="side-card-name">EXE / Remiel</span>
-        </a>
-
-        <!-- SIDE CARD: Velkan -->
-        <a class="side-card velkan-card" href="velkan/">
-          <div class="side-card-placeholder">✦</div>
-          <span class="side-card-name">Velkan</span>
-        </a>
-
-        <!-- To add more: copy any side-card block above and paste it here -->
-      </div>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
+    <aside class="intro-index" aria-label="Archive catalogue information">
+     <div class="index-top"><span>CATALOGUE LEAF</span><span>01 / (1)984</span></div>
+     <p class="index-superscript">PERSONNEL REGISTER</p>
+     <div class="index-line"><span>Primary records</span><strong>04</strong></div>
+     <div class="index-line"><span>Associated records</span><strong>09</strong></div>
+     <div class="index-line"><span>Total entries</span><strong>13</strong></div>
+     <div class="index-bottom"><span>LC:NN — ARCHIVE OFFICE</span><span aria-hidden="true">※</span></div>
+    </aside>
+   </section>
+   <div class="directory-controls" role="search">
+    <label for="record-search">FIND A RECORD</label>
+    <div class="search-wrap"><span aria-hidden="true" class="search-symbol">⌕</span><input type="search" id="record-search" placeholder="Search personnel by name…" autocomplete="off" spellcheck="false"></div>
+    <output id="result-count" aria-live="polite">13 RECORDS</output>
+   </div>
+   <section class="principal-section" aria-labelledby="primary-title">
+    <div class="section-heading"><div><p class="section-reference">INDEX / I</p><h2 id="primary-title">Primary records</h2></div><p class="section-note">THE FOUR CENTRAL FILES · PR-001—004</p></div>
+    <div class="principal-list" id="primary-records"><article class="principal-record palette-cinder sealed searchable" data-search="mephista primary pr-01 restricted sealed">
+ <span class="record-order">01 / 04</span>
+ <div class="negative" aria-hidden="true">
+  <span class="negative-head">LC:NN / PR—01</span>
+  <div class="negative-image"><span class="negative-glyph">01</span><span class="negative-caption">PORTRAIT / WITHHELD</span></div>
+  <span class="negative-foot">FRAME 001 · (1)984</span>
+ </div>
+ <div class="record-body">
+  <div class="record-meta"><span>PR—01</span><span class="restricted-status">SEALED</span></div>
+  <h3>Mephista</h3>
+  <p>Something still breathes inside.</p>
+  <span class="record-action">ACCESS WITHHELD —</span>
+ </div>
+ </article>
+<a class="principal-record palette-slate searchable" href="noctis/" data-search="noctis primary pr-02 ">
+ <span class="record-order">02 / 04</span>
+ <div class="negative" aria-hidden="true">
+  <span class="negative-head">LC:NN / PR—02</span>
+  <div class="negative-image"><span class="negative-glyph">02</span><span class="negative-caption">PORTRAIT / PENDING</span></div>
+  <span class="negative-foot">FRAME 002 · (1)984</span>
+ </div>
+ <div class="record-body">
+  <div class="record-meta"><span>PR—02</span><span class="record-status">ON FILE</span></div>
+  <h3>Noctis</h3>
+  <p>Personnel dossier / 02</p>
+  <span class="record-action">OPEN PERSONNEL FILE ↗</span>
+ </div>
+ </a>
+<a class="principal-record palette-violet searchable" href="necro/" data-search="necro primary pr-03 ">
+ <span class="record-order">03 / 04</span>
+ <div class="negative" aria-hidden="true">
+  <span class="negative-head">LC:NN / PR—03</span>
+  <div class="negative-image"><span class="negative-glyph">03</span><span class="negative-caption">PORTRAIT / PENDING</span></div>
+  <span class="negative-foot">FRAME 003 · (1)984</span>
+ </div>
+ <div class="record-body">
+  <div class="record-meta"><span>PR—03</span><span class="record-status">ON FILE</span></div>
+  <h3>Necro</h3>
+  <p>Personnel dossier / 03</p>
+  <span class="record-action">OPEN PERSONNEL FILE ↗</span>
+ </div>
+ </a>
+<a class="principal-record palette-verdigris searchable" href="dark/" data-search="dark primary pr-04 ">
+ <span class="record-order">04 / 04</span>
+ <div class="negative" aria-hidden="true">
+  <span class="negative-head">LC:NN / PR—04</span>
+  <div class="negative-image"><span class="negative-glyph">04</span><span class="negative-caption">PORTRAIT / PENDING</span></div>
+  <span class="negative-foot">FRAME 004 · (1)984</span>
+ </div>
+ <div class="record-body">
+  <div class="record-meta"><span>PR—04</span><span class="record-status">ON FILE</span></div>
+  <h3>Dark</h3>
+  <p>Personnel dossier / 04</p>
+  <span class="record-action">OPEN PERSONNEL FILE ↗</span>
+ </div>
+ </a></div>
+   </section>
+   <section class="associated-section" aria-labelledby="associated-title">
+    <div class="section-heading"><div><p class="section-reference">INDEX / II</p><h2 id="associated-title">Associated personnel</h2></div><p class="section-note">ADDITIONAL FILES · REGISTER 005—013</p></div>
+    <p class="associated-intro">Related individuals filed within the same archive. Select a name to open its existing record.</p>
+    <div class="associated-grid" id="associated-records"><a class="associated-record palette-ivory searchable" href="zen/" data-search="zen associated"><span class="associated-index">05</span><span class="associated-symbol" aria-hidden="true"></span><span class="associated-name">Zen</span><span class="associated-arrow" aria-hidden="true">↗</span></a>
+<a class="associated-record palette-sky searchable" href="astra/" data-search="astra associated"><span class="associated-index">06</span><span class="associated-symbol" aria-hidden="true"></span><span class="associated-name">Astra</span><span class="associated-arrow" aria-hidden="true">↗</span></a>
+<a class="associated-record palette-sage searchable" href="zerachiel/" data-search="zerachiel associated"><span class="associated-index">07</span><span class="associated-symbol" aria-hidden="true"></span><span class="associated-name">Zerachiel</span><span class="associated-arrow" aria-hidden="true">↗</span></a>
+<a class="associated-record palette-indigo searchable" href="shade/" data-search="shade associated"><span class="associated-index">08</span><span class="associated-symbol" aria-hidden="true"></span><span class="associated-name">Shade</span><span class="associated-arrow" aria-hidden="true">↗</span></a>
+<a class="associated-record palette-ice searchable" href="lyra/" data-search="lyra associated"><span class="associated-index">09</span><span class="associated-symbol" aria-hidden="true"></span><span class="associated-name">Lyra</span><span class="associated-arrow" aria-hidden="true">↗</span></a>
+<a class="associated-record palette-ember searchable" href="draco/" data-search="draco associated"><span class="associated-index">10</span><span class="associated-symbol" aria-hidden="true"></span><span class="associated-name">Draco</span><span class="associated-arrow" aria-hidden="true">↗</span></a>
+<a class="associated-record palette-orchid searchable" href="nexus/" data-search="nexus associated"><span class="associated-index">11</span><span class="associated-symbol" aria-hidden="true"></span><span class="associated-name">Nexus</span><span class="associated-arrow" aria-hidden="true">↗</span></a>
+<a class="associated-record palette-acid searchable" href="exe/" data-search="exe / remiel associated"><span class="associated-index">12</span><span class="associated-symbol" aria-hidden="true"></span><span class="associated-name">EXE / Remiel</span><span class="associated-arrow" aria-hidden="true">↗</span></a>
+<a class="associated-record palette-rust searchable" href="velkan/" data-search="velkan associated"><span class="associated-index">13</span><span class="associated-symbol" aria-hidden="true"></span><span class="associated-name">Velkan</span><span class="associated-arrow" aria-hidden="true">↗</span></a></div>
+    <p class="index-end">END OF PERSONNEL REGISTER — LC:NN / 01</p>
+   </section>
+   <p class="empty-state" id="empty-state" hidden>No matching entries in this register. Try another name.</p>
+  </main>
+  <footer class="archive-footer"><span>LC:NN / CHARACTER ARCHIVE</span><span>THE CITY / (1)984</span><a href="../index.html">BACK TO NETHER NOVA ↑</a></footer>
+ </div>
+</body>
 </html>

@@ -181,6 +181,7 @@ function renderPoster(record,isPreview=false){
  const artSource=record.posterImage||record.coverImage;
  if(artSource){
   art.classList.add("has-cover");
+  art.style.setProperty("--poster-cover-url",'url("'+artSource+'")');
   const image=add(art,"img","poster-art-image");
   image.src=artSource;
   image.alt="";

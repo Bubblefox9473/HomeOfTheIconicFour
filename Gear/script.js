@@ -87,21 +87,21 @@ const inventory = [
 },
 {
   id: "NNC02-012", name: "Murasama", division: "original",
-  kind: "weapons", type: "Sword", owner: "Braylon",
-  summary: "Murasama is an original sword belonging to Braylon. Its design, history, and abilities have yet to be entered in the registry.",
-  note: "Original gear / Braylon / Sword. Artwork and further specifications pending."
+  kind: "weapons", type: "Sword", owner: "Braylon", associatedWith: "Necro",
+  summary: "Murasama is an original sword owned by Braylon and associated with Necro. Its design, history, and abilities have yet to be entered in the registry.",
+  note: "Original gear / Owner: Braylon / Association: Necro / Sword. Artwork and further specifications pending."
 },
 {
   id: "NNC02-013", name: "Onyxian Truestar", division: "original",
-  kind: "weapons", type: "Bow", owner: "Braylon",
-  summary: "Onyxian Truestar is an original bow belonging to Braylon. Its design, history, and abilities have yet to be entered in the registry.",
-  note: "Original gear / Braylon / Bow. Artwork and further specifications pending."
+  kind: "weapons", type: "Bow", owner: "Braylon", associatedWith: "Necro",
+  summary: "Onyxian Truestar is an original bow owned by Braylon and associated with Necro. Its design, history, and abilities have yet to be entered in the registry.",
+  note: "Original gear / Owner: Braylon / Association: Necro / Bow. Artwork and further specifications pending."
 },
 {
   id: "NNC02-014", name: "Starlit Equinox", division: "original",
-  kind: "weapons", type: "Scythe", owner: "Braylon",
-  summary: "Starlit Equinox is an original scythe belonging to Braylon. Its design, history, and abilities have yet to be entered in the registry.",
-  note: "Original gear / Braylon / Scythe. Artwork and further specifications pending."
+  kind: "weapons", type: "Scythe", owner: "Braylon", associatedWith: "Necro",
+  summary: "Starlit Equinox is an original scythe owned by Braylon and associated with Necro. Its design, history, and abilities have yet to be entered in the registry.",
+  note: "Original gear / Owner: Braylon / Association: Necro / Scythe. Artwork and further specifications pending."
 }
 ];
 inventory.forEach(item => {
@@ -213,7 +213,7 @@ function cardFor(item) {
   const bottom = node("div", "card-footline");
   const caption = item.division === "faction" ? "ISSUER / " + item.issuer :
     item.division === "recovered" ? "RECOVERY DETAILS ON FILE" :
-      item.division === "original" ? (item.owner === "Not documented" ? "ORIGINAL / " + item.type.toUpperCase() : "ASSOCIATED WITH / " + item.owner) : "PROVENANCE PENDING";
+      item.division === "original" ? (item.associatedWith ? "ASSOCIATED WITH / " + item.associatedWith : item.owner === "Not documented" ? "ORIGINAL / " + item.type.toUpperCase() : "ASSOCIATED WITH / " + item.owner) : "PROVENANCE PENDING";
   bottom.append(node("span", "", caption), node("span", "inspect-arrow", "↗"));
   plate.appendChild(bottom);
   card.appendChild(plate);
@@ -230,7 +230,7 @@ function eligible(item, q) {
     } else if (item.kind !== activeSubtab) return false;
   }
   if (!q) return true;
-  return [item.name, item.id, item.type, item.form, item.issuer, item.owner, item.division, item.subdivision, item.kind, item.summary, item.note]
+  return [item.name, item.id, item.type, item.form, item.issuer, item.owner, item.associatedWith, item.division, item.subdivision, item.kind, item.summary, item.note]
     .filter(Boolean).some(s => s.toLowerCase().includes(q));
 }
 function render() {

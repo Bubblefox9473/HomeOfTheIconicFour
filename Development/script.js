@@ -164,6 +164,16 @@ function renderPoster(record,isPreview=false){
  add(art,"span","poster-art-circle");
  add(art,"span","poster-art-ray");
  add(art,"span","poster-art-mark",theme==="genesis"?"✦":theme==="intervallo"?"◇":theme==="noctis"?"☾":"✧");
+ // When finished artwork exists, give its record an optional posterImage URL.
+ // The title-card layout and text remain usable without any artwork.
+ if(record.posterImage){
+  art.classList.add("has-cover");
+  const image=add(art,"img","poster-art-image");
+  image.src=record.posterImage;
+  image.alt="";
+  image.loading="lazy";
+  image.decoding="async";
+ }
  add(screen,"span","poster-eyebrow",
    isPreview?"NOW IN PRODUCTION / MEPHISTA'S CANTO":
    record.variant==="original"?"NETHER NOVA / ORIGINAL CONTINUITY":

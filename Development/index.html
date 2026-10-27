@@ -226,41 +226,72 @@
       <section class="projection-room" id="projector" aria-labelledby="projector-title">
         <header class="projection-heading">
           <div>
-            <p class="section-index">04 / RECORD INSPECTION</p>
+            <p class="section-index">04 / FEATURED SCREENINGS &amp; RECORD INSPECTION</p>
             <h2 id="projector-title">The Projection Room<span class="period">.</span></h2>
+            <p class="projection-heading-copy">A story becomes a picture. Each reel receives its own title card while production artwork and documents are prepared.</p>
           </div>
-          <span class="inspection-state" id="inspection-state"><i class="state-light"></i> STANDBY / NO RECORD LOADED</span>
+          <span class="inspection-state" id="inspection-state"><i class="state-light"></i> STANDBY / FEATURED REEL READY</span>
         </header>
-        <div class="projection-console" aria-live="polite" aria-atomic="true">
-          <div class="screen-side">
-            <div class="screen-glass" id="screen-glass">
-              <div class="screen-corner tl"></div><div class="screen-corner tr"></div>
-              <div class="screen-corner bl"></div><div class="screen-corner br"></div>
-              <div class="screen-id">NNC-03 / SELECTED EXPOSURE</div>
-              <div class="screen-id-bottom" id="screen-id-bottom">NO REEL INSERTED</div>
-              <div class="screen-content" id="screen-content">
-                <span class="projector-icon" aria-hidden="true">◯</span>
-                <span class="screen-small">THE PROJECTOR IS IDLE</span>
-                <strong>SELECT A RECORD<br>TO BEGIN SCREENING.</strong>
-                <span class="screen-small screen-small-bottom">ANY FRAME / ANY REEL</span>
-              </div>
+
+        <div class="featured-marquee" aria-labelledby="featured-production-title">
+          <div class="featured-marquee-glow" aria-hidden="true"></div>
+          <div class="featured-marquee-copy">
+            <p class="featured-eyebrow"><span class="featured-rec-light" aria-hidden="true"></span> CURRENT PRODUCTION / NETHER NOVA ORIGINAL</p>
+            <h3 id="featured-production-title">The <em>Unbecoming.</em></h3>
+            <p>Mephista's Canto <span class="marquee-divider" aria-hidden="true">/</span> 9.5–2 <span class="marquee-divider" aria-hidden="true">/</span> Between Canto IX and X</p>
+            <div class="featured-marquee-actions">
+              <button type="button" class="featured-load" id="load-featured">LOAD FEATURED REEL <span aria-hidden="true">↗</span></button>
+              <span class="featured-production-state">IN DEVELOPMENT · MATERIAL PENDING</span>
             </div>
-            <div class="screen-foot"><span>PROJECTOR / 01</span><span>NEGATIVE INSPECTION UNIT</span><span>STUDIO PROPERTY — NNC</span></div>
           </div>
+          <div class="featured-marquee-mark" aria-hidden="true">
+            <span>REEL</span>
+            <strong>9.5</strong>
+            <i>02 / MEPHISTA</i>
+          </div>
+        </div>
+
+        <div class="projection-console">
+          <div class="screen-side">
+            <div class="projector-housing">
+              <div class="projector-housing-top"><span>PROJECTION SYSTEM / NNC–03</span><span><i class="housing-pulse" aria-hidden="true"></i> <span id="projector-mode">PREVIEW / STANDBY</span></span></div>
+              <div class="screen-glass is-featured" id="screen-glass">
+                <div class="screen-corner tl"></div><div class="screen-corner tr"></div>
+                <div class="screen-corner bl"></div><div class="screen-corner br"></div>
+                <div class="screen-id">NNC–03 / CINEMATIC RECORD</div>
+                <div class="screen-id-bottom" id="screen-id-bottom">FEATURED PREVIEW · NOT YET LOADED</div>
+                <div class="screen-content poster-presentation" id="screen-content">
+                  <div class="poster-art" aria-hidden="true"><span class="poster-art-circle"></span><span class="poster-art-ray"></span><span class="poster-art-mark">✧</span></div>
+                  <span class="poster-eyebrow">NOW IN PRODUCTION / MEPHISTA'S CANTO</span>
+                  <span class="poster-number">9.5–2</span>
+                  <strong class="poster-title">The Unbecoming</strong>
+                  <span class="poster-rule" aria-hidden="true"></span>
+                  <span class="poster-footer">NETHER NOVA ORIGINAL · TITLE CARD PREVIEW</span>
+                </div>
+              </div>
+              <div class="projector-housing-bottom"><span>FRAME 01 / FEATURED EXPOSURE</span><span>ARTWORK / TITLE CARD</span></div>
+            </div>
+            <div class="screen-foot"><span>PROJECTOR / 01</span><span>35 MM / ARCHIVE NEGATIVE</span><span>STUDIO PROPERTY — NNC</span></div>
+          </div>
+
           <div class="docket" id="record-docket">
-            <p class="docket-index">SELECTED FILE / NO. —</p>
-            <h3 id="record-title">Nothing on the projector.</h3>
-            <p class="docket-lead" id="record-description">Select a Canto or Intervallo in the reels above. Its production information will appear here without leaving the Film Department.</p>
+            <p class="docket-index" id="docket-index">FEATURED PRODUCTION / 9.5–2</p>
+            <span class="docket-kicker" id="docket-kicker">CURRENTLY IN PRODUCTION</span>
+            <h3 id="record-title">The Unbecoming</h3>
+            <p class="docket-lead" id="record-description">Mephista's Canto is the Film Department's current featured production. It bridges Canto IX and X in NetherNova's narrative. Load the featured reel to inspect its record, or choose any chapter from the timelines above.</p>
             <dl class="docket-fields">
-              <div><dt>FILE REFERENCE</dt><dd id="record-id">—</dd></div>
-              <div><dt>RECORD CLASS</dt><dd id="record-category">UNASSIGNED</dd></div>
-              <div><dt>CONTINUITY</dt><dd id="record-source">—</dd></div>
-              <div><dt>ARCHIVE STATUS</dt><dd id="record-status">AWAITING SELECTION</dd></div>
+              <div><dt>FILE REFERENCE</dt><dd id="record-id">NNC-03-9.5-2</dd></div>
+              <div><dt>RECORD CLASS</dt><dd id="record-category">ORIGINAL INTERVALLO / FEATURED</dd></div>
+              <div><dt>CONTINUITY</dt><dd id="record-source">NETHER NOVA ORIGINAL</dd></div>
+              <div><dt>ARCHIVE STATUS</dt><dd id="record-status">CURRENT PRODUCTION / NOT LOADED</dd></div>
             </dl>
             <div class="docket-bottom">
-              <p id="record-note">Original production documents can be attached to these records as the archive develops.</p>
-              <span class="file-unavailable" id="file-state">NO ASSOCIATED DOCUMENT FILED</span>
-              <button type="button" class="back-to-reel" id="back-to-reel" hidden>← RETURN TO SELECTED REEL</button>
+              <p id="record-note">Featured title-card artwork is an archival placeholder. Finished illustration and production files can be added as they become available.</p>
+              <span class="file-unavailable" id="file-state">PRODUCTION FILE NOT YET ATTACHED</span>
+              <div class="docket-actions">
+                <button type="button" class="back-to-featured" id="back-to-featured" hidden>✧ RETURN TO FEATURED PREVIEW</button>
+                <button type="button" class="back-to-reel" id="back-to-reel" hidden>← RETURN TO SELECTED REEL</button>
+              </div>
             </div>
           </div>
         </div>

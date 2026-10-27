@@ -25,8 +25,8 @@
 
 
 /* The Constellation / LC:NN
-   Lines represent placement in the personnel register, not unconfirmed story relationships.
-   Add documented personal connections here once their lore is established. */
+   Pale spokes show catalogue membership. Colored links show documented personal
+   relationships only; no ties are inferred from shared archive membership. */
 (() => {
   const host = document.getElementById("constellation-graph");
   if (!host) return;
@@ -42,10 +42,10 @@
     {id:"mephista",label:"Mephista",group:"primary",number:"01",code:"PR—0?",color:"#c98581",status:"SEALED / DATA CORRUPT",summary:"Primary personnel record. Identity details are restricted; this dossier cannot presently be opened."},
     {id:"noctis",label:"Noctis",group:"primary",number:"02",code:"PR—02",color:"#a0b6c7",status:"ON FILE",href:"noctis/"},
     {id:"necro",label:"Necro",group:"primary",number:"03",code:"PR—03",color:"#c7a2ea",status:"ON FILE",href:"necro/"},
-    {id:"dark",label:"Dark",group:"primary",number:"04",code:"PR—04",color:"#99c8b7",status:"ON FILE",href:"dark/"},
+    {id:"dark",label:"Dark",group:"primary",number:"04",code:"PR—04",color:"#99c8b7",status:"ON FILE",href:"dark/",summary:"A distant but trusted companion to the two brothers, now connected to Mephista largely through work. His only other confirmed personal connection is a hostile one with Zerachiel."},
     {id:"zen",label:"Zen",group:"associated",number:"05",color:"#f2f2f2",href:"zen/"},
     {id:"astra",label:"Astra",group:"associated",number:"06",color:"#8ccfff",href:"astra/"},
-    {id:"zerachiel",label:"Zerachiel",group:"associated",number:"07",color:"#d8f2c8",href:"zerachiel/"},
+    {id:"zerachiel",label:"Zerachiel",group:"associated",number:"07",color:"#d8f2c8",href:"zerachiel/",summary:"Currently in Aethereus. Encounters with Dark have shown hostility, but neither side has revealed the cause."},
     {id:"shade",label:"Shade",group:"associated",number:"08",color:"#819de1",href:"shade/"},
     {id:"lyra",label:"Lyra",group:"associated",number:"09",color:"#d8f6ff",href:"lyra/"},
     {id:"draco",label:"Draco",group:"associated",number:"10",color:"#ff8a1c",href:"draco/"},
@@ -73,9 +73,48 @@
       position:positions[person.id]
     }))
   ];
-  const edges = personnel.map(person => ({
-    data:{id:"register-"+person.id,source:"register",target:person.id,group:person.group}
-  }));
+  // Confirmed relationships. Other character pairs remain deliberately unlinked.
+  // Any ending spoilers are excluded from the public-facing relationship inspector.
+  const relationships = [
+    {id:"mephista-necro",source:"mephista",target:"necro",tone:"family",
+     title:"Mephista ↔ Necro",category:"FOUND FAMILY / MATERNAL AFFECTION",
+     reference:"MEPHISTA → MATERNAL CARE / NECRO → ADMIRATION",
+     description:"Mephista views Necro with almost parental affection. Necro deeply respects and looks up to her, though he does not necessarily understand their bond in the same maternal terms."},
+    {id:"noctis-necro",source:"noctis",target:"necro",tone:"family",
+     title:"Noctis ↔ Necro",category:"FAMILY / BROTHERS",
+     reference:"OLDER BROTHER / YOUNGER BROTHER",
+     description:"Noctis is Necro's older brother. They are extremely close, watching over each other in battle. Outside it, Noctis tries to guide Necro toward more proper conduct."},
+    {id:"mephista-noctis",source:"mephista",target:"noctis",tone:"complex",
+     title:"Mephista ↔ Noctis",category:"DEEPLY ROOTED TRUST / COMPLICATED BOND",
+     reference:"HARDSHIP / ENDURING LOYALTY",
+     description:"Hardships forged their unusually close bond. Noctis trusts Mephista with his life; she treasures their friendship enough to fear anything that might place it at risk."},
+    {id:"necro-dark",source:"necro",target:"dark",tone:"friend",
+     title:"Necro ↔ Dark",category:"TRUSTED FRIENDS / DISTANT COMPANIONS",
+     reference:"FRIENDSHIP / INFREQUENT CONTACT",
+     description:"Necro and Dark remain trusted friends, although Dark's choice to stay away from the others limits their time together."},
+    {id:"noctis-dark",source:"noctis",target:"dark",tone:"friend",
+     title:"Noctis ↔ Dark",category:"TRUSTED FRIENDS / DISTANT COMPANIONS",
+     reference:"FRIENDSHIP / INFREQUENT CONTACT",
+     description:"Noctis and Dark share a trusted friendship, much like Dark's bond with Necro. Distance has limited their contact, but not severed the connection."},
+    {id:"mephista-dark",source:"mephista",target:"dark",tone:"fractured",
+     title:"Mephista ↔ Dark",category:"FRACTURED TRUST / PROFESSIONAL CONTACT",
+     reference:"FORMER FRIENDS / SOULBOUND AUTHORITY",
+     description:"Once close, they have been driven apart by Mephista's misuse of her ownership of Dark's soul. He owes his life to her, but her coercion destroyed their personal closeness. She regrets it without seeking to repair the damage, and they now interact almost exclusively for work."},
+    {id:"dark-zerachiel",source:"dark",target:"zerachiel",tone:"hostile",
+     title:"Dark ↔ Zerachiel",category:"ENEMIES / UNEXPLAINED HOSTILITY",
+     reference:"CAUSE UNKNOWN / REPORTS INCOMPLETE",
+     description:"Dark and Zerachiel have shown clear signs of mutual hatred whenever their paths cross. Dark withholds information, and Zerachiel is currently in Aethereus, leaving no account from his side. The origin of their hostility remains unknown."}
+  ];
+
+  const edges = [
+    ...personnel.map(person => ({
+      data:{id:"register-"+person.id,source:"register",target:person.id,kind:"index",group:person.group}
+    })),
+    ...relationships.map(relationship => ({
+      data:{id:relationship.id,source:relationship.source,target:relationship.target,
+        kind:"relationship",tone:relationship.tone}
+    }))
+  ];
 
   const cy = window.cytoscape({
     container:host,
@@ -109,15 +148,33 @@
         "curve-style":"straight","line-cap":"round","overlay-opacity":0,
         "transition-property":"opacity, width, line-color","transition-duration":170
       }},
-      {selector:'edge[group = "associated"]',style:{
-        "line-style":"dashed","line-dash-pattern":[4,6],"opacity":0.36
+      {selector:'edge[kind = "index"]',style:{
+        "line-style":"dotted","width":1,"opacity":0.20,"z-index":1
       }},
-      {selector:".is-muted",style:{"opacity":0.12}},
+      {selector:'edge[kind = "relationship"]',style:{
+        "width":3.5,"line-color":"#b4ccdd","opacity":0.87,"z-index":12
+      }},
+      {selector:'edge[tone = "family"]',style:{"line-color":"#8dbff0"}},
+      {selector:'edge[tone = "friend"]',style:{"line-color":"#90d7a8"}},
+      {selector:'edge[tone = "complex"]',style:{"line-color":"#cc9cda"}},
+      {selector:'edge[tone = "fractured"]',style:{
+        "line-color":"#d2a48e","line-style":"dashed","line-dash-pattern":[9,5]
+      }},
+      {selector:'edge[tone = "hostile"]',style:{
+        "line-color":"#ff6575","width":4.5,"opacity":1,"z-index":25,
+        "curve-style":"segments",
+        "segment-weights":[0.14,0.26,0.38,0.50,0.62,0.74,0.86],
+        "segment-distances":[-31,31,-31,31,-31,31,-31]
+      }},
+      {selector:".is-muted",style:{"opacity":0.10}},
       {selector:"node.is-focus",style:{
         "opacity":1,"background-opacity":0.56,"border-width":5
       }},
       {selector:"edge.is-focus",style:{
-        "opacity":0.95,"line-color":"#ebbea3","width":3
+        "opacity":1,"width":4.5
+      }},
+      {selector:'edge[tone = "hostile"].is-focus',style:{
+        "line-color":"#ff6575","width":6,"opacity":1
       }},
       {selector:"node.hovered",style:{
         "background-opacity":0.62,"border-width":5
@@ -151,7 +208,7 @@
       category:"NETWORK / OVERVIEW",
       title:"Select a signal.",
       reference:"LC:NN / 13 PERSONNEL RECORDS",
-      description:"Select a node to inspect its personnel record. Select a line to see why two points are connected. Drag to rearrange the map, or scroll and pinch to explore.",
+      description:"Colored lines represent established personal relationships; the faint spokes mark archive registration. Select a node or line to inspect it. Drag to rearrange the map, or scroll and pinch to explore.",
       href:null
     });
   }
@@ -171,7 +228,7 @@
         category:"ARCHIVE / PERSONNEL DIVISION",
         title:"NetherNova",
         reference:"LC:NN / CENTRAL REGISTER",
-        description:"The central personnel index connects the four primary files and nine associated records. These paths show archival classification, not confirmed personal relationships.",
+        description:"This index connects the four primary files and nine associated records with faint catalogue spokes. Colored lines between people show only the personal ties already documented.",
         href:null
       });
       return;
@@ -183,8 +240,8 @@
       title:person.label,
       reference:(person.code || "REGISTER—"+person.number)+" / "+(person.status || "ON FILE"),
       description:person.summary || (person.group === "primary"
-        ? "One of the four central NetherNova personnel records. Specific relationships have not yet been documented in the network."
-        : "An associated personnel file within the NetherNova register. Individual relationships will appear here once documented."),
+        ? "One of the four central NetherNova personnel records. Select a colored connection to inspect any documented relationship."
+        : "An associated personnel file within the NetherNova register. No personal ties are assumed beyond those explicitly connected."),
       href:person.href || null
     });
   });
@@ -193,6 +250,17 @@
     const edge = event.target;
     const linked = edge.connectedNodes();
     highlight(linked.union(edge));
+    const relationship = relationships.find(entry => entry.id === edge.id());
+    if (relationship) {
+      inspect({
+        category:relationship.category,
+        title:relationship.title,
+        reference:relationship.reference,
+        description:relationship.description,
+        href:null
+      });
+      return;
+    }
     const person = personnel.find(entry => entry.id === edge.target().id());
     if (!person) return;
     inspect({
@@ -220,7 +288,8 @@
       node.toggleClass("is-hidden",filter !== "all" && node.data("group") !== filter)
     );
     cy.edges().forEach(edge =>
-      edge.toggleClass("is-hidden",filter !== "all" && edge.data("group") !== filter)
+      edge.toggleClass("is-hidden",
+        edge.source().hasClass("is-hidden") || edge.target().hasClass("is-hidden"))
     );
     overview();
     fitGraph();

@@ -32,10 +32,10 @@
         <div class="opening-copy">
           <div class="eyebrow"><span class="rec-light"></span>NNC–03 <span class="slash">/</span> DEPARTMENT OF MOTION PICTURES</div>
           <h1 id="page-title">The Film<br><em>Department.</em></h1>
-          <p class="opening-lead">Stories are not merely told here. They are recorded, indexed, and preserved — frame by frame.</p>
-          <p class="opening-note">Enter the production archive and select a reel to inspect. Nothing is being screened until you choose it.</p>
+          <p class="opening-lead">Every story leaves a trail of light. Follow the chronology, from the first frame to the stories still waiting to be told.</p>
+          <p class="opening-note">Travel sideways through each timeline. Chapters illuminate as you explore; select a frame only when you're ready to inspect its record.</p>
           <div class="hero-actions">
-            <a class="primary-link" href="#cantos">OPEN THE CANTO REELS <span aria-hidden="true">↘</span></a>
+            <a class="primary-link" href="#cantos">ENTER THE STORY TIMELINE <span aria-hidden="true">↘</span></a>
             <span class="hero-edition">STUDIO REGISTER / COPY NNC–03</span>
           </div>
         </div>
@@ -134,20 +134,25 @@
             <div>
               <p class="section-index">01 / THE MAIN NARRATIVE</p>
               <h2 id="cantos-title">Cantos<span class="period">.</span></h2>
-              <p>A Chronological Journey Through the Heart of the Narrative.</p>
+              <p>The main narrative, threaded into one continuous cinematic journey. The 9.5 bridges remain exactly where they belong, between IX and X.</p>
             </div>
             <div class="reel-controls">
-              <span class="reel-count">REEL / <b id="cantos-count">—</b> FRAMES</span>
+              <span class="reel-count">TIMELINE / <b id="cantos-count">—</b> RECORDS</span>
               <button type="button" class="rail-arrow" data-rail-target="cantos-track" data-direction="-1" aria-label="Scroll Cantos left">←</button>
               <button type="button" class="rail-arrow" data-rail-target="cantos-track" data-direction="1" aria-label="Scroll Cantos right">→</button>
             </div>
           </header>
-          <div class="reel-window">
+          <div class="reel-window timeline-window">
             <div class="perforations" aria-hidden="true"></div>
-            <div class="reel-track" id="cantos-track" role="group" aria-label="Horizontally scrolling Canto records" tabindex="0"></div>
+            <div class="reel-track" id="cantos-track" role="group" aria-label="Horizontal chronological Canto timeline. Drag, scroll or use arrow keys." tabindex="0"></div>
             <div class="perforations" aria-hidden="true"></div>
           </div>
-          <p class="rail-help">DRAG OR SCROLL TO EXPLORE <span>·</span> SELECT ANY FRAME TO INSPECT <span>·</span> NO AUTOMATIC SELECTION</p>
+          <div class="timeline-underbar" aria-label="Timeline navigation progress">
+            <span class="timeline-underbar-label">CHRONOLOGY <i aria-hidden="true">→</i></span>
+            <div class="timeline-meter" aria-hidden="true"><span id="cantos-track-progress"></span></div>
+            <span class="timeline-position" id="cantos-track-position" aria-live="off">FRAME 01 / 13</span>
+          </div>
+          <p class="rail-help">DRAG, SCROLL OR USE THE ARROWS TO TRAVEL <span>·</span> SELECT ANY FRAME TO INSPECT <span>·</span> NO AUTOMATIC SELECTION</p>
         </section>
 
         <section class="reel-section" id="intervallos" aria-labelledby="intervallos-title">
@@ -155,20 +160,25 @@
             <div>
               <p class="section-index">02 / BETWEEN THE REELS</p>
               <h2 id="intervallos-title">Intervallos<span class="period">.</span></h2>
-              <p>Between-Canto stories, catalogued separately. The original 9.5-2 and 9.5-3 records appear here as well, without losing their places in the main narrative.</p>
+              <p>Follow the stories between chapters on their own timeline. Mephista and Necro's original 9.5 records appear here and in the main chronology.</p>
             </div>
             <div class="reel-controls">
-              <span class="reel-count">REEL / <b id="intervallos-count">—</b> FRAMES</span>
+              <span class="reel-count">TIMELINE / <b id="intervallos-count">—</b> RECORDS</span>
               <button type="button" class="rail-arrow" data-rail-target="intervallos-track" data-direction="-1" aria-label="Scroll Intervallos left">←</button>
               <button type="button" class="rail-arrow" data-rail-target="intervallos-track" data-direction="1" aria-label="Scroll Intervallos right">→</button>
             </div>
           </header>
-          <div class="reel-window">
+          <div class="reel-window timeline-window">
             <div class="perforations" aria-hidden="true"></div>
-            <div class="reel-track" id="intervallos-track" role="group" aria-label="Horizontally scrolling Intervallo records" tabindex="0"></div>
+            <div class="reel-track" id="intervallos-track" role="group" aria-label="Horizontal chronological Intervallo timeline. Drag, scroll or use arrow keys." tabindex="0"></div>
             <div class="perforations" aria-hidden="true"></div>
           </div>
-          <p class="rail-help">CHRONOLOGICAL REGISTER <span>·</span> OFFICIAL AND ORIGINAL ENTRIES LABELED</p>
+          <div class="timeline-underbar" aria-label="Timeline navigation progress">
+            <span class="timeline-underbar-label">CHRONOLOGY <i aria-hidden="true">→</i></span>
+            <div class="timeline-meter" aria-hidden="true"><span id="intervallos-track-progress"></span></div>
+            <span class="timeline-position" id="intervallos-track-position" aria-live="off">FRAME 01 / 13</span>
+          </div>
+          <p class="rail-help">STORIES CONNECTED IN CHRONOLOGICAL ORDER <span>·</span> ORIGINALS MARKED</p>
         </section>
 
         <section class="reel-section" id="side-episodes" aria-labelledby="side-episodes-title">
@@ -176,25 +186,40 @@
             <div>
               <p class="section-index">03 / ADDITIONAL EXPOSURES</p>
               <h2 id="side-episodes-title">Side Episodes<span class="period">.</span></h2>
-              <p>Independent accounts and supplementary productions. The register is reserved until specific episode files are submitted.</p>
+              <p>A timeline for the stories beyond the main plot. Its path is drawn, but no Side Episode has been filed yet.</p>
             </div>
             <div class="reel-controls">
-              <span class="reel-count">REEL / <b id="side-episodes-count">0</b> FRAMES FILED</span>
+              <span class="reel-count">TIMELINE / <b id="side-episodes-count">0</b> RECORDS</span>
               <button type="button" class="rail-arrow" data-rail-target="side-episodes-track" data-direction="-1" aria-label="Scroll Side Episodes left">←</button>
               <button type="button" class="rail-arrow" data-rail-target="side-episodes-track" data-direction="1" aria-label="Scroll Side Episodes right">→</button>
             </div>
           </header>
-          <div class="reel-window">
+          <div class="reel-window timeline-window">
             <div class="perforations" aria-hidden="true"></div>
-            <div class="reel-track reel-track-empty" id="side-episodes-track" role="group" aria-label="Side Episode catalogue, currently unfiled" tabindex="0">
-              <div class="empty-film">
-                <span class="empty-film-symbol" aria-hidden="true">✳</span>
-                <div><span class="empty-film-number">UNEXPOSED NEGATIVE / S–000</span><strong>Awaiting the first side episode.</strong><p>No stories have been invented to fill this space. Future production files will appear on this reel.</p></div>
+            <div class="reel-track reel-track-empty" id="side-episodes-track" data-total="0" role="group" aria-label="Side Episode timeline, no stories filed. Scroll to explore reserved empty space." tabindex="0">
+              <div class="timeline-sequence timeline-sequence--empty" role="list" aria-label="Unfiled Side Episode timeline">
+                <div class="timeline-stop timeline-stop--vacant is-visible" role="listitem">
+                  <div class="timeline-vacant" role="status">
+                    <span class="vacant-register">S–000 / UNEXPOSED NEGATIVE</span>
+                    <span class="vacant-symbol" aria-hidden="true">✧</span>
+                    <strong>The next story begins here.</strong>
+                    <p>No Side Episodes have been filed. The timeline is waiting for its first real entry.</p>
+                    <span class="vacant-footer">NO STORY ASSIGNED · 00 RECORDS</span>
+                  </div>
+                  <span class="timeline-pin timeline-pin--vacant" aria-hidden="true"></span>
+                </div>
+                <div class="timeline-stop timeline-stop--ghost is-visible" aria-hidden="true"><div class="timeline-ghost-card"><span>FUTURE EXPOSURE</span><span>UNASSIGNED</span></div><span class="timeline-pin timeline-pin--vacant"></span></div>
+                <div class="timeline-stop timeline-stop--ghost is-visible" aria-hidden="true"><div class="timeline-ghost-card"><span>FUTURE EXPOSURE</span><span>UNASSIGNED</span></div><span class="timeline-pin timeline-pin--vacant"></span></div>
               </div>
             </div>
             <div class="perforations" aria-hidden="true"></div>
           </div>
-          <p class="rail-help">OPEN REGISTER <span>·</span> AWAITING APPROVED ENTRIES</p>
+          <div class="timeline-underbar" aria-label="Timeline navigation progress">
+            <span class="timeline-underbar-label">CHRONOLOGY <i aria-hidden="true">→</i></span>
+            <div class="timeline-meter" aria-hidden="true"><span id="side-episodes-track-progress"></span></div>
+            <span class="timeline-position" id="side-episodes-track-position" aria-live="off">00 / 00 · AWAITING STORIES</span>
+          </div>
+          <p class="rail-help">EMPTY CHRONOLOGY <span>·</span> NO FICTIONAL ENTRIES ADDED</p>
         </section>
       </div>
 

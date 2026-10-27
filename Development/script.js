@@ -40,8 +40,24 @@ const toMain=([number,title])=>{
    :"The official story title is preserved as a reference. No NetherNova production file has been attached yet."
  };
 };
+const officialIntervalloCovers={
+ "I":"intervallo-i.png",
+ "II":"intervallo-ii.png",
+ "III-1":"intervallo-iii-1.png",
+ "III-2":"intervallo-iii-2.png",
+ "IV-1":"intervallo-iv-1.png",
+ "IV-2":"intervallo-iv-2.png",
+ "V-1":"intervallo-v-1.png",
+ "V-2":"intervallo-v-2.png",
+ "VI":"intervallo-vi.png",
+ "VII-1":"intervallo-vii-1.png",
+ "VII-2":"intervallo-vii-2.png"
+};
+const intervalloCoverFor=number=>officialIntervalloCovers[number]
+ ?"assets/intervallo-covers/"+officialIntervalloCovers[number]:null;
 const toIntervallo=([number,title])=>({
  id:"intervallo-"+number.toLowerCase(),number,title,variant:"intervallo",
+ coverImage:intervalloCoverFor(number),
  classification:"INTERVALLO / BETWEEN CANTOS",category:"INTERVALLO",
  source:"OFFICIAL LIMBUS COMPANY",code:"LC-INTERVALLO-"+number,
  status:"REFERENCE ENTRY / NO FILE ATTACHED",strap:"OFFICIAL INTERVALLO",

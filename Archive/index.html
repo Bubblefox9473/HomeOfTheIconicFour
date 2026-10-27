@@ -8,6 +8,7 @@
  <title>Character Archive | LC:NN</title>
  <link rel="icon" type="image/svg+xml" href="../assets/lc-nn-branch-seal.svg">
  <link rel="stylesheet" href="style.css">
+ <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.34.3/dist/cytoscape.min.js" defer></script>
  <script src="script.js" defer></script>
 </head>
 <body>
@@ -111,6 +112,55 @@
     <p class="index-end">END OF PERSONNEL REGISTER — LC:NN / 01</p>
    </section>
    <p class="empty-state" id="empty-state" hidden>No matching entries in this register. Try another name.</p>
+   <section class="constellation-section" id="constellation" aria-labelledby="constellation-title">
+    <div class="section-heading constellation-heading">
+     <div><p class="section-reference">INDEX / III · NETWORK REGISTER</p><h2 id="constellation-title">The <em>Constellation.</em></h2></div>
+     <p class="section-note">LC:NN / PERSONNEL SIGNALS / 13 REGISTERED</p>
+    </div>
+    <p class="constellation-intro">Every file is a point of light. Trace the archive's personnel network, investigate a record, and uncover how its entries are catalogued.</p>
+    <div class="constellation-shell">
+     <div class="constellation-stage">
+      <div class="constellation-toolbar">
+       <span class="constellation-transmission"><span class="constellation-beacon" aria-hidden="true"></span> SIGNAL MAP / ACTIVE</span>
+       <div class="constellation-filters" role="group" aria-label="Filter personnel network">
+        <button type="button" data-constellation-filter="all" aria-pressed="true">ALL <span>13</span></button>
+        <button type="button" data-constellation-filter="primary" aria-pressed="false">PRIMARY <span>04</span></button>
+        <button type="button" data-constellation-filter="associated" aria-pressed="false">ASSOCIATED <span>09</span></button>
+       </div>
+      </div>
+      <div class="constellation-graph" id="constellation-graph" role="group" aria-label="Interactive constellation of NetherNova personnel. Select nodes to inspect, drag to reposition, scroll or pinch to zoom."></div>
+      <div class="constellation-fallback" id="constellation-fallback" hidden>
+       <p>NETWORK SIGNAL UNAVAILABLE</p>
+       <span>The interactive graph needs Cytoscape.js to load. Personnel files above remain accessible.</span>
+      </div>
+      <div class="constellation-stage-foot">
+       <div class="constellation-key" aria-label="Map legend">
+        <span><i class="key-primary" aria-hidden="true"></i> PRIMARY</span>
+        <span><i class="key-associated" aria-hidden="true"></i> ASSOCIATED</span>
+        <span><i class="key-register" aria-hidden="true"></i> CENTRAL INDEX</span>
+       </div>
+       <div class="constellation-zoom" role="group" aria-label="Constellation view controls">
+        <button type="button" data-constellation-action="zoom-in" aria-label="Zoom in">+</button>
+        <button type="button" data-constellation-action="zoom-out" aria-label="Zoom out">−</button>
+        <button type="button" data-constellation-action="fit" aria-label="Fit visible records to view">FIT</button>
+        <button type="button" data-constellation-action="reset" aria-label="Reset node positions and selection">RESET</button>
+       </div>
+      </div>
+     </div>
+     <aside class="constellation-inspector" aria-labelledby="constellation-inspector-title">
+      <p class="constellation-inspector-reference">LC:NN / CONNECTION INSPECTOR</p>
+      <div class="constellation-inspector-mark" aria-hidden="true">✧</div>
+      <p class="constellation-detail-type" id="constellation-detail-type">NETWORK / OVERVIEW</p>
+      <h3 id="constellation-detail-name">Select a signal.</h3>
+      <p class="constellation-detail-meta" id="constellation-detail-meta">LC:NN / 13 PERSONNEL RECORDS</p>
+      <div class="constellation-inspector-rule"></div>
+      <p class="constellation-detail-copy" id="constellation-detail-copy" aria-live="polite">Select a node to inspect its personnel record. Select a line to see why two points are connected. Drag to rearrange the map, or scroll and pinch to explore.</p>
+      <a class="constellation-open-file" id="constellation-open-file" href="#" hidden>OPEN PERSONNEL FILE <span aria-hidden="true">↗</span></a>
+      <p class="constellation-inspector-foot" id="constellation-inspector-title">NETWORK TERMINAL / NNC—01</p>
+     </aside>
+    </div>
+    <p class="constellation-disclaimer">ARCHIVIST'S NOTE / Lines presently indicate shared catalogue membership, not personal relationships. New connections will be filed as their histories are established.</p>
+   </section>
   </main>
   <footer class="archive-footer"><span>LC:NN / CHARACTER ARCHIVE</span><span>THE CITY / (1)984</span><a href="../index.html">BACK TO NETHER NOVA ↑</a></footer>
  </div>

@@ -244,7 +244,10 @@ function updateTimeline(track){
  const maximum=Math.max(0,track.scrollWidth-track.clientWidth);
  const fraction=maximum?Math.max(0,Math.min(1,track.scrollLeft/maximum)):0;
  const meter=document.getElementById(track.id+"-progress");
- if(meter)meter.style.width=(maximum?Math.max(4,fraction*100):total?100:0)+"%";
+ const progress=maximum?Math.max(4,fraction*100):total?100:0;
+ if(meter)meter.style.width=progress+"%";
+ const sequence=track.querySelector(".timeline-sequence");
+ if(sequence)sequence.style.setProperty("--travel",progress+"%");
  const readout=document.getElementById(track.id+"-position");
  if(!total){
   if(readout)readout.textContent="00 / 00 · AWAITING STORIES";

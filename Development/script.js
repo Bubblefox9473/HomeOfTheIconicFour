@@ -16,6 +16,36 @@ const intervalloTitles=[
  ["VI","Spring Cultivation"],["VII-1","Twining Threads"],
  ["VII-2","Mnestic Experience"]
 ];
+
+/* NNC–03 / APPROVED STORY RECAPS
+   Official arcs condensed from the Limbus Company chapters; Canto VII also
+   follows the author's established Vasteil / Necro continuity. Future or
+   unfinished NetherNova chapters intentionally have no story synopsis.
+   Reference: https://limbuscompany.wiki.gg/wiki/Category:Story_Chapters */
+const cantoSynopses={
+ "I":"Their first Golden Bough retrieval sends the Sinners into a ruined Lobotomy Corporation branch beneath District 4. Gregor, once a propaganda figure and unwilling soldier of the Smoke War, is confronted by the surviving veterans of Old G Corp. As the team struggles to cooperate, their young guide Yuri becomes another casualty of the facility's horrors. The Golden Bough slips into someone else's hands, leaving Gregor to carry the grief of a war that never truly ended.",
+ "II":"A Golden Bough buried beneath a casino draws the crew into District 10's underworld of gambling and Syndicates. Rodion's confident smile falters when she encounters Sonya and the Yurodiviye, forcing her to revisit the murder of a corrupt pawnbroker. She believed she was saving her neighborhood, but the retaliation destroyed the people she meant to protect. The Sinners escape with their first recovered Bough; Rodion's guilt is not so easily won or left behind.",
+ "III":"The journey to Calw brings Sinclair back to the hometown where his family was slaughtered by the fanatic Kromer and N Corp.'s Inquisition. Through memories of school, friendship, and betrayal, his terror of prosthetics and his own wavering convictions comes into focus. Kromer's twisted devotion to 'purity' culminates in a monstrous confrontation, and Sinclair must face the person who turned his childhood into a nightmare. He survives, though the past refuses to vanish so neatly.",
+ "IV":"A mission at K Corp. reunites Yi Sang with Dongbaek and Dongrang, the broken remnants of the League of Nine Littérateurs. Beneath K Corp.'s miraculous healing technology lies an industry built on suffering, while the Golden Bough draws Yi Sang into memories of his lost companions, the Mirror, and the despair that kept him motionless. As old friendships collapse into violence, he finally rejects his resignation to an unchanging life. To live is to risk finding his wings again.",
+ "V":"The Sinners cross the treacherous Great Lake in search of a Golden Bough, but for Ishmael the voyage is a return to the Pequod and the captain whose obsession ruined her life. Inside the Pallid Whale, she reunites with Queequeg and confronts Ahab, who would sacrifice anyone to destroy her quarry. Ishmael nearly loses herself to the same hatred. In the end, she chooses to strike the Whale rather than become another reflection of Ahab, finding a direction beyond revenge.",
+ "VI":"Heathcliff returns to Wuthering Heights expecting to face Catherine, only to be greeted by news of her death and a household drowning in old resentments. Golden Bough distortions unravel the estate's buried cruelty and bring him face to face with the Erlking, a version of himself consumed by vengeance across Mirror Worlds. As love turns into an endless cycle of suffering, Catherine chooses to erase herself from every world to break it. Heathcliff survives with a love he can no longer fully remember, but cannot quite abandon.",
+ "VII":"La Manchaland strips Don Quixote's shining fantasies down to their bloodstained foundations. She discovers that she is Sancho, a Bloodfiend who inherited her Father's name and his impossible dream of humans and Bloodfiends living together. Faced with the ruin of his family and the park he built, Sancho fights the First Kindred, lays her Father to rest, and chooses to carry that dream forward as a Sinner.\n\nAlongside her story, Vasteil makes his first appearance after spending millennia trapped within his own body. Freedom comes with little time to adjust: Limbus Company clashes with Vasteil and his Starkindred companions as old loyalties unravel. A crown is broken, and Noctis nearly loses his life. One of Vasteil's closest friends betrays him; he ultimately kills that friend with his own hands, then holds his lover, his other dearest companion, as they die. The losses shatter the world he has only just regained. Yet his story does not end in erasure: Vasteil and Necro emerge able to coexist, carrying the scars of a Canto that changed them both.",
+ "VIII":"Hong Lu returns to Hongyuan as Jia Baoyu, a son of the Jia family and a reluctant contender in its brutal contest to determine H Corp.'s next Hierarch. The competition exposes a childhood spent as the elders' living spectacle, his apparent indifference hiding years of helplessness and pain. Surrounded by family members pursuing power, Hong Lu finally gives voice to what he wants: kindness. He defies the elders' hold over him and helps Jia Xichun claim the future of Hongyuan for herself.",
+ "IX":"The House of Spiders attacks Limbus Company HQ, forcing Ryōshū back toward the Five Fingers and the family she tried to escape. Her sword, Arayashiki, can sever more than flesh: every time she unsheathes it, cherished memories disappear. She learns that Araya, the daughter she fought to protect, has been changed by the years trapped inside a Time Vault and drawn into the House's schemes. Love, grief, and the terror of forgetting drive Ryōshū to the edge, until a final bond offers her a way to break free without surrendering everything she once was."
+};
+const intervalloSynopses={
+ "I":"A competition between fried-chicken restaurants takes an absurdly dangerous turn when a grieving owner Distorts and unleashes chicken-headed monsters. The Sinners answer with a disastrous cooking contest of their own, gradually discovering that a stolen, erased family recipe is at the heart of the tragedy. Even this ridiculous assignment proves that the City's smallest comforts can carry unbearable memories.",
+ "II":"Before the Great Lake crossing, the Sinners need to turn Mephistopheles into a seaworthy vessel. At the coast they hunt Trash Crabs, collect salvage, and enlist the Molar Boatworks Fixers to retrofit the bus. What ought to be a brief beachside reprieve instead exposes Ishmael's mounting dread of returning to the waters that nearly destroyed her, putting her at odds with Heathcliff and the rest of the crew.",
+ "III-1":"A quest to find Heathcliff a suitable outfit leads him, Don Quixote, and Dante through the bus's Backdoors to a suspiciously cheerful gift factory in the Outskirts. Its workers are turning captured people into raw materials for presents. The Sinners intervene, rescue a young girl named Crayon, and escape the grotesque workshop. Back aboard the bus, Heathcliff receives the invitation that will draw him home to Wuthering Heights.",
+ "III-2":"Caught between the Blade Lineage and the Kurokumo Clan, the Sinners rescue Aeng-du and follow her in search of the swordsman Bamboo-hatted Kim. A mysterious Monolith has amplified Kim's anguish over the slaughter of his comrades, pushing him into Distortion. Fighting through the memories of a ruined lineage, the crew must subdue him and secure the dangerous artifact before grief claims another victim.",
+ "IV-1":"A colossal time-tax bill leaves the Sinners working off their debt in T Corp. Rodion, Hong Lu, Ryōshū, and Dante investigate the Time Ripper, a Distortion stealing hours from the wealthy in a City where time itself is currency. The case exposes the cruelty of T Corp.'s unequal economy and the grief behind the culprit's crusade, while confronting Rodion with uncomfortable echoes of the Yurodiviye and her own past.",
+ "IV-2":"A WARP train becomes a hunting ground when the Bloodfiend Cassetti turns passengers into ravenous Bloodbags. The Sinners fight through the train's nightmare and uncover a secret hidden beneath Don Quixote's cheerful persona: without Rocinante, she is a far more powerful Bloodfiend than anyone suspected. Their escape leaves Dante with a revelation that will haunt the journey toward La Manchaland.",
+ "V-1":"A routine examination at Limbus Company headquarters becomes a relentless series of combat trials under the researcher Hohenheim. The Sinners learn how their contracts with Dante shape their strength before Hohenheim deliberately triggers his own Distortion as a final experiment. Beneath his clinical detachment lie memories of a Lobotomy Corporation disaster and the guilt of being the one who survived.",
+ "V-2":"On the way to Hongyuan, the Sinners are targeted by assassins seeking to eliminate Hong Lu before the Jia family's contest for power. Betrayed by a supposed guide, they are trapped in the Backstreets between hired killers, the vengeful Middle, and the city's nightly Sweepers. Surviving until dawn brings them closer to Jia Xichun, whose bid for the Hierarch's seat will shape the struggle ahead.",
+ "VI":"After Hong Lu's return to Hongyuan, Jia Xichun faces a challenge to her legitimacy as the family's new Hierarch. The Sinners spend thirty days teaching her and Sinclair lessons in courage, strategy, empathy, and survival, though the trials grow steadily less innocent. An attempted political betrayal and a painful final confrontation force Xichun to decide what kind of ruler she will be. She chooses to protect her home without becoming another tyrant.",
+ "VII-1":"In the aftermath of the House of Spiders' assault, the Sinners mourn their dead and investigate the strange Corridors left behind. Ryōshū follows fragments of a past her sword has cut away, encountering the Ring's artists, old family wounds, and traces of Araya's will within her scabbard. Every door offers another piece of the self she has lost, and another reason to believe those severed connections may still be restored."
+};
+
 const officialCoverIndex={I:1,II:2,III:3,IV:4,V:5,VI:6,VII:7,VIII:8,IX:9};
 // Canto X's matching chapter banner is currently served by the Limbus Company Wiki.
 // If that external image cannot load, the designed title-card fallback remains visible.
@@ -32,12 +62,11 @@ const toMain=([number,title])=>{
   code:"LC-CANTO-"+number,
   status:sharedStory?"SHARED STORY / MATERIAL PENDING":"REFERENCE ENTRY / NO FILE ATTACHED",
   strap:sharedStory?"OFFICIAL + ORIGINAL":"OFFICIAL MAIN NARRATIVE",
-  description:sharedStory
-   ?"Canto VII — "+title+". Alongside the Limbus Company story, Necro shares part of his own original narrative within this Canto, making this a combined official and NetherNova original entry."
-   :"Canto "+number+" — "+title+". This is an official Limbus Company main-story chapter. The Film Department has reserved its record for future scene documentation, production notes, and associated material.",
+  synopsisAvailable:Boolean(cantoSynopses[number]),
+  description:cantoSynopses[number]||"Canto "+number+" has not yet entered NetherNova's completed story chronology. Its record is reserved without a story synopsis.",
   note:sharedStory
-   ?"Necro's original contribution is only a partial story shared within Canto VII; it is not a separate official Project Moon Canto. Production materials have not yet been attached."
-   :"The official story title is preserved as a reference. No NetherNova production file has been attached yet."
+   ?"A shared Canto in NetherNova continuity: Sancho's official story runs alongside Vasteil and Necro's original arc. No finished production document is attached."
+   :"Story synopsis adapted for this archive from the official Limbus Company narrative. No production document is attached."
  };
 };
 const officialIntervalloCovers={
@@ -60,9 +89,14 @@ const toIntervallo=([number,title])=>({
  coverImage:intervalloCoverFor(number),
  classification:"INTERVALLO / BETWEEN CANTOS",category:"INTERVALLO",
  source:"OFFICIAL LIMBUS COMPANY",code:"LC-INTERVALLO-"+number,
- status:"REFERENCE ENTRY / NO FILE ATTACHED",strap:"OFFICIAL INTERVALLO",
- description:"Intervallo "+number+" — "+title+". This is an official Limbus Company between-Canto story. The Film Department has reserved its catalogue entry for future production material.",
- note:"The official story title is preserved as a reference. No NetherNova production file has been attached yet."
+ status:number==="VII-2"?"CHRONOLOGY RESERVED / SYNOPSIS PENDING":"REFERENCE ENTRY / NO FILE ATTACHED",
+ strap:number==="VII-2"?"AFTER GENESIS: CONCORDIA":"OFFICIAL INTERVALLO",
+ synopsisAvailable:Boolean(intervalloSynopses[number]),
+ description:intervalloSynopses[number]||
+  "Mnestic Experience is filed after Genesis: Concordia in NetherNova's chronology. Its synopsis remains intentionally unwritten until that story has taken place.",
+ note:number==="VII-2"
+  ?"Official Intervallo title retained. Its NetherNova placement is after Necro's Canto; story events have not yet been incorporated here."
+  :"Story synopsis adapted for this archive from the official Limbus Company narrative. No production document is attached."
 });
 const mephista={
  id:"mephista-9-5-2",number:"9.5–2",title:"The Unbecoming",variant:"original",
@@ -94,8 +128,13 @@ const noctis={
  description:"Noctis' Canto follows Canto X in NetherNova's main narrative. Its formal title and numerical designation have not yet been established.",
  note:"Working title only. This is a NetherNova original story, not an official Project Moon Canto. Production material has not yet been attached."
 };
-const main=[...mainTitles.map(toMain).flatMap(r=>r.number==="X"?[mephista,necro,r]:[r]),noctis];
-const inter=[...intervalloTitles.map(toIntervallo),mephista,necro];
+// Mnestic Experience retains its official classification, but NetherNova
+// places its occurrence after Necro's 9.5-3 and before the future Canto X.
+const officialIntervallos=intervalloTitles.map(toIntervallo);
+const mnestic=officialIntervallos.find(r=>r.number==="VII-2");
+if(!mnestic)throw new Error("Mnestic Experience register record is missing");
+const main=[...mainTitles.map(toMain).flatMap(r=>r.number==="X"?[mephista,necro,mnestic,r]:[r]),noctis];
+const inter=[...officialIntervallos.filter(r=>r!==mnestic),mephista,necro,mnestic];
 const all=new Map([...main,...inter].map(r=>[r.id,r]));
 const motion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";
 

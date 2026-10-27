@@ -17,7 +17,10 @@ const intervalloTitles=[
  ["VII-2","Mnestic Experience"]
 ];
 const officialCoverIndex={I:1,II:2,III:3,IV:4,V:5,VI:6,VII:7,VIII:8,IX:9};
-const coverFor=number=>officialCoverIndex[number]?"assets/canto-covers/canto-"+officialCoverIndex[number]+".png":null;
+// Canto X's matching chapter banner is currently served by the Limbus Company Wiki.
+// If that external image cannot load, the designed title-card fallback remains visible.
+const cantoXCover="https://limbuscompany.wiki.gg/images/1/17/Chapter10_Begin.png";
+const coverFor=number=>number==="X"?cantoXCover:officialCoverIndex[number]?"assets/canto-covers/canto-"+officialCoverIndex[number]+".png":null;
 const toMain=([number,title])=>{
  const sharedStory=number==="VII";
  return {

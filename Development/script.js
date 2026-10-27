@@ -16,10 +16,13 @@ const intervalloTitles=[
  ["VI","Spring Cultivation"],["VII-1","Twining Threads"],
  ["VII-2","Mnestic Experience"]
 ];
+const officialCoverIndex={I:1,II:2,III:3,IV:4,V:5,VI:6,VII:7,VIII:8,IX:9};
+const coverFor=number=>officialCoverIndex[number]?"assets/canto-covers/canto-"+officialCoverIndex[number]+".png":null;
 const toMain=([number,title])=>{
  const sharedStory=number==="VII";
  return {
   id:"canto-"+number.toLowerCase(),number,title,variant:sharedStory?"hybrid":"canto",
+  coverImage:coverFor(number),
   classification:sharedStory?"CANTO / OFFICIAL + ORIGINAL":"CANTO / MAIN STORY",
   category:sharedStory?"MAIN-STORY CANTO + ORIGINAL STORY":"MAIN-STORY CANTO",
   source:sharedStory?"LIMBUS COMPANY + NETHER NOVA ORIGINAL":"OFFICIAL LIMBUS COMPANY",
@@ -104,6 +107,15 @@ function buildCard(record,index,total){
  add(head,"span","card-code",record.code);
  add(head,"span","card-class",record.variant==="original"?"ORIGINAL":record.variant==="hybrid"?"SHARED STORY":"REFERENCE");
  const scene=add(button,"span","reel-card-scene");
+ if(record.coverImage){
+  scene.classList.add("has-cover");
+  const art=add(scene,"img","scene-cover");
+  art.src=record.coverImage;
+  art.alt="";
+  art.loading="lazy";
+  art.decoding="async";
+  art.addEventListener("error",()=>{art.remove();scene.classList.remove("has-cover");});
+ }
  add(scene,"span","scene-orbit").setAttribute("aria-hidden","true");
  add(scene,"span","reel-card-number",record.number);
  add(scene,"span","scene-exposure","EXPOSURE "+String(index+1).padStart(2,"0")+" / "+String(total).padStart(2,"0"));
@@ -164,15 +176,17 @@ function renderPoster(record,isPreview=false){
  add(art,"span","poster-art-circle");
  add(art,"span","poster-art-ray");
  add(art,"span","poster-art-mark",theme==="genesis"?"✦":theme==="intervallo"?"◇":theme==="noctis"?"☾":"✧");
- // When finished artwork exists, give its record an optional posterImage URL.
- // The title-card layout and text remain usable without any artwork.
- if(record.posterImage){
+ // Official chapter covers and future optional original poster art share this stage.
+ // The typography remains legible, even if an asset fails to load.
+ const artSource=record.posterImage||record.coverImage;
+ if(artSource){
   art.classList.add("has-cover");
   const image=add(art,"img","poster-art-image");
-  image.src=record.posterImage;
+  image.src=artSource;
   image.alt="";
   image.loading="lazy";
   image.decoding="async";
+  image.addEventListener("error",()=>{image.remove();art.classList.remove("has-cover");});
  }
  add(screen,"span","poster-eyebrow",
    isPreview?"NOW IN PRODUCTION / MEPHISTA'S CANTO":

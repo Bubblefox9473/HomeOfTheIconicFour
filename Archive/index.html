@@ -117,7 +117,7 @@
      <div><p class="section-reference">INDEX / III · NETWORK REGISTER</p><h2 id="constellation-title">The <em>Constellation.</em></h2></div>
      <p class="section-note">LC:NN / PERSONNEL SIGNALS / 13 REGISTERED</p>
     </div>
-    <p class="constellation-intro">Every file is a point of light. Trace the archive's personnel network, investigate a record, and uncover how its entries are catalogued.</p>
+    <p class="constellation-intro">Every file is a point of light. Trace documented bonds, investigate frayed loyalties, and follow the archive's unresolved hostilities.</p>
     <div class="constellation-shell">
      <div class="constellation-stage">
       <div class="constellation-toolbar">
@@ -128,7 +128,7 @@
         <button type="button" data-constellation-filter="associated" aria-pressed="false">ASSOCIATED <span>09</span></button>
        </div>
       </div>
-      <div class="constellation-graph" id="constellation-graph" role="group" aria-label="Interactive constellation of NetherNova personnel. Select nodes to inspect, drag to reposition, scroll or pinch to zoom."></div>
+      <div class="constellation-graph" id="constellation-graph" role="group" aria-label="Interactive constellation of NetherNova personnel with documented relationships. Select characters or connection lines to inspect; drag to reposition, scroll or pinch to zoom."></div>
       <div class="constellation-fallback" id="constellation-fallback" hidden>
        <p>NETWORK SIGNAL UNAVAILABLE</p>
        <span>The interactive graph needs Cytoscape.js to load. Personnel files above remain accessible.</span>
@@ -138,6 +138,8 @@
         <span><i class="key-primary" aria-hidden="true"></i> PRIMARY</span>
         <span><i class="key-associated" aria-hidden="true"></i> ASSOCIATED</span>
         <span><i class="key-register" aria-hidden="true"></i> CENTRAL INDEX</span>
+        <span><i class="key-bond" aria-hidden="true"></i> PERSONAL BOND</span>
+        <span><i class="key-hostile" aria-hidden="true"></i> HOSTILITY</span>
        </div>
        <div class="constellation-zoom" role="group" aria-label="Constellation view controls">
         <button type="button" data-constellation-action="zoom-in" aria-label="Zoom in">+</button>
@@ -154,12 +156,12 @@
       <h3 id="constellation-detail-name">Select a signal.</h3>
       <p class="constellation-detail-meta" id="constellation-detail-meta">LC:NN / 13 PERSONNEL RECORDS</p>
       <div class="constellation-inspector-rule"></div>
-      <p class="constellation-detail-copy" id="constellation-detail-copy" aria-live="polite">Select a node to inspect its personnel record. Select a line to see why two points are connected. Drag to rearrange the map, or scroll and pinch to explore.</p>
+      <p class="constellation-detail-copy" id="constellation-detail-copy" aria-live="polite">Select a node or line to inspect it. Colored paths show documented personal relationships; faint spokes show archive membership. Drag to rearrange, scroll or pinch to zoom.</p>
       <a class="constellation-open-file" id="constellation-open-file" href="#" hidden>OPEN PERSONNEL FILE <span aria-hidden="true">↗</span></a>
       <p class="constellation-inspector-foot" id="constellation-inspector-title">NETWORK TERMINAL / NNC—01</p>
      </aside>
     </div>
-    <p class="constellation-disclaimer">ARCHIVIST'S NOTE / Lines presently indicate shared catalogue membership, not personal relationships. New connections will be filed as their histories are established.</p>
+    <p class="constellation-disclaimer">ARCHIVIST'S NOTE / Faint spokes indicate catalogue membership. Colored links show documented relationships only. The red jagged link between Dark and Zerachiel marks confirmed hostility with an unknown cause.</p>
    </section>
   </main>
   <footer class="archive-footer"><span>LC:NN / CHARACTER ARCHIVE</span><span>THE CITY / (1)984</span><a href="../index.html">BACK TO NETHER NOVA ↑</a></footer>

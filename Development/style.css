@@ -703,3 +703,23 @@ button:disabled{cursor:not-allowed}
 .poster-art.has-cover .poster-art-circle,.poster-art.has-cover .poster-art-ray,.poster-art.has-cover .poster-art-mark{opacity:0}
 .poster-art-image{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;opacity:.56;filter:saturate(.84) contrast(1.07)}
 .poster-art.has-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,12,23,.38),rgba(18,12,23,.35) 30%,rgba(18,12,23,.63));pointer-events:none}
+
+
+/* OFFICIAL CANTO COVERS / CHAPTER-SELECTION ART
+   Source images are local 3:1 archival banners; original stories keep their
+   designed placeholder cards until the authors supply final artwork. */
+.reel-card-scene.has-cover{background:#161018;isolation:isolate}
+.reel-card-scene.has-cover::before,.reel-card-scene.has-cover::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none}
+.reel-card-scene.has-cover::before{background:linear-gradient(180deg,rgba(10,6,12,.22),rgba(12,8,16,.02) 45%,rgba(12,8,16,.55));}
+.reel-card-scene.has-cover::after{background:radial-gradient(ellipse at 50% 55%,rgba(10,6,12,.38),transparent 63%)}
+.scene-cover{position:absolute;inset:0;z-index:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.92;filter:saturate(.92) contrast(1.07);transition:transform .55s ease,filter .55s ease}
+.reel-card:hover .scene-cover{transform:scale(1.065);filter:saturate(1.08) contrast(1.07)}
+.reel-card-scene.has-cover .scene-orbit{opacity:.13;z-index:1}
+.reel-card-scene.has-cover .reel-card-number{z-index:2;color:#fff8f2;text-shadow:0 3px 12px rgba(0,0,0,.95),0 0 22px rgba(0,0,0,.65);opacity:1}
+.reel-card-scene.has-cover .scene-exposure{z-index:2;color:#f2dbe1;text-shadow:0 2px 6px #07060a}
+.poster-art.has-cover::before{content:"";position:absolute;inset:-16%;background-image:var(--poster-cover-url);background-size:cover;background-position:center;transform:scale(1.08);filter:blur(21px) brightness(.48) saturate(.92);opacity:.8}
+.poster-art.has-cover::after{z-index:2;content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,10,18,.40) 0%,rgba(14,10,18,.21) 40%,rgba(14,10,18,.62) 100%);pointer-events:none}
+.poster-art.has-cover .poster-art-image{position:absolute;z-index:1;top:23%;left:0;right:0;inset:auto 0 auto;width:100%;height:51%;object-fit:cover;object-position:center;opacity:.86;filter:saturate(.88) contrast(1.12);border-top:1px solid rgba(236,214,219,.08);border-bottom:1px solid rgba(236,214,219,.08)}
+.screen-glass:has(.poster-art.has-cover) .poster-title{text-shadow:0 4px 18px rgba(0,0,0,.93),0 0 24px rgba(0,0,0,.60)}
+.screen-glass:has(.poster-art.has-cover) .poster-number{color:#fff1e5;opacity:.93;text-shadow:0 2px 18px rgba(0,0,0,.95)}
+@media(prefers-reduced-motion:reduce){.scene-cover{transition:none!important}}

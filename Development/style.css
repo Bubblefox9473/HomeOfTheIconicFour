@@ -588,6 +588,11 @@ button:disabled{cursor:not-allowed}
  radial-gradient(ellipse at 52% 96%,rgba(216,163,190,.10),transparent 45%),
  repeating-linear-gradient(0deg,rgba(245,222,231,.024) 0 1px,transparent 1px 5px),
  linear-gradient(145deg,#241c25,#0e0e16 85%);border-color:rgba(222,182,190,.36)}
+.screen-glass.is-original{background:
+ radial-gradient(circle at 52% 40%,var(--poster-halo),transparent 55%),
+ radial-gradient(ellipse at 52% 96%,rgba(216,163,190,.10),transparent 45%),
+ repeating-linear-gradient(0deg,rgba(245,222,231,.024) 0 1px,transparent 1px 5px),
+ linear-gradient(145deg,#241c25,#0e0e16 85%)}
 .screen-glass[data-poster-theme="unbecoming"]{--poster-accent:#edbbd3;--poster-halo:rgba(201,119,163,.29)}
 .screen-glass[data-poster-theme="genesis"]{--poster-accent:#c4b1ee;--poster-halo:rgba(139,103,205,.26)}
 .screen-glass[data-poster-theme="noctis"]{--poster-accent:#b8c5e9;--poster-halo:rgba(110,126,170,.24)}
@@ -610,7 +615,7 @@ button:disabled{cursor:not-allowed}
 .poster-art-mark{position:absolute;top:44%;left:50%;transform:translate(-50%,-50%);font:clamp(90px,13vw,185px)/1 var(--serif);color:var(--poster-accent);opacity:.10}
 .poster-eyebrow{font:8px/1.7 var(--mono);color:var(--poster-accent);letter-spacing:.18em;text-wrap:balance}
 .poster-number{display:block;margin:4px 0 -8px;font:400 clamp(50px,6.5vw,94px)/1 var(--serif);letter-spacing:-.075em;color:var(--poster-accent);opacity:.72;text-shadow:0 0 42px var(--poster-halo)}
-.poster-title{font:500 clamp(29px,3.7vw,58px)/1.08 var(--serif);letter-spacing:-.055em;color:#f8eaee;text-wrap:balance;max-width:580px;text-shadow:0 5px 29px rgba(0,0,0,.42)}
+.screen-content .poster-title{font:500 clamp(29px,3.7vw,58px)/1.08 var(--serif);letter-spacing:-.055em;color:#f8eaee;text-wrap:balance;max-width:580px;text-shadow:0 5px 29px rgba(0,0,0,.42)}
 .poster-rule{width:58px;height:1px;margin-top:12px;background:var(--poster-accent);box-shadow:0 0 15px var(--poster-accent);opacity:.9}
 .poster-footer{font:8px/1.7 var(--mono);color:#c3a8b3;letter-spacing:.09em;text-wrap:balance}
 .screen-glass.is-screening .poster-presentation{animation:poster-lightup .65s cubic-bezier(.17,.7,.25,1) both}

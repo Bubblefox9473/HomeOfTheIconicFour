@@ -134,34 +134,88 @@ const glass=document.getElementById("screen-glass");
 const screen=document.getElementById("screen-content");
 const state=document.getElementById("inspection-state");
 const back=document.getElementById("back-to-reel");
+const featuredButton=document.getElementById("load-featured");
+const returnFeatured=document.getElementById("back-to-featured");
 let lastSection=null,lastButton=null;
 function write(id,value){
  const target=document.getElementById(id);
  if(target)target.textContent=value;
+}
+function renderPoster(record,isPreview=false){
+ if(!screen||!glass)return;
+ const theme=record.id==="mephista-9-5-2"?"unbecoming":
+   record.id==="necro-9-5-3"?"genesis":
+   record.id==="noctis-canto"?"noctis":
+   record.variant==="hybrid"?"shared":
+   record.variant==="intervallo"?"intervallo":
+   record.variant==="original"?"original":"official";
+ glass.className="screen-glass"+(record.variant==="original"?" is-original":"")+(isPreview?" is-featured":" is-screening");
+ glass.dataset.posterTheme=theme;
+ glass.style.setProperty("--poster-angle",((record.title.length*17)%90-45)+"deg");
+ screen.className="screen-content poster-presentation"+(isPreview?" is-preview":" is-loaded");
+ screen.replaceChildren();
+ const art=add(screen,"div","poster-art");
+ art.setAttribute("aria-hidden","true");
+ add(art,"span","poster-art-circle");
+ add(art,"span","poster-art-ray");
+ add(art,"span","poster-art-mark",theme==="genesis"?"✦":theme==="intervallo"?"◇":theme==="noctis"?"☾":"✧");
+ add(screen,"span","poster-eyebrow",
+   isPreview?"NOW IN PRODUCTION / MEPHISTA'S CANTO":
+   record.variant==="original"?"NETHER NOVA / ORIGINAL CONTINUITY":
+   record.variant==="hybrid"?"OFFICIAL + ORIGINAL / SHARED STORY":
+   record.variant==="intervallo"?"LIMBUS COMPANY / INTERVALLO":"LIMBUS COMPANY / MAIN CANTO");
+ add(screen,"span","poster-number",record.number);
+ add(screen,"strong","poster-title",record.title);
+ const rule=add(screen,"span","poster-rule");
+ rule.setAttribute("aria-hidden","true");
+ add(screen,"span","poster-footer",
+   isPreview?"NETHER NOVA ORIGINAL · TITLE CARD PREVIEW":
+   record.strap+" · ARCHIVAL TITLE CARD");
+ write("screen-id-bottom",isPreview?"FEATURED PREVIEW · NOT YET LOADED":record.code);
+ write("projector-mode",isPreview?"PREVIEW / STANDBY":"RECORD LOADED / "+record.number);
+ const footer=glass.closest(".projector-housing")?.querySelector(".projector-housing-bottom");
+ if(footer)footer.firstElementChild.textContent=isPreview?"FRAME 01 / FEATURED EXPOSURE":"RECORD / "+record.code;
+}
+function showFeatured(scroll=false){
+ if(!viewer||!glass||!screen||!state)return;
+ document.querySelectorAll(".reel-card").forEach(card=>card.setAttribute("aria-pressed","false"));
+ lastSection=null;lastButton=null;
+ renderPoster(mephista,true);
+ write("docket-index","FEATURED PRODUCTION / 9.5–2");
+ write("docket-kicker","CURRENTLY IN PRODUCTION");
+ write("record-title",mephista.title);
+ write("record-description","Mephista's Canto is the Film Department's current featured production. It bridges Canto IX and X in NetherNova's narrative. Load the featured reel to inspect its record, or choose any chapter from the timelines above.");
+ write("record-id",mephista.code);
+ write("record-category","ORIGINAL INTERVALLO / FEATURED");
+ write("record-source","NETHER NOVA ORIGINAL");
+ write("record-status","CURRENT PRODUCTION / NOT LOADED");
+ write("record-note","Featured title-card artwork is an archival placeholder. Finished illustration and production files can be added as they become available.");
+ write("file-state","PRODUCTION FILE NOT YET ATTACHED");
+ state.replaceChildren();
+ const lamp=add(state,"i","state-light");lamp.setAttribute("aria-hidden","true");
+ state.appendChild(document.createTextNode(" STANDBY / FEATURED REEL READY"));
+ state.classList.remove("is-loaded");
+ if(back)back.hidden=true;
+ if(returnFeatured)returnFeatured.hidden=true;
+ if(scroll)viewer.scrollIntoView({behavior:motion,block:"start"});
 }
 function inspect(record,button){
  if(!all.has(record.id)||!viewer||!screen||!glass||!state)return;
  document.querySelectorAll(".reel-card").forEach(card=>{
   card.setAttribute("aria-pressed",String(card.dataset.recordId===record.id));
  });
- lastSection=button.closest(".reel-section");
- lastButton=button;
- const original=record.variant==="original";
- glass.classList.toggle("is-original",original);
- screen.classList.add("is-loaded");
- screen.replaceChildren();
- add(screen,"span","loaded-kind",original?"NETHER NOVA / ORIGINAL CONTINUITY":record.variant==="hybrid"?"LIMBUS COMPANY + NETHER NOVA / SHARED STORY":"LIMBUS COMPANY / OFFICIAL STORY");
- add(screen,"span","loaded-number",record.number);
- add(screen,"strong","loaded-title",record.title);
- add(screen,"span","loaded-rule");
- add(screen,"span","loaded-tag",record.strap);
- write("screen-id-bottom",record.code);
+ const selectedButton=button||document.querySelector('.reel-card[data-record-id="'+record.id+'"]');
+ lastSection=selectedButton?selectedButton.closest(".reel-section"):null;
+ lastButton=selectedButton;
+ renderPoster(record);
+ write("docket-index","SELECTED REEL / "+record.code);
+ write("docket-kicker",record.id===mephista.id?"CURRENT PRODUCTION / FEATURED":"ARCHIVE RECORD / INSPECTION");
  write("record-title",record.title);
  write("record-description",record.description);
  write("record-id",record.code);
  write("record-category",record.category);
  write("record-source",record.source);
- write("record-status",record.status);
+ write("record-status",record.id===mephista.id?"CURRENT PRODUCTION / MATERIAL PENDING":record.status);
  write("record-note",record.note);
  write("file-state","PRODUCTION FILE NOT YET ATTACHED");
  state.replaceChildren();
@@ -169,13 +223,20 @@ function inspect(record,button){
  lamp.setAttribute("aria-hidden","true");
  state.appendChild(document.createTextNode(" RECORD LOADED / "+record.number));
  state.classList.add("is-loaded");
- if(back)back.hidden=false;
+ if(back)back.hidden=!lastSection;
+ if(returnFeatured)returnFeatured.hidden=false;
  viewer.scrollIntoView({behavior:motion,block:"start"});
 }
+if(featuredButton)featuredButton.addEventListener("click",()=>{
+ const button=document.querySelector('#cantos-track .reel-card[data-record-id="mephista-9-5-2"]');
+ inspect(mephista,button);
+});
+if(returnFeatured)returnFeatured.addEventListener("click",()=>showFeatured(true));
 if(back)back.addEventListener("click",()=>{
  if(lastSection)lastSection.scrollIntoView({behavior:motion,block:"start"});
  if(lastButton)lastButton.focus({preventScroll:true});
 });
+showFeatured();
 
 function refreshArrows(track){
  if(!track)return;

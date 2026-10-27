@@ -110,6 +110,7 @@ const mephista={
 };
 const necro={
  id:"necro-9-5-3",number:"9.5–3",title:"Genesis: Concordia",variant:"original",
+ coverImage:"assets/canto-covers/genesis-concordia.jpg",
  classification:"INTERVALLO / NARRATIVE BRIDGE",
  category:"PLOT-RELEVANT ORIGINAL INTERVALLO",
  source:"NETHER NOVA ORIGINAL CONTINUITY",

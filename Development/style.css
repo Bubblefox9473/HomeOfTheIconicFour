@@ -723,3 +723,8 @@ button:disabled{cursor:not-allowed}
 .screen-glass:has(.poster-art.has-cover) .poster-title{text-shadow:0 4px 18px rgba(0,0,0,.93),0 0 24px rgba(0,0,0,.60)}
 .screen-glass:has(.poster-art.has-cover) .poster-number{color:#fff1e5;opacity:.93;text-shadow:0 2px 18px rgba(0,0,0,.95)}
 @media(prefers-reduced-motion:reduce){.scene-cover{transition:none!important}}
+
+/* Intervallo IV-1's original illustration is square, unlike other banners.
+   Favor the characters' faces within the cinematic crop. */
+.scene-cover[src$="intervallo-iv-1.png"],
+.poster-art-image[src$="intervallo-iv-1.png"]{object-position:center 34%}

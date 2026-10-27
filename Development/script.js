@@ -47,7 +47,7 @@ const mephista={
  classification:"INTERVALLO / NARRATIVE BRIDGE",
  category:"PLOT-RELEVANT ORIGINAL INTERVALLO",
  source:"NETHER NOVA ORIGINAL CONTINUITY",
- code:"NNC-03-9.5-2",status:"ORIGINAL RECORD / MATERIAL PENDING",
+ code:"NNC-03-9.5-2",status:"CURRENT PRODUCTION / MATERIAL PENDING",
  strap:"BETWEEN CANTO IX & X",
  description:"Mephista's Canto carries the designation 9.5-2. Though numbered as an Intervallo, this original story is an important part of NetherNova's main narrative and belongs directly between Canto IX and Canto X.",
  note:"One record, two positions: part of the main narrative chronology and cross-indexed under Intervallos. Not an official Project Moon story."
@@ -94,7 +94,12 @@ function buildCard(record,index,total){
  button.type="button";
  button.dataset.recordId=record.id;
  button.setAttribute("aria-pressed","false");
- button.setAttribute("aria-label","Inspect "+record.classification+": "+record.title);
+ button.setAttribute("aria-label","Inspect "+record.classification+": "+record.title+(record.id==="mephista-9-5-2"?" — current production":""));
+ if(record.id==="mephista-9-5-2"){
+  stop.classList.add("timeline-stop--current-production");
+  button.classList.add("reel-card--current-production");
+  add(button,"span","timeline-production-badge","● CURRENT PRODUCTION");
+ }
  const head=add(button,"span","reel-card-top");
  add(head,"span","card-code",record.code);
  add(head,"span","card-class",record.variant==="original"?"ORIGINAL":record.variant==="hybrid"?"SHARED STORY":"REFERENCE");

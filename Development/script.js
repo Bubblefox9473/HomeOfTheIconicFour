@@ -41,7 +41,7 @@ const toIntervallo=([number,title])=>({
  note:"The official story title is preserved as a reference. No NetherNova production file has been attached yet."
 });
 const mephista={
- id:"mephista-9-5-2",number:"9.5–2",title:"The Unbecoming",variant:"original",
+ id:"mephista-9-5-2",number:"IX–2",title:"The Unbecoming",variant:"original",
  classification:"INTERVALLO / NARRATIVE BRIDGE",
  category:"PLOT-RELEVANT ORIGINAL INTERVALLO",
  source:"NETHER NOVA ORIGINAL CONTINUITY",
@@ -51,7 +51,7 @@ const mephista={
  note:"One record, two positions: part of the main narrative chronology and cross-indexed under Intervallos. Not an official Project Moon story."
 };
 const necro={
- id:"necro-9-5-3",number:"9.5–3",title:"Genesis: Concordia",variant:"original",
+ id:"necro-9-5-3",number:"IX–3",title:"Genesis: Concordia",variant:"original",
  classification:"INTERVALLO / NARRATIVE BRIDGE",
  category:"PLOT-RELEVANT ORIGINAL INTERVALLO",
  source:"NETHER NOVA ORIGINAL CONTINUITY",

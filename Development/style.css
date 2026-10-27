@@ -471,7 +471,7 @@ button:disabled{cursor:not-allowed}
 .timeline-stop.is-current .timeline-pin::after{background:#24171f;opacity:.9}
 .timeline-stop.is-current .timeline-pin-code{color:#e4c1cb}
 .reel-track.has-motion .timeline-stop:not(.is-visible) .reel-card{transform:translateY(19px) scale(.965);opacity:.28;filter:grayscale(.6)}
-.reel-track.has-motion .timeline-stop.is-visible .reel-card{animation:timeline-appear .6s both}
+.reel-track.has-motion .timeline-stop.is-visible .reel-card{animation:timeline-appear .6s backwards}
 @keyframes timeline-appear{from{opacity:.28;filter:grayscale(.4);transform:translateY(18px) scale(.965)}to{opacity:1;filter:none;transform:translateY(0) scale(1)}}
 .timeline-underbar{display:flex;align-items:center;gap:19px;padding:16px 3px 0;color:#bba6ab}
 .timeline-underbar-label,.timeline-position{font:9px/1.6 var(--mono);letter-spacing:.1em;white-space:nowrap}

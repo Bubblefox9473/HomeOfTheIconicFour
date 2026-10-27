@@ -272,6 +272,7 @@ function showFeatured(scroll=false){
  write("docket-index","FEATURED PRODUCTION / 9.5–2");
  write("docket-kicker","CURRENTLY IN PRODUCTION");
  write("record-title",mephista.title);
+ write("record-story-label","FEATURED PRODUCTION / SYNOPSIS IN DEVELOPMENT");
  write("record-description","Mephista's Canto is the Film Department's current featured production. It bridges Canto IX and X in NetherNova's narrative. Load the featured reel to inspect its record, or choose any chapter from the timelines above.");
  write("record-id",mephista.code);
  write("record-category","ORIGINAL INTERVALLO / FEATURED");
@@ -299,6 +300,9 @@ function inspect(record,button){
  write("docket-index","SELECTED REEL / "+record.code);
  write("docket-kicker",record.id===mephista.id?"CURRENT PRODUCTION / FEATURED":"ARCHIVE RECORD / INSPECTION");
  write("record-title",record.title);
+ write("record-story-label",record.synopsisAvailable
+  ?record.variant==="hybrid"?"COMPLETED STORY / OFFICIAL + NETHER NOVA":"STORY SYNOPSIS / ARCHIVE"
+  :"RECORD RESERVED / SYNOPSIS NOT FILED");
  write("record-description",record.description);
  write("record-id",record.code);
  write("record-category",record.category);

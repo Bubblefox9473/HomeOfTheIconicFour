@@ -87,21 +87,21 @@ const inventory = [
 },
 {
   id: "NNC02-012", name: "Murasama", division: "original",
-  kind: "weapons", type: "Sword", owner: "Braylon", associatedWith: "Necro",
-  summary: "Murasama is an original sword owned by Braylon and associated with Necro. Its design, history, and abilities have yet to be entered in the registry.",
-  note: "Original gear / Owner: Braylon / Association: Necro / Sword. Artwork and further specifications pending."
+  kind: "weapons", type: "Sword", owner: "Not documented", associatedWith: "Necro",
+  summary: "Murasama is an original sword associated with Necro. Its design, history, and abilities have yet to be entered in the registry.",
+  note: "Original gear / Associated with Necro / Sword. Artwork and further specifications pending."
 },
 {
   id: "NNC02-013", name: "Onyxian Truestar", division: "original",
-  kind: "weapons", type: "Bow", owner: "Braylon", associatedWith: "Necro",
-  summary: "Onyxian Truestar is an original bow owned by Braylon and associated with Necro. Its design, history, and abilities have yet to be entered in the registry.",
-  note: "Original gear / Owner: Braylon / Association: Necro / Bow. Artwork and further specifications pending."
+  kind: "weapons", type: "Bow", owner: "Not documented", associatedWith: "Necro",
+  summary: "Onyxian Truestar is an original bow associated with Necro. Its design, history, and abilities have yet to be entered in the registry.",
+  note: "Original gear / Associated with Necro / Bow. Artwork and further specifications pending."
 },
 {
   id: "NNC02-014", name: "Starlit Equinox", division: "original",
-  kind: "weapons", type: "Scythe", owner: "Braylon", associatedWith: "Necro",
-  summary: "Starlit Equinox is an original scythe owned by Braylon and associated with Necro. Its design, history, and abilities have yet to be entered in the registry.",
-  note: "Original gear / Owner: Braylon / Association: Necro / Scythe. Artwork and further specifications pending."
+  kind: "weapons", type: "Scythe", owner: "Not documented", associatedWith: "Necro",
+  summary: "Starlit Equinox is an original scythe associated with Necro. Its design, history, and abilities have yet to be entered in the registry.",
+  note: "Original gear / Associated with Necro / Scythe. Artwork and further specifications pending."
 }
 ];
 inventory.forEach(item => {
@@ -290,7 +290,7 @@ function inspect(item, opener) {
   put("detail-provenance", provenance(item));
   put("detail-issuer", item.issuer);
   put("detail-code", item.id);
-  put("detail-holder", item.owner);
+  put("detail-holder", item.associatedWith ? "Associated with " + item.associatedWith : item.owner);
   put("detail-condition", item.condition);
   put("detail-acquisition", item.acquisition);
   renderProperties(item.properties);

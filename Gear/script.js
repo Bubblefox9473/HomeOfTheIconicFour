@@ -84,6 +84,24 @@ const inventory = [
       acquisition: "Stolen / Details unfiled",
         summary: "An armor set issued by Firefist Office and subsequently stolen. The issuing office remains Firefist Office; theft circumstances and current custody have not yet been recorded.",
           note: "Faction-Issued / Offices / Firefist Office. Working object designation; appearance and specifications pending."
+},
+{
+  id: "NNC02-012", name: "Murasama", division: "original",
+  kind: "weapons", type: "Sword", owner: "Braylon",
+  summary: "Murasama is an original sword belonging to Braylon. Its design, history, and abilities have yet to be entered in the registry.",
+  note: "Original gear / Braylon / Sword. Artwork and further specifications pending."
+},
+{
+  id: "NNC02-013", name: "Onyxian Truestar", division: "original",
+  kind: "weapons", type: "Bow", owner: "Braylon",
+  summary: "Onyxian Truestar is an original bow belonging to Braylon. Its design, history, and abilities have yet to be entered in the registry.",
+  note: "Original gear / Braylon / Bow. Artwork and further specifications pending."
+},
+{
+  id: "NNC02-014", name: "Starlit Equinox", division: "original",
+  kind: "weapons", type: "Scythe", owner: "Braylon",
+  summary: "Starlit Equinox is an original scythe belonging to Braylon. Its design, history, and abilities have yet to be entered in the registry.",
+  note: "Original gear / Braylon / Scythe. Artwork and further specifications pending."
 }
 ];
 inventory.forEach(item => {

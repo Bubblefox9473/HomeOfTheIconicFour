@@ -50,8 +50,18 @@ const mephista={
  description:"Mephista's Canto carries the designation 9.5-2. Though numbered as an Intervallo, this original story is an important part of NetherNova's main narrative and belongs directly between Canto IX and Canto X.",
  note:"One record, two positions: part of the main narrative chronology and cross-indexed under Intervallos. Not an official Project Moon story."
 };
-const main=mainTitles.map(toMain).flatMap(r=>r.number==="X"?[mephista,r]:[r]);
-const inter=[...intervalloTitles.map(toIntervallo),mephista];
+const necro={
+ id:"necro-9-5-3",number:"9.5–3",title:"Genesis: Concordia",variant:"original",
+ classification:"INTERVALLO / NARRATIVE BRIDGE",
+ category:"PLOT-RELEVANT ORIGINAL INTERVALLO",
+ source:"NETHER NOVA ORIGINAL CONTINUITY",
+ code:"NNC-03-9.5-3",status:"ORIGINAL RECORD / MATERIAL PENDING",
+ strap:"BETWEEN CANTO IX & X",
+ description:"Necro's Canto, Genesis: Concordia, carries the designation 9.5-3. It follows Mephista's 9.5-2 story and precedes Canto X in NetherNova's main narrative chronology.",
+ note:"Cross-indexed as an original story under both Cantos and Intervallos. Not an official Project Moon story; production material has not yet been attached."
+};
+const main=mainTitles.map(toMain).flatMap(r=>r.number==="X"?[mephista,necro,r]:[r]);
+const inter=[...intervalloTitles.map(toIntervallo),mephista,necro];
 const all=new Map([...main,...inter].map(r=>[r.id,r]));
 const motion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";
 

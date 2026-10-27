@@ -1,4 +1,6 @@
-/* NNC-03: independently browsable filmstrips. No default selected reel. */
+/* NNC-03: cinematic, independent horizontal story timelines.
+   Chronology is navigable without loading a record; the projection room
+   activates only when a visitor explicitly selects a story. */
 "use strict";
 const mainTitles=[
  ["I","The Outcast"],["II","The Unloving"],["III","The Unconfronting"],
@@ -82,33 +84,48 @@ function add(parent,tag,cls,value){
  parent.appendChild(node);
  return node;
 }
-function buildCard(record){
- const button=document.createElement("button");
+const accents={canto:"#d9aa92",intervallo:"#a9bbd6",hybrid:"#d5a4cc",original:"#e9a8cf"};
+function buildCard(record,index,total){
+ const stop=add(document.createDocumentFragment(),"div","timeline-stop");
+ stop.dataset.position=String(index);
+ stop.style.setProperty("--entry-accent",accents[record.variant]||accents.canto);
+ stop.setAttribute("role","listitem");
+ const button=add(stop,"button","reel-card reel-card--"+record.variant);
  button.type="button";
- button.className="reel-card reel-card--"+record.variant;
  button.dataset.recordId=record.id;
  button.setAttribute("aria-pressed","false");
  button.setAttribute("aria-label","Inspect "+record.classification+": "+record.title);
  const head=add(button,"span","reel-card-top");
  add(head,"span","card-code",record.code);
- add(head,"span","card-class",record.variant==="original"?"ORIGINAL":record.variant==="hybrid"?"OFFICIAL + ORIGINAL":"REFERENCE");
- add(button,"span","reel-card-number",record.number);
+ add(head,"span","card-class",record.variant==="original"?"ORIGINAL":record.variant==="hybrid"?"SHARED STORY":"REFERENCE");
+ const scene=add(button,"span","reel-card-scene");
+ add(scene,"span","scene-orbit").setAttribute("aria-hidden","true");
+ add(scene,"span","reel-card-number",record.number);
+ add(scene,"span","scene-exposure","EXPOSURE "+String(index+1).padStart(2,"0")+" / "+String(total).padStart(2,"0"));
  add(button,"span","reel-card-title",record.title);
- add(button,"span","reel-card-rule");
  const foot=add(button,"span","reel-card-bottom");
  add(foot,"span","",record.strap);
  add(foot,"span","","↗");
+ const pin=add(stop,"span","timeline-pin");
+ pin.setAttribute("aria-hidden","true");
+ const pinCode=add(stop,"span","timeline-pin-code","FRAME "+String(index+1).padStart(2,"0"));
+ pinCode.setAttribute("aria-hidden","true");
  button.addEventListener("click",()=>inspect(record,button));
- return button;
+ return stop;
 }
 function populate(trackId,records,countId){
  const track=document.getElementById(trackId);
  if(!track)return;
- track.replaceChildren(...records.map(buildCard));
+ const sequence=add(document.createDocumentFragment(),"div","timeline-sequence");
+ sequence.setAttribute("role","list");
+ sequence.setAttribute("aria-label","Story chronology, earliest to latest");
+ records.forEach((record,index)=>sequence.appendChild(buildCard(record,index,records.length)));
+ track.replaceChildren(sequence);
+ track.dataset.total=String(records.length);
  const count=document.getElementById(countId);
  if(count)count.textContent=String(records.length).padStart(2,"0");
 }
-/* Render the catalogue without ever selecting an entry or scrolling it. */
+/* Preserve chronological cross-listings and keep the projection room idle. */
 populate("cantos-track",main,"cantos-count");
 populate("intervallos-track",inter,"intervallos-count");
 
@@ -172,9 +189,9 @@ document.querySelectorAll(".rail-arrow").forEach(arrow=>{
  arrow.addEventListener("click",()=>{
   const track=document.getElementById(arrow.dataset.railTarget);
   if(!track)return;
-  const first=track.querySelector(".reel-card");
-  const distance=first?first.getBoundingClientRect().width+14:240;
-  track.scrollBy({left:distance*2*Number(arrow.dataset.direction),behavior:motion});
+  const first=track.querySelector(".timeline-stop");
+  const distance=first?first.getBoundingClientRect().width+26:290;
+  track.scrollBy({left:distance*Number(arrow.dataset.direction),behavior:motion});
  });
 });
 function attachDrag(track){
@@ -211,10 +228,59 @@ function attachDrag(track){
   e.preventDefault();
   track.scrollBy({left:e.key==="ArrowLeft"?-235:235,behavior:motion});
  });
- track.addEventListener("scroll",()=>refreshArrows(track),{passive:true});
+ track.addEventListener("scroll",()=>{refreshArrows(track);updateTimeline(track);},{passive:true});
+ track.addEventListener("wheel",event=>{
+  if(Math.abs(event.deltaX)>Math.abs(event.deltaY)||Math.abs(event.deltaY)<2)return;
+  const max=Math.max(0,track.scrollWidth-track.clientWidth);
+  if(max<3||(event.deltaY<0&&track.scrollLeft<=1)||(event.deltaY>0&&track.scrollLeft>=max-1))return;
+  event.preventDefault();
+  track.scrollLeft+=event.deltaY;
+ },{passive:false});
 }
 document.querySelectorAll(".reel-track").forEach(attachDrag);
-const refreshAll=()=>document.querySelectorAll(".reel-track").forEach(refreshArrows);
+
+function updateTimeline(track){
+ const total=Number(track.dataset.total||0);
+ const maximum=Math.max(0,track.scrollWidth-track.clientWidth);
+ const fraction=maximum?Math.max(0,Math.min(1,track.scrollLeft/maximum)):0;
+ const meter=document.getElementById(track.id+"-progress");
+ if(meter)meter.style.width=(maximum?Math.max(4,fraction*100):total?100:0)+"%";
+ const readout=document.getElementById(track.id+"-position");
+ if(!total){
+  if(readout)readout.textContent="00 / 00 · AWAITING STORIES";
+  return;
+ }
+ const stops=[...track.querySelectorAll(".timeline-stop")];
+ const focus=track.scrollLeft+track.clientWidth*.5;
+ let nearest=0,distance=Infinity;
+ stops.forEach((stop,index)=>{
+  const middle=stop.offsetLeft+stop.offsetWidth*.5;
+  const gap=Math.abs(middle-focus);
+  if(gap<distance){distance=gap;nearest=index;}
+  stop.classList.toggle("is-current",false);
+ });
+ if(stops[nearest])stops[nearest].classList.add("is-current");
+ if(readout)readout.textContent="FRAME "+String(nearest+1).padStart(2,"0")+" / "+String(total).padStart(2,"0");
+}
+function initTimelineMotion(){
+ const tracks=[...document.querySelectorAll(".reel-track")];
+ if(!("IntersectionObserver" in window)||motion==="auto"){
+  tracks.forEach(track=>track.querySelectorAll(".timeline-stop").forEach(stop=>stop.classList.add("is-visible")));
+  return;
+ }
+ tracks.forEach(track=>{
+  const observer=new IntersectionObserver(entries=>{
+   entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target);}});
+  },{root:track,rootMargin:"0px 0px 0px 0px",threshold:0.08});
+  track.classList.add("has-motion");
+  track.querySelectorAll(".timeline-stop").forEach(stop=>observer.observe(stop));
+ });
+}
+const refreshAll=()=>document.querySelectorAll(".reel-track").forEach(track=>{
+ refreshArrows(track);
+ updateTimeline(track);
+});
+initTimelineMotion();
 window.addEventListener("resize",refreshAll);
 window.addEventListener("load",refreshAll);
 requestAnimationFrame(refreshAll);

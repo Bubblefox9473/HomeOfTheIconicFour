@@ -100,6 +100,8 @@ input[type=search]{border:0;background:transparent;color:#f0e0d0;font:12px 'DM M
 .constellation-key i{display:inline-block;width:9px;height:9px;border:1px solid #e3c3c5;border-radius:50%;background:rgba(227,195,197,.15)}
 .constellation-key .key-associated{width:7px;height:7px;border-color:#97b7c4;background:rgba(151,183,196,.1)}
 .constellation-key .key-register{width:11px;height:11px;border-radius:2px;transform:rotate(45deg);border-color:#edcaab;background:#b9967d}
+.constellation-key .key-bond{width:18px;height:0;border:0;border-top:3px solid #8dbff0;border-radius:0;background:none}
+.constellation-key .key-hostile{width:18px;height:10px;border:0;border-radius:0;background:#ff6575;clip-path:polygon(0 10%,25% 65%,50% 10%,75% 65%,100% 10%,100% 45%,75% 100%,50% 45%,25% 100%,0 45%)}
 .constellation-zoom{display:flex;gap:3px;padding:3px;border:1px solid #705856;background:rgba(15,10,12,.88);pointer-events:auto}
 .constellation-zoom button{min-width:30px;min-height:30px;padding:5px 7px}
 .constellation-zoom button:hover,.constellation-zoom button:focus-visible{color:#fff0df;background:#694c50}

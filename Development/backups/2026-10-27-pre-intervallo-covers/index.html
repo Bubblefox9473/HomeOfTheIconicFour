@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100e10">
+  <meta name="description" content="NetherNova Film Department — explore Cantos, Intervallos, and Side Episodes as an interactive motion-picture archive.">
+  <title>Film Department | NetherNova Corporation</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/lc-nn-branch-seal.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="film-grain" aria-hidden="true"></div>
+  <div class="site-wrap" id="top">
+    <header class="masthead">
+      <a class="brand" href="../index.html" aria-label="NetherNova Corporation — return to studio">
+        <img src="../assets/lc-nn-branch-seal.svg" alt="" width="47" height="47">
+        <span>NETHER NOVA<small>CORPORATION / NNC</small></span>
+      </a>
+      <nav class="top-nav" aria-label="Site navigation">
+        <a href="../index.html">STUDIO</a>
+        <a href="../Archive/">ARCHIVE</a>
+        <a href="../Gear/">GEAR</a>
+        <span aria-current="page">PRODUCTIONS</span>
+        <a href="../Experimental/">EXPERIMENTAL</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="opening" aria-labelledby="page-title">
+        <div class="opening-copy">
+          <div class="eyebrow"><span class="rec-light"></span>NNC–03 <span class="slash">/</span> DEPARTMENT OF MOTION PICTURES</div>
+          <h1 id="page-title">The Film<br><em>Department.</em></h1>
+          <p class="opening-lead">Every story leaves a trail of light. Follow the chronology, from the first frame to the stories still waiting to be told.</p>
+          <p class="opening-note">Travel sideways through each timeline. Chapters illuminate as you explore; select a frame only when you're ready to inspect its record.</p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#cantos">ENTER THE STORY TIMELINE <span aria-hidden="true">↘</span></a>
+            <span class="hero-edition">STUDIO REGISTER / COPY NNC–03</span>
+          </div>
+        </div>
+        <div class="opening-art" aria-hidden="true">
+          <div class="art-edge art-edge-left"></div>
+          <div class="art-edge art-edge-right"></div>
+          <div class="film-shadow"></div>
+          <!-- Five identical die-cut openings, spaced a precise 72° apart.
+               Inline SVG avoids the lopsided CSS-positioned circles of the old reel. -->
+          <div class="outer-reel">
+            <svg class="reel-illustration" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+              <defs>
+                <radialGradient id="nnc-reel-back" cx="43%" cy="34%" r="75%">
+                  <stop offset="0" stop-color="#332931"/><stop offset=".72" stop-color="#120f17"/><stop offset="1" stop-color="#08080d"/>
+                </radialGradient>
+                <linearGradient id="nnc-reel-rim" x1="12%" y1="7%" x2="91%" y2="98%">
+                  <stop offset="0" stop-color="#ccaca2"/><stop offset=".16" stop-color="#6c5156"/>
+                  <stop offset=".31" stop-color="#ad8b85"/><stop offset=".57" stop-color="#3d2e37"/>
+                  <stop offset=".76" stop-color="#9e7979"/><stop offset="1" stop-color="#2c232d"/>
+                </linearGradient>
+                <radialGradient id="nnc-reel-face" cx="32%" cy="23%" r="87%">
+                  <stop offset="0" stop-color="#96767b"/><stop offset=".38" stop-color="#614c58"/>
+                  <stop offset=".72" stop-color="#493c4a"/><stop offset="1" stop-color="#2e2937"/>
+                </radialGradient>
+                <radialGradient id="nnc-reel-hub" cx="32%" cy="25%" r="80%">
+                  <stop offset="0" stop-color="#d8b8b0"/><stop offset=".35" stop-color="#9a7d7d"/>
+                  <stop offset=".63" stop-color="#554450"/><stop offset="1" stop-color="#322832"/>
+                </radialGradient>
+                <path id="nnc-reel-opening" d="M253 117 C278 104 322 104 347 117 Q363 126 356 143 L325 196 Q315 217 300 217 Q285 217 275 196 L244 143 Q237 126 253 117 Z"/>
+              </defs>
+              <circle cx="300" cy="304" r="279" fill="#08070b" opacity=".4"/>
+              <circle cx="300" cy="300" r="274" fill="#201920" stroke="#18131a" stroke-width="3"/>
+              <circle cx="300" cy="300" r="262" fill="url(#nnc-reel-rim)" stroke="#c3a29c" stroke-opacity=".44" stroke-width="2.5"/>
+              <circle cx="300" cy="300" r="251" fill="none" stroke="#221921" stroke-width="14"/>
+              <circle cx="300" cy="300" r="241" fill="none" stroke="#debbb0" stroke-opacity=".29" stroke-width="4"/>
+              <circle cx="300" cy="300" r="230" fill="url(#nnc-reel-back)" stroke="#17141b" stroke-width="10"/>
+              <circle cx="300" cy="300" r="224" fill="url(#nnc-reel-face)"/>
+              <g fill="url(#nnc-reel-back)">
+                <use href="#nnc-reel-opening"/>
+                <use href="#nnc-reel-opening" transform="rotate(72 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(144 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(216 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(288 300 300)"/>
+              </g>
+              <circle cx="300" cy="300" r="223" fill="none" stroke="#d8b9b1" stroke-opacity=".28" stroke-width="2"/>
+              <g fill="none" stroke="#17151d" stroke-width="8" opacity=".8">
+                <use href="#nnc-reel-opening"/>
+                <use href="#nnc-reel-opening" transform="rotate(72 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(144 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(216 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(288 300 300)"/>
+              </g>
+              <g fill="none" stroke="#c1a0a2" stroke-width="2.5" opacity=".64">
+                <use href="#nnc-reel-opening"/>
+                <use href="#nnc-reel-opening" transform="rotate(72 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(144 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(216 300 300)"/>
+                <use href="#nnc-reel-opening" transform="rotate(288 300 300)"/>
+              </g>
+              <circle cx="300" cy="300" r="81" fill="#201922" stroke="#c09a95" stroke-opacity=".58" stroke-width="6"/>
+              <circle cx="300" cy="300" r="71" fill="url(#nnc-reel-hub)" stroke="#342832" stroke-width="5"/>
+              <circle cx="300" cy="300" r="55" fill="#5d4954" stroke="#e0b9ac" stroke-opacity=".59" stroke-width="4"/>
+              <circle cx="300" cy="300" r="37" fill="url(#nnc-reel-hub)" stroke="#201923" stroke-width="5"/>
+              <circle cx="300" cy="300" r="19" fill="#0b0b11" stroke="#d1ada4" stroke-width="6"/>
+              <circle cx="300" cy="300" r="9" fill="#07070b"/>
+              <circle cx="300" cy="300" r="258" fill="none" stroke="#e3beb2" stroke-opacity=".28" stroke-width="1"/>
+              <circle cx="300" cy="300" r="247" fill="none" stroke="#0b0b0f" stroke-opacity=".65" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="art-classification">NNC / ARCHIVAL MOTION PICTURE</div>
+          <div class="art-number">03</div>
+          <div class="art-foot"><span>35 MM / NEGATIVE</span><span>REEL MASTER 001</span></div>
+        </div>
+      </section>
+
+      <section class="archive-intro" aria-label="Production archive overview">
+        <div><span class="mini-label">ARCHIVE STATUS</span><strong><span class="tiny-pulse"></span>OPEN FOR INSPECTION</strong></div>
+        <div><span class="mini-label">MAIN STORY</span><strong>CANTOS I–X</strong></div>
+        <div><span class="mini-label">ADDITIONAL RECORDS</span><strong>INTERVALLOS / SIDE EPISODES</strong></div>
+        <div class="archive-key">
+          <span><i class="key-dot official"></i>OFFICIAL STORY REFERENCE</span>
+          <span><i class="key-dot original"></i>NETHER NOVA ORIGINAL</span>
+        </div>
+      </section>
+
+      <nav class="archive-jump" aria-label="Film archive sections">
+        <a href="#cantos"><span>01</span> CANTOS</a>
+        <a href="#intervallos"><span>02</span> INTERVALLOS</a>
+        <a href="#side-episodes"><span>03</span> SIDE EPISODES</a>
+        <a href="#projector"><span>04</span> PROJECTION ROOM</a>
+      </nav>
+
+      <div class="reel-library">
+        <section class="reel-section" id="cantos" aria-labelledby="cantos-title">
+          <header class="reel-header">
+            <div>
+              <p class="section-index">01 / THE MAIN NARRATIVE</p>
+              <h2 id="cantos-title">Cantos<span class="period">.</span></h2>
+              <p>The main narrative, threaded into one continuous cinematic journey. The 9.5 bridges remain exactly where they belong, between IX and X.</p>
+            </div>
+            <div class="reel-controls">
+              <span class="reel-count">TIMELINE / <b id="cantos-count">—</b> RECORDS</span>
+              <button type="button" class="rail-arrow" data-rail-target="cantos-track" data-direction="-1" aria-label="Scroll Cantos left">←</button>
+              <button type="button" class="rail-arrow" data-rail-target="cantos-track" data-direction="1" aria-label="Scroll Cantos right">→</button>
+            </div>
+          </header>
+          <div class="reel-window timeline-window">
+            <div class="perforations" aria-hidden="true"></div>
+            <div class="reel-track" id="cantos-track" role="group" aria-label="Horizontal chronological Canto timeline. Drag, scroll or use arrow keys." tabindex="0"></div>
+            <div class="perforations" aria-hidden="true"></div>
+          </div>
+          <div class="timeline-underbar" aria-label="Timeline navigation progress">
+            <span class="timeline-underbar-label">CHRONOLOGY <i aria-hidden="true">→</i></span>
+            <div class="timeline-meter" aria-hidden="true"><span id="cantos-track-progress"></span></div>
+            <span class="timeline-position" id="cantos-track-position" aria-live="off">FRAME 01 / 13</span>
+          </div>
+          <p class="rail-help">DRAG, SCROLL OR USE THE ARROWS TO TRAVEL <span>·</span> SELECT ANY FRAME TO INSPECT <span>·</span> NO AUTOMATIC SELECTION</p>
+        </section>
+
+        <section class="reel-section" id="intervallos" aria-labelledby="intervallos-title">
+          <header class="reel-header">
+            <div>
+              <p class="section-index">02 / BETWEEN THE REELS</p>
+              <h2 id="intervallos-title">Intervallos<span class="period">.</span></h2>
+              <p>Follow the stories between chapters on their own timeline. Mephista and Necro's original 9.5 records appear here and in the main chronology.</p>
+            </div>
+            <div class="reel-controls">
+              <span class="reel-count">TIMELINE / <b id="intervallos-count">—</b> RECORDS</span>
+              <button type="button" class="rail-arrow" data-rail-target="intervallos-track" data-direction="-1" aria-label="Scroll Intervallos left">←</button>
+              <button type="button" class="rail-arrow" data-rail-target="intervallos-track" data-direction="1" aria-label="Scroll Intervallos right">→</button>
+            </div>
+          </header>
+          <div class="reel-window timeline-window">
+            <div class="perforations" aria-hidden="true"></div>
+            <div class="reel-track" id="intervallos-track" role="group" aria-label="Horizontal chronological Intervallo timeline. Drag, scroll or use arrow keys." tabindex="0"></div>
+            <div class="perforations" aria-hidden="true"></div>
+          </div>
+          <div class="timeline-underbar" aria-label="Timeline navigation progress">
+            <span class="timeline-underbar-label">CHRONOLOGY <i aria-hidden="true">→</i></span>
+            <div class="timeline-meter" aria-hidden="true"><span id="intervallos-track-progress"></span></div>
+            <span class="timeline-position" id="intervallos-track-position" aria-live="off">FRAME 01 / 13</span>
+          </div>
+          <p class="rail-help">STORIES CONNECTED IN CHRONOLOGICAL ORDER <span>·</span> ORIGINALS MARKED</p>
+        </section>
+
+        <section class="reel-section" id="side-episodes" aria-labelledby="side-episodes-title">
+          <header class="reel-header">
+            <div>
+              <p class="section-index">03 / ADDITIONAL EXPOSURES</p>
+              <h2 id="side-episodes-title">Side Episodes<span class="period">.</span></h2>
+              <p>A timeline for the stories beyond the main plot. Its path is drawn, but no Side Episode has been filed yet.</p>
+            </div>
+            <div class="reel-controls">
+              <span class="reel-count">TIMELINE / <b id="side-episodes-count">0</b> RECORDS</span>
+              <button type="button" class="rail-arrow" data-rail-target="side-episodes-track" data-direction="-1" aria-label="Scroll Side Episodes left">←</button>
+              <button type="button" class="rail-arrow" data-rail-target="side-episodes-track" data-direction="1" aria-label="Scroll Side Episodes right">→</button>
+            </div>
+          </header>
+          <div class="reel-window timeline-window">
+            <div class="perforations" aria-hidden="true"></div>
+            <div class="reel-track reel-track-empty" id="side-episodes-track" data-total="0" role="group" aria-label="Side Episode timeline, no stories filed. Scroll to explore reserved empty space." tabindex="0">
+              <div class="timeline-sequence timeline-sequence--empty" role="list" aria-label="Unfiled Side Episode timeline">
+                <div class="timeline-stop timeline-stop--vacant is-visible" role="listitem">
+                  <div class="timeline-vacant" role="status">
+                    <span class="vacant-register">S–000 / UNEXPOSED NEGATIVE</span>
+                    <span class="vacant-symbol" aria-hidden="true">✧</span>
+                    <strong>The next story begins here.</strong>
+                    <p>No Side Episodes have been filed. The timeline is waiting for its first real entry.</p>
+                    <span class="vacant-footer">NO STORY ASSIGNED · 00 RECORDS</span>
+                  </div>
+                  <span class="timeline-pin timeline-pin--vacant" aria-hidden="true"></span>
+                </div>
+                <div class="timeline-stop timeline-stop--ghost is-visible" aria-hidden="true"><div class="timeline-ghost-card"><span>FUTURE EXPOSURE</span><span>UNASSIGNED</span></div><span class="timeline-pin timeline-pin--vacant"></span></div>
+                <div class="timeline-stop timeline-stop--ghost is-visible" aria-hidden="true"><div class="timeline-ghost-card"><span>FUTURE EXPOSURE</span><span>UNASSIGNED</span></div><span class="timeline-pin timeline-pin--vacant"></span></div>
+              </div>
+            </div>
+            <div class="perforations" aria-hidden="true"></div>
+          </div>
+          <div class="timeline-underbar" aria-label="Timeline navigation progress">
+            <span class="timeline-underbar-label">CHRONOLOGY <i aria-hidden="true">→</i></span>
+            <div class="timeline-meter" aria-hidden="true"><span id="side-episodes-track-progress"></span></div>
+            <span class="timeline-position" id="side-episodes-track-position" aria-live="off">00 / 00 · AWAITING STORIES</span>
+          </div>
+          <p class="rail-help">EMPTY CHRONOLOGY <span>·</span> NO FICTIONAL ENTRIES ADDED</p>
+        </section>
+      </div>
+
+      <section class="projection-room" id="projector" aria-labelledby="projector-title">
+        <header class="projection-heading">
+          <div>
+            <p class="section-index">04 / FEATURED SCREENINGS &amp; RECORD INSPECTION</p>
+            <h2 id="projector-title">The Projection Room<span class="period">.</span></h2>
+            <p class="projection-heading-copy">A story becomes a picture. Each reel receives its own title card while production artwork and documents are prepared.</p>
+          </div>
+          <span class="inspection-state" id="inspection-state"><i class="state-light"></i> STANDBY / FEATURED REEL READY</span>
+        </header>
+
+        <div class="featured-marquee" aria-labelledby="featured-production-title">
+          <div class="featured-marquee-glow" aria-hidden="true"></div>
+          <div class="featured-marquee-copy">
+            <p class="featured-eyebrow"><span class="featured-rec-light" aria-hidden="true"></span> CURRENT PRODUCTION / NETHER NOVA ORIGINAL</p>
+            <h3 id="featured-production-title">The <em>Unbecoming.</em></h3>
+            <p>Mephista's Canto <span class="marquee-divider" aria-hidden="true">/</span> 9.5–2 <span class="marquee-divider" aria-hidden="true">/</span> Between Canto IX and X</p>
+            <div class="featured-marquee-actions">
+              <button type="button" class="featured-load" id="load-featured">LOAD FEATURED REEL <span aria-hidden="true">↗</span></button>
+              <span class="featured-production-state">IN DEVELOPMENT · MATERIAL PENDING</span>
+            </div>
+          </div>
+          <div class="featured-marquee-mark" aria-hidden="true">
+            <span>REEL</span>
+            <strong>9.5</strong>
+            <i>02 / MEPHISTA</i>
+          </div>
+        </div>
+
+        <div class="projection-console">
+          <div class="screen-side">
+            <div class="projector-housing">
+              <div class="projector-housing-top"><span>PROJECTION SYSTEM / NNC–03</span><span><i class="housing-pulse" aria-hidden="true"></i> <span id="projector-mode">PREVIEW / STANDBY</span></span></div>
+              <div class="screen-glass is-featured" id="screen-glass">
+                <div class="screen-corner tl"></div><div class="screen-corner tr"></div>
+                <div class="screen-corner bl"></div><div class="screen-corner br"></div>
+                <div class="screen-id">NNC–03 / CINEMATIC RECORD</div>
+                <div class="screen-id-bottom" id="screen-id-bottom">FEATURED PREVIEW · NOT YET LOADED</div>
+                <div class="screen-content poster-presentation" id="screen-content">
+                  <div class="poster-art" aria-hidden="true"><span class="poster-art-circle"></span><span class="poster-art-ray"></span><span class="poster-art-mark">✧</span></div>
+                  <span class="poster-eyebrow">NOW IN PRODUCTION / MEPHISTA'S CANTO</span>
+                  <span class="poster-number">9.5–2</span>
+                  <strong class="poster-title">The Unbecoming</strong>
+                  <span class="poster-rule" aria-hidden="true"></span>
+                  <span class="poster-footer">NETHER NOVA ORIGINAL · TITLE CARD PREVIEW</span>
+                </div>
+              </div>
+              <div class="projector-housing-bottom"><span>FRAME 01 / FEATURED EXPOSURE</span><span>ARTWORK / TITLE CARD</span></div>
+            </div>
+            <div class="screen-foot"><span>PROJECTOR / 01</span><span>35 MM / ARCHIVE NEGATIVE</span><span>STUDIO PROPERTY — NNC</span></div>
+          </div>
+
+          <div class="docket" id="record-docket">
+            <p class="docket-index" id="docket-index">FEATURED PRODUCTION / 9.5–2</p>
+            <span class="docket-kicker" id="docket-kicker">CURRENTLY IN PRODUCTION</span>
+            <h3 id="record-title">The Unbecoming</h3>
+            <p class="docket-lead" id="record-description">Mephista's Canto is the Film Department's current featured production. It bridges Canto IX and X in NetherNova's narrative. Load the featured reel to inspect its record, or choose any chapter from the timelines above.</p>
+            <dl class="docket-fields">
+              <div><dt>FILE REFERENCE</dt><dd id="record-id">NNC-03-9.5-2</dd></div>
+              <div><dt>RECORD CLASS</dt><dd id="record-category">ORIGINAL INTERVALLO / FEATURED</dd></div>
+              <div><dt>CONTINUITY</dt><dd id="record-source">NETHER NOVA ORIGINAL</dd></div>
+              <div><dt>ARCHIVE STATUS</dt><dd id="record-status">CURRENT PRODUCTION / NOT LOADED</dd></div>
+            </dl>
+            <div class="docket-bottom">
+              <p id="record-note">Featured title-card artwork is an archival placeholder. Finished illustration and production files can be added as they become available.</p>
+              <span class="file-unavailable" id="file-state">PRODUCTION FILE NOT YET ATTACHED</span>
+              <div class="docket-actions">
+                <button type="button" class="back-to-featured" id="back-to-featured" hidden>✧ RETURN TO FEATURED PREVIEW</button>
+                <button type="button" class="back-to-reel" id="back-to-reel" hidden>← RETURN TO SELECTED REEL</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="studio-ledger" aria-labelledby="ledger-title">
+        <div class="ledger-copy">
+          <p class="section-index">05 / PRODUCTION OFFICE</p>
+          <h2 id="ledger-title">The studio ledger<span class="period">.</span></h2>
+          <p>Production work continues beyond the indexed story reels. Working titles stay in this ledger until their place in the narrative is confirmed.</p>
+        </div>
+        <div class="studio-entry">
+          <span class="studio-status"><i class="tiny-pulse"></i> ACTIVE PROJECT / STUDIO LEDGER</span>
+          <strong>The House of Spiders</strong>
+          <p>An additional active studio project carried forward from the previous register. The Unbecoming is the current featured production; no Canto or Side Episode classification has been assigned to The House of Spiders.</p>
+          <div class="studio-meta"><span>NNC03-CH04-HOS</span><span>WORKING PROJECT / FILE NOT ATTACHED</span></div>
+        </div>
+      </section>
+
+      <section class="department-info" aria-label="Film Department responsibilities">
+        <div><span class="office-code">NNC–03 / A</span><h3>Story Development</h3><p>Scenario development, dramatic structure, and narrative preparation.</p></div>
+        <div><span class="office-code">NNC–03 / B</span><h3>Production Management</h3><p>Organization of working records, reels, scene notes, and ongoing projects.</p></div>
+        <div><span class="office-code">NNC–03 / C</span><h3>Archival Recording</h3><p>Preservation of completed material and its associated production documents.</p></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand"><img src="../assets/lc-nn-branch-seal.svg" width="36" height="36" alt=""><span>NETHER NOVA CORPORATION<small>DEPARTMENT 03 / MOTION PICTURES</small></span></div>
+      <p>Official Limbus Company chapter art and titles belong to Project Moon. Covers I–IX preserved from the <a href="https://github.com/retcons/limbus-storylogs" target="_blank" rel="noopener noreferrer">community story archive</a>; Canto X banner from the <a href="https://limbuscompany.wiki.gg/wiki/Category:Chapter_Banners" target="_blank" rel="noopener noreferrer">Limbus Company Wiki</a>. NetherNova originals are marked separately.</p>
+      <a href="#top">RETURN TO THE BEGINNING ↑</a>
+    </footer>
+  </div>
+</body>
+</html>

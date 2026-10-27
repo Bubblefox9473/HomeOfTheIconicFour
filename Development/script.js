@@ -60,7 +60,17 @@ const necro={
  description:"Necro's Canto, Genesis: Concordia, carries the designation 9.5-3. It follows Mephista's 9.5-2 story and precedes Canto X in NetherNova's main narrative chronology.",
  note:"Cross-indexed as an original story under both Cantos and Intervallos. Not an official Project Moon story; production material has not yet been attached."
 };
-const main=mainTitles.map(toMain).flatMap(r=>r.number==="X"?[mephista,necro,r]:[r]);
+const noctis={
+ id:"noctis-canto",number:"TBD",title:"Noctis' Canto",variant:"original",
+ classification:"CANTO / ORIGINAL CONTINUATION",
+ category:"NETHER NOVA ORIGINAL CANTO",
+ source:"NETHER NOVA ORIGINAL CONTINUITY",
+ code:"NNC-03-NOCTIS",status:"WORKING TITLE / MATERIAL PENDING",
+ strap:"AFTER CANTO X",
+ description:"Noctis' Canto follows Canto X in NetherNova's main narrative. Its formal title and numerical designation have not yet been established.",
+ note:"Working title only. This is a NetherNova original story, not an official Project Moon Canto. Production material has not yet been attached."
+};
+const main=[...mainTitles.map(toMain).flatMap(r=>r.number==="X"?[mephista,necro,r]:[r]),noctis];
 const inter=[...intervalloTitles.map(toIntervallo),mephista,necro];
 const all=new Map([...main,...inter].map(r=>[r.id,r]));
 const motion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";

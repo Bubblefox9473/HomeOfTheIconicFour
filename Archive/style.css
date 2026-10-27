@@ -68,3 +68,83 @@ input[type=search]{border:0;background:transparent;color:#f0e0d0;font:12px 'DM M
 @media(max-width:850px){.archive-intro{grid-template-columns:1fr;gap:48px}.intro-index{max-width:520px;transform:none}.directory-controls{margin-bottom:55px}.principal-list{grid-template-columns:1fr}.principal-record{grid-template-columns:38% 62%;min-height:285px}.record-body h3{font-size:clamp(36px,6vw,55px)}.associated-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.archive-masthead{align-items:start;flex-direction:column;padding:20px 0;gap:18px}.archive-brand{font-size:16px}.archive-brand img{width:46px;height:46px}.archive-intro{padding:65px 0 52px}.archive-intro h1{font-size:clamp(57px,14vw,83px)}.intro-text{font-size:14px}.directory-controls{display:grid;grid-template-columns:1fr auto;gap:11px 15px}.directory-controls label{grid-column:1}.directory-controls output{grid-column:2;grid-row:1}.search-wrap{grid-column:1/-1;width:100%}.section-heading{align-items:start;flex-direction:column;gap:8px}.section-note{text-align:left;margin:0;font-size:9px}.principal-record{grid-template-columns:36% 64%;min-height:265px}.negative{margin:14px 0 14px 14px}.negative-head,.negative-foot{font-size:6px}.negative-caption{font-size:6px}.record-body{padding:58px 15px 17px}.record-body h3{font-size:clamp(27px,7vw,39px)}.record-body p{font-size:10px;margin-bottom:21px}.record-meta,.record-action{font-size:8px}.record-order{font-size:9px;right:12px}.negative-glyph{font-size:clamp(55px,17vw,100px)}.associated-section{margin-top:75px;padding-bottom:62px}.associated-grid{grid-template-columns:1fr}.associated-record{min-height:77px}.archive-footer{font-size:9px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+
+
+/* THE CONSTELLATION / LC:NN. A navigable personnel register, not a lore relationship claim. */
+.constellation-section{margin:0 0 110px;padding-top:76px;border-top:1px solid var(--rule)}
+.constellation-heading{align-items:end;margin-bottom:13px}
+.constellation-heading h2 em{font-weight:500;color:#c9a18d}
+.constellation-intro{max-width:770px;margin:0 0 32px;color:#b7a69a;font-size:14px;line-height:1.9}
+.constellation-shell{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,315px);border:1px solid #685047;background:#120e0e;min-height:585px}
+.constellation-stage{position:relative;min-width:0;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 48% 52%,#2b1e25 0%,#1b151a 45%,#100d10 100%)}
+.constellation-stage::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.42;background-image:linear-gradient(rgba(186,128,147,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(186,128,147,.09) 1px,transparent 1px),radial-gradient(circle at 50% 50%,transparent 17%,rgba(221,178,176,.12) 17.1%,transparent 17.3%,transparent 35%,rgba(221,178,176,.11) 35.1%,transparent 35.3%,transparent 55%,rgba(221,178,176,.1) 55.1%,transparent 55.3%);background-size:44px 44px,44px 44px,100% 100%}
+.constellation-stage::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.7;background:radial-gradient(circle at 13% 17%,#d9a89e 0 1px,transparent 1.5px),radial-gradient(circle at 82% 25%,#d9a89e 0 1px,transparent 1.5px),radial-gradient(circle at 73% 72%,#d9a89e 0 1px,transparent 1.5px),radial-gradient(circle at 21% 84%,#d9a89e 0 1px,transparent 1.5px),radial-gradient(circle at 48% 8%,#c9a1bc 0 1px,transparent 1.5px),radial-gradient(circle at 92% 91%,#c9a1bc 0 1px,transparent 1.5px)}
+.constellation-toolbar{position:absolute;inset:21px 22px auto;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:13px;flex-wrap:wrap;pointer-events:none}
+.constellation-transmission{display:inline-flex;align-items:center;gap:10px;color:#debba7;font:9px 'DM Mono',monospace;letter-spacing:.12em;white-space:nowrap}
+.constellation-beacon{display:inline-block;width:7px;height:7px;border-radius:50%;background:#e5b4a1;box-shadow:0 0 0 4px rgba(230,180,161,.09),0 0 17px rgba(241,176,176,.75);animation:constellation-pulse 3s ease-in-out infinite}
+@keyframes constellation-pulse{50%{opacity:.5;box-shadow:0 0 0 7px rgba(230,180,161,.03),0 0 11px rgba(241,176,176,.3)}}
+.constellation-filters{display:flex;gap:3px;padding:3px;border:1px solid #735b58;background:rgba(15,10,12,.86);pointer-events:auto}
+.constellation-filters button,.constellation-zoom button{appearance:none;border:0;border-radius:0;background:transparent;color:#bda79f;cursor:pointer;font:9px 'DM Mono',monospace;letter-spacing:.06em;transition:background .2s,color .2s}
+.constellation-filters button{padding:9px 10px;white-space:nowrap}
+.constellation-filters button span{color:#907a77;margin-left:4px}
+.constellation-filters button:hover,.constellation-filters button:focus-visible,.constellation-filters button[aria-pressed="true"]{background:#694c50;color:#ffded1}
+.constellation-filters button[aria-pressed="true"] span{color:#ecc8b8}
+.constellation-graph{position:relative;z-index:1;width:100%;height:585px;touch-action:none;cursor:grab}
+.constellation-graph:active{cursor:grabbing}
+.constellation-fallback{position:relative;z-index:1;min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:35px;text-align:center;color:#a9948c}
+.constellation-fallback p{color:#e6b09f;font:12px 'DM Mono',monospace;letter-spacing:.14em;margin:0}
+.constellation-fallback span{font-size:13px;line-height:1.7}
+.constellation-stage-foot{position:absolute;inset:auto 20px 18px;z-index:3;display:flex;align-items:end;justify-content:space-between;gap:16px;pointer-events:none}
+.constellation-key{display:flex;flex-wrap:wrap;gap:9px 16px;color:#b29b91;font:8px 'DM Mono',monospace;letter-spacing:.09em}
+.constellation-key span{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.constellation-key i{display:inline-block;width:9px;height:9px;border:1px solid #e3c3c5;border-radius:50%;background:rgba(227,195,197,.15)}
+.constellation-key .key-associated{width:7px;height:7px;border-color:#97b7c4;background:rgba(151,183,196,.1)}
+.constellation-key .key-register{width:11px;height:11px;border-radius:2px;transform:rotate(45deg);border-color:#edcaab;background:#b9967d}
+.constellation-zoom{display:flex;gap:3px;padding:3px;border:1px solid #705856;background:rgba(15,10,12,.88);pointer-events:auto}
+.constellation-zoom button{min-width:30px;min-height:30px;padding:5px 7px}
+.constellation-zoom button:hover,.constellation-zoom button:focus-visible{color:#fff0df;background:#694c50}
+.constellation-inspector{display:flex;flex-direction:column;position:relative;border-left:1px solid #654942;padding:27px 25px 23px;min-width:0;background:radial-gradient(ellipse at 100% 0%,rgba(114,59,71,.18),transparent 60%),linear-gradient(160deg,#241a1b,#181214 80%)}
+.constellation-inspector-reference{margin:0;color:#bc9586;font:9px/1.6 'DM Mono',monospace;letter-spacing:.1em}
+.constellation-inspector-mark{font:64px/1.2 'Playfair Display',Georgia,serif;color:#976d7d;margin:36px 0 17px;text-shadow:0 0 35px rgba(190,127,160,.2)}
+.constellation-detail-type{margin:0 0 13px;font:9px 'DM Mono',monospace;color:#c59a90;letter-spacing:.12em}
+.constellation-inspector h3{font:500 clamp(30px,3vw,42px)/1.12 'Playfair Display',Georgia,serif;letter-spacing:-.035em;margin:0 0 18px;overflow-wrap:anywhere}
+.constellation-detail-meta{color:#a78d84;font:10px/1.7 'DM Mono',monospace;letter-spacing:.06em;margin:0;overflow-wrap:anywhere}
+.constellation-inspector-rule{height:1px;background:linear-gradient(90deg,#9c7571,#473336 85%,transparent);margin:23px 0}
+.constellation-detail-copy{font-size:13px;line-height:1.9;color:#c2ada4;margin:0 0 32px}
+.constellation-open-file{display:flex;align-items:center;justify-content:space-between;gap:18px;text-decoration:none;border:1px solid #967169;padding:14px 15px;color:#ebc1b0;font:9px 'DM Mono',monospace;letter-spacing:.09em;transition:background .2s,border-color .2s;margin-top:auto}
+.constellation-open-file:hover,.constellation-open-file:focus-visible{background:#53383c;border-color:#cba391}
+.constellation-open-file span{font-size:15px}
+.constellation-inspector-foot{font:9px 'DM Mono',monospace;color:#806e68;letter-spacing:.1em;margin:auto 0 0;padding-top:25px}
+.constellation-open-file:not([hidden]) + .constellation-inspector-foot{margin-top:20px}
+.constellation-disclaimer{margin:17px 0 0;color:#99847a;font:9px/1.9 'DM Mono',monospace;letter-spacing:.05em}
+.constellation-filters button:focus-visible,.constellation-zoom button:focus-visible,.constellation-open-file:focus-visible{outline:2px solid #e8b29a;outline-offset:2px}
+@media(max-width:1040px){
+ .constellation-shell{grid-template-columns:minmax(0,1fr) 260px}
+ .constellation-inspector{padding:24px 19px}
+ .constellation-graph{height:555px}
+}
+@media(max-width:850px){
+ .constellation-shell{grid-template-columns:1fr}
+ .constellation-graph{height:540px}
+ .constellation-inspector{border-left:0;border-top:1px solid #654942;min-height:265px}
+ .constellation-inspector-mark{position:absolute;top:15px;right:25px;margin:0;font-size:48px;opacity:.4}
+ .constellation-inspector h3{font-size:36px}
+ .constellation-detail-copy{max-width:650px;margin-bottom:22px}
+ .constellation-open-file{max-width:350px;margin-top:0}
+ .constellation-inspector-foot{margin-top:16px}
+}
+@media(max-width:560px){
+ .constellation-section{padding-top:55px;margin-bottom:70px}
+ .constellation-intro{font-size:13px;margin-bottom:22px}
+ .constellation-toolbar{inset:15px 12px auto;gap:10px}
+ .constellation-transmission{font-size:8px}
+ .constellation-filters{width:100%;justify-content:space-between}
+ .constellation-filters button{flex:1;padding:9px 4px;font-size:8px}
+ .constellation-graph{height:480px}
+ .constellation-stage-foot{inset:auto 11px 12px;align-items:end;flex-wrap:wrap}
+ .constellation-key{gap:8px 12px;max-width:62%;font-size:7px}
+ .constellation-zoom button{min-width:27px;min-height:29px;font-size:8px;padding:5px}
+ .constellation-inspector{padding:23px 19px 18px}
+ .constellation-disclaimer{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){.constellation-beacon{animation:none}}

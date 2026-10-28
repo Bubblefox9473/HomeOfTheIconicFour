@@ -12,6 +12,7 @@ The Experimental Division has been rebuilt as a recovered L-Corp research termin
 - [x] Build searchable, filterable Anomalies registry.
 - [x] Keep Drako and Aporia as two separate Anomalies.
 - [x] Build Drako's research dossier as AN—001 / High WAW.
+- [x] Populate Drako’s Capabilities and Management tabs with confirmed Hellfire mechanics, fire immunity, agility, E.G.O restriction, cooperation, and SP-dependent aggression/recovery.
 - [x] Build Aporia's research dossier as AN—002 / Mid ALEPH.
 - [x] Add switchable research tabs and keyboard-accessible tab navigation.
 - [x] Replace the Resonance tab with Capabilities in both dossiers; distinguish Dante's Durante summoning from an Anomaly's own origin and powers.
@@ -27,7 +28,8 @@ The Experimental Division has been rebuilt as a recovered L-Corp research termin
 - [ ] Upload `assets/drako.png` (original transparent Drako sprite) to this `Experimental/` folder.
 - [ ] Upload `assets/aporia.png` (original transparent Aporia sprite) to this `Experimental/` folder.
 - [ ] Verify GitHub Pages renders both images and the new styling after deployment.
-- [ ] Populate verified abilities, manifestation limitations, behavioral observations, and response procedures in both dossiers when the information is available.
+- [ ] Populate Aporia’s abilities, manifestation limitations, behavioral observations, and response procedures when confirmed.
+- [ ] Expand Drako’s case history and any further response procedures when confirmed.
 - [ ] Review the mobile layout in a browser.
 - [ ] Add future anomalies and experimental record categories as they are developed.
 

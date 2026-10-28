@@ -1,0 +1,203 @@
+/* Cinematic L-Corp legacy login — only enabled by the homepage one-time flag. */
+#legacy-login {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 44%, #17170f 0%, #080908 48%, #010202 100%);
+  color: #f0e8b5;
+  transition: opacity .48s ease, visibility .48s linear;
+  overflow: auto;
+  isolation: isolate;
+}
+html.legacy-boot-pending,
+html.legacy-boot-pending body {overflow: hidden;}
+html.legacy-boot-pending #legacy-login {visibility: visible; opacity: 1; pointer-events: auto;}
+html.legacy-boot-pending.legacy-boot-dismiss #legacy-login {opacity: 0; pointer-events: none;}
+#legacy-login::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .2;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(226,224,153,.11) 4px);
+  animation: legacy-scan 5s linear infinite;
+}
+#legacy-login::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  border: clamp(8px, 1.7vw, 24px) solid #090a07;
+  box-shadow: inset 0 0 0 1px #585739, inset 0 0 85px rgba(0,0,0,.82);
+}
+.legacy-login-frame {
+  width: min(760px, calc(100vw - 40px));
+  max-height: min(92dvh, 760px);
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(18px, 3.6vw, 38px);
+  border: 1px solid #6e6d4b;
+  background: linear-gradient(135deg, #14160f 0%, #070807 56%, #12110b 100%);
+  box-shadow: 0 0 0 8px rgba(17,18,13,.82), 0 0 0 9px rgba(164,156,94,.17), 0 26px 110px rgba(0,0,0,.84);
+  text-align: center;
+}
+.legacy-login-frame::before,
+.legacy-login-frame::after {
+  content: "";
+  position: absolute;
+  height: 6px;
+  width: 115px;
+  background: repeating-linear-gradient(115deg, #bf853e 0 9px, #15140e 9px 17px);
+}
+.legacy-login-frame::before {top: 0; left: 0;}
+.legacy-login-frame::after {bottom: 0; right: 0;}
+.legacy-login-head {
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: #9d9b6b;
+  font: 600 10px "IBM Plex Mono", monospace;
+  letter-spacing: .13em;
+  border-bottom: 1px solid #42442e;
+  padding-bottom: 13px;
+}
+.legacy-login-emblem {
+  width: min(530px, 86%);
+  aspect-ratio: 500 / 340;
+  overflow: hidden;
+  position: relative;
+  margin: clamp(15px, 3vh, 27px) auto 4px;
+  opacity: 0;
+  transform: translateY(9px) scale(.96);
+}
+html.legacy-boot-pending .legacy-login-emblem {animation: legacy-logo-enter .8s .3s ease-out forwards;}
+.legacy-login-emblem img {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: screen;
+}
+.legacy-login-logo-fallback {
+  font: 800 clamp(35px, 7vw, 67px)/.92 "Barlow Condensed", sans-serif;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+  color: #f5eda1;
+  text-align: center;
+  padding-top: 12%;
+}
+.legacy-login-logo-fallback span {display: block; color: #e8c68c;}
+.legacy-login-logo-fallback small {display: block; margin-top: 19px; color: #d1594a; font: 600 11px "IBM Plex Mono", monospace; letter-spacing: .04em;}
+.legacy-login-credential {
+  width: min(520px, 100%);
+  text-align: left;
+  margin-top: clamp(6px, 1.7vh, 17px);
+  border: 1px solid #626444;
+  background: #0a0b08;
+  opacity: 0;
+  transform: translateY(7px);
+}
+html.legacy-boot-pending .legacy-login-credential {animation: legacy-logo-enter .6s .65s ease-out forwards;}
+.legacy-login-credential-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #51543a;
+  background: #1c1d13;
+  padding: 9px 14px;
+  font: 700 14px "Barlow Condensed", sans-serif;
+  letter-spacing: .11em;
+  color: #e8dfa4;
+}
+.legacy-login-credential-header span:last-child {color: #c78d4c; font-size: 11px;}
+.legacy-login-credential-body {padding: 17px 17px 16px;}
+.legacy-login-sequence {
+  display: flex;
+  align-items: center;
+  min-height: 30px;
+  gap: 10px;
+  color: #d2cd9a;
+  font: 500 11px/1.5 "IBM Plex Mono", monospace;
+  letter-spacing: .06em;
+  text-align: left;
+}
+.legacy-login-sequence::before {
+  content: "▮";
+  color: #eab66e;
+  font-size: 16px;
+  animation: legacy-cursor .8s steps(1) infinite;
+}
+.legacy-login-progress {
+  height: 9px;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 12px;
+  border: 1px solid #717250;
+  background: repeating-linear-gradient(90deg, #10110d 0 11px, #1f2117 11px 13px);
+}
+.legacy-login-progress-fill {
+  width: 0;
+  height: 100%;
+  background: repeating-linear-gradient(90deg, #bbae65 0 12px, #e6df8b 12px 19px);
+}
+html.legacy-boot-pending .legacy-login-progress-fill {animation: legacy-load 2.55s .48s cubic-bezier(.25,.72,.56,1) forwards;}
+.legacy-login-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 10px;
+  color: #898b6d;
+  font: 9px "IBM Plex Mono", monospace;
+  letter-spacing: .1em;
+}
+.legacy-login-bottom {
+  width: min(520px, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 17px;
+  text-align: left;
+}
+.legacy-login-bottom small {color: #8e8f70; font: 9px/1.5 "IBM Plex Mono", monospace; letter-spacing: .08em;}
+.legacy-login-skip {
+  flex: 0 0 auto;
+  border: 1px solid #777753;
+  padding: 8px 15px;
+  background: #191b12;
+  color: #e5dc9d;
+  font: 700 13px "Barlow Condensed", sans-serif;
+  letter-spacing: .1em;
+  cursor: pointer;
+}
+.legacy-login-skip:hover,.legacy-login-skip:focus-visible {background: #3e3e27; border-color: #eadfa4;}
+.legacy-login-granted .legacy-login-sequence {color: #a4d994;}
+.legacy-login-granted .legacy-login-sequence::before {color: #a4d994; animation: none; content: "●";}
+.legacy-login-granted .legacy-login-credential {box-shadow: 0 0 23px rgba(124,187,93,.13);}
+@keyframes legacy-logo-enter {to {opacity: 1; transform: translateY(0) scale(1);}}
+@keyframes legacy-load {0%{width: 0;}35%{width: 31%;}70%{width: 68%;}100%{width: 100%;}}
+@keyframes legacy-cursor {0%,49%{opacity:1;}50%,100%{opacity:.25;}}
+@keyframes legacy-scan {to{background-position: 0 24px;}}
+@media(max-width:540px) {
+  .legacy-login-frame {width: calc(100vw - 24px);padding: 18px 15px;}
+  .legacy-login-head {font-size: 8px;}
+  .legacy-login-emblem {width: 100%;margin-top: 20px;}
+  .legacy-login-credential-body {padding: 13px;}
+  .legacy-login-sequence {font-size: 9px;}
+  .legacy-login-credential-header {font-size: 12px;}
+  .legacy-login-meta, .legacy-login-bottom small {font-size: 8px;}
+}
+@media(prefers-reduced-motion:reduce) {
+  #legacy-login, #legacy-login * {animation: none!important;transition: none!important;}
+}

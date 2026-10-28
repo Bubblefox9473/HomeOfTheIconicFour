@@ -52,3 +52,11 @@
 .interview-line.respondent{align-self:flex-end;border-color:#6e3036;border-right:3px solid #e82d39;background:#211417;color:#ff626c;text-align:left}
 .interview-line.respondent .line-speaker{color:#e82d39}
 @media(max-width:700px){.interview-line{max-width:90%;padding:11px 12px}.interview-line p{font-size:12px}.interview-legend{padding:12px}.transcript-toggle{padding:14px 12px}}
+
+/* Interview 002: Julian / Noctis */
+.transcript-002 .legend-interviewer{color:#007fff}
+.transcript-002 .legend-respondent{color:#6cb4ee}
+.transcript-002 .interview-line.interviewer{border-color:#07518b;border-left-color:#007fff;background:#0c1b2c;color:#72baff}
+.transcript-002 .interview-line.respondent{border-color:#326386;border-right-color:#6cb4ee;background:#142431;color:#a2d6ff}
+.transcript-002 .interview-line.interviewer .line-speaker{color:#007fff}
+.transcript-002 .interview-line.respondent .line-speaker{color:#6cb4ee}

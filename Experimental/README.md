@@ -16,8 +16,13 @@ The Experimental Division has been rebuilt as a recovered L-Corp research termin
 - [x] Add switchable research tabs and keyboard-accessible tab navigation.
 - [x] Replace the Resonance tab with Capabilities in both dossiers; distinguish Dante's Durante summoning from an Anomaly's own origin and powers.
 - [x] Add portrait image references with numeric placeholders when assets are not uploaded.
+- [x] Add a one-time recovered L-Corp administration login animation, shown only when entering NNC–04 from the homepage.
+- [x] Display the Lobotomy Corporation logo, an animated authorization progress sequence, and a Skip Intro control.
+- [x] Skip the cinematic on dossier return, direct visits, history restoration, or when reduced motion is preferred.
 
 ### To complete
+
+- [ ] Consider storing a local copy of the Lobotomy Corporation logo rather than relying on the external fontmeme image URL. The current overlay has a text fallback if that image cannot load.
 
 - [ ] Upload `assets/drako.png` (original transparent Drako sprite) to this `Experimental/` folder.
 - [ ] Upload `assets/aporia.png` (original transparent Aporia sprite) to this `Experimental/` folder.
@@ -35,6 +40,8 @@ Experimental/
   index.html
   style.css
   script.js
+  login.js
+  login.css
   assets/
     drako.png
     aporia.png

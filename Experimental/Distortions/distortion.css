@@ -30,3 +30,25 @@
 .transcript-glyph{font-size:26px;opacity:.65}
 .transcript-footer{border-top:1px solid #444838;background:#11130f;color:#7f826d}
 @media(max-width:700px){.distortion-heading{align-items:flex-start;flex-direction:column}.distortion-stamp{align-self:flex-end;font-size:17px}.interview-index{grid-template-columns:1fr}.interview-index>div{border-right:0;border-bottom:1px solid #4b4e3e}.interview-index>div:last-child{border-bottom:0}.transcript-meta{font-size:9px}.transcript-empty{margin:0 12px 14px;padding:14px;min-height:90px}}
+
+/* Expandable, two-sided transcript / 001 */
+.transcript-expanded{--speaker-color:#e82d39}
+.transcript-toggle{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 20px;cursor:pointer;color:var(--goldbright);font-size:12px;font-weight:700;letter-spacing:.1em;list-style:none}
+.transcript-toggle::-webkit-details-marker{display:none}
+.transcript-toggle small{display:block;margin-top:6px;color:#9d9d86;font-size:9px;font-weight:400;letter-spacing:.08em}
+.transcript-action{white-space:nowrap;font-size:10px;color:#f5c7d4}
+.transcript-action:before{content:"+";margin-right:9px;font-size:16px}
+.transcript-expanded[open] .transcript-action:before{content:"−"}
+.transcript-expanded[open] .transcript-action{font-size:0}
+.transcript-expanded[open] .transcript-action:after{content:"CLOSE RECORD";font-size:10px}
+.transcript-toggle:focus-visible{outline:2px solid #f5c7d4;outline-offset:-3px}
+.interview-legend{display:flex;justify-content:space-between;gap:12px;padding:13px 22px;border-top:1px solid #444838;border-bottom:1px solid #444838;background:#10120f;font-size:10px;letter-spacing:.08em}
+.legend-interviewer{color:#f5c7d4}.legend-respondent{color:#e82d39;text-align:right}
+.interview-dialogue{padding:22px clamp(12px,3vw,30px);display:flex;flex-direction:column;gap:16px}
+.interview-line{width:fit-content;max-width:min(79%,65ch);padding:12px 15px;border:1px solid;border-radius:3px;overflow-wrap:anywhere}
+.interview-line p{margin:6px 0 0;line-height:1.75;font-size:13px;letter-spacing:normal}
+.line-speaker{font-size:10px;letter-spacing:.12em;font-weight:700}
+.interview-line.interviewer{align-self:flex-start;border-color:#76545f;border-left:3px solid #f5c7d4;background:#241a20;color:#f5c7d4}
+.interview-line.respondent{align-self:flex-end;border-color:#6e3036;border-right:3px solid #e82d39;background:#211417;color:#ff626c;text-align:left}
+.interview-line.respondent .line-speaker{color:#e82d39}
+@media(max-width:700px){.interview-line{max-width:90%;padding:11px 12px}.interview-line p{font-size:12px}.interview-legend{padding:12px}.transcript-toggle{padding:14px 12px}}

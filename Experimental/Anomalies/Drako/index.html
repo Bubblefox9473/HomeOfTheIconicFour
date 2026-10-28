@@ -3,103 +3,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#100d0c">
-  <meta name="description" content="NNC-04 Anomaly research dossier: Drako — WAW / High.">
-  <title>Drako | NNC-04 Anomaly Dossier</title>
+  <meta name="theme-color" content="#050606">
+  <meta name="description" content="LC:NN Legacy Research — Anomaly Drako, WAW / HIGH.">
+  <title>Drako | L-Corp Legacy Research / NNC-04</title>
   <link rel="icon" type="image/svg+xml" href="../../../assets/lc-nn-branch-seal.svg">
   <link rel="stylesheet" href="../../style.css">
+  <script src="../../script.js" defer></script>
 </head>
 <body>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="site-shell" id="top">
-    <header class="masthead">
-      <a class="brand" href="../../../index.html" aria-label="Return to NetherNova Studio">
-        <img src="../../../assets/lc-nn-branch-seal.svg" alt="" width="54" height="54">
-        <span>NETHER NOVA<small>LC:NN / CORPORATE RESEARCH</small></span>
-      </a>
-      <nav class="top-nav" aria-label="Site navigation">
-        <a href="../../../index.html">STUDIO</a>
-        <a href="../../../Archive/">ARCHIVE</a>
-        <a href="../../../Gear/">GEAR</a>
-        <a href="../../../Development/">PRODUCTIONS</a>
-        <a href="../../" aria-current="page">EXPERIMENTAL</a>
+<div class="legacy-wrap" id="top">
+  <header class="legacy-head">
+    <a class="brand" href="../../../index.html" aria-label="NetherNova Corporation — Studio">
+      <img src="../../../assets/lc-nn-branch-seal.svg" width="54" height="54" alt="">
+      <span class="brand-title">NETHER NOVA<span class="brand-sub">LC:NN / L-CORP LEGACY SYSTEM</span></span>
+    </a>
+    <div class="legacy-head-right">
+      <span class="legacy-version">RESEARCH DOSSIER / AN—001<br>RESTORED FILE ACCESS</span>
+      <a class="exit-link" href="../../#registry">LEAVE ↗</a>
+    </div>
+  </header>
+  <div class="terminal-layout">
+    <aside class="sidebar" aria-label="Research navigation">
+      <div class="side-head"><i class="side-dot" aria-hidden="true"></i> LEGACY CONSOLE</div>
+      <div class="side-info">AUTHORIZED USER: NNC–04<br>RECORD SELECTED: AN—001<br>FILE ACCESS: PERMITTED</div>
+      <div class="side-label">FILE OPERATIONS</div>
+      <nav class="side-menu">
+        <a href="../../">DIVISION OVERVIEW</a>
+        <a href="../../#registry">ANOMALY LIST</a>
+        <a class="active" href="#basic-information">CURRENT DOSSIER</a>
+        <a href="#research-tabs">RESEARCH NOTES</a>
+        <a href="../../#risk-guide">DANGER LEVELS</a>
+        <a href="../../../index.html">STUDIO DIRECTORY</a>
       </nav>
-    </header>
-    <main>
+      <div class="side-divider"></div>
+      <div class="side-reading">
+        <strong><i class="signal"></i> FILE RETRIEVED</strong>
+        CURRENT SUBJECT<br>DRAKO<br><br>
+        DANGER CLASS<br><span class="risk-waw">WAW / HIGH</span><br><br>
+        MALKUTH RESONANCE / DOCUMENTED
+      </div>
+    </aside>
+    <main class="terminal-main">
+      <div class="title-rail"><span>LC:NN / ANOMALY DETAILS</span><span class="recovered">SUBJECT INFORMATION RETRIEVED</span></div>
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="../../">NNC–04</a><span>/</span>
-        <a href="../../#anomalies">ANOMALIES</a><span>/</span>
-        <b>AN—001 · DRAKO</b>
+        <a href="../../">EXPERIMENTAL DIVISION</a><span>›</span><a href="../../#registry">ANOMALIES</a><span>›</span><strong>AN—001</strong>
       </nav>
-      <article>
-        <header class="dossier-hero risk-waw">
-          <div class="dossier-copy">
-            <p class="eyebrow">NNC–04 / ANOMALY RESEARCH DOSSIER / AN—001</p>
-            <h1>Drako<em>.</em></h1>
-            <p class="dossier-lead">A past distortion, made manifest again.</p>
-            <div class="dossier-label">THREAT CLASSIFICATION / WAW — HIGH</div>
-          </div>
-          <div class="dossier-visual" aria-label="Abstract emblem for Anomaly Drako; official portrait not yet filed">
-            <div class="entity-symbol" aria-hidden="true"><span>I</span></div>
-            <p class="visual-note">PORTRAIT / NOT YET FILED · AN—001</p>
-          </div>
-        </header>
 
-        <div class="dossier-meta" aria-label="Anomaly summary">
-          <div><span>REGISTRY INDEX</span><strong>AN—001</strong></div>
-          <div><span>THREAT CLASS</span><strong class="severity-waw">WAW / HIGH</strong></div>
-          <div><span>RECORD CATEGORY</span><strong>ANOMALY</strong></div>
-          <div><span>MANIFESTATION</span><strong>MALKUTH RESONANCE</strong></div>
+      <article aria-labelledby="anomaly-name">
+        <div class="hazard-strip" aria-hidden="true"></div>
+        <div class="dossier-title" id="basic-information"><div><p>ABNORMAL ENTITY / BASIC INFORMATION</p><h1 id="anomaly-name">Drako</h1></div><div class="risk-stamp risk-waw">WAW<small>HIGH</small></div></div>
+
+        <div class="dossier-top">
+          <section class="dossier-portrait" aria-label="Drako identification portrait">
+            <div class="panel-heading"><h2>SUBJECT PORTRAIT</h2><small>AN—001</small></div>
+            <div class="portrait-stage">
+              <div class="portrait-watermark" aria-hidden="true">AN—001</div>
+              <img src="../../assets/drako.png" alt="Drako, a red-skinned character with long white hair, green eyes and dark clothing" onerror="this.hidden=true">
+            </div>
+            <div class="portrait-caption"><span>VISUAL RECORD / DRAKO</span><span>LC:NN / PORTRAIT</span></div>
+          </section>
+
+          <div class="dossier-facts">
+            <section class="facts-section" aria-labelledby="data-header">
+              <div class="fact-head" id="data-header">ABNORMALITY BASIC INFORMATION</div>
+              <dl class="facts-list">
+                <div><dt>SUBJECT NAME</dt><dd>DRAKO</dd></div>
+                <div><dt>FILE NUMBER</dt><dd>AN—001</dd></div>
+                <div><dt>RISK LEVEL</dt><dd><span class="risk-stamp risk-waw">WAW<small>HIGH</small></span></dd></div>
+                <div><dt>ENTITY TYPE</dt><dd>FORMER DISTORTION</dd></div>
+                <div><dt>ORIGIN</dt><dd>MEPHISTA / PAST STATE</dd></div>
+                <div><dt>METHOD</dt><dd>MALKUTH RESONANCE</dd></div>
+                <div><dt>QLIPHOTH COUNTER</dt><dd>NOT DETERMINED</dd></div>
+                <div><dt>DAMAGE TYPE</dt><dd>NOT DOCUMENTED</dd></div>
+                <div><dt>OBSERVATION</dt><dd>PARTIAL / ONGOING</dd></div>
+              </dl>
+            </section>
+            <div class="warning-notice"><strong>CAUTION</strong><span>Risk designation: HIGH WAW. Do not treat an available file as proof of safe manifestation.</span></div>
+          </div>
         </div>
 
-        <div class="dossier-body">
-          <div class="dossier-main">
-            <section class="dossier-section" aria-labelledby="overview-heading">
-              <p class="section-index">FILE SECTION / 01</p>
-              <h2 id="overview-heading">Overview</h2>
-              <p>Drako is Mephista’s former distortion, documented here as an individual Anomaly rather than a standard personnel identity.</p>
-              <p>Although originating from a past state of Mephista, Drako can be manifested through Malkuth Resonance in a manner comparable to an Identity.</p>
-            </section>
-            <section class="dossier-section" aria-labelledby="nature-heading">
-              <p class="section-index">FILE SECTION / 02</p>
-              <h2 id="nature-heading">Nature &amp; origin</h2>
-              <p>Drako is associated with an earlier distorted condition of Mephista. The entity represents a state that belongs to her past, yet can be expressed through resonance.</p>
-              <p>This connection establishes Drako’s origin; it does not merge Drako's record with that of any other Anomaly.</p>
-            </section>
-            <section class="dossier-section" aria-labelledby="assessment-heading">
-              <p class="section-index">FILE SECTION / 03</p>
-              <h2 id="assessment-heading">Risk assessment</h2>
-              <p>Drako holds the designation High WAW. The assessment places this Anomaly near the upper end of the WAW danger class, below the ALEPH tier.</p>
-              <p>Detailed behavioral observations, abilities, and mitigation procedures have not yet been supplied to the registry. These fields remain open rather than presumed.</p>
-            </section>
-            <section class="dossier-section" aria-labelledby="observations-heading">
-              <p class="section-index">FILE SECTION / 04</p>
-              <h2 id="observations-heading">Outstanding research</h2>
-              <p>Further documentation is required to establish manifestation limits, observable behavior, and the conditions under which resonance may be initiated or interrupted.</p>
-              <p>Any future findings will be recorded in this dossier without changing the Anomaly's separate registry status.</p>
-            </section>
-          </div>
-          <aside class="dossier-sidebar" aria-labelledby="data-title">
-            <p class="section-index">NNC–04 / SUBJECT DATA</p>
-            <h2 id="data-title">Research index</h2>
-            <div class="data-row"><span>SUBJECT</span><strong>Drako</strong></div>
-            <div class="data-row"><span>FILE IDENTIFIER</span><strong>AN—001</strong></div>
-            <div class="data-row"><span>CLASSIFICATION</span><strong class="severity-waw">WAW / HIGH</strong></div>
-            <div class="data-row"><span>DOCUMENTED ORIGIN</span><strong>Former distortion</strong></div>
-            <div class="data-row"><span>RELATION TO MEPHISTA</span><strong>Manifestation of a past state</strong></div>
-            <div class="data-row"><span>KNOWN MANIFESTATION ROUTE</span><strong>Malkuth Resonance</strong></div>
-            <div class="data-row"><span>BEHAVIORAL PROFILE</span><strong class="unverified">Awaiting records</strong></div>
-            <div class="data-row"><span>COUNTERMEASURES</span><strong class="unverified">Not documented</strong></div>
+        <div class="dossier-bottom" id="research-tabs">
+          <section class="dossier-notes" aria-labelledby="notes-title">
+            <div class="panel-heading"><h2 id="notes-title">ANOMALY INFORMATION</h2><small>RESEARCH SECTIONS</small></div>
+            <div class="tab-bar" role="tablist" aria-label="Drako research sections">
+              <button type="button" role="tab" id="tab-overview" data-tab="overview" aria-selected="true" aria-controls="panel-overview">BASIC RECORD</button>
+              <button type="button" role="tab" id="tab-management" data-tab="management" aria-selected="false" aria-controls="panel-management" tabindex="-1">MANAGEMENT</button>
+              <button type="button" role="tab" id="tab-resonance" data-tab="resonance" aria-selected="false" aria-controls="panel-resonance" tabindex="-1">RESONANCE</button>
+              <button type="button" role="tab" id="tab-history" data-tab="history" aria-selected="false" aria-controls="panel-history" tabindex="-1">CASE HISTORY</button>
+            </div>
+            <div class="tab-body">
+              <div class="tab-panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" data-panel="overview">
+                <h3>01 / INITIAL OBSERVATION</h3>
+                <p>A former distortion of Mephista. A past state can be rendered manifest through Malkuth Resonance.</p>
+                <p>The archived state is historical in origin: Drako is Mephista’s past distortion. Its appearance through Malkuth Resonance allows that earlier form to be manifested again.</p>
+                <p class="bullet-note">The archive recognizes Drako as a separate Anomaly, not simply a line item within Mephista’s personnel record. A common source does not imply identical nature, behavior, or danger.</p>
+              </div>
+              <div class="tab-panel" id="panel-management" role="tabpanel" aria-labelledby="tab-management" data-panel="management" hidden>
+                <h3>02 / MANAGEMENT GUIDELINES</h3>
+                <p>The record establishes that Drako can manifest through Malkuth Resonance. The circumstances required to safely sustain, stop, or regulate that manifestation have not yet been documented.</p>
+                <ul><li>MANIFESTATION CONTROL — DATA PENDING</li><li>BREACH RESPONSE — DATA PENDING</li><li>BEHAVIORAL PARAMETERS — DATA PENDING</li></ul>
+              </div>
+              <div class="tab-panel" id="panel-resonance" role="tabpanel" aria-labelledby="tab-resonance" data-panel="resonance" hidden>
+                <h3>03 / MALKUTH RESONANCE</h3>
+                <p>Malkuth Resonance is the documented means of manifesting Drako. The entity represents a past distortion, not an alternative future created by Holy Ichor.</p>
+                <p>Manifestation conditions and limitations remain to be documented.</p>
+              </div>
+              <div class="tab-panel" id="panel-history" role="tabpanel" aria-labelledby="tab-history" data-panel="history" hidden>
+                <h3>04 / CASE HISTORY</h3>
+                <p>A prior distorted state of Mephista is the known historical source of Drako. How that state persisted in a manifestable form remains an open research subject.</p>
+                <p class="bullet-note">HIGH WAW. This designation places Drako near the upper end of the WAW class; it is not an ALEPH classification.</p>
+              </div>
+            </div>
+          </section>
+
+          <aside class="dossier-related" aria-labelledby="related-title">
+            <div class="panel-heading"><h2 id="related-title">RELATED RECORDS</h2><small>CROSS-REFERENCE</small></div>
+            <div class="related-body">
+              <div class="micro">ARCHIVE STATUS / PARTIAL</div>
+              <p>This entity is documented separately from all other manifestations. Its relationship to Mephista is part of its recorded origin, not its registry classification.</p>
+              <div class="warning-notice" style="margin-top:16px"><strong>NOTE</strong><span>Origin linkage: FORMER DISTORTION.</span></div>
+              <a class="related-link" href="../Aporia/">APORIA ↗<small>AN—002 / OPEN RELATED ANOMALY</small></a>
+              <a class="back-link" href="../../#registry">← RETURN TO ANOMALY LIST</a>
+            </div>
           </aside>
-        </div>
-        <div class="dossier-bottom">
-          <p class="section-index">RELATED DOCUMENT / ANOMALY REGISTRY</p>
-          <a class="related-record" href="../Aporia/"><div><span>OPEN NEXT DOSSIER / AN—002</span><br><strong>Aporia</strong></div><span aria-hidden="true">VIEW RECORD ↗</span></a>
-          <p style="margin-top:30px"><a class="small-link" href="../../#anomalies">← RETURN TO ANOMALY REGISTRY</a></p>
         </div>
       </article>
     </main>
-    <footer class="footer"><span>NETHER NOVA CORPORATION / LC:NN</span><span>NNC–04 · AN—001 · RESEARCH FILE</span><a href="../../">EXPERIMENTAL DIVISION ↗</a></footer>
   </div>
+  <footer class="footer"><span>LC:NN / NETHER NOVA CORPORATION</span><span>LEGACY RESEARCH / AN—001</span><a href="../../">EXPERIMENTAL DIVISION ↗</a></footer>
+</div>
 </body>
 </html>

@@ -6,11 +6,56 @@
   <meta name="theme-color" content="#050606">
   <meta name="description" content="NNC-04 — recovered L-Corp research systems and the NetherNova anomaly registry.">
   <title>NNC-04 | Legacy Research Terminal</title>
+  <!-- Consume the homepage entry flag before rendering, preventing a flash of the page. -->
+  <script>
+    (() => {
+      const key = 'nnc04:legacy-login-entry';
+      let authorizedEntry = false;
+      try {
+        const timestamp = Number(sessionStorage.getItem(key));
+        sessionStorage.removeItem(key);
+        authorizedEntry = timestamp > 0 && (Date.now() - timestamp) >= 0 && (Date.now() - timestamp) < 15000;
+      } catch { /* Private browsing may deny session storage. */ }
+      if (authorizedEntry && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('legacy-boot-pending');
+      }
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="../assets/lc-nn-branch-seal.svg">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
   <script src="script.js" defer></script>
+  <script src="login.js" defer></script>
 </head>
 <body>
+<!-- Decorative, non-authenticating recovered L-Corp login cinematic. Runs only from Studio. -->
+<div id="legacy-login" role="dialog" aria-modal="true" aria-label="Lobotomy Corporation legacy administration access">
+  <div class="legacy-login-frame">
+    <div class="legacy-login-head">
+      <span>LOBCORP / LEGACY ADMINISTRATION</span>
+      <span>LC:NN — SYSTEM 04</span>
+    </div>
+    <div class="legacy-login-emblem" aria-label="Original Lobotomy Corporation logo">
+      <img id="legacy-original-logo" src="https://fontmeme.com/images/lobcorp-logo-font.png" alt="Lobotomy Corporation, Face the Fear, Build the Future" width="500" height="500" decoding="async">
+      <div class="legacy-login-logo-fallback" id="legacy-login-logo-fallback" hidden aria-hidden="true">LOBOTOMY<span>CORPORATION</span><small>FACE THE FEAR, BUILD THE FUTURE</small></div>
+    </div>
+    <div class="legacy-login-credential">
+      <div class="legacy-login-credential-header">
+        <span>ADMINISTRATOR AUTHORIZATION</span>
+        <span>LEGACY / v.04</span>
+      </div>
+      <div class="legacy-login-credential-body">
+        <div class="legacy-login-sequence" id="legacy-login-message" role="status" aria-live="polite">LOADING ARCHIVED CREDENTIALS...</div>
+        <div class="legacy-login-progress" aria-hidden="true"><div class="legacy-login-progress-fill"></div></div>
+        <div class="legacy-login-meta"><span>USER: NNC–04 / MANAGER</span><span>STORAGE: L-CORP REMNANT</span></div>
+      </div>
+    </div>
+    <div class="legacy-login-bottom">
+      <small>THIS IS A RECONSTRUCTED ARCHIVAL INTERFACE<br>NO REAL AUTHENTICATION REQUIRED</small>
+      <button class="legacy-login-skip" type="button" id="legacy-login-skip">SKIP INTRO ↗</button>
+    </div>
+  </div>
+</div>
 <div class="legacy-wrap" id="top">
   <header class="legacy-head">
     <a class="brand" href="../index.html" aria-label="NetherNova Corporation — Studio">

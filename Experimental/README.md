@@ -14,6 +14,7 @@ The Experimental Division has been rebuilt as a recovered L-Corp research termin
 - [x] Build Drako's research dossier as AN—001 / High WAW.
 - [x] Build Aporia's research dossier as AN—002 / Mid ALEPH.
 - [x] Add switchable research tabs and keyboard-accessible tab navigation.
+- [x] Replace the Resonance tab with Capabilities in both dossiers; distinguish Dante's Durante summoning from an Anomaly's own origin and powers.
 - [x] Add portrait image references with numeric placeholders when assets are not uploaded.
 
 ### To complete
@@ -48,8 +49,9 @@ Both the registry and dossiers already point to those exact paths. They will sho
 
 ## Lore retained
 
-- Drako: former distortion of Mephista; manifestable via Malkuth Resonance; **High WAW**.
-- Aporia: an improbable outcome made possible by Mephista's consumption of Holy Ichor; manifestable via Malkuth Resonance; **Mid ALEPH**.
+- Drako: Mephista’s former distortion, catalogued as a separate Anomaly; **High WAW**.
+- Aporia: an improbable outcome made possible by Mephista’s consumption of Holy Ichor, catalogued separately; **Mid ALEPH**.
 - Both remain separate Anomaly records.
+- Malkuth Resonance is a Durante ability used by Dante to manifest Sinner Identities when those Sinners are not nearby. It is not Drako’s or Aporia’s innate ability, nor the origin of either Anomaly.
 - The interface is a fictional recovered old L-Corp system, now used by NetherNova as an LC:NN branch.
 - Unprovided damage values, behavioral rules, and Qliphoth mechanics are deliberately not fabricated.

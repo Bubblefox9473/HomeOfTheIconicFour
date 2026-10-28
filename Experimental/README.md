@@ -10,6 +10,7 @@ The Experimental Division has been rebuilt as a recovered L-Corp research termin
 - [x] Restyle all NNC-04 pages with Lobotomy Corporation-inspired pale-gold borders, black panels, warning stripes, and color-coded risk classes.
 - [x] Keep all five classes (ZAYIN, TETH, HE, WAW, ALEPH) and NNC's within-tier severity scale (Low / Mid / High).
 - [x] Build searchable, filterable Anomalies registry.
+- [x] Create linked DP—001 Distortion Phenomenon research page with LCD collaboration framing and three empty respondent-only, color-coded transcript slots; no fictional dialogue added.
 - [x] Keep Drako and Aporia as two separate Anomalies.
 - [x] Build Drako's research dossier as AN—001 / High WAW.
 - [x] Populate Drako’s Capabilities and Management tabs with confirmed Hellfire mechanics, fire immunity, agility, E.G.O restriction, cooperation, and SP-dependent aggression/recovery.
@@ -23,6 +24,9 @@ The Experimental Division has been rebuilt as a recovered L-Corp research termin
 - [x] Skip the cinematic on dossier return, direct visits, history restoration, or when reduced motion is preferred.
 
 ### To complete
+
+- [ ] Add actual Distortion interview respondents, assigned colors, and approved transcript text when provided.
+- [ ] Review and refine the provisional Distortion summary against LCD reference material before treating it as definitive.
 
 - [ ] Consider storing a local copy of the Lobotomy Corporation logo rather than relying on the external fontmeme image URL. The current overlay has a text fallback if that image cannot load.
 

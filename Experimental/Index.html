@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#100d0c">
+  <meta name="description" content="NNC-04 Experimental Division: classified Anomalies, danger assessment and research dossiers.">
+  <title>Experimental Division | NetherNova Corporation</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/lc-nn-branch-seal.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="site-shell" id="top">
+    <header class="masthead">
+      <a class="brand" href="../index.html" aria-label="Return to NetherNova Studio">
+        <img src="../assets/lc-nn-branch-seal.svg" alt="" width="54" height="54">
+        <span>NETHER NOVA<small>LC:NN / CORPORATE RESEARCH</small></span>
+      </a>
+      <nav class="top-nav" aria-label="Site navigation">
+        <a href="../index.html">STUDIO</a>
+        <a href="../Archive/">ARCHIVE</a>
+        <a href="../Gear/">GEAR</a>
+        <a href="../Development/">PRODUCTIONS</a>
+        <span aria-current="page">EXPERIMENTAL</span>
+      </nav>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">NNC–04 / RESTRICTED RESEARCH DIVISION</p>
+          <h1 id="page-title">The Experimental<br><em>Division.</em></h1>
+          <p class="hero-desc">Not everything in the City can be filed as personnel, equipment, or production. Here, NetherNova documents the entities and phenomena that resist ordinary classification.</p>
+          <a class="hero-link" href="#anomalies">OPEN ANOMALY REGISTRY ↘</a>
+        </div>
+        <div class="hero-diagram" aria-hidden="true">
+          <div class="diagram-top"><span>SUBJECT ANALYSIS / NNC–04</span><span>ACCESS GRANTED</span></div>
+          <div class="reticle"><div class="reticle-core">04</div></div>
+          <div class="diagram-bottom"><span>RESONANCE / OBSERVATION</span><span>FIG. 04—01</span></div>
+        </div>
+      </section>
+      <div class="status-strip" aria-label="Division status">
+        <div><span>DIVISION STATUS</span><strong><i class="live-dot" aria-hidden="true"></i>ACTIVE / RESTRICTED</strong></div>
+        <div><span>DOCUMENTED ANOMALIES</span><strong>002 ENTRIES</strong></div>
+        <div><span>HIGHEST RECORDED THREAT</span><strong style="color:var(--aleph)">ALEPH / MID</strong></div>
+      </div>
+
+      <section class="registry-section" id="anomalies" aria-labelledby="anomalies-title">
+        <div class="section-head">
+          <div><p class="section-index">REGISTER / I — DOCUMENTED ENTITIES</p><h2 class="section-title" id="anomalies-title">Anomalies<span style="color:var(--copper)">.</span></h2></div>
+          <p class="section-aside">NNC–04 / SUBJECT FILES<br>SELECT AN ENTRY TO INSPECT ITS DOSSIER</p>
+        </div>
+        <p class="section-subtitle">Separate records for entities that demand individual assessment. Risk classifications indicate the projected danger of an uncontrolled manifestation, not simply combat strength.</p>
+        <div class="registry-controls" role="search" aria-label="Search anomaly registry">
+          <div class="search-field">
+            <label for="anomaly-search">FIND AN ANOMALY</label>
+            <input id="anomaly-search" type="search" placeholder="Search names, files or origin…" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="risk-filters" role="group" aria-label="Filter by danger level">
+            <button type="button" data-filter="all" aria-pressed="true">ALL</button>
+            <button type="button" data-filter="zayin" aria-pressed="false">ZAYIN</button>
+            <button type="button" data-filter="teth" aria-pressed="false">TETH</button>
+            <button type="button" data-filter="he" aria-pressed="false">HE</button>
+            <button type="button" data-filter="waw" aria-pressed="false">WAW</button>
+            <button type="button" data-filter="aleph" aria-pressed="false">ALEPH</button>
+          </div>
+          <output class="result-count" id="result-count" aria-live="polite">02 / 02 RECORDS</output>
+        </div>
+        <div class="record-list" id="anomaly-list">
+          <a class="record" href="Anomalies/Drako/" data-tier="waw" data-search="an-001 drako past distortion mephista malkuth resonance waw high">
+            <div class="record-id">AN—001<br>FILE 01 / 02</div>
+            <div class="record-info">
+              <span class="record-tag">RESONANT MANIFESTATION / PAST STATE</span>
+              <h3>Drako</h3>
+              <p>A former distortion of Mephista, manifestable through Malkuth Resonance.</p>
+            </div>
+            <div class="record-risk"><div class="risk-pill waw">WAW<small>HIGH</small></div><span class="record-arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="record" href="Anomalies/Aporia/" data-tier="aleph" data-search="an-002 aporia holy ichor improbable outcome mephista malkuth resonance aleph mid">
+            <div class="record-id">AN—002<br>FILE 02 / 02</div>
+            <div class="record-info">
+              <span class="record-tag">RESONANT MANIFESTATION / DIVERGENT OUTCOME</span>
+              <h3>Aporia</h3>
+              <p>An improbable outcome brought into possibility by the consumption of Holy Ichor.</p>
+            </div>
+            <div class="record-risk"><div class="risk-pill aleph">ALEPH<small>MID</small></div><span class="record-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </div>
+        <p class="empty-state" id="empty-state" hidden>No anomalies match the current search and danger-level filter.</p>
+        <p class="pending">END OF CURRENT ANOMALY REGISTER // ADDITIONAL ENTRIES PENDING DOCUMENTATION</p>
+      </section>
+
+      <section class="classification-section" id="classification" aria-labelledby="classification-title">
+        <div class="section-head">
+          <div><p class="section-index">REFERENCE / II — RISK ASSESSMENT</p><h2 class="section-title" id="classification-title">Danger classification<span style="color:var(--copper)">.</span></h2></div>
+          <p class="section-aside">FIVE-CLASS SCALE<br>INTERNAL SEVERITY SUBDIVISIONS</p>
+        </div>
+        <p class="classification-intro">NNC–04 adopts the ZAYIN–ALEPH scale for its anomaly records. Each tier may be qualified as Low, Mid, or High to distinguish severity within the same classification. The subdivision is an internal NetherNova convention.</p>
+        <div class="risk-scale" aria-label="Danger levels from minimal to extreme">
+          <div class="scale-item" data-tier="zayin"><span class="tier-number">CLASS / 01</span><strong>ZAYIN</strong><p>Minimal threat</p></div>
+          <div class="scale-item" data-tier="teth"><span class="tier-number">CLASS / 02</span><strong>TETH</strong><p>Low threat</p></div>
+          <div class="scale-item" data-tier="he"><span class="tier-number">CLASS / 03</span><strong>HE</strong><p>Moderate threat</p></div>
+          <div class="scale-item" data-tier="waw"><span class="tier-number">CLASS / 04</span><strong>WAW</strong><p>High threat</p><span class="tier-marker waw">● DRAKO / HIGH</span></div>
+          <div class="scale-item" data-tier="aleph"><span class="tier-number">CLASS / 05</span><strong>ALEPH</strong><p>Extreme threat</p><span class="tier-marker aleph">● APORIA / MID</span></div>
+        </div>
+        <p class="severity-note"><b>INTERNAL GRADING:</b> LOW → MID → HIGH. Threat levels describe expected severity if an anomaly manifests outside controlled conditions; no containment claim is implied.</p>
+      </section>
+
+      <section class="other-section" aria-labelledby="other-title">
+        <div class="section-head">
+          <div><p class="section-index">DIRECTORY / III — EXPANDING THE DIVISION</p><h2 class="section-title" id="other-title">Further research<span style="color:var(--copper)">.</span></h2></div>
+          <p class="section-aside">FUTURE RECORD GROUPS<br>NO FILES CURRENTLY RELEASED</p>
+        </div>
+        <div class="other-grid">
+          <div class="other-card"><span>RESEARCH CATEGORY / RESERVED</span><h3>Unexplained Phenomena</h3><p>A space for unusual events, locations, and effects that cannot be catalogued as individual Anomalies.</p></div>
+          <div class="other-card"><span>RESEARCH CATEGORY / RESERVED</span><h3>Experimental Projects</h3><p>A space for prototypes, investigations, and other work that has not yet been entered into the department's records.</p></div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"><span>NETHER NOVA CORPORATION / LC:NN</span><span>DEPARTMENT 04 · EXPERIMENTAL RESEARCH</span><span><a href="../index.html">RETURN TO STUDIO ↗</a></span></footer>
+  </div>
+</body>
+</html>

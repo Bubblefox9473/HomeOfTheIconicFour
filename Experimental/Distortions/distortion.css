@@ -1,0 +1,32 @@
+/* DP—001 / Distortion research and respondent-only transcript layout */
+.distortion-heading{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:30px clamp(18px,4vw,46px);border:1px solid #74775b;background:radial-gradient(circle at 80% 35%,#2b221e 0,transparent 45%),linear-gradient(120deg,#171913,#090b0a);margin-bottom:24px}
+.distortion-kicker{font-size:11px;letter-spacing:.17em;color:var(--hazard)}
+.distortion-heading h1{font:800 clamp(38px,5.3vw,76px)/.94 'Barlow Condensed',sans-serif;letter-spacing:.045em;margin:18px 0;color:var(--goldbright)}
+.distortion-heading h1 em{font-style:normal;color:#c68a64}
+.distortion-heading p{font-size:10px;color:var(--muted);letter-spacing:.13em}
+.distortion-stamp{border:2px solid #bd845d;color:#e1a778;transform:rotate(5deg);font:800 21px/1.1 'Barlow Condensed',sans-serif;text-align:center;letter-spacing:.12em;padding:17px;flex-shrink:0}
+.distortion-stamp small{display:block;font:10px 'IBM Plex Mono',monospace;margin-top:10px}
+.distortion-overview,.distortion-interviews{margin:24px 0 32px}
+.distortion-copy{border:1px solid #5b5d49;border-top:0;padding:22px clamp(17px,3vw,36px);background:#10120f}
+.distortion-copy p{max-width:76ch;color:#c9c8ad;line-height:1.85;margin:0 0 16px}
+.distortion-copy strong{color:var(--goldbright)}
+.distortion-copy .distortion-caution{border-left:3px solid var(--hazard);padding:12px 16px;margin:24px 0 0;background:#231c14;color:#e1b58c;font-size:11px}
+.interview-index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid #666950;margin:22px 0;background:#151711}
+.interview-index>div{padding:16px;border-right:1px solid #4b4e3e;min-width:0}
+.interview-index>div:last-child{border-right:0}
+.interview-index span,.interview-index strong{display:block}
+.interview-index span{font-size:10px;color:var(--muted);margin-bottom:8px}
+.interview-index strong{font-size:11px;color:var(--goldbright);overflow-wrap:anywhere}
+.transcript-stack{display:grid;gap:18px}
+.transcript-record{--speaker-color:#b2a18a;border:1px solid #656951;background:linear-gradient(110deg,#171913,#0b0d0b);position:relative}
+.transcript-record:nth-child(2){--speaker-color:#8aaeb1}
+.transcript-record:nth-child(3){--speaker-color:#b1a0bc}
+.transcript-meta,.transcript-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 16px;font-size:10px;letter-spacing:.07em;color:#b4b397;background:#202218}
+.transcript-meta span:first-child{color:var(--hazard)}
+.transcript-identity{display:flex;align-items:center;gap:10px;margin:20px 22px 8px;color:var(--speaker-color);font-size:11px;letter-spacing:.1em}
+.speaker-mark{display:inline-block;width:9px;height:9px;background:var(--speaker-color);transform:rotate(45deg)}
+.transcript-empty{margin:0 22px 20px;min-height:118px;border-left:2px solid var(--speaker-color);display:flex;align-items:center;gap:14px;padding:18px 24px;background:rgba(255,255,255,.018);color:var(--speaker-color)}
+.transcript-empty p{letter-spacing:.15em;opacity:.7}
+.transcript-glyph{font-size:26px;opacity:.65}
+.transcript-footer{border-top:1px solid #444838;background:#11130f;color:#7f826d}
+@media(max-width:700px){.distortion-heading{align-items:flex-start;flex-direction:column}.distortion-stamp{align-self:flex-end;font-size:17px}.interview-index{grid-template-columns:1fr}.interview-index>div{border-right:0;border-bottom:1px solid #4b4e3e}.interview-index>div:last-child{border-bottom:0}.transcript-meta{font-size:9px}.transcript-empty{margin:0 12px 14px;padding:14px;min-height:90px}}

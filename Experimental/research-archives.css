@@ -1,0 +1,7 @@
+.research-feature{display:block;text-decoration:none;border:1px solid #79785c;background:linear-gradient(110deg,#22241a,#10130f);padding:24px clamp(17px,3vw,32px);margin:18px 0;color:#c9c8ad;transition:border-color .2s}
+.research-feature:hover,.research-feature:focus-visible{border-color:#dfbb75}
+.research-feature-top,.research-feature-bottom{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font:10px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#b1ad8d}
+.research-feature h3{font:800 clamp(27px,3vw,39px)/1.1 'Barlow Condensed',sans-serif;letter-spacing:.07em;color:#e1d6a4;margin:20px 0 10px}
+.research-feature p{font-size:12px;line-height:1.8;max-width:72ch;margin:0 0 23px}
+.research-feature-bottom{border-top:1px solid #4b4d3b;padding-top:14px}
+.research-feature-bottom strong{color:#e1bd78}

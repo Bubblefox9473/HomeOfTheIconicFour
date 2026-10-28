@@ -73,7 +73,7 @@ html.legacy-boot-pending.legacy-boot-dismiss #legacy-login {opacity: 0; pointer-
 }
 .legacy-login-emblem {
   width: min(530px, 86%);
-  aspect-ratio: 500 / 340;
+  aspect-ratio: 3 / 1;
   overflow: hidden;
   position: relative;
   margin: clamp(15px, 3vh, 27px) auto 4px;
@@ -86,6 +86,8 @@ html.legacy-boot-pending .legacy-login-emblem {animation: legacy-logo-enter .8s 
   width: 100%;
   height: auto;
   mix-blend-mode: screen;
+  /* Crop the source image's large top/bottom black margins, preserving the full original mark. */
+  transform: translateY(-33%);
 }
 .legacy-login-logo-fallback {
   font: 800 clamp(35px, 7vw, 67px)/.92 "Barlow Condensed", sans-serif;

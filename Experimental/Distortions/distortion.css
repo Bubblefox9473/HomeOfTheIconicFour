@@ -60,3 +60,13 @@
 .transcript-002 .interview-line.respondent{border-color:#326386;border-right-color:#6cb4ee;background:#142431;color:#a2d6ff}
 .transcript-002 .interview-line.interviewer .line-speaker{color:#007fff}
 .transcript-002 .interview-line.respondent .line-speaker{color:#6cb4ee}
+
+/* Transcript 003 / Orange LC:NN interviewer + Purple respondent #19 */
+.transcript-003 .legend-interviewer,
+.transcript-003 .interview-line.interviewer .line-speaker{color:#f59e42}
+.transcript-003 .legend-respondent,
+.transcript-003 .interview-line.respondent .line-speaker{color:#b68aff}
+.transcript-003 .interview-line.interviewer{border-color:#82532e;border-left:3px solid #f59e42;background:#291c13;color:#ffd0a0}
+.transcript-003 .interview-line.respondent{border-color:#654184;border-right:3px solid #b68aff;background:#21182c;color:#dfbfff}
+.transcript-003 .transcript-action{color:#b68aff}
+.transcript-003 .transcript-toggle:focus-visible{outline-color:#b68aff}

@@ -36,12 +36,12 @@
 .transcript-toggle{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 20px;cursor:pointer;color:var(--goldbright);font-size:12px;font-weight:700;letter-spacing:.1em;list-style:none}
 .transcript-toggle::-webkit-details-marker{display:none}
 .transcript-toggle small{display:block;margin-top:6px;color:#9d9d86;font-size:9px;font-weight:400;letter-spacing:.08em}
-.transcript-action{white-space:nowrap;font-size:10px;color:#f5c7d4}
+.transcript-action{white-space:nowrap;font-size:10px;color:var(--goldbright)}
 .transcript-action:before{content:"+";margin-right:9px;font-size:16px}
 .transcript-expanded[open] .transcript-action:before{content:"−"}
 .transcript-expanded[open] .transcript-action{font-size:0}
 .transcript-expanded[open] .transcript-action:after{content:"CLOSE RECORD";font-size:10px}
-.transcript-toggle:focus-visible{outline:2px solid #f5c7d4;outline-offset:-3px}
+.transcript-toggle:focus-visible{outline:2px solid var(--goldbright);outline-offset:-3px}
 .interview-legend{display:flex;justify-content:space-between;gap:12px;padding:13px 22px;border-top:1px solid #444838;border-bottom:1px solid #444838;background:#10120f;font-size:10px;letter-spacing:.08em}
 .legend-interviewer{color:#f5c7d4}.legend-respondent{color:#e82d39;text-align:right}
 .interview-dialogue{padding:22px clamp(12px,3vw,30px);display:flex;flex-direction:column;gap:16px}
@@ -68,5 +68,9 @@
 .transcript-003 .interview-line.respondent .line-speaker{color:#b68aff}
 .transcript-003 .interview-line.interviewer{border-color:#82532e;border-left:3px solid #f59e42;background:#291c13;color:#ffd0a0}
 .transcript-003 .interview-line.respondent{border-color:#654184;border-right:3px solid #b68aff;background:#21182c;color:#dfbfff}
-.transcript-003 .transcript-action{color:#b68aff}
-.transcript-003 .transcript-toggle:focus-visible{outline-color:#b68aff}
+
+/* Unified archive controls: gold for action text, focus and expanded records. */
+.transcript-record:focus-within{border-color:var(--goldbright);box-shadow:0 0 0 1px rgba(200,164,93,.35)}
+.transcript-expanded[open]{border-color:var(--goldbright)}
+.transcript-record:hover{border-color:#8a8d6f}
+.transcript-expanded[open]:hover,.transcript-record:focus-within:hover{border-color:var(--goldbright)}

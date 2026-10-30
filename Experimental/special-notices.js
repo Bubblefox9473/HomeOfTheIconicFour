@@ -14,7 +14,8 @@
   const description = inspector.querySelector("#notices-inspector-description");
   const status = inspector.querySelector("#notices-inspector-status");
   const link = inspector.querySelector("#notices-inspector-link");
-  if (folders.length !== 4 || !number || !category || !name || !description || !status || !link) return;
+  const putBack = inspector.querySelector("#notices-clear-selection");
+  if (folders.length !== 4 || !number || !category || !name || !description || !status || !link || !putBack) return;
 
   const records = {
     nyx: {
@@ -51,9 +52,44 @@
     }
   };
 
+
+  let selectedId = null;
+
+  // An empty inspection panel is the default, and also the state after returning a file.
+  function clearSelection() {
+    selectedId = null;
+    inspector.dataset.selection = "none";
+    folders.forEach(folder => {
+      folder.classList.remove("is-selected");
+      folder.setAttribute("aria-pressed", "false");
+    });
+    number.textContent = "— / 04";
+    category.textContent = cabinet.dataset.drawer === "closed"
+      ? "ARCHIVE CABINET / CLOSED"
+      : "FILE INDEX / STANDBY";
+    name.textContent = cabinet.dataset.drawer === "closed" ? "DRAWER CLOSED" : "NO FILE SELECTED";
+    description.textContent = cabinet.dataset.drawer === "closed"
+      ? "Open the drawer to select and inspect a folder."
+      : "Select a folder above to inspect its filing status.";
+    status.textContent = cabinet.dataset.drawer === "closed" ? "NO FILE IN VIEW" : "AWAITING SELECTION";
+    status.dataset.status = "idle";
+    link.hidden = true;
+    link.removeAttribute("href");
+    putBack.hidden = true;
+  }
+
   function selectFile(id) {
     const file = Object.hasOwn(records, id) ? records[id] : null;
     if (!file || cabinet.dataset.drawer !== "open") return;
+
+    // Click the current folder again to slide it back and clear the inspector.
+    if (selectedId === id) {
+      clearSelection();
+      return;
+    }
+
+    selectedId = id;
+    inspector.dataset.selection = id;
     folders.forEach(folder => {
       const selected = folder.dataset.notice === id;
       folder.classList.toggle("is-selected", selected);
@@ -68,24 +104,32 @@
     link.hidden = !file.url;
     if (file.url) link.setAttribute("href", file.url);
     else link.removeAttribute("href");
+    putBack.hidden = false;
   }
 
   function setDrawer(open) {
-    cabinet.dataset.drawer = open ? "open" : "closed";
+    // Returning the drawer always returns the selected folder first.
+    if (!open) {
+      if (drawer.contains(document.activeElement)) toggle.focus();
+      cabinet.dataset.drawer = "closed";
+      clearSelection();
+    } else {
+      cabinet.dataset.drawer = "open";
+      clearSelection();
+    }
     drawer.inert = !open;
     toggle.setAttribute("aria-expanded", String(open));
     handleLabel.textContent = open ? "CLOSE DRAWER" : "OPEN DRAWER";
-    if (!open && drawer.contains(document.activeElement)) toggle.focus();
   }
 
   for (const folder of folders) {
     folder.addEventListener("click", () => selectFile(folder.dataset.notice));
   }
+  putBack.addEventListener("click", clearSelection);
   toggle.addEventListener("click", () => {
     setDrawer(cabinet.dataset.drawer !== "open");
   });
 
-  // Nyx is the previewed file by default; the other names remain pending.
+  // Start with no file pulled out; only visitors initiate a selection.
   setDrawer(true);
-  selectFile("nyx");
 })();

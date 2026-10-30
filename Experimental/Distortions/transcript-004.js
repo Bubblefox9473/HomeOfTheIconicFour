@@ -128,7 +128,7 @@ Moses: Why do you ask?
 Moses: Hm. Very well.
 #17: Thank you for your time.
 Moses: Of course.
-/*__TRANSCRIPT_004_DATA__*/
+
 `;
   const lines = raw.trim().split("\n").map(line => {
     const match = line.match(/^(LCD Team Leader: Moses|Moses|#17): (.*)$/);

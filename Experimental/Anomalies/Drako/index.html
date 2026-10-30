@@ -8,7 +8,9 @@
   <title>Drako | L-Corp Legacy Research / NNC-04</title>
   <link rel="icon" type="image/svg+xml" href="../../../assets/lc-nn-branch-seal.svg">
   <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="observation.css">
   <script src="../../script.js" defer></script>
+  <script src="observation.js" defer></script>
 </head>
 <body>
 <div class="legacy-wrap" id="top">
@@ -31,6 +33,7 @@
         <a href="../../">DIVISION OVERVIEW</a>
         <a href="../../#registry">ANOMALY LIST</a>
         <a class="active" href="#basic-information">CURRENT DOSSIER</a>
+        <a href="#observation-suite">OBSERVATION SIMULATION</a>
         <a href="#research-tabs">RESEARCH NOTES</a>
         <a href="../../#risk-guide">DANGER LEVELS</a>
         <a href="../../../index.html">STUDIO DIRECTORY</a>
@@ -81,6 +84,49 @@
             <div class="warning-notice"><strong>CAUTION</strong><span>Risk designation: HIGH WAW. Do not treat an available file as proof of safe manifestation.</span></div>
           </div>
         </div>
+
+        <section class="observation-suite" id="observation-suite" aria-labelledby="observation-title">
+          <header class="observation-heading">
+            <div>
+              <span class="observation-kicker">ARCHIVAL STAGE / AN—001 / INTERACTIVE STUDY</span>
+              <h2 id="observation-title">OBSERVATION CHAMBER / DRAKO</h2>
+            </div>
+            <span class="observation-status">VISUALIZATION / NOT LIVE</span>
+          </header>
+          <div class="observation-shell">
+            <div class="observation-view" id="drako-observation-view" data-lights="on" data-filter="off" data-static="off" data-shutter="open" role="img" aria-label="Simulated containment-style observation window showing the recorded portrait of Drako behind reflective glass">
+              <div class="observation-spotlight" aria-hidden="true"></div>
+              <div class="observation-grid" aria-hidden="true"></div>
+              <img class="observation-portrait" src="../../assets/drako.png" alt="" loading="lazy" onerror="this.hidden=true">
+              <div class="observation-glass" aria-hidden="true"></div>
+              <div class="observation-scan" aria-hidden="true"></div>
+              <div class="observation-noise" aria-hidden="true"></div>
+              <div class="observation-shutter" aria-hidden="true"><span>OBSERVATION WINDOW SEALED</span></div>
+              <div class="observation-readout" aria-hidden="true">
+                <span>VIEW / AN—001<br><strong>WAW · HIGH</strong></span>
+                <span>RECONSTRUCTED IMAGE<br>NO LIVE TELEMETRY</span>
+              </div>
+              <div class="observation-footer" aria-hidden="true">
+                <span>LC:NN / VISUAL ARCHIVE</span>
+                <span>SIM—001 / DRK</span>
+              </div>
+            </div>
+            <aside class="observation-control-panel" aria-label="Observation visualization controls">
+              <div class="observation-panel-header">OPERATOR INTERFACE<strong>VISUAL FEED / 01</strong></div>
+              <div class="observation-controls">
+                <button type="button" data-observation-control="lights" aria-pressed="true">LAMPS / ON</button>
+                <button type="button" data-observation-control="filter" aria-pressed="false">COGNITIVE FILTER / OFF</button>
+                <button type="button" data-observation-control="static" aria-pressed="false">SIGNAL INTERFERENCE / OFF</button>
+                <button type="button" data-observation-control="shutter" aria-pressed="false">SEAL OBSERVATION WINDOW</button>
+              </div>
+              <div class="observation-control-status" role="status" aria-live="polite">
+                <strong>DISPLAY STATE / AN—001</strong>
+                <span id="drako-observation-status">WINDOW OPEN / LIGHTS ON / FILTER BYPASSED / SIGNAL NORMAL — SIMULATED VISUAL ONLY.</span>
+              </div>
+            </aside>
+          </div>
+          <div class="observation-disclaimer">RESEARCH NOTICE / This is an interactive visual reconstruction using existing archive artwork, not footage or evidence of Drako having been physically detained in a containment chamber. Controls affect the presentation only.</div>
+        </section>
 
         <div class="dossier-bottom" id="research-tabs">
           <section class="dossier-notes" aria-labelledby="notes-title">

@@ -1,4 +1,4 @@
-/* Local-only Neutral04 player. No copyrighted track is distributed by this site. */
+/* Optional Neutral04 playback. Tries an authorized bundled asset first; local upload is a fallback. */
 (() => {
   const station = document.getElementById("facility-audio");
   if (!station) return;
@@ -11,6 +11,9 @@
   if (!audio || !fileInput || !play || !mute || !volume || !status) return;
 
   const settingsKey = "nnc04:facility-audio:volume";
+  const bundledTrackPath = "assets/CustomBackgroundMusic.mp3";
+  const fileLabel = station.querySelector(".audio-file-label");
+  let sourceType = "none";
   let objectUrl = null;
   let hasTrack = false;
   function setStatus(message) { status.textContent = message; }
@@ -47,6 +50,7 @@
     audio.src = objectUrl;
     audio.load();
     hasTrack = true;
+    sourceType = "local";
     setStatus("LOCAL TRACK READY — PRESS PLAY TO BEGIN.");
     sync();
   });
@@ -59,7 +63,7 @@
     }
     try {
       await audio.play();
-      setStatus("LOCAL PLAYBACK ACTIVE / LOOP ENABLED.");
+      setStatus((sourceType === "bundled" ? "FACILITY" : "LOCAL") + " PLAYBACK ACTIVE / LOOP ENABLED.");
     } catch {
       setStatus("PLAYBACK BLOCKED OR FILE UNSUPPORTED — TRY ANOTHER FORMAT.");
     }
@@ -82,6 +86,25 @@
     setStatus("COULD NOT DECODE TRACK — TRY MP3, OGG, OR WAV.");
     sync();
   });
+  // When an authorized MP3 is hosted at this path, visitors can play it
+  // immediately without selecting a file. No sound starts automatically.
+  async function findBundledTrack() {
+    try {
+      const response = await fetch(bundledTrackPath, { method: "HEAD", cache: "no-store" });
+      const contentType = (response.headers.get("content-type") || "").toLowerCase();
+      if (!response.ok || contentType.includes("text/html") || contentType.includes("text/plain")) return;
+      if (sourceType !== "none") return; // Preserve a user-selected track.
+      audio.src = bundledTrackPath;
+      audio.load();
+      hasTrack = true;
+      sourceType = "bundled";
+      if (fileLabel) fileLabel.hidden = true;
+      setStatus("FACILITY TRACK READY — PRESS PLAY TO BEGIN.");
+      sync();
+    } catch { /* A missing hosted MP3 must not break the local-file player. */ }
+  }
+  findBundledTrack();
+
   window.addEventListener("pagehide", () => {
     audio.pause();
     if (objectUrl) URL.revokeObjectURL(objectUrl);

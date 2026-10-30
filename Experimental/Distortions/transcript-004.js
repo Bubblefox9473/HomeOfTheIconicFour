@@ -31,6 +31,20 @@ Moses: You think?
 #17: I'm not always certain what to call these things. Concern, discomfort, apprehension... I know there are differences between them. Recognizing which one I'm experiencing is another matter.
 Moses: You seem quite aware of your own uncertainty, at least.
 #17: It's difficult not to be when so much of what you experience is unfamiliar.
+Moses: Has developing emotions changed how you perceive other people?
+#17: Considerably. There were things I once considered unnecessary. Irrational, even. I could understand why someone might act a certain way, but I couldn't understand what compelled them to do so. I think I understand a little more now.
+Moses: And has that understanding been beneficial?
+#17: Yes. Though I wouldn't say it's made everything easier.
+Moses: Why not?
+#17: Because understanding something doesn't necessarily make it easier to deal with. Sometimes it makes things considerably more complicated.
+Moses: Such as?
+#17: ...Caring about someone.
+Moses: Go on.
+#17: Previously, I could determine whether someone's well-being was important to an objective. Protecting them was simply a matter of fulfilling that objective. Now I find myself concerned about people even when there is no particular reason I should be.
+Moses: No reason?
+#17: No practical reason, I suppose. I know that isn't quite the same thing.
+Moses: It isn't. Do you consider these feelings a weakness?
+#17: ...Perhaps.
 /*__TRANSCRIPT_004_DATA__*/
 `;
   const lines = raw.trim().split("\n").map(line => {

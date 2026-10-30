@@ -74,3 +74,27 @@
 .transcript-expanded[open]{border-color:var(--goldbright)}
 .transcript-record:hover{border-color:#8a8d6f}
 .transcript-expanded[open]:hover,.transcript-record:focus-within:hover{border-color:var(--goldbright)}
+
+
+/* Transcript 004 — LCD Team Leader: Moses / respondent #17.
+   Moses: yellow #fee265 accents, deep green #0b1310 interior.
+   #17: black edges, white interior. Scope all styling to record 004. */
+.transcript-004{--speaker-color:#fee265}
+.transcript-004 .legend-interviewer{color:#fee265}
+.transcript-004 .legend-respondent{color:#f5f5f5}
+.transcript-004 .interview-line.interviewer{
+  background:#0b1310;
+  border:1px solid #fee265;
+  border-left:3px solid #fee265;
+  color:#f4f1e4;
+  box-shadow:inset 0 0 0 1px #fee26520;
+}
+.transcript-004 .interview-line.interviewer .line-speaker{color:#fee265}
+.transcript-004 .interview-line.respondent{
+  background:#ffffff;
+  border:1px solid #000000;
+  border-right:3px solid #000000;
+  color:#171717;
+  box-shadow:0 0 0 1px #555555;
+}
+.transcript-004 .interview-line.respondent .line-speaker{color:#000000}

@@ -59,6 +59,26 @@ Moses: Why is that?
 #17: Because... despite everything I've said, I don't believe I'd want to lose what I've gained.
 Moses: Even if those feelings make you vulnerable?
 #17: Yes.
+Moses: That's worth remembering. Now, returning to the Distortion Phenomenon. Several individuals we've interviewed describe hearing a voice during moments of severe emotional distress. Others recall the sound of a bell. Have you experienced anything resembling those accounts?
+#17: Not that I can identify. Though I wouldn't place too much confidence in my ability to recognize something I haven't experienced before.
+Moses: Fair enough. Have you experienced circumstances in which your emotions became difficult to manage?
+#17: There have been moments when I didn't understand what I was experiencing. Whether that qualifies as losing control, I'm not certain.
+Moses: Not understanding an emotion isn't necessarily the same as losing control of it.
+#17: I understand. But I wonder how I'd recognize the difference.
+Moses: You mentioned fear earlier. Is there something in particular you're afraid of?
+#17: ...
+Moses: You don't have to answer immediately.
+#17: I think... I'm afraid of what might happen if things continue the way they are.
+Moses: What things?
+#17: My circumstances. The people around me. Everything I've come to value over these past few years.
+Moses: Are you concerned that something might happen to them?
+#17: Yes. Though that's not entirely what I mean.
+Moses: Then what do you mean?
+#17: I'm not certain remaining where I am will always be the right decision. There are things I wanted to accomplish. Things I still want. But the longer I stay, the more difficult it becomes to imagine pursuing them without affecting everything else.
+Moses: It sounds as though you're anticipating a choice.
+#17: Perhaps.
+Moses: Between what?
+#17: ...I haven't figured that out yet.
 /*__TRANSCRIPT_004_DATA__*/
 `;
   const lines = raw.trim().split("\n").map(line => {

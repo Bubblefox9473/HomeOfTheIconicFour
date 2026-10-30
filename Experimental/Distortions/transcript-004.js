@@ -79,6 +79,28 @@ Moses: It sounds as though you're anticipating a choice.
 #17: Perhaps.
 Moses: Between what?
 #17: ...I haven't figured that out yet.
+Moses: But you believe such a choice may eventually become necessary?
+#17: I think so.
+Moses: And the possibility concerns you.
+#17: Yes.
+Moses: Are you afraid of making the wrong decision?
+#17: I'm afraid I might make a decision that seems right at the time.
+Moses: There's a difference?
+#17: I believe there is. Something can appear perfectly reasonable until you understand what it has cost you. I don't know whether I'd recognize that before it was too late.
+Moses: I see.
+#17: ...
+Moses: You've spent much of this interview describing emotions as something you don't fully understand. Yet you seem particularly concerned about losing the people and circumstances that allowed you to experience them.
+#17: ...I suppose I am.
+Moses: Have you considered that what you're describing may simply be an ordinary consequence of forming attachments?
+#17: I have. But understanding that doesn't make me any more certain of what I should do.
+Moses: It doesn't have to. You're still learning.
+#17: ...Yes. I suppose I am.
+Moses: Let me ask you something else. If you found yourself approaching Distortion, do you believe you'd seek help?
+#17: I'd like to think I would.
+Moses: But you're uncertain.
+#17: I don't know what I might consider reasonable under those circumstances. That's what concerns me. Right now, I can recognize that there are things I don't understand. I can't promise I'd retain that perspective if everything became overwhelming.
+Moses: That's a possibility worth acknowledging. But I wouldn't mistake uncertainty for evidence that you're already approaching Distortion.
+#17: I understand.
 /*__TRANSCRIPT_004_DATA__*/
 `;
   const lines = raw.trim().split("\n").map(line => {

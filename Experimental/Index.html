@@ -24,8 +24,10 @@
   <link rel="icon" type="image/svg+xml" href="../assets/lc-nn-branch-seal.svg">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="special-notices.css">
   <script src="script.js" defer></script>
   <script src="login.js" defer></script>
+  <script src="special-notices.js" defer></script>
 </head>
 <body>
 <!-- Decorative, non-authenticating recovered L-Corp login cinematic. Runs only from Studio. -->
@@ -76,7 +78,7 @@
         <a class="active" href="#overview">OVERVIEW</a>
         <a href="#registry">ANOMALIES</a>
         <a href="#risk-guide">DANGER LEVELS</a>
-        <a href="#archives">RESEARCH ARCHIVES</a><a href="Distortions/">DISTORTION RESEARCH</a>
+        <a href="#archives">RESEARCH ARCHIVES</a><a href="#special-notices">SPECIAL NOTICES</a><a href="Distortions/">DISTORTION RESEARCH</a>
         <a href="../Archive/">PERSONNEL ARCHIVE</a>
         <a href="../index.html">STUDIO DIRECTORY</a>
       </nav>
@@ -165,6 +167,92 @@
       <section class="section" id="archives" aria-labelledby="archives-title">
         <div class="hazard-strip" aria-hidden="true"></div>
         <div class="panel-heading"><h2 id="archives-title">RESEARCH ARCHIVES</h2><small>LC:NN / RESEARCH DIRECTORY</small></div>
+        <section class="notices-station" id="special-notices" aria-labelledby="notices-title">
+          <div class="notices-heading">
+            <div>
+              <span class="notices-kicker">ARCHIVAL STORAGE / PERSONNEL &amp; ASSOCIATES</span>
+              <h3 id="notices-title">SPECIAL <em>NOTICES</em><span class="notices-heading-dot">.</span></h3>
+              <p>Internal folders for individuals and associates of interest. Select a tab to inspect its filing status.</p>
+            </div>
+            <div class="notices-heading-index" aria-label="Four folders filed">
+              <strong>04</strong><span>FOLDERS<br>ON FILE</span>
+            </div>
+          </div>
+
+          <div class="notices-cabinet" id="notices-cabinet" data-drawer="open">
+            <div class="notices-cabinet-top" aria-hidden="true">
+              <span>LC:NN / ARCHIVE CABINET No. 04</span>
+              <span>AUTHORIZED RECORD STORAGE</span>
+            </div>
+            <div class="notices-drawer">
+              <div class="notices-drawer-interior" id="notices-drawer-interior">
+                <div class="notices-hanging-rail" aria-hidden="true"></div>
+                <div class="notices-folders" role="group" aria-label="Special Notices folders">
+                  <button class="notices-folder is-selected" type="button" data-notice="nyx" aria-pressed="true" aria-controls="notices-inspector">
+                    <span class="notices-folder-tab">NYX</span>
+                    <span class="notices-folder-paper">
+                      <span class="notices-folder-code">UMB-#14</span>
+                      <strong>NYX</strong>
+                      <span class="notices-folder-description">ARCHIVE BOOKLET</span>
+                      <span class="notices-folder-number">01</span>
+                    </span>
+                  </button>
+                  <button class="notices-folder" type="button" data-notice="ifrit" aria-pressed="false" aria-controls="notices-inspector">
+                    <span class="notices-folder-tab">IFRIT</span>
+                    <span class="notices-folder-paper">
+                      <span class="notices-folder-code">SPECIAL NOTICE</span>
+                      <strong>IFRIT</strong>
+                      <span class="notices-folder-description">ENTRY PENDING</span>
+                      <span class="notices-folder-number">02</span>
+                    </span>
+                  </button>
+                  <button class="notices-folder" type="button" data-notice="bahamut" aria-pressed="false" aria-controls="notices-inspector">
+                    <span class="notices-folder-tab">BAHAMUT</span>
+                    <span class="notices-folder-paper">
+                      <span class="notices-folder-code">SPECIAL NOTICE</span>
+                      <strong>BAHAMUT</strong>
+                      <span class="notices-folder-description">ENTRY PENDING</span>
+                      <span class="notices-folder-number">03</span>
+                    </span>
+                  </button>
+                  <button class="notices-folder notices-folder-pair" type="button" data-notice="twins" aria-pressed="false" aria-controls="notices-inspector">
+                    <span class="notices-folder-tab">SAELITH &amp; VERMEIL</span>
+                    <span class="notices-folder-paper">
+                      <span class="notices-folder-code">JOINT FILE / TWINS</span>
+                      <strong>SAELITH <small>&amp;</small><br>VERMEIL</strong>
+                      <span class="notices-folder-description">ENTRY PENDING</span>
+                      <span class="notices-folder-number">04</span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <div class="notices-drawer-front">
+                <div class="notices-plate"><small>DRAWER / 04–S</small><strong>SPECIAL NOTICES</strong></div>
+                <button type="button" class="notices-drawer-handle" id="notices-drawer-toggle" aria-controls="notices-drawer-interior" aria-expanded="true">
+                  <span class="notices-handle-bar" aria-hidden="true"></span>
+                  <span id="notices-handle-label">CLOSE DRAWER</span>
+                </button>
+                <div class="notices-drawer-lock" aria-hidden="true"></div>
+              </div>
+            </div>
+            <div class="notices-cabinet-foot" aria-hidden="true"><span>FILE INDEX / 04</span><span>LC:NN / PROPERTY OF EXPERIMENTAL DIVISION</span></div>
+          </div>
+
+          <div class="notices-inspector" id="notices-inspector" aria-live="polite" aria-atomic="true">
+            <div class="notices-inspector-id"><span>SELECTED RECORD</span><strong id="notices-inspector-number">01 / 04</strong></div>
+            <div class="notices-inspector-main">
+              <span class="notices-inspector-kicker" id="notices-inspector-category">UMB-#14 / ALEPH HIGH</span>
+              <h4 id="notices-inspector-name">NYX</h4>
+              <p id="notices-inspector-description">Anomaly classified ALEPH / HIGH; allied with and considered harmless to Limbus Company.</p>
+            </div>
+            <div class="notices-inspector-action">
+              <span id="notices-inspector-status" class="notice-file-status">BOOKLET PROTOTYPE AVAILABLE</span>
+              <a href="Anomalies/Nyx/" id="notices-inspector-link">OPEN FOLDER FILE ↗</a>
+            </div>
+          </div>
+          <p class="notices-footnote">DOCUMENTATION STATUS / ONLY NYX CURRENTLY HAS A BOOKLET. OTHER FOLDERS ARE RESERVED FOR FUTURE RECORDS.</p>
+        </section>
+
         <div class="reserved">
           <article><strong>UNEXPLAINED PHENOMENA</strong><span>FILE CATEGORY / RESERVED</span><p>Future registry for locations, incidents, and effects not classified as individual entities.</p></article>
           <article><strong>EXPERIMENTAL PROJECTS</strong><span>FILE CATEGORY / RESERVED</span><p>Future registry for research programs and unapproved prototypes.</p></article>

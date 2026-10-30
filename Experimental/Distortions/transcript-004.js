@@ -45,6 +45,20 @@ Moses: No reason?
 #17: No practical reason, I suppose. I know that isn't quite the same thing.
 Moses: It isn't. Do you consider these feelings a weakness?
 #17: ...Perhaps.
+Moses: Why?
+#17: Because they introduce things I wasn't meant to account for. Hesitation. Attachment. Fear. There was a time when none of those things could interfere with my decisions.
+Moses: Interfere. That's an interesting choice of words.
+#17: Is it?
+Moses: You speak of emotions as though they're defects in an otherwise functioning system.
+#17: I suppose that's one way of describing it.
+Moses: Is that how you see yourself? As something defective?
+#17: ...I don't know. I wasn't meant to experience these things. My siblings never did. By that measure, I suppose something about me has changed in a way it shouldn't have.
+Moses: Yet you don't seem particularly eager to return to your previous condition.
+#17: No. I'm not.
+Moses: Why is that?
+#17: Because... despite everything I've said, I don't believe I'd want to lose what I've gained.
+Moses: Even if those feelings make you vulnerable?
+#17: Yes.
 /*__TRANSCRIPT_004_DATA__*/
 `;
   const lines = raw.trim().split("\n").map(line => {

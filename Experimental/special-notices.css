@@ -61,6 +61,14 @@
 .notice-file-status{font:700 10px 'IBM Plex Mono',monospace;color:#b9b895;letter-spacing:.06em}
 .notices-inspector-action a{display:block;text-align:center;text-decoration:none;padding:12px 11px;border:1px solid #c6af78;background:#393a25;color:#f3e6b0;font:700 11px/1.25 'IBM Plex Mono',monospace;letter-spacing:.045em}
 .notices-inspector-action a:hover{border-color:#f0dda4;background:#525031}
+
+.notices-inspector[data-selection="none"] #notices-inspector-name{color:#c0bba2}
+.notices-inspector[data-selection="none"] #notices-inspector-category{color:#b7ba9b}
+.notices-inspector .notice-file-status[data-status="idle"]{color:#919e8f}
+.notices-put-back{display:block;padding:9px 11px;min-height:36px;background:#24291e;border:1px solid #818568;color:#d5d3ac;text-align:center;font:700 10px/1.3 'IBM Plex Mono',monospace;letter-spacing:.04em;cursor:pointer}
+.notices-put-back:hover{background:#393e2b;border-color:#dac68d}
+.notices-put-back[hidden]{display:none!important}
+
 .notices-inspector-action a[hidden]{display:none}
 .notices-inspector-action .notice-file-status[data-status="pending"]{color:#b8a387}
 .notices-footnote{margin:11px 2px 0;font:10px/1.6 'IBM Plex Mono',monospace;color:#979f86;letter-spacing:.02em}

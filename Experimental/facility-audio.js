@@ -92,7 +92,10 @@
     try {
       const response = await fetch(bundledTrackPath, { method: "HEAD", cache: "no-store" });
       const contentType = (response.headers.get("content-type") || "").toLowerCase();
-      if (!response.ok || contentType.includes("text/html") || contentType.includes("text/plain")) return;
+      if (!response.ok || contentType.includes("text/html") || contentType.includes("text/plain")) {
+        if (sourceType === "none") setStatus("BUNDLED TRACK NOT INSTALLED — LOCAL PREVIEW AVAILABLE.");
+        return;
+      }
       if (sourceType !== "none") return; // Preserve a user-selected track.
       audio.src = bundledTrackPath;
       audio.load();
@@ -101,7 +104,9 @@
       if (fileLabel) fileLabel.hidden = true;
       setStatus("FACILITY TRACK READY — PRESS PLAY TO BEGIN.");
       sync();
-    } catch { /* A missing hosted MP3 must not break the local-file player. */ }
+    } catch {
+      if (sourceType === "none") setStatus("BUNDLED TRACK NOT INSTALLED — LOCAL PREVIEW AVAILABLE.");
+    }
   }
   findBundledTrack();
 

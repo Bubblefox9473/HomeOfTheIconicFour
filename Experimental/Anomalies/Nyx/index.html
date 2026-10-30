@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#141714">
+  <meta name="description" content="UMB-#14 — Nyx. A standalone, animated archival file-booklet prototype for the LC:NN Experimental Division.">
+  <title>UMB-#14 / Nyx — Experimental Archive Prototype</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/lc-nn-branch-seal.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="booklet.css">
+  <script src="booklet.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="../../" aria-label="Return to Experimental Division">
+        <img src="../../../assets/lc-nn-branch-seal.svg" alt="" width="43" height="43">
+        <span><strong>NETHER NOVA</strong><small>EXPERIMENTAL DIVISION / NNC–04</small></span>
+      </a>
+      <div class="topbar-right">
+        <span class="prototype-flag">PRIVATE-LINK PROTOTYPE · NOT IN REGISTRY</span>
+        <a class="leave-link" href="../../">RETURN TO TERMINAL <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro" aria-label="Archive file introduction">
+        <div>
+          <span class="eyebrow">ARCHIVAL PRESENTATION TEST / EXP–UMB–14</span>
+          <h1>RETRIEVED <em>CASE FILE.</em></h1>
+          <p>A physical-file presentation study. All classification and disposition details are provisional display text; unspecified research fields remain pending.</p>
+        </div>
+        <div class="file-controls" aria-label="Booklet animation controls">
+          <button id="replay-animation" type="button"><span aria-hidden="true">↺</span> REPLAY OPENING</button>
+          <button id="skip-animation" type="button">OPEN FILE NOW <span aria-hidden="true">↗</span></button>
+        </div>
+      </section>
+
+      <div class="sequence-bar" aria-live="polite" aria-atomic="true">
+        <span class="indicator" aria-hidden="true"></span>
+        <span id="sequence-status">PREPARING ARCHIVE MATERIAL...</span>
+        <span class="sequence-code">UMB-#14 / ORIG. 00</span>
+      </div>
+
+      <section class="archive-bench" aria-label="Animated two-page Nyx case file">
+        <div class="desk-details" aria-hidden="true">
+          <span class="desk-label">NNC–04 / DOCUMENT INSPECTION TABLE</span>
+          <span class="desk-ruler"></span>
+          <span class="desk-number">14</span>
+        </div>
+        <div class="stage-scroll" id="stage-scroll" tabindex="0" aria-label="Booklet viewing area. On small screens, scroll sideways to inspect both pages.">
+          <div class="book-stage">
+            <div class="book" id="nyx-book">
+              <div class="book-backboard" aria-hidden="true"></div>
+              <div class="book-shadow" aria-hidden="true"></div>
+
+              <!-- Stationary right-hand sheet, concealed by the closed cover. -->
+              <article class="folio folio-right" id="right-folio" aria-labelledby="right-folio-title">
+                <div class="paper-wear" aria-hidden="true"></div>
+                <div class="folio-topline">
+                  <span>NET HERNOVA CORPORATION / EXPERIMENTAL</span>
+                  <span>UMB-#14 / R.00</span>
+                </div>
+                <div class="folio-content">
+                  <span class="folio-kicker">RESEARCH REGISTER / PAGE 02</span>
+                  <h2 id="right-folio-title">FIELD NOTES <span class="heading-rule"></span></h2>
+                  <div class="typed-intro">
+                    <span class="small-caps">SUBJECT DISPOSITION</span>
+                    <p>Although registered as an Anomaly and classified <strong>ALEPH / HIGH</strong>, Nyx is considered <strong>harmless to Limbus Company</strong> and recognized as an ally.</p>
+                  </div>
+                  <div class="memo-panel">
+                    <div class="memo-heading"><span>01 / THREAT &amp; RELATIONSHIP</span><span>FILED</span></div>
+                    <p>High classification does not, by itself, establish hostile intent. The recorded relationship is cooperative.</p>
+                    <div class="typed-tags"><span>ALEPH / HIGH</span><span class="friendly-tag">ALLY / NON-HOSTILE</span></div>
+                  </div>
+                  <div class="pending-block">
+                    <div class="pending-head"><span>02 / KNOWN CAPABILITIES</span><span>AWAITING REPORT</span></div>
+                    <div class="placeholder-line"></div>
+                    <div class="placeholder-line shorter"></div>
+                    <p>Research particulars have not yet been provided for this prototype.</p>
+                  </div>
+                  <div class="pending-block compact">
+                    <div class="pending-head"><span>03 / ORIGIN &amp; HISTORY</span><span>AWAITING REPORT</span></div>
+                    <p>No origin or incident history has been entered. No conclusions are inferred.</p>
+                  </div>
+                  <div class="paper-annotation">RECORD OPEN · FURTHER DATA PENDING</div>
+                </div>
+                <footer class="folio-footer"><span>RESEARCH COPY / UNPUBLISHED</span><span>02</span></footer>
+              </article>
+
+              <!-- The right-side cover flips left. Its reverse is the left-hand page. -->
+              <div class="folder-cover" id="folder-cover">
+                <div class="cover-face cover-front">
+                  <span class="folder-topline">LC:NN / ARCHIVE RETRIEVAL SYSTEM</span>
+                  <span class="folder-tab">UMB-#14</span>
+                  <div class="cover-label">
+                    <span class="cover-label-kicker">CLASSIFIED / ANOMALY REGISTER</span>
+                    <span class="cover-label-num">FILE <b>UMB-#14</b></span>
+                    <h2>NYX</h2>
+                    <span class="cover-label-divider"></span>
+                    <span class="cover-label-line">CLASSIFICATION: <b>ALEPH / HIGH</b></span>
+                    <span class="cover-label-line">INDEX STATUS: <b>RECOVERED COPY</b></span>
+                  </div>
+                  <div class="cover-stamp" aria-hidden="true"><span>ARCHIVED</span><small>NNC—04</small></div>
+                  <div class="cover-footer"><span>RESEARCH DOCUMENT / 014</span><span>HANDLE WITH CARE</span></div>
+                  <div class="folder-binding" aria-hidden="true"></div>
+                </div>
+                <article class="cover-face cover-inner folio folio-left" id="left-folio" aria-labelledby="left-folio-title">
+                  <div class="paper-wear" aria-hidden="true"></div>
+                  <div class="folio-topline"><span>LC:NN / ANOMALY DIVISION</span><span>INDEX 014</span></div>
+                  <div class="folio-content">
+                    <span class="folio-kicker">IDENTIFICATION / PAGE 01</span>
+                    <h2 id="left-folio-title">SUBJECT <span class="heading-rule"></span> NYX</h2>
+                    <div class="photo-card">
+                      <div class="photo-corner photo-corner-tr" aria-hidden="true"></div>
+                      <div class="photo-corner photo-corner-bl" aria-hidden="true"></div>
+                      <span class="photo-cross" aria-hidden="true">+</span>
+                      <span class="photo-emblem" aria-hidden="true">?</span>
+                      <span class="photo-placeholder">VISUAL RECORD<br>NOT YET FILED</span>
+                      <span class="photo-code">UMB-#14 · IMG/—</span>
+                    </div>
+                    <div class="identity-fields" aria-label="Known Nyx file data">
+                      <div><span>SUBJECT</span><strong>NYX</strong></div>
+                      <div><span>DESIGNATION</span><strong>UMB-#14</strong></div>
+                      <div><span>ENTITY CLASS</span><strong>ANOMALY</strong></div>
+                      <div><span>RISK GRADE</span><strong class="red-ink">ALEPH — HIGH</strong></div>
+                      <div><span>DISPOSITION</span><strong class="green-ink">ALLIED / NON-HOSTILE</strong></div>
+                    </div>
+                    <div class="rubber-stamp"><span>RECOGNIZED ALLY</span><small>LIMBUS COMPANY</small></div>
+                  </div>
+                  <footer class="folio-footer"><span>FILE CONTENT / PRELIMINARY</span><span>01</span></footer>
+                </article>
+              </div>
+
+              <div class="center-spine" aria-hidden="true"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="bench-bottom">
+          <span>ANOMALY FILE / UMB-#14 <i aria-hidden="true">·</i> NOT A LIVE CONTAINMENT RECORD</span>
+          <span>SMALL DISPLAY? SWIPE HORIZONTALLY TO READ THE SPREAD.</span>
+        </div>
+      </section>
+
+      <footer class="page-notes">
+        <div><span class="note-asterisk" aria-hidden="true">*</span> This is an unlisted presentation prototype. It does not register Nyx in the public Anomaly index.</div>
+        <div>Portrait, capabilities, and origin are intentionally left unfilled until source material is provided.</div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

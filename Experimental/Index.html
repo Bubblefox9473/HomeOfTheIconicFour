@@ -172,7 +172,7 @@
             <div>
               <span class="notices-kicker">ARCHIVAL STORAGE / PERSONNEL &amp; ASSOCIATES</span>
               <h3 id="notices-title">SPECIAL <em>NOTICES</em><span class="notices-heading-dot">.</span></h3>
-              <p>Internal folders for individuals and associates of interest. Select a tab to inspect its filing status.</p>
+              <p>Internal folders for individuals and associates of interest. Select a folder to inspect its filing status. Select it again to put it back.</p>
             </div>
             <div class="notices-heading-index" aria-label="Four folders filed">
               <strong>04</strong><span>FOLDERS<br>ON FILE</span>
@@ -188,7 +188,7 @@
               <div class="notices-drawer-interior" id="notices-drawer-interior">
                 <div class="notices-hanging-rail" aria-hidden="true"></div>
                 <div class="notices-folders" role="group" aria-label="Special Notices folders">
-                  <button class="notices-folder is-selected" type="button" data-notice="nyx" aria-pressed="true" aria-controls="notices-inspector">
+                  <button class="notices-folder" type="button" data-notice="nyx" aria-pressed="false" aria-controls="notices-inspector">
                     <span class="notices-folder-tab">NYX</span>
                     <span class="notices-folder-paper">
                       <span class="notices-folder-code">UMB-#14</span>
@@ -238,16 +238,17 @@
             <div class="notices-cabinet-foot" aria-hidden="true"><span>FILE INDEX / 04</span><span>LC:NN / PROPERTY OF EXPERIMENTAL DIVISION</span></div>
           </div>
 
-          <div class="notices-inspector" id="notices-inspector" aria-live="polite" aria-atomic="true">
-            <div class="notices-inspector-id"><span>SELECTED RECORD</span><strong id="notices-inspector-number">01 / 04</strong></div>
+          <div class="notices-inspector" id="notices-inspector" data-selection="none" aria-live="polite" aria-atomic="true">
+            <div class="notices-inspector-id"><span>SELECTED RECORD</span><strong id="notices-inspector-number">— / 04</strong></div>
             <div class="notices-inspector-main">
-              <span class="notices-inspector-kicker" id="notices-inspector-category">UMB-#14 / ALEPH HIGH</span>
-              <h4 id="notices-inspector-name">NYX</h4>
-              <p id="notices-inspector-description">Anomaly classified ALEPH / HIGH; allied with and considered harmless to Limbus Company.</p>
+              <span class="notices-inspector-kicker" id="notices-inspector-category">FILE INDEX / STANDBY</span>
+              <h4 id="notices-inspector-name">NO FILE SELECTED</h4>
+              <p id="notices-inspector-description">Select a folder above to inspect its filing status.</p>
             </div>
             <div class="notices-inspector-action">
-              <span id="notices-inspector-status" class="notice-file-status">BOOKLET PROTOTYPE AVAILABLE</span>
-              <a href="Anomalies/Nyx/" id="notices-inspector-link">OPEN FOLDER FILE ↗</a>
+              <span id="notices-inspector-status" class="notice-file-status" data-status="idle">AWAITING SELECTION</span>
+              <button type="button" id="notices-clear-selection" class="notices-put-back" hidden>↶ PUT FILE BACK</button>
+              <a id="notices-inspector-link" hidden>OPEN FOLDER FILE ↗</a>
             </div>
           </div>
           <p class="notices-footnote">DOCUMENTATION STATUS / ONLY NYX CURRENTLY HAS A BOOKLET. OTHER FOLDERS ARE RESERVED FOR FUTURE RECORDS.</p>

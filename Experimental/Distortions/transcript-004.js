@@ -115,6 +115,19 @@ Moses: Is there anything else you'd like to add to the record?
 #17: No. I think I've said everything I can.
 Moses: Very well. Thank you for your cooperation. Should you experience anything resembling the warning signs we've discussed, I would encourage you to contact our department.
 #17: I'll remember that.
+Moses: That concludes our interview.
+#17: ...May I ask you something?
+Moses: Go ahead.
+#17: Do you believe someone can change so much that they eventually become someone entirely different?
+Moses: That's a rather broad question.
+#17: I know. I apologize.
+Moses: There's no need. I've encountered people who changed beyond recognition, and others who remained remarkably themselves despite everything they endured. I don't believe there's a single answer.
+#17: I see.
+Moses: Why do you ask?
+#17: ...No particular reason.
+Moses: Hm. Very well.
+#17: Thank you for your time.
+Moses: Of course.
 /*__TRANSCRIPT_004_DATA__*/
 `;
   const lines = raw.trim().split("\n").map(line => {

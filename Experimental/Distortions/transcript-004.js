@@ -101,6 +101,20 @@ Moses: But you're uncertain.
 #17: I don't know what I might consider reasonable under those circumstances. That's what concerns me. Right now, I can recognize that there are things I don't understand. I can't promise I'd retain that perspective if everything became overwhelming.
 Moses: That's a possibility worth acknowledging. But I wouldn't mistake uncertainty for evidence that you're already approaching Distortion.
 #17: I understand.
+Moses: Nor would I assume your previous inability to experience emotions offers you any protection. We have too little information to make that determination.
+#17: That's what I thought.
+Moses: One last question, then. Given everything you've told me, do you regret developing these emotions?
+#17: ...
+Moses: Take your time.
+#17: No. I don't believe I do.
+Moses: Even knowing how much uncertainty they've introduced into your life?
+#17: Yes. There are things I understand now that I couldn't have understood before. People I wouldn't have cared about. Experiences that would have meant nothing to me. I don't think I'd want to lose any of that.
+Moses: Then perhaps you shouldn't think of those changes solely as flaws.
+#17: ...Perhaps not.
+Moses: Is there anything else you'd like to add to the record?
+#17: No. I think I've said everything I can.
+Moses: Very well. Thank you for your cooperation. Should you experience anything resembling the warning signs we've discussed, I would encourage you to contact our department.
+#17: I'll remember that.
 /*__TRANSCRIPT_004_DATA__*/
 `;
   const lines = raw.trim().split("\n").map(line => {
